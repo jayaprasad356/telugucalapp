@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#e8f4f8">
+
+    <LinearLayout
+        android:id="@+id/headerMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/calMonth">
+
+        <ImageButton
+            android:id="@+id/ib_prev"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/left_arrow"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:text="జనవరి - 2020"
+                android:layout_marginTop="-10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/Ib_next"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/righ_arrow"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/meshaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mesha"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/meshaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="మేషం"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/vrushabaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vrusha"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/vrushabaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="వృషభం"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/midhunaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mithun"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/midhunaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="మిధునం"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/karkaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/karka"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/karkaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="కర్కాటకం"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/simhaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/simha"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/simhaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="సింహం"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/kanyaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/kanya"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/kanyaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="కన్య"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/thulaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/thula"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/thulaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="తుల"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/vruchiRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vruchika"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/vruchiRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="వృశ్చికము"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/dhanuRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dhanu"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/dhanuRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ధనస్సు"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/row4"
+        android:layout_below="@+id/row3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/makaraRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/makara"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/makaraRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="మకరము"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/kumbaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/kumba"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/kumbaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="కుంభము"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/minaRasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mina"
+                android:background="@drawable/imagebutton_border"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/minaRasiT"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="మీనము"
+                android:gravity="bottom"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_marginTop="-7dp"
+                android:textColor="@color/calTextNum"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

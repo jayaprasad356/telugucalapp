@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/calHeaderT">
+
+    <ImageView
+        android:id="@+id/headimg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/head_bg"
+        android:scaleType="fitXY"/>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_below="@+id/headimg"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    <TextView
+        android:id="@+id/panchang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="పంచాంగం"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="16dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:id="@+id/festival"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="పండుగలు"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="16dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:id="@+id/muhurth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ముహూర్తం"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="16dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:id="@+id/horoscope"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="రాశిఫలం "
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="16dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:id="@+id/holidays"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="More   "
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="16dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeStepGranularity="2sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="-12dp"
+        android:layout_weight="1"
+        android:textColor="@color/colorWhite"/>
+
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/panchangB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/festivalB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/muhurthB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/horoscopeB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"/>
+        <Button
+            android:id="@+id/more"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:layout_weight="1"/>
+
+    </TableRow>
+
+
+</RelativeLayout>

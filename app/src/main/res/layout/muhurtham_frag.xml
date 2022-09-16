@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/headerMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/calMonth">
+
+        <ImageButton
+            android:id="@+id/ib_prev"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/left_arrow"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:text="జనవరి - 2020"
+                android:layout_marginTop="-10dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/Ib_next"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/righ_arrow"
+            android:scaleType="fitXY"
+            android:background="@null"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/firstL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/namakarBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1"
+                android:text="నామకరణ ముహూర్తం"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeMaxTextSize="23dp"
+                android:autoSizeStepGranularity="2sp"
+                android:textColor="@color/colorWhite"
+                android:background="@color/calDates"/>
+
+            <Button
+                android:id="@+id/vahanaBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_weight="1"
+                android:text="వాహన ముహూర్తం"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeMaxTextSize="23dp"
+                android:autoSizeStepGranularity="2sp"
+                android:textColor="@color/calTextNum"
+                android:background="@color/calDates"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstL">
+
+            <Button
+                android:id="@+id/gruhaBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:text="గృహప్రవేశ ముహూర్తం"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeMaxTextSize="23dp"
+                android:autoSizeStepGranularity="2sp"
+                android:textColor="@color/calTextNum"
+                android:background="@color/calDates"/>
+            <Button
+                android:id="@+id/vivahaBtn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:text="వివాహ ముహూర్తం"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="16dp"
+                android:autoSizeMaxTextSize="23dp"
+                android:autoSizeStepGranularity="2sp"
+                android:textColor="@color/calTextNum"
+                android:background="@color/calDates"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mrecyclerId"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+</LinearLayout>
