@@ -1,4 +1,8 @@
-package com.vibame.telugupanchangamcalendar;
+package com.vibame.telugupanchangamcalendar.activities;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -6,30 +10,22 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.HomeCollection;
+import com.vibame.telugupanchangamcalendar.HwAdapter;
+import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.XmlRecords;
 import com.vibame.telugupanchangamcalendar.adapter.PanchangamTabAdapter;
-import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
-import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -42,13 +38,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TimeZone;
 
-public class Panchang_Frag extends Fragment
-
-{
+public class PanchangamActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Activity activity;
     PanchangamTabAdapter panchangamTabAdapter;
@@ -62,29 +54,26 @@ public class Panchang_Frag extends Fragment
     private GridView gridview;
     Uri bitmapUri;
 
-    private WebView mywebView;
     private String loadXmlFile;
     private ArrayList<XmlRecords> records;
     private boolean changed;
     private int clickedDate;
     private String dateFormat;
     private Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-    LinearLayout fl1;
 
     private TextView goodtimeText,sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
-    private TextView tv_month,tvFestivalInfo;
+    private TextView tv_month;
     private String[] month = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", " మే ", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
     private String[] monthE = {"January", "February", "March", "Aprial", "May", "June", "July", "August", "September", "October", "November", "December"};
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.panchang_frag,container,false);
-
-        activity = getActivity();
-        recyclerView = view.findViewById(R.id.recyclerView);
-        tvFestivalInfo = view.findViewById(R.id.tvFestivalInfo);
-        fl1 = view.findViewById(R.id.fl1);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_panchangam);
+        activity = PanchangamActivity.this;
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        panchangamTabList();
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
 
@@ -203,33 +192,31 @@ public class Panchang_Frag extends Fragment
         HomeCollection.date_collection_arr.add( new HomeCollection("2023-12-26" ,"","Purnami"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2023-12-12" ,"","Amayasya"));
 
-
-        mywebView = view.findViewById(R.id.mywebView);
         cal_month = (GregorianCalendar) GregorianCalendar.getInstance();
         cal_month_copy = (GregorianCalendar) cal_month.clone();
-        hwAdapter = new HwAdapter(getActivity(), cal_month,HomeCollection.date_collection_arr);
+        hwAdapter = new HwAdapter(activity, cal_month,HomeCollection.date_collection_arr);
         currentMonth = cal_month.get(GregorianCalendar.MONTH);
         cutmonth = cal_month.get(GregorianCalendar.MONTH);
 
-        TextView tv_week1 = view.findViewById(R.id.textView1);
-        TextView tv_week2 = view.findViewById(R.id.TextView01);
-        TextView tv_week3 = view.findViewById(R.id.TextView02);
-        TextView tv_week4 = view.findViewById(R.id.TextView03);
-        TextView tv_week5 = view.findViewById(R.id.TextView04);
-        TextView tv_week6 = view.findViewById(R.id.TextView05);
-        TextView tv_week7 = view.findViewById(R.id.TextView06);
-        goodtimeText = view.findViewById(R.id.goodTimeText);
-        sunTxt = view.findViewById(R.id.sunrise);
-        moonTxt = view.findViewById(R.id.moonrise);
-        sunrise = view.findViewById(R.id.sunriseT);
-        sunset = view.findViewById(R.id.sunset);
-        moonrise = view.findViewById(R.id.moonriseT);
-        moonset = view.findViewById(R.id.moonset);
+        TextView tv_week1 = findViewById(R.id.textView1);
+        TextView tv_week2 = findViewById(R.id.TextView01);
+        TextView tv_week3 = findViewById(R.id.TextView02);
+        TextView tv_week4 = findViewById(R.id.TextView03);
+        TextView tv_week5 = findViewById(R.id.TextView04);
+        TextView tv_week6 = findViewById(R.id.TextView05);
+        TextView tv_week7 = findViewById(R.id.TextView06);
+        goodtimeText = findViewById(R.id.goodTimeText);
+        sunTxt = findViewById(R.id.sunrise);
+        moonTxt = findViewById(R.id.moonrise);
+        sunrise = findViewById(R.id.sunriseT);
+        sunset = findViewById(R.id.sunset);
+        moonrise = findViewById(R.id.moonriseT);
+        moonset = findViewById(R.id.moonset);
 
 
-        tv_month = view.findViewById(R.id.tv_month);
-        ImageButton previousMonth = view.findViewById(R.id.ib_prev);
-        ImageButton nextMonth = view.findViewById(R.id.Ib_next);
+        tv_month = findViewById(R.id.tv_month);
+        ImageButton previousMonth = findViewById(R.id.ib_prev);
+        ImageButton nextMonth = findViewById(R.id.Ib_next);
 
         tv_month.setText(month[currentMonth]+" - "+cal_month.get(GregorianCalendar.YEAR));
         loadXmlFile = monthE[currentMonth]+"_"+calendar.get(Calendar.YEAR);
@@ -258,7 +245,7 @@ public class Panchang_Frag extends Fragment
         clickedDate = (calendar.get(Calendar.DATE)-1);
         selectedGridDate = "";
 
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/sree.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/sree.ttf");
         tv_week1.setTypeface(typeface);
         tv_week2.setTypeface(typeface);
         tv_week3.setTypeface(typeface);
@@ -271,13 +258,13 @@ public class Panchang_Frag extends Fragment
         sunTxt.setTypeface(typeface);
         moonTxt.setTypeface(typeface);
 
-        Typeface typefaceText = Typeface.createFromAsset(getActivity().getAssets(),"fonts/arlrb.TTF");
+        Typeface typefaceText = Typeface.createFromAsset(getAssets(),"fonts/arlrb.TTF");
         sunrise.setTypeface(typefaceText);
         sunset.setTypeface(typefaceText);
         moonrise.setTypeface(typefaceText);
         moonset.setTypeface(typefaceText);
 
-        gridview = (GridView) view.findViewById(R.id.gv_calendar);
+        gridview = (GridView) findViewById(R.id.gv_calendar);
 
 
 
@@ -293,12 +280,18 @@ public class Panchang_Frag extends Fragment
                 {
                     if(currentMonth == 10 && cal_month.get(GregorianCalendar.YEAR) == 2021)
                     {
-                        Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity,"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
 
                     }else
                     {
-                        setPreviousMonth();
-                        allFunc();
+                        try {
+                            setPreviousMonth();
+                            allFunc();
+
+                        }catch (Exception e){
+
+                        }
+
                     }
                 }
             }
@@ -311,13 +304,17 @@ public class Panchang_Frag extends Fragment
                 {
                     if(currentMonth == 11 && cal_month.get(GregorianCalendar.YEAR) == 2023)
                     {
-                        Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity,"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
 
                     }else
                     {
-                        setNextMonth();
-                        allFunc();
+                        try {
+                            setNextMonth();
+                            allFunc();
 
+                        }catch (Exception e){
+
+                        }
                     }
                 }
             }
@@ -325,65 +322,20 @@ public class Panchang_Frag extends Fragment
 
 
 
-        return view;
     }
 
-    private void panchangamApi(String date)
+    private void panchangamTabList()
     {
+        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
+        PanchangamTab panchangamTab1 = new PanchangamTab("","test1","content1");
+        PanchangamTab panchangamTab2 = new PanchangamTab("","test2","content2");
+        PanchangamTab panchangamTab3 = new PanchangamTab("","test3","content3");
 
-        Map<String, String> params = new HashMap<>();
-        params.put(Constant.DATE,date);
-        ApiConfig.RequestToVolley((result, response) -> {
-            if (result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
-
-                        JSONObject object = new JSONObject(response);
-                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
-                        JSONObject object2 = jsonArray.getJSONObject(0);
-                        JSONArray jsonArray1 = object2.getJSONArray(Constant.TAB);
-
-                        sunrise.setText(jsonArray.getJSONObject(0).getString(Constant.SUNRISE));
-                        sunset.setText(jsonArray.getJSONObject(0).getString(Constant.SUNSET));
-                        moonrise.setText(jsonArray.getJSONObject(0).getString(Constant.MOONRISE));
-                        moonset.setText(jsonArray.getJSONObject(0).getString(Constant.MOONSET));
-                        tvFestivalInfo.setText(jsonArray.getJSONObject(0).getString(Constant.INFO));
-                        Gson g = new Gson();
-                        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
-
-                        for (int i = 0; i < jsonArray1.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                PanchangamTab group = g.fromJson(jsonObject1.toString(), PanchangamTab.class);
-                                panchangamTabs.add(group);
-                            } else {
-                                break;
-                            }
-                        }
-                        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
-                        recyclerView.setAdapter(panchangamTabAdapter);
-
-                    }
-                    else {
-                        fl1.setVisibility(View.GONE);
-                        sunrise.setText("-");
-                        sunset.setText("-");
-                        moonrise.setText("-");
-                        moonset.setText("-");
-                        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
-
-                        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
-                        recyclerView.setAdapter(panchangamTabAdapter);
-
-
-                    }
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, activity, Constant.PANCHANGAM_URL, params,true);
-
+        panchangamTabs.add(panchangamTab1);
+        panchangamTabs.add(panchangamTab2);
+        panchangamTabs.add(panchangamTab3);
+        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
+        recyclerView.setAdapter(panchangamTabAdapter);
     }
 
     private void allFunc()
@@ -454,7 +406,7 @@ public class Panchang_Frag extends Fragment
                 {
                     dateFormat = cl_day+" - "+month[(Integer.parseInt(cl_month)-1)]+" - "+cl_year+" -  శోభకృతు" ;
                 }
-                ((HwAdapter) parent.getAdapter()).getPositionList(selectedGridDate, getActivity());
+                ((HwAdapter) parent.getAdapter()).getPositionList(selectedGridDate,activity);
                 hwAdapter.notifyDataSetChanged();
                 if(loadXmlFile.equals(monthE[(Integer.parseInt(cl_month)-1)]+"_"+ Integer.parseInt(cl_year)))
                 {
@@ -514,7 +466,7 @@ public class Panchang_Frag extends Fragment
             XmlPullParser pullParser = parserFactory.newPullParser();
             try
             {
-                InputStream inputStream = getActivity().getAssets().open("Months/"+loadXmlFile+".xml");
+                InputStream inputStream = getAssets().open("Months/"+loadXmlFile+".xml");
                 pullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES,false);
                 pullParser.setInput(inputStream,null);
                 processParser(pullParser);
@@ -652,8 +604,6 @@ public class Panchang_Frag extends Fragment
         format = new SimpleDateFormat("yyyy-MM-dd");
         String cadate = format.format(newDate);
         Log.d("CURRENTDATE",""+cadate);
-        panchangamApi(cadate);
-
         String festival;
 
         if(records.get(clickedDate).Festival == null)
@@ -735,15 +685,12 @@ public class Panchang_Frag extends Fragment
 
                     "</body></html>";
         }
-        mywebView.setBackgroundColor(Color.TRANSPARENT);
-//        sunrise.setText(records.get(clickedDate).Sunrise);
-//        sunset.setText(records.get(clickedDate).Sunset);
-//        moonrise.setText(records.get(clickedDate).Moonrise);
-//        moonset.setText(records.get(clickedDate).Moonset);
+        sunrise.setText(records.get(clickedDate).Sunrise);
+        sunset.setText(records.get(clickedDate).Sunset);
+        moonrise.setText(records.get(clickedDate).Moonrise);
+        moonset.setText(records.get(clickedDate).Moonset);
         goodtimeText.setText(records.get(clickedDate).Paksham+" * "+records.get(clickedDate).Masam+" * "+records.get(clickedDate).Ruthu+" * "+records.get(clickedDate).Kalam);
         //Log.d(String.valueOf(goodtimeText.getText()), "printRecords:goodtimeText ");
         Log.d("PANCHANGDATA",htmlData);
-        mywebView.loadDataWithBaseURL("file:///android_asset/", htmlData,"text/html","utf-8",null);
     }
 }
-

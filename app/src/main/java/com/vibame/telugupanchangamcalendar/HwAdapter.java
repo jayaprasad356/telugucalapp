@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -98,11 +99,13 @@ public class HwAdapter extends BaseAdapter {
         gridvalue = separatedTime[2].replaceFirst("^0*", "");
         //Log.d(gridvalue, "getView:gridvalue ");
         if ((Integer.parseInt(gridvalue) > 1) && (position < firstDay)) {
+            Log.d("DATE_CLICK","1");
             dayView.setTextColor(Color.TRANSPARENT);
             v.setOnClickListener(null);
             dayView.setOnClickListener(null);
 
         } else if ((Integer.parseInt(gridvalue) < 7) && (position > 28)) {
+            Log.d("DATE_CLICK","2");
             dayView.setTextColor(Color.TRANSPARENT);
             v.setOnClickListener(null);
             dayView.setOnClickListener(null);
@@ -137,6 +140,7 @@ public class HwAdapter extends BaseAdapter {
                     dayView.setTextColor(Color.parseColor("#0E2830"));
                     if(curentDateString.equals(Panchang_Frag.selectedGridDate))
                     {
+                        //clicked
                         v.setBackgroundResource(R.drawable.current_clicked);
 
                     }else

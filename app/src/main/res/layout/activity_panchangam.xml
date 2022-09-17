@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.PanchangamActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -159,6 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        tools:visibility="gone"
         android:background="@color/calDates"
         android:listSelector="@android:color/transparent"
         android:numColumns="7">
@@ -281,17 +284,9 @@
                 android:textSize="18dp"/>
 
         </TableRow>
+
     </LinearLayout>
-    <WebView
-        android:id="@+id/mywebView"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/sunimage"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:background="@drawable/gradianet">
-    </WebView>
     <LinearLayout
-        android:id="@+id/fl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bordercurve"
@@ -306,7 +301,6 @@
             android:padding="3dp"
             android:text="Today Info Festival"/>
         <TextView
-            android:id="@+id/tvFestivalInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -319,4 +313,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+
+
 </LinearLayout>
