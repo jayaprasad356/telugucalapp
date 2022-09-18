@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/group1"
+
+        >
+
+
+
+
+    <item
+        android:title="1.panchangam"
+        />
+
+    <item
+        android:title="2.Festivals"
+        />
+
+
+    <item
+        android:title="3.Muhurthamulu"
+        />
+
+
+    <item
+        android:title="4.Horoscope"
+        />
+
+
+    <item
+        android:title="5.Puranalu"
+        />
+
+
+    <item
+        android:title="6.Live Darshanam"
+        />
+
+    <item
+        android:title="7.Sankuna Sastharam"
+        />
+
+    <item
+        android:title="8.Namakaranam"
+        />
+
+
+    <item
+        android:title="9.Sissu Janma Padha"
+        />
+
+
+
+
+</group>
+
+    <item
+        android:title="10.Ramayanam"
+        />
+
+    <item
+        android:title="11.Bagawath Geetha"
+        />
+
+    <item
+        android:title="12.Few More"
+        />
+
+
+
+    <item
+        android:title="Feedback"
+        />
+
+    <item
+        android:title="Rate Us"
+        />
+
+
+    <item
+        android:title="Share This App"
+        />
+
+    <item
+        android:title="Remove Ads"
+        />
+
+    <item
+        android:title="Privacy Policy"
+        />
+</menu>
