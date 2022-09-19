@@ -25,6 +25,7 @@ import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.PanchangamTabAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 
 import org.json.JSONArray;
@@ -70,6 +71,7 @@ public class Panchang_Frag extends Fragment
     private String dateFormat;
     private Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
     LinearLayout fl1;
+    DatabaseHelper databaseHelper;
 
     private TextView goodtimeText,sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
     private TextView tv_month,tvFestivalInfo;
@@ -81,6 +83,8 @@ public class Panchang_Frag extends Fragment
         View view = inflater.inflate(R.layout.panchang_frag,container,false);
 
         activity = getActivity();
+
+        databaseHelper = new DatabaseHelper(activity);
         recyclerView = view.findViewById(R.id.recyclerView);
         tvFestivalInfo = view.findViewById(R.id.tvFestivalInfo);
         fl1 = view.findViewById(R.id.fl1);
@@ -652,7 +656,8 @@ public class Panchang_Frag extends Fragment
         format = new SimpleDateFormat("yyyy-MM-dd");
         String cadate = format.format(newDate);
         Log.d("CURRENTDATE",""+cadate);
-        panchangamApi(cadate);
+        //panchangamApi(cadate);
+        panchangamList(cadate);
 
         String festival;
 
@@ -744,6 +749,41 @@ public class Panchang_Frag extends Fragment
         //Log.d(String.valueOf(goodtimeText.getText()), "printRecords:goodtimeText ");
         Log.d("PANCHANGDATA",htmlData);
         mywebView.loadDataWithBaseURL("file:///android_asset/", htmlData,"text/html","utf-8",null);
+    }
+
+    private void panchangamList(String cadate)
+    {
+        if (databaseHelper.getmodelPanchangamList(cadate).size() !=0){
+            fl1.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            sunrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunrise());
+            sunset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunset());
+            moonrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonrise());
+            moonset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonset());
+            tvFestivalInfo.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getInfo());
+
+            if (databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()).size() !=0){
+                panchangamTabAdapter = new PanchangamTabAdapter(activity, databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()));
+                recyclerView.setAdapter(panchangamTabAdapter);
+
+            }
+            else {
+                recyclerView.setVisibility(View.GONE);
+            }
+
+
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            fl1.setVisibility(View.GONE);
+            sunrise.setText("-");
+            sunset.setText("-");
+            moonrise.setText("-");
+            moonset.setText("-");
+
+        }
+
+
     }
 }
 

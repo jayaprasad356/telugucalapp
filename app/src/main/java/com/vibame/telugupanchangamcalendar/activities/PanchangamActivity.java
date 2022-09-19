@@ -327,13 +327,8 @@ public class PanchangamActivity extends AppCompatActivity {
     private void panchangamTabList()
     {
         ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
-        PanchangamTab panchangamTab1 = new PanchangamTab("","test1","content1");
-        PanchangamTab panchangamTab2 = new PanchangamTab("","test2","content2");
-        PanchangamTab panchangamTab3 = new PanchangamTab("","test3","content3");
 
-        panchangamTabs.add(panchangamTab1);
-        panchangamTabs.add(panchangamTab2);
-        panchangamTabs.add(panchangamTab3);
+
         panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
         recyclerView.setAdapter(panchangamTabAdapter);
     }

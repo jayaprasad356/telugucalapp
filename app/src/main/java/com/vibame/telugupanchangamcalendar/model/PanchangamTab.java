@@ -1,10 +1,11 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class PanchangamTab {
-    String id,title,description;
+    String id,panchangam_id,title,description;
 
-    public PanchangamTab(String id, String title, String description) {
+    public PanchangamTab(String id, String panchangam_id, String title, String description) {
         this.id = id;
+        this.panchangam_id = panchangam_id;
         this.title = title;
         this.description = description;
     }
@@ -15,6 +16,14 @@ public class PanchangamTab {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPanchangam_id() {
+        return panchangam_id;
+    }
+
+    public void setPanchangam_id(String panchangam_id) {
+        this.panchangam_id = panchangam_id;
     }
 
     public String getTitle() {
