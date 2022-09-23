@@ -10,18 +10,17 @@
         android:layout_margin="5dp"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bordercurve2"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:fontFamily="@font/sree"
             android:text="Today Info Festival"/>
         <TextView
-            android:id="@+id/tvContent"
+            android:id="@+id/tvFestival"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_16sdp"

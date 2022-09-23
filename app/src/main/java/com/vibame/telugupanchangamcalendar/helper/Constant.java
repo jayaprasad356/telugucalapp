@@ -17,12 +17,13 @@ public class Constant {
     public static final String DATA = "data";
     public static final String PANCHANGAM_LIST = "panchangam_list";
     public static final String PANCHANGAM_TAB_LIST = "panchangam_tab_list";
+    public static final String FESTIVALS_LIST = "festivals_list";
     public static final String TAB = "tab";
     public static final String SUNRISE = "sunrise";
     public static final String SUNSET = "sunset";
     public static final String DESCRIPTION = "description";
+    public static final String FESTIVAL = "festival";
     public static final String MOONRISE = "moonrise";
 
     public static final String MOONSET = "moonset";
-    public static final String INFO = "info";
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activity = SplashScreen.this;
         databaseHelper = new DatabaseHelper(activity);
+
 
         if (ApiConfig.isConnected(activity)){
             getDatalist();
@@ -55,27 +57,35 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
-
-
+                        databaseHelper.deleteDb(activity);
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.PANCHANGAM_LIST);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                databaseHelper.AddToPanchangam(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DATE),jsonObject1.getString(Constant.SUNRISE),jsonObject1.getString(Constant.SUNSET),jsonObject1.getString(Constant.MOONRISE), jsonObject1.getString(Constant.MOONSET),jsonObject1.getString(Constant.INFO));
-
-
+                                databaseHelper.AddToPanchangam(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DATE),jsonObject1.getString(Constant.SUNRISE),jsonObject1.getString(Constant.SUNSET),jsonObject1.getString(Constant.MOONRISE), jsonObject1.getString(Constant.MOONSET));
                             } else {
                                 break;
                             }
                         }
                         JSONArray jsonArray2 = object.getJSONArray(Constant.PANCHANGAM_TAB_LIST);
+
                         for (int i = 0; i < jsonArray2.length(); i++) {
                             JSONObject jsonObject1 = jsonArray2.getJSONObject(i);
                             if (jsonObject1 != null) {
                                 databaseHelper.AddToPanchangamTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.PANCHANGAM_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
 
 
+                            } else {
+                                break;
+                            }
+                        }
+                        JSONArray jsonArray3 = object.getJSONArray(Constant.FESTIVALS_LIST);
+
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DATE),jsonObject1.getString(Constant.FESTIVAL));
                             } else {
                                 break;
                             }

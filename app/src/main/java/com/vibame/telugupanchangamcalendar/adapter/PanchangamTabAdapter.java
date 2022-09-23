@@ -37,7 +37,7 @@ public class PanchangamTabAdapter extends RecyclerView.Adapter<RecyclerView.View
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final PanchangamTab panchangamTab = panchangamTabs.get(position);
-        holder.tvTitle.setText((position + 1) +"."+panchangamTab.getTitle());
+        holder.tvTitle.setText(panchangamTab.getTitle());
         holder.tvContent.setText(panchangamTab.getDescription());
 
 

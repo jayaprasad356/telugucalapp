@@ -3,16 +3,15 @@ package com.vibame.telugupanchangamcalendar.model;
 import java.util.ArrayList;
 
 public class Panchangam {
-    String id,date,sunrise,sunset,moonrise,	moonset,info;
+    String id,date,sunrise,sunset,moonrise,	moonset;
 
-    public Panchangam(String id, String date, String sunrise, String sunset, String moonrise, String moonset, String info) {
+    public Panchangam(String id, String date, String sunrise, String sunset, String moonrise, String moonset) {
         this.id = id;
         this.date = date;
         this.sunrise = sunrise;
         this.sunset = sunset;
         this.moonrise = moonrise;
         this.moonset = moonset;
-        this.info = info;
     }
 
     public String getId() {
@@ -61,14 +60,6 @@ public class Panchangam {
 
     public void setMoonset(String moonset) {
         this.moonset = moonset;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
     }
 }
 

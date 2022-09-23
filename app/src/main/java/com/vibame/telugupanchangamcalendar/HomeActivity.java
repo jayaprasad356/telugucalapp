@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -63,6 +64,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.panchangam: {
                 fragment = new Panchang_Frag();
+                break;
+            }
+            case R.id.festivals: {
+                fragment = new FestivalFragment();
                 break;
             }
 

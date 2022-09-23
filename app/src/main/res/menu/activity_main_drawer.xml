@@ -16,6 +16,7 @@
         />
 
     <item
+        android:id="@+id/festivals"
         android:title="2.Festivals"
         />
 

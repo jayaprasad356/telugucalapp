@@ -63,18 +63,16 @@ public class Panchang_Frag extends Fragment
     private GridView gridview;
     Uri bitmapUri;
 
-    private WebView mywebView;
     private String loadXmlFile;
     private ArrayList<XmlRecords> records;
     private boolean changed;
     private int clickedDate;
     private String dateFormat;
     private Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-    LinearLayout fl1;
     DatabaseHelper databaseHelper;
 
-    private TextView goodtimeText,sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
-    private TextView tv_month,tvFestivalInfo;
+    private TextView sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
+    private TextView tv_month;
     private String[] month = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", " మే ", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
     private String[] monthE = {"January", "February", "March", "Aprial", "May", "June", "July", "August", "September", "October", "November", "December"};
     @Override
@@ -86,8 +84,6 @@ public class Panchang_Frag extends Fragment
 
         databaseHelper = new DatabaseHelper(activity);
         recyclerView = view.findViewById(R.id.recyclerView);
-        tvFestivalInfo = view.findViewById(R.id.tvFestivalInfo);
-        fl1 = view.findViewById(R.id.fl1);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
@@ -207,8 +203,6 @@ public class Panchang_Frag extends Fragment
         HomeCollection.date_collection_arr.add( new HomeCollection("2023-12-26" ,"","Purnami"));
         HomeCollection.date_collection_arr.add( new HomeCollection("2023-12-12" ,"","Amayasya"));
 
-
-        mywebView = view.findViewById(R.id.mywebView);
         cal_month = (GregorianCalendar) GregorianCalendar.getInstance();
         cal_month_copy = (GregorianCalendar) cal_month.clone();
         hwAdapter = new HwAdapter(getActivity(), cal_month,HomeCollection.date_collection_arr);
@@ -222,7 +216,6 @@ public class Panchang_Frag extends Fragment
         TextView tv_week5 = view.findViewById(R.id.TextView04);
         TextView tv_week6 = view.findViewById(R.id.TextView05);
         TextView tv_week7 = view.findViewById(R.id.TextView06);
-        goodtimeText = view.findViewById(R.id.goodTimeText);
         sunTxt = view.findViewById(R.id.sunrise);
         moonTxt = view.findViewById(R.id.moonrise);
         sunrise = view.findViewById(R.id.sunriseT);
@@ -271,7 +264,6 @@ public class Panchang_Frag extends Fragment
         tv_week6.setTypeface(typeface);
         tv_week7.setTypeface(typeface);
         tv_month.setTypeface(typeface);
-        goodtimeText.setTypeface(typeface);
         sunTxt.setTypeface(typeface);
         moonTxt.setTypeface(typeface);
 
@@ -352,7 +344,6 @@ public class Panchang_Frag extends Fragment
                         sunset.setText(jsonArray.getJSONObject(0).getString(Constant.SUNSET));
                         moonrise.setText(jsonArray.getJSONObject(0).getString(Constant.MOONRISE));
                         moonset.setText(jsonArray.getJSONObject(0).getString(Constant.MOONSET));
-                        tvFestivalInfo.setText(jsonArray.getJSONObject(0).getString(Constant.INFO));
                         Gson g = new Gson();
                         ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
 
@@ -370,7 +361,6 @@ public class Panchang_Frag extends Fragment
 
                     }
                     else {
-                        fl1.setVisibility(View.GONE);
                         sunrise.setText("-");
                         sunset.setText("-");
                         moonrise.setText("-");
@@ -740,27 +730,16 @@ public class Panchang_Frag extends Fragment
 
                     "</body></html>";
         }
-        mywebView.setBackgroundColor(Color.TRANSPARENT);
-//        sunrise.setText(records.get(clickedDate).Sunrise);
-//        sunset.setText(records.get(clickedDate).Sunset);
-//        moonrise.setText(records.get(clickedDate).Moonrise);
-//        moonset.setText(records.get(clickedDate).Moonset);
-        goodtimeText.setText(records.get(clickedDate).Paksham+" * "+records.get(clickedDate).Masam+" * "+records.get(clickedDate).Ruthu+" * "+records.get(clickedDate).Kalam);
-        //Log.d(String.valueOf(goodtimeText.getText()), "printRecords:goodtimeText ");
-        Log.d("PANCHANGDATA",htmlData);
-        mywebView.loadDataWithBaseURL("file:///android_asset/", htmlData,"text/html","utf-8",null);
     }
 
     private void panchangamList(String cadate)
     {
         if (databaseHelper.getmodelPanchangamList(cadate).size() !=0){
-            fl1.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
             sunrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunrise());
             sunset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunset());
             moonrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonrise());
             moonset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonset());
-            tvFestivalInfo.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getInfo());
 
             if (databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()).size() !=0){
                 panchangamTabAdapter = new PanchangamTabAdapter(activity, databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()));
@@ -775,7 +754,6 @@ public class Panchang_Frag extends Fragment
         }
         else {
             recyclerView.setVisibility(View.GONE);
-            fl1.setVisibility(View.GONE);
             sunrise.setText("-");
             sunset.setText("-");
             moonrise.setText("-");

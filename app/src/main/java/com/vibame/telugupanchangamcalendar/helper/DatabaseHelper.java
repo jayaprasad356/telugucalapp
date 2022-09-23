@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.vibame.telugupanchangamcalendar.model.Festival;
 import com.vibame.telugupanchangamcalendar.model.Panchangam;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 
@@ -22,21 +23,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "tc.db";
     public static final String TABLE_PANCHANGAM_NAME = "tblpanchangam";
     public static final String TABLE_PANCHANGAMTAB_NAME = "tblpanchangamtab";
+    public static final String TABLE_FESTIVAL_NAME = "tblfestival";
     public static final String KEY_ID = "pid";
     final String PID = "pid";
+    final String FID = "fid";
     final String DATE = "date";
     final String SUNRISE = "sunrise";
     final String SUNSET = "sunset";
     final String MOONRISE = "moonrise";
     final String MOONSET = "moonset";
-    final String INFO = "info";
+    final String FESTIVAL = "festival";
 
     final String PTID = "ptid";
     final String TITLE = "title";
     final String DESCRIPTION = "description";
     final String PanchangamTableInfo = TABLE_PANCHANGAM_NAME + "(" + PID + " TEXT ," + DATE + " TEXT ," + SUNRISE + " TEXT ," + SUNSET
-            + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT ," + INFO + " TEXT)";
+            + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT)";
     final String PanchangamTabTableInfo = TABLE_PANCHANGAMTAB_NAME + "(" + PTID + " TEXT ," + PID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
+    final String FestivalTableInfo = TABLE_FESTIVAL_NAME + "(" + FID + " TEXT ," + DATE + " REAL ," + FESTIVAL + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -46,12 +50,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + PanchangamTableInfo);
         db.execSQL("CREATE TABLE " + PanchangamTabTableInfo);
+        db.execSQL("CREATE TABLE " + FestivalTableInfo);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         replaceDataToNewTable(db, TABLE_PANCHANGAM_NAME, PanchangamTableInfo);
         replaceDataToNewTable(db, TABLE_PANCHANGAMTAB_NAME, PanchangamTabTableInfo);
+        replaceDataToNewTable(db, TABLE_FESTIVAL_NAME, FestivalTableInfo);
         onCreate(db);
     }
 
@@ -91,10 +97,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return buf.toString();
     }
-    public void AddToPanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset, String info) {
+    public void AddToPanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset) {
         try {
             if (!CheckPanchangamItemExist(pid).equalsIgnoreCase("0")) {
-                UpdatePanchangam(pid,date,sunrise,sunset,moonrise,moonset,info);
+                UpdatePanchangam(pid,date,sunrise,sunset,moonrise,moonset);
             } else {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
@@ -104,7 +110,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(SUNSET, sunset);
                 values.put(MOONRISE, moonrise);
                 values.put(MOONSET, moonset);
-                values.put(INFO, info);
                 db.insert(TABLE_PANCHANGAM_NAME, null, values);
                 db.close();
             }
@@ -125,6 +130,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(TITLE, title);
                 values.put(DESCRIPTION, description);
                 db.insert(TABLE_PANCHANGAMTAB_NAME, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void AddToFestival(String fid, String date, String festival) {
+        try {
+            if (!CheckFestivalItemExist(fid).equalsIgnoreCase("0")) {
+                UpdateFestival(fid,date,festival);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(FID, fid);
+                values.put(DATE, date);
+                values.put(FESTIVAL, festival);
+                db.insert(TABLE_FESTIVAL_NAME, null, values);
                 db.close();
             }
 
@@ -162,7 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void UpdatePanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset, String info) {
+    public void UpdatePanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DATE, date);
@@ -170,8 +193,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(SUNSET, sunset);
         values.put(MOONRISE, moonrise);
         values.put(MOONSET, moonset);
-        values.put(INFO, info);
         db.update(TABLE_PANCHANGAM_NAME, values, PID + " = ?", new String[]{pid});
+        db.close();
+    }
+    public void UpdateFestival(String fid, String date, String festival) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DATE, date);
+        values.put(FID, fid);
+        values.put(FESTIVAL, festival);
+        db.update(TABLE_FESTIVAL_NAME, values, FID + " = ?", new String[]{fid});
         db.close();
     }
     @SuppressLint("Range")
@@ -190,21 +221,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return count;
     }
-    public ArrayList<String> getPanchangamList() {
-        final ArrayList<String> ids = new ArrayList<>();
-        String selectQuery = "SELECT *  FROM " + TABLE_PANCHANGAM_NAME;
+    @SuppressLint("Range")
+    public String CheckFestivalItemExist(String fid) {
+        String count = "0";
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE " + FID + " = ?", new String[]{fid});
         if (cursor.moveToFirst()) {
-            do {
-                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
-                ids.add(cursor.getString(cursor.getColumnIndexOrThrow(PID)));
-            } while (cursor.moveToNext());
+            count = cursor.getString(cursor.getColumnIndex(FID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_FESTIVAL_NAME + " WHERE " + FID + " = ?", new String[]{fid});
 
+            }
         }
         cursor.close();
         db.close();
-        return ids;
+        return count;
     }
     public ArrayList<Panchangam> getmodelPanchangamList(String date) {
         final ArrayList<Panchangam> panchangams = new ArrayList<>();
@@ -214,7 +245,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 Panchangam panchangam1 = new Panchangam(cursor.getString(cursor.getColumnIndexOrThrow(PID)),cursor.getString(cursor.getColumnIndexOrThrow(DATE))
                         ,cursor.getString(cursor.getColumnIndexOrThrow(SUNRISE)),cursor.getString(cursor.getColumnIndexOrThrow(SUNSET)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(MOONRISE)),cursor.getString(cursor.getColumnIndexOrThrow(MOONSET)),cursor.getString(cursor.getColumnIndexOrThrow(INFO)));
+                        cursor.getString(cursor.getColumnIndexOrThrow(MOONRISE)),cursor.getString(cursor.getColumnIndexOrThrow(MOONSET)));
                 //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
                 panchangams.add(panchangam1);
             } while (cursor.moveToNext());
@@ -240,6 +271,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return panchangamTabs;
+    }
+    public ArrayList<Festival> getmodelFestivalList(String month,String year) {
+        final ArrayList<Festival> festivals = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE STRFTIME('%m'," + DATE + ") = ? AND STRFTIME('%Y'," + DATE + ") = ? ORDER BY "+DATE, new String[]{month,year});
+        if (cursor.moveToFirst()) {
+            do {
+                Festival festival1 = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(FID)),cursor.getString(cursor.getColumnIndexOrThrow(DATE))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(FESTIVAL)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                festivals.add(festival1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return festivals;
+    }
+    public void deleteDb (Activity activity){
+        activity.deleteDatabase(DATABASE_NAME);
+
     }
 
 
