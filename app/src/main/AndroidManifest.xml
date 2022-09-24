@@ -59,15 +59,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MuhurthamtabActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".HomeActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activities.PanchangamActivity"
             android:exported="false" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
@@ -79,7 +78,7 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" >
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
