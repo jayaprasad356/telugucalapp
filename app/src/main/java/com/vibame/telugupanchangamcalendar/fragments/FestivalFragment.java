@@ -21,6 +21,7 @@ import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,6 +38,8 @@ public class FestivalFragment extends Fragment {
     Activity activity;
     RecyclerView recyclerView;
     FestivalAdapter festivalAdapter;
+    String MonthYear = "";
+    String[] montharray = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
 
 
     public FestivalFragment() {
@@ -66,7 +69,7 @@ public class FestivalFragment extends Fragment {
         month_year = dateFormat.format(cal.getTime());
 
 
-        tvMonthYear.setText(month_year);
+        tvMonthYear.setText(setTeluguMonth(month_year));
 
         imgLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +85,7 @@ public class FestivalFragment extends Fragment {
                 c.add(Calendar.MONTH, -1);
 
                 month_year = df.format(c.getTime());
-                tvMonthYear.setText(month_year);
+                tvMonthYear.setText(setTeluguMonth(month_year));
                 festivalList(getMonthNum(),getYearNum());
 
             }
@@ -99,7 +102,7 @@ public class FestivalFragment extends Fragment {
                 c.setTime(dateFormat);
                 c.add(Calendar.MONTH, 1);
                 month_year = df.format(c.getTime());
-                tvMonthYear.setText(month_year);
+                tvMonthYear.setText(setTeluguMonth(month_year));
                 festivalList(getMonthNum(), getYearNum());
 
             }
@@ -109,10 +112,19 @@ public class FestivalFragment extends Fragment {
         return root;
     }
 
+    private String setTeluguMonth(String month_year)
+    {
+        int index = month_year.indexOf(' ');
+        String month = month_year.substring(0, index);
+        int p = Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December").indexOf(month);
+        String teluguMonth = montharray[p];
+        return teluguMonth;
+    }
+
     private String getMonthNum() {
         Date newDate = null;
         try {
-            newDate = df.parse(tvMonthYear.getText().toString().trim());
+            newDate = df.parse(""+month_year);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -123,7 +135,7 @@ public class FestivalFragment extends Fragment {
     private String getYearNum() {
         Date newDate = null;
         try {
-            newDate = df.parse(tvMonthYear.getText().toString().trim());
+            newDate = df.parse(""+month_year);
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.MuhurthamAdapter;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Muhurtham;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class MuhurthamFragment extends Fragment {
     Activity activity;
     RecyclerView recyclerview;
     MuhurthamAdapter muhurthamAdapter;
+    DatabaseHelper databaseHelper;
 
 
     public MuhurthamFragment() {
@@ -37,6 +40,8 @@ public class MuhurthamFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_muhurtham, container, false);
         activity = getActivity();
+
+        databaseHelper = new DatabaseHelper(activity);
 
         recyclerview = root.findViewById(R.id.recyclerView);
 
@@ -53,14 +58,10 @@ public class MuhurthamFragment extends Fragment {
     }
 
     private void muhurthamlist() {
+        if (databaseHelper.getMuhurthamList().size() !=0){
+            muhurthamAdapter = new MuhurthamAdapter(activity,databaseHelper.getMuhurthamList());
+            recyclerview.setAdapter(muhurthamAdapter);
 
-        ArrayList<Muhurtham> muhurthams = new ArrayList<>();
-
-        Muhurtham muhurtham1 = new Muhurtham("1","Name Muhurtham");
-
-        muhurthams.add(muhurtham1);
-
-        muhurthamAdapter = new MuhurthamAdapter(activity,muhurthams);
-        recyclerview.setAdapter(muhurthamAdapter);
+        }
     }
 }

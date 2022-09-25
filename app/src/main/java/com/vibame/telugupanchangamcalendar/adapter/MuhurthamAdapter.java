@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.MuhurthamtabActivity;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.Muhurtham;
 
 import java.util.ArrayList;
@@ -46,6 +47,8 @@ public class MuhurthamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             public void onClick(View view) {
 
                 Intent intent = new Intent(activity, MuhurthamtabActivity.class);
+                intent.putExtra(Constant.MUHURTHAM_ID,muhurtham.getId());
+                intent.putExtra(Constant.MUHURTHAM,muhurtham.getMuhurtham());
                 activity.startActivity(intent);
             }
         });
