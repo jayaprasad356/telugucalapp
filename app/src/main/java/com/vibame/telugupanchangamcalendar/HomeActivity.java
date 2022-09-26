@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
+import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
 import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -69,6 +70,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.festivals: {
                 fragment = new FestivalFragment();
+                break;
+            }
+
+            case R.id.horoscope: {
+                fragment = new HoroscopeFragment();
                 break;
             }
 
