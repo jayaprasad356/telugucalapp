@@ -6,11 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class MonthlyHoroscopeActivity extends AppCompatActivity {
     RelativeLayout rlc1,rlc2,rlc3,rlc4,rlc5,rlc6,rlc7,rlc8,rlc9,rlc10,rlc12,rlc11;
     Activity activity;
+    ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MonthlyHoroscopeActivity extends AppCompatActivity {
         rlc10 = findViewById(R.id.rlc10);
         rlc11 = findViewById(R.id.rlc11);
         rlc12 = findViewById(R.id.rlc12);
+        imgBack = findViewById(R.id.imgBack);
 
         rlc1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +117,14 @@ public class MonthlyHoroscopeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
                 startActivity(intent);
+            }
+        });
+
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }
