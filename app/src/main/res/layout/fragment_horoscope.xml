@@ -33,20 +33,113 @@
 
 
         <LinearLayout
+            android:id="@+id/llDailyhoroscope"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_horoscope"
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            >
 
             <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/ic_baseline_arrow_right_24" />
+                android:layout_width="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/horoscope" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Daily"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/colorBlack" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llWeeklyHoroscope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_horoscope"
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/horoscope" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weekly"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/colorBlack" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llMonthlyHoroscope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_horoscope"
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/horoscope" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Monthly"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/colorBlack" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llWYearlyHoroscope"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card_horoscope"
+            android:layout_margin="@dimen/_5sdp"
+            android:padding="@dimen/_10sdp"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/horoscope" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yearly"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:textColor="@color/colorBlack" />
 
 
