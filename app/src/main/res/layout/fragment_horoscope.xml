@@ -3,28 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HoroscopeFragment"
     android:background="@color/callight"
+    tools:context=".fragments.HoroscopeFragment"
 
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-
-
-
-
+        android:orientation="vertical">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            >
+            android:background="@color/colorWhite">
 
             <TextView
                 android:layout_width="match_parent"
@@ -39,42 +32,28 @@
         </RelativeLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="vertical"
-                 >
-
-                 <ImageView
-                     android:layout_width="@dimen/_40sdp"
-                     android:layout_height="@dimen/_40sdp"
-                     android:background="@drawable/ic_asto"
-                     />
+            <ImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_baseline_arrow_right_24" />
 
 
-                 <TextView
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:text="Daily"
-                     android:textColor="@color/colorBlack"
-                     />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daily"
+                android:textColor="@color/colorBlack" />
 
 
-             </LinearLayout>
-
-
-
-
-
-
-
-
-
+        </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
