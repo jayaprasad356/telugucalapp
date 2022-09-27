@@ -8,17 +8,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
-public class DailyHoroscopeActivity extends AppCompatActivity {
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+
+public class HoroscopeActivity extends AppCompatActivity {
+    TextView tvHoroscopeTitle;
+    String Horoscope;
+    ImageView imgBack;
     RelativeLayout rlc1,rlc2,rlc3,rlc4,rlc5,rlc6,rlc7,rlc8,rlc9,rlc10,rlc12,rlc11;
     Activity activity;
-    ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_horoscope);
-        activity = DailyHoroscopeActivity.this;
+        setContentView(R.layout.activity_horoscope);
+        imgBack = findViewById(R.id.imgBack);
+        Horoscope = getIntent().getStringExtra(Constant.HOROSCOPE);
+        tvHoroscopeTitle = findViewById(R.id.tvHoroscopeTitle);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        tvHoroscopeTitle.setText(Horoscope + " Horoscope");
+        activity = HoroscopeActivity.this;
 
 
         rlc1 = findViewById(R.id.rlc1);
@@ -39,6 +54,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.MESHAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -46,6 +63,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.VRUSHABHAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -53,6 +72,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.MIDHUNAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -60,6 +81,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.KARKATAKAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -67,6 +90,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.SIMHAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -74,6 +99,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.KANYA);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -81,6 +108,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.ThulaU);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -88,6 +117,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.VRUSCHIKAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -95,6 +126,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.DHANUSSU);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -102,6 +135,18 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.MAKARAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
+                startActivity(intent);
+            }
+        });
+
+        rlc11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.KUMBHAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
@@ -109,24 +154,14 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity,RaasiDetailsActivity.class);
-                startActivity(intent);
-            }
-        });
-        rlc11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity,RaasiDetailsActivity.class);
+                intent.putExtra(Constant.RASI,Constant.MEENAM);
+                intent.putExtra(Constant.HOROSCOPE,Horoscope);
                 startActivity(intent);
             }
         });
 
 
-        imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
 
     }
 }

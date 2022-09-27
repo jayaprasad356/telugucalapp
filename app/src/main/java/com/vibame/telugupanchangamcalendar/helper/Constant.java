@@ -6,6 +6,7 @@ public class Constant {
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
+    public static final String HOROSCOPE_URL = BaseUrl + "horoscope.php";
 
     public static final String ID = "id";
     public static final String PANCHANGAM_ID = "panchangam_id";
@@ -22,6 +23,7 @@ public class Constant {
     public static final String MUHURTHAM_LIST = "muhurtham_list";
     public static final String MUHURTHAM_TAB_LIST = "muhurtham_tab_list";
     public static final String TAB = "tab";
+    public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";
     public static final String SUNSET = "sunset";
     public static final String DESCRIPTION = "description";
@@ -30,4 +32,28 @@ public class Constant {
 
     public static final String MOONSET = "moonset";
     public static final String MUHURTHAM = "muhurtham";
+    public static final String HOROSCOPE = "horoscope";
+    public static final String RASI = "rasi";
+
+    public static final String MESHAM = "Mesham";
+    public static final String VRUSHABHAM = "Vrushabham";
+    public static final String MIDHUNAM = "Midhunam";
+    public static final String KARKATAKAM = "Karkatakam";
+    public static final String SIMHAM = "Simham";
+    public static final String KANYA = "Kanya";
+    public static final String ThulaU = "Thula";
+    public static final String VRUSCHIKAM = "Vruschikam";
+    public static final String DHANUSSU = "Dhanussu";
+    public static final String MAKARAM = "Makaram";
+    public static final String KUMBHAM = "Kumbham";
+    public static final String MEENAM = "Meenam";
+    public static final String LUCKYNUMBER = "lucky_number";
+    public static final String LUCKYCOLOR = "lucky_color";
+    public static final String TREATMENT = "treatment";
+    public static final String HEALTH = "health";
+    public static final String WEALTH = "wealth";
+    public static final String FAMILY = "family";
+    public static final String THINGS_LOVE = "things_love";
+    public static final String PROFESSION = "profession";
+    public static final String MARRIED_LIFE = "married_life";
 }

@@ -19,7 +19,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,50 +37,22 @@ public class TestActivity extends AppCompatActivity {
         activity = TestActivity.this;
 
         databaseHelper = new DatabaseHelper(activity);
-        //getDatalist();
+        DateFormat format = new SimpleDateFormat("dd MMM yyyy");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setFirstDayOfWeek(Calendar.MONDAY);
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+
+        String[] days = new String[7];
+        for (int i = 0; i < 7; i++)
+        {
+            days[i] = format.format(calendar.getTime());
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            Log.d("TESTARRAY", days[i]);
+        }
 
 
-        //databaseHelper.AddToPanchangam("3","2022-11-01","15:25","16:25","17:26","18:27","Diwali");
-        //databaseHelper.AddToPanchangamTab("1","1","hi","hello");
-
-       Log.d("PANARRAY", databaseHelper.getmodelPanchangamList("2022-09-17").get(0).getId());
-
-
-    }
-
-    private void getDatalist()
-    {
-        Map<String, String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) -> {
-            if (result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
-
-
-                        JSONObject object = new JSONObject(response);
-                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            if (jsonObject1 != null) {
-
-                            } else {
-                                break;
-                            }
-                        }
-
-
-                    }
-                    else {
-
-
-                    }
-                } catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, activity, Constant.ALLDATALIST_URL, params,true);
 
 
     }
+
 }

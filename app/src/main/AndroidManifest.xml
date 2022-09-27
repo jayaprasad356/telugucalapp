@@ -59,19 +59,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HoroscopeActivity"
+            android:exported="false" />
+        <activity
             android:name=".RaasiDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".YearlyHoroscopeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WeeklyHoroscopeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DailyHoroscopeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MonthlyHoroscopeActivity"
             android:exported="false" />
         <activity
             android:name=".MuhurthamtabActivity"

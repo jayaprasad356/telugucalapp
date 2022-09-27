@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    tools:context=".HoroscopeActivity"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,10 +19,11 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
         <TextView
+            android:id="@+id/tvHoroscopeTitle"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Daily Horoscope"
+            android:text="Horoscope"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
@@ -62,10 +63,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
-                android:gravity="center"
                 android:layout_alignParentBottom="true"
-                />
+                android:gravity="center"
+                android:text="Mesham" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Vrushabham"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -112,7 +112,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Midhunam"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -140,7 +140,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Karkatakam"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -166,7 +166,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Simham"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -192,7 +192,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Kanya"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -220,7 +220,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Thula"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -246,7 +246,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Vruschikam"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -272,7 +272,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Dhanussu"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -301,7 +301,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Makaram"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />
@@ -327,10 +327,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
-                android:gravity="center"
                 android:layout_alignParentBottom="true"
-                />
+                android:gravity="center"
+                android:text="Kumbham" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -348,12 +347,10 @@
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:background="@drawable/mina" />
-
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mesha"
+                android:text="Meenam"
                 android:gravity="center"
                 android:layout_alignParentBottom="true"
                 />

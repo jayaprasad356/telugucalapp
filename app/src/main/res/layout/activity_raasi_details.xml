@@ -6,180 +6,189 @@
     android:layout_height="match_parent"
     tools:context=".RaasiDetailsActivity">
 
-
-
-
     <LinearLayout
+        android:id="@+id/lhead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorHead"
-        android:padding="@dimen/_8sdp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp">
+
         <ImageView
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
         <TextView
-            android:layout_gravity="center"
+            android:id="@+id/tvRaasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Raasidetails"
+            android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
+            android:text="Raasidetails"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_18sdp"
-            />
+            android:textSize="@dimen/_18sdp" />
 
     </LinearLayout>
 
 
     <RelativeLayout
+        android:layout_below="@+id/lhead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_margin="@dimen/_10sdp"
-        android:padding="@dimen/_5sdp"
         android:background="@drawable/bg_rasi"
-        >
+        android:padding="@dimen/_5sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mesha Rasi Phalalu "
-        android:textStyle="bold"
-        android:textSize="@dimen/_12sdp"
-        android:gravity="center"
-        android:textColor="@color/colorBlack"
-        />
 
             <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="(Sunday, September 25,2022)"
-                android:textSize="@dimen/_12sdp"
+                android:text="Mesha Rasi Phalalu "
                 android:textColor="@color/colorBlack"
-                />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Your  friend detachment indifferent hurts you\nYour  friend detachment indifferent hurts you\nYour  friend detachment indifferent hurts you\nYour  friend detachment indifferent hurts you\nYour  friend detachment indifferent hurts you\nYour  friend detachment indifferent hurts you"
-
-            android:textSize="@dimen/_14sdp"
-            android:gravity="center"
-            android:textColor="@color/colorBlack"
-            android:layout_marginTop="@dimen/_20sdp"
-            />
-
-
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lucky for Today"
-                android:textStyle="bold"
-                android:textSize="@dimen/_14sdp"
+                android:gravity="center"
+                android:text="-"
                 android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20sdp"
-                />
-            <TextView
+                android:text=""
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14sdp" />
+            <LinearLayout
+                android:id="@+id/lHoroscope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lucky number :- 2"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_2sdp"
-                android:textColor="@color/colorBlack"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lucky color :- Sliver and White"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_2sdp"
-                android:textColor="@color/colorBlack"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Treatement :- Cardamom"
-                android:textSize="@dimen/_12sdp"
-                android:padding="@dimen/_2sdp"
-                android:textColor="@color/colorBlack"
-                />
+                android:visibility="gone"
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Lucky for Today"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rating for Today"
-                android:textStyle="bold"
-                android:textSize="@dimen/_14sdp"
-                android:textColor="@color/colorBlack"
-                android:layout_marginTop="@dimen/_20sdp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Health:"
-                android:padding="@dimen/_2sdp"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Wealth:"
-                android:padding="@dimen/_2sdp"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Family:"
-                android:padding="@dimen/_2sdp"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Things related to love:"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                android:padding="@dimen/_2sdp"
+                <TextView
+                    android:id="@+id/tvLuckyNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Lucky number :- 2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
 
-                />
+                <TextView
+                    android:id="@+id/tvLuckyColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Lucky color :- Sliver and White"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Profession:"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                android:padding="@dimen/_2sdp"
+                <TextView
+                    android:id="@+id/tvTreatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Treatement :- Cardamom"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
 
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Married Life:"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorBlack"
-                android:padding="@dimen/_2sdp"
 
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Rating for Today"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvHealth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Health:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/tvWealth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Wealth:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/tvFamily"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Family:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/tvThings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Things related to love:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvProfession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Profession:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvMarried"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Married Life:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
