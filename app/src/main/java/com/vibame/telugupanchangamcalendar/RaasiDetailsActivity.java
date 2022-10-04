@@ -1,6 +1,8 @@
 package com.vibame.telugupanchangamcalendar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,9 +12,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.adapter.YearTabAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.model.YearTab;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,6 +26,7 @@ import org.json.JSONObject;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -32,6 +39,8 @@ public class RaasiDetailsActivity extends AppCompatActivity {
     String Raasi,Horoscope;
     Activity activity;
     LinearLayout lHoroscope;
+    RecyclerView recyclerView;
+    YearTabAdapter yearTabAdapter;
 
 
     @Override
@@ -55,7 +64,9 @@ public class RaasiDetailsActivity extends AppCompatActivity {
         tvProfession =  findViewById(R.id.tvProfession);
         tvMarried =   findViewById(R.id.tvMarried);
         lHoroscope =   findViewById(R.id.lHoroscope);
+        recyclerView =   findViewById(R.id.recyclerView);
         activity = RaasiDetailsActivity.this;
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false));
         imgBack.setOnClickListener(v -> onBackPressed());
 
 
@@ -92,11 +103,55 @@ public class RaasiDetailsActivity extends AppCompatActivity {
             tvDate.setText(dateFormat.format(date));
         }else if (Horoscope.equals("Yearly")){
             lHoroscope.setVisibility(View.GONE);
-            apiRaasi(Horoscope);
+            apiYearRaasi(Horoscope);
             DateFormat dateFormat = new SimpleDateFormat("( yyyy )");
             Date date = new Date();
             tvDate.setText(dateFormat.format(date));
         }
+
+    }
+
+    private void apiYearRaasi(String type) {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.TYPE,type);
+        params.put(Constant.RASI,Raasi);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray1 = object.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<YearTab> yearTabs = new ArrayList<>();
+                        JSONObject jsonObject0 = jsonArray1.getJSONObject(0);
+                        JSONArray jsonArray = jsonObject0.getJSONArray(Constant.YEARLY_HOROSCOPE_VARIANT);
+
+
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                            if (jsonObject1 != null) {
+                                YearTab group = g.fromJson(jsonObject1.toString(), YearTab.class);
+                                yearTabs.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        yearTabAdapter = new YearTabAdapter(activity, yearTabs);
+                        recyclerView.setAdapter(yearTabAdapter);
+
+
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.HOROSCOPE_URL, params, true);
 
     }
 

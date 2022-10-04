@@ -59,13 +59,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.PoojaluSubMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".HoroscopeActivity"
             android:exported="false" />
         <activity
             android:name=".RaasiDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".MuhurthamtabActivity"
+            android:name=".activities.MuhurthamtabActivity"
             android:exported="false" />
         <activity
             android:name=".TestActivity"

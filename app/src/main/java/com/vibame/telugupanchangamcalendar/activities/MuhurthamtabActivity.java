@@ -1,4 +1,4 @@
-package com.vibame.telugupanchangamcalendar;
+package com.vibame.telugupanchangamcalendar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,13 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vibame.telugupanchangamcalendar.adapter.MuhurthamAdapter;
+import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.MuhurthamTabAdapter;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
-import com.vibame.telugupanchangamcalendar.model.MuhurthamTab;
-
-import java.util.ArrayList;
 
 public class MuhurthamtabActivity extends AppCompatActivity {
 

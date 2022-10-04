@@ -34,7 +34,8 @@
 
 
     <item
-        android:title="5.Puranalu"
+        android:id="@+id/poojalu"
+        android:title="5.Poojalu"
         />
 
 

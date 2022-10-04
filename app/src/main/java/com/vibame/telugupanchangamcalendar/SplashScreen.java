@@ -111,6 +111,27 @@ public class SplashScreen extends AppCompatActivity {
                                 break;
                             }
                         }
+                        JSONArray jsonArray6 = object.getJSONArray(Constant.POOJALU_LIST);
+
+                        for (int i = 0; i < jsonArray6.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray6.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToPoojalu(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.NAME),jsonObject1.getString(Constant.IMAGE));
+
+                            } else {
+                                break;
+                            }
+                        }
+                        JSONArray jsonArray7 = object.getJSONArray(Constant.POOJALU_SUB_MENU_LIST);
+
+                        for (int i = 0; i < jsonArray7.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray7.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToPoojaluSubMenu(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.POOJALU_ID),jsonObject1.getString(Constant.NAME),jsonObject1.getString(Constant.IMAGE));
+                            } else {
+                                break;
+                            }
+                        }
                         Intent i = new Intent(activity, HomeActivity.class);
                         startActivity(i);
                         finish();

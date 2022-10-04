@@ -75,12 +75,13 @@
                 android:text=""
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_14sdp" />
+
             <LinearLayout
                 android:id="@+id/lHoroscope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
 
                 <TextView
@@ -190,6 +191,10 @@
 
             </LinearLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 

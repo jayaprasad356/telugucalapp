@@ -21,6 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
 import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
+import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -72,18 +73,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new FestivalFragment();
                 break;
             }
-
             case R.id.horoscope: {
                 fragment = new HoroscopeFragment();
                 break;
             }
-
-
             case R.id.muhurtham: {
                 fragment = new MuhurthamFragment();
                 break;
             }
-
+            case R.id.poojalu: {
+                fragment = new PoojaluFragment();
+                break;
+            }
 
         }
         //replacing the fragment

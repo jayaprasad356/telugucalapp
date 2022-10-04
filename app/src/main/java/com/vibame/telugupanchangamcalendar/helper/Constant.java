@@ -1,8 +1,8 @@
 package com.vibame.telugupanchangamcalendar.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
-    //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
+    //public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
+    public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
@@ -11,6 +11,9 @@ public class Constant {
     public static final String ID = "id";
     public static final String PANCHANGAM_ID = "panchangam_id";
     public static final String MUHURTHAM_ID = "muhurtham_id";
+    public static final String POOJALU_ID = "poojalu_id";
+    public static final String NAME = "name";
+    public static final String IMAGE =  "image";
     public static final String PID = "pid";
     public static final String DATE = "date";
     public static final String TITLE = "title";
@@ -22,6 +25,8 @@ public class Constant {
     public static final String FESTIVALS_LIST = "festivals_list";
     public static final String MUHURTHAM_LIST = "muhurtham_list";
     public static final String MUHURTHAM_TAB_LIST = "muhurtham_tab_list";
+    public static final String POOJALU_LIST = "poojalu_list";
+    public static final String POOJALU_SUB_MENU_LIST = "poojalu_sub_menu_list";
     public static final String TAB = "tab";
     public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";
@@ -56,4 +61,5 @@ public class Constant {
     public static final String THINGS_LOVE = "things_love";
     public static final String PROFESSION = "profession";
     public static final String MARRIED_LIFE = "married_life";
+    public static final String YEARLY_HOROSCOPE_VARIANT = "yearly_horoscope_variant";
 }
