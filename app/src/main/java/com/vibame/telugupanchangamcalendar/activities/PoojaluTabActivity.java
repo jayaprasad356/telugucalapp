@@ -11,34 +11,38 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluSubMenuAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.PoojaluTabAdapter;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 
-public class PoojaluSubMenuActivity extends AppCompatActivity {
+public class PoojaluTabActivity extends AppCompatActivity {
     TextView tvTitle;
     String Title;
     RecyclerView recyclerView;
     Activity activity;
     DatabaseHelper databaseHelper;
-    PoojaluSubMenuAdapter poojaluSubMenuAdapter;
-    String Id;
     ImageView imgBack;
-
+    String subcategory_id,poojalu_id;
+    PoojaluTabAdapter poojaluTabAdapter;
+    Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poojalu_sub_menu);
+        setContentView(R.layout.activity_poojalu_tab);
+
         tvTitle = findViewById(R.id.tvTitle);
         imgBack = findViewById(R.id.imgBack);
         recyclerView = findViewById(R.id.recyclerView);
         Title = getIntent().getStringExtra(Constant.TITLE);
-        Id = getIntent().getStringExtra(Constant.ID);
-        activity = PoojaluSubMenuActivity.this;
+        subcategory_id = getIntent().getStringExtra(Constant.SUBCATEGORY_ID);
+        activity = PoojaluTabActivity.this;
+        session = new Session(activity);
+        poojalu_id = session.getData(Constant.POOJALU_ID);
         databaseHelper = new DatabaseHelper(activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
-        poojaluSubMenuList();
+        poojaluTabList();
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,15 +51,13 @@ public class PoojaluSubMenuActivity extends AppCompatActivity {
         });
 
         tvTitle.setText(Title);
-
     }
 
-    private void poojaluSubMenuList()
+    private void poojaluTabList()
     {
-        if (databaseHelper.getPoojaluSubMenuList(Id).size() !=0){
-            poojaluSubMenuAdapter = new PoojaluSubMenuAdapter(activity, databaseHelper.getPoojaluSubMenuList(Id));
-            recyclerView.setAdapter(poojaluSubMenuAdapter);
-
+        if (databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id).size() !=0){
+            poojaluTabAdapter = new PoojaluTabAdapter(activity, databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id));
+            recyclerView.setAdapter(poojaluTabAdapter);
         }
         else {
             recyclerView.setVisibility(View.GONE);

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PoojaluSubMenuActivity">
+    tools:context=".activities.PoojaluTabActivity">
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
@@ -33,11 +33,14 @@
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/l1"
+        android:background="@drawable/bg_rasi"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        tools:listitem="@layout/poojalu_layout" />
+        tools:listitem="@layout/poojalu_tab_layout" />
+
 
 </RelativeLayout>

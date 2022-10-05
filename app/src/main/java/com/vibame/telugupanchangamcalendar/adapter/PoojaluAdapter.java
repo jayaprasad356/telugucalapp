@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.PoojaluSubMenuActivity;
+import com.vibame.telugupanchangamcalendar.activities.PoojaluTabActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Poojalu;
 import com.vibame.telugupanchangamcalendar.model.YearTab;
 
@@ -25,6 +28,8 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     final Activity activity;
     ArrayList<Poojalu> poojalus;
+    Session session;
+    DatabaseHelper databaseHelper;
 
     public PoojaluAdapter(Activity activity, ArrayList<Poojalu> poojalus) {
         this.activity = activity;
@@ -40,6 +45,8 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
+        databaseHelper = new DatabaseHelper(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Poojalu poojalu = poojalus.get(position);
         holder.tvName.setText(poojalu.getName());
@@ -47,9 +54,20 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
-                intent.putExtra(Constant.TITLE,poojalu.getName());
-                activity.startActivity(intent);
+                session.setData(Constant.POOJALU_ID,poojalu.getId());
+                if (databaseHelper.getPoojaluTabList(poojalu.getId(),"0").size() !=0){
+                    Intent intent = new Intent(activity, PoojaluTabActivity.class);
+                    intent.putExtra(Constant.SUBCATEGORY_ID,"0");
+                    intent.putExtra(Constant.TITLE,poojalu.getName());
+                    activity.startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
+                    intent.putExtra(Constant.TITLE,poojalu.getName());
+                    intent.putExtra(Constant.ID,poojalu.getId());
+                    activity.startActivity(intent);
+                }
+
             }
         });
 

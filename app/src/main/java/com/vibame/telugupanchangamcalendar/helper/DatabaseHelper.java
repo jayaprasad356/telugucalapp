@@ -14,6 +14,7 @@ import com.vibame.telugupanchangamcalendar.model.Panchangam;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 import com.vibame.telugupanchangamcalendar.model.Poojalu;
 import com.vibame.telugupanchangamcalendar.model.PoojaluSubMenu;
+import com.vibame.telugupanchangamcalendar.model.PoojaluTab;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,11 +33,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_MUHURTHAMTAB_NAME = "tblmuhurthamtab";
     public static final String TABLE_POOJALU_NAME = "tblpoojalu";
     public static final String TABLE_POOJALU_SUBMENU_NAME = "tblpoojalusubmenu";
+    public static final String TABLE_POOJALU_TAB = "tblpoojalutab";
     public static final String KEY_ID = "pid";
     final String ID = "id";
     final String PID = "pid";
     final String FID = "fid";
     final String MID = "mid";
+    final String POOJALU_ID = "poojalu_id";
+    final String SUBCATEGORY_ID = "subcategory_id";
     final String DATE = "date";
     final String SUNRISE = "sunrise";
     final String SUNSET = "sunset";
@@ -60,6 +64,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String MuhurthamTabTableInfo = TABLE_MUHURTHAMTAB_NAME + "(" + MTID + " TEXT ," + MID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String PoojaluTableInfo = TABLE_POOJALU_NAME + "(" + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String PoojaluSubMenuTableInfo = TABLE_POOJALU_SUBMENU_NAME + "(" + ID + " TEXT ," + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
+    final String PoojaluTabTableInfo = TABLE_POOJALU_TAB + "(" + ID + " TEXT ," + POOJALU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -74,6 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + MuhurthamTabTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluSubMenuTableInfo);
+        db.execSQL("CREATE TABLE " + PoojaluTabTableInfo);
     }
 
     @Override
@@ -85,6 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         replaceDataToNewTable(db, TABLE_MUHURTHAMTAB_NAME, MuhurthamTabTableInfo);
         replaceDataToNewTable(db, TABLE_POOJALU_NAME, PoojaluTableInfo);
         replaceDataToNewTable(db, TABLE_POOJALU_SUBMENU_NAME, PoojaluSubMenuTableInfo);
+        replaceDataToNewTable(db, TABLE_POOJALU_TAB, PoojaluTabTableInfo);
         onCreate(db);
     }
 
@@ -372,6 +379,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
     @SuppressLint("Range")
+    public String CheckPoojaluTabItemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_POOJALU_TAB + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_POOJALU_TAB + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+    @SuppressLint("Range")
     public String CheckPoojaluSubMenuItemExist(String id) {
         String count = "0";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -506,10 +529,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return poojalus;
     }
-    public ArrayList<PoojaluSubMenu> getPoojaluSubMenuList(String id) {
+    public ArrayList<PoojaluSubMenu> getPoojaluSubMenuList(String pjid) {
         final ArrayList<PoojaluSubMenu> poojaluSubMenus = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_POOJALU_SUBMENU_NAME + " WHERE " + ID + " = ?", new String[]{id});
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_POOJALU_SUBMENU_NAME + " WHERE " + PJID + " = ?", new String[]{pjid});
         if (cursor.moveToFirst()) {
             do {
                 PoojaluSubMenu poojaluSubMenus1 = new PoojaluSubMenu(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(PJID)),cursor.getString(cursor.getColumnIndexOrThrow(NAME)),cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
@@ -521,6 +544,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return poojaluSubMenus;
+    }
+    public ArrayList<PoojaluTab> getPoojaluTabList(String poojalu_id,String subcategory_id) {
+        final ArrayList<PoojaluTab> poojaluTabs = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_POOJALU_TAB + " WHERE " + SUBCATEGORY_ID + " = ? AND "+ POOJALU_ID + " = ? ", new String[]{subcategory_id,poojalu_id});
+        if (cursor.moveToFirst()) {
+            do {
+                PoojaluTab poojaluTab = new PoojaluTab(cursor.getString(cursor.getColumnIndexOrThrow(ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(POOJALU_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(SUBCATEGORY_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                poojaluTabs.add(poojaluTab);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return poojaluTabs;
     }
     public void AddToPoojalu(String pjid, String name, String image) {
         try {
@@ -559,6 +601,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+    public void AddToPoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description) {
+        try {
+            if (!CheckPoojaluTabItemExist(id).equalsIgnoreCase("0")) {
+                UpdatePoojaluTab(id,poojalu_id,subcategory_id,title,description);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(POOJALU_ID, poojalu_id);
+                values.put(SUBCATEGORY_ID, subcategory_id);
+                values.put(TITLE, title);
+                values.put(DESCRIPTION, description);
+                db.insert(TABLE_POOJALU_TAB, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void UpdatePoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(POOJALU_ID, poojalu_id);
+        values.put(SUBCATEGORY_ID, subcategory_id);
+        values.put(TITLE, title);
+        values.put(DESCRIPTION, description);
+        db.update(TABLE_POOJALU_TAB, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+
     public void deleteDb (Activity activity){
         activity.deleteDatabase(DATABASE_NAME);
 

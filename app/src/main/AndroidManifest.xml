@@ -59,6 +59,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.PoojaluTabActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PoojaluSubMenuActivity"
             android:exported="false" />
         <activity
