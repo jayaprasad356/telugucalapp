@@ -37,8 +37,8 @@ public class YearTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final YearTab yearTab = yearTabs.get(position);
-        holder.tvTitle.setText(yearTab.getTitle());
-        holder.tvDescription.setText(yearTab.getDescription());
+        holder.tvTitle.setText(yearTab.getSub_title());
+        holder.tvDescription.setText(yearTab.getSub_description());
 
 
     }

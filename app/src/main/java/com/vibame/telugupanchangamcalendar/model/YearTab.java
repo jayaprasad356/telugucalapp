@@ -1,13 +1,13 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class YearTab {
-    String id,yearly_horoscope_id,title,description;
+    String id,yearly_horoscope_id,sub_title,sub_description;
 
-    public YearTab(String id, String yearly_horoscope_id, String title, String description) {
+    public YearTab(String id, String yearly_horoscope_id, String sub_title, String sub_description) {
         this.id = id;
         this.yearly_horoscope_id = yearly_horoscope_id;
-        this.title = title;
-        this.description = description;
+        this.sub_title = sub_title;
+        this.sub_description = sub_description;
     }
 
     public String getId() {
@@ -26,20 +26,20 @@ public class YearTab {
         this.yearly_horoscope_id = yearly_horoscope_id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSub_title() {
+        return sub_title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSub_title(String sub_title) {
+        this.sub_title = sub_title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSub_description() {
+        return sub_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSub_description(String sub_description) {
+        this.sub_description = sub_description;
     }
 }
 

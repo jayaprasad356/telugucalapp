@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.vibame.telugupanchangamcalendar.model.Festival;
+import com.vibame.telugupanchangamcalendar.model.Grahalu;
+import com.vibame.telugupanchangamcalendar.model.GrahaluSubMenu;
+import com.vibame.telugupanchangamcalendar.model.GrahaluTab;
 import com.vibame.telugupanchangamcalendar.model.Muhurtham;
 import com.vibame.telugupanchangamcalendar.model.MuhurthamTab;
 import com.vibame.telugupanchangamcalendar.model.Panchangam;
@@ -34,12 +37,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_POOJALU_NAME = "tblpoojalu";
     public static final String TABLE_POOJALU_SUBMENU_NAME = "tblpoojalusubmenu";
     public static final String TABLE_POOJALU_TAB = "tblpoojalutab";
+    public static final String TABLE_GRAHALU_NAME = "tblgrahalu";
+    public static final String TABLE_GRAHALU_SUBMENU_NAME = "tblgrahalusubmenu";
+    public static final String TABLE_GRAHALU_TAB = "tblgrahalutab";
     public static final String KEY_ID = "pid";
     final String ID = "id";
     final String PID = "pid";
     final String FID = "fid";
     final String MID = "mid";
     final String POOJALU_ID = "poojalu_id";
+    final String GRAHULU_ID = "grahulu_id";
     final String SUBCATEGORY_ID = "subcategory_id";
     final String DATE = "date";
     final String SUNRISE = "sunrise";
@@ -53,7 +60,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String MTID = "mtid";
     final String TITLE = "title";
     final String DESCRIPTION = "description";
+    final String SUB_TITLE = "sub_title";
+    final String SUB_DESCRIPTION = "sub_description";
     final String PJID = "pjid";
+    final String GHID = "ghid";
     final String NAME = "name";
     final String IMAGE = "image";
     final String PanchangamTableInfo = TABLE_PANCHANGAM_NAME + "(" + PID + " TEXT ," + DATE + " TEXT ," + SUNRISE + " TEXT ," + SUNSET
@@ -64,7 +74,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String MuhurthamTabTableInfo = TABLE_MUHURTHAMTAB_NAME + "(" + MTID + " TEXT ," + MID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String PoojaluTableInfo = TABLE_POOJALU_NAME + "(" + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String PoojaluSubMenuTableInfo = TABLE_POOJALU_SUBMENU_NAME + "(" + ID + " TEXT ," + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
-    final String PoojaluTabTableInfo = TABLE_POOJALU_TAB + "(" + ID + " TEXT ," + POOJALU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
+    final String PoojaluTabTableInfo = TABLE_POOJALU_TAB + "(" + ID + " TEXT ," + POOJALU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
+    final String GrahaluTableInfo = TABLE_GRAHALU_NAME + "(" + ID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
+    final String GrahaluSubMenuTableInfo = TABLE_GRAHALU_SUBMENU_NAME + "(" + ID + " TEXT ," + GHID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
+    final String GrahaluTabTableInfo = TABLE_GRAHALU_TAB + "(" + ID + " TEXT ," + GRAHULU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -80,6 +93,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + PoojaluTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluSubMenuTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluTabTableInfo);
+        db.execSQL("CREATE TABLE " + GrahaluTableInfo);
+        db.execSQL("CREATE TABLE " + GrahaluSubMenuTableInfo);
+        db.execSQL("CREATE TABLE " + GrahaluTabTableInfo);
     }
 
     @Override
@@ -92,6 +108,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         replaceDataToNewTable(db, TABLE_POOJALU_NAME, PoojaluTableInfo);
         replaceDataToNewTable(db, TABLE_POOJALU_SUBMENU_NAME, PoojaluSubMenuTableInfo);
         replaceDataToNewTable(db, TABLE_POOJALU_TAB, PoojaluTabTableInfo);
+        replaceDataToNewTable(db, TABLE_POOJALU_NAME, GrahaluTableInfo);
+        replaceDataToNewTable(db, TABLE_POOJALU_SUBMENU_NAME, GrahaluSubMenuTableInfo);
+        replaceDataToNewTable(db, TABLE_POOJALU_TAB, GrahaluTabTableInfo);
         onCreate(db);
     }
 
@@ -312,11 +331,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_POOJALU_NAME, values, PJID + " = ?", new String[]{pjid});
         db.close();
     }
+    public void UpdateGrahulu(String id, String name, String image) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(NAME, name);
+        values.put(IMAGE, image);
+        db.update(TABLE_GRAHALU_NAME, values, ID + " = ?", new String[]{id});
+        db.close();
+    }
     public void UpdatePoojaluSubMenu(String id,String pjid, String name, String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ID, id);
         values.put(PJID, pjid);
+        values.put(NAME, name);
+        values.put(IMAGE, image);
+        db.update(TABLE_POOJALU_SUBMENU_NAME, values, ID + " = ?", new String[]{id});
+        db.close();
+    }
+    public void UpdateGrahuluSubMenu(String id,String ghid, String name, String image) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(GHID, ghid);
         values.put(NAME, name);
         values.put(IMAGE, image);
         db.update(TABLE_POOJALU_SUBMENU_NAME, values, ID + " = ?", new String[]{id});
@@ -395,6 +433,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
     @SuppressLint("Range")
+    public String CheckGrahaluTabItemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_TAB + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_GRAHALU_TAB + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+    @SuppressLint("Range")
     public String CheckPoojaluSubMenuItemExist(String id) {
         String count = "0";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -403,6 +457,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             count = cursor.getString(cursor.getColumnIndex(ID));
             if (count.equals("0")) {
                 db.execSQL("DELETE FROM " + TABLE_POOJALU_SUBMENU_NAME + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+    @SuppressLint("Range")
+    public String CheckGrahuluSubMenuItemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_SUBMENU_NAME + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_GRAHALU_SUBMENU_NAME + " WHERE " + ID + " = ?", new String[]{id});
 
             }
         }
@@ -529,6 +599,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return poojalus;
     }
+    public ArrayList<Grahalu> getGrahaluList() {
+        final ArrayList<Grahalu> grahalus = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_NAME, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Grahalu grahalu1 = new Grahalu(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(NAME))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                grahalus.add(grahalu1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return grahalus;
+    }
     public ArrayList<PoojaluSubMenu> getPoojaluSubMenuList(String pjid) {
         final ArrayList<PoojaluSubMenu> poojaluSubMenus = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -545,6 +632,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return poojaluSubMenus;
     }
+    public ArrayList<GrahaluSubMenu> getGrahaluSubMenuList(String ghid) {
+        final ArrayList<GrahaluSubMenu> grahaluSubMenus = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_SUBMENU_NAME + " WHERE " + GHID + " = ?", new String[]{ghid});
+        if (cursor.moveToFirst()) {
+            do {
+                GrahaluSubMenu grahaluSubMenu1 = new GrahaluSubMenu(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(GHID)),cursor.getString(cursor.getColumnIndexOrThrow(NAME)),cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                grahaluSubMenus.add(grahaluSubMenu1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return grahaluSubMenus;
+    }
     public ArrayList<PoojaluTab> getPoojaluTabList(String poojalu_id,String subcategory_id) {
         final ArrayList<PoojaluTab> poojaluTabs = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -554,7 +657,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PoojaluTab poojaluTab = new PoojaluTab(cursor.getString(cursor.getColumnIndexOrThrow(ID)),
                         cursor.getString(cursor.getColumnIndexOrThrow(POOJALU_ID)),
                         cursor.getString(cursor.getColumnIndexOrThrow(SUBCATEGORY_ID)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_DESCRIPTION)));
                 //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
                 poojaluTabs.add(poojaluTab);
             } while (cursor.moveToNext());
@@ -563,6 +666,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return poojaluTabs;
+    }
+    public ArrayList<GrahaluTab> getGrahaluTabList(String grahalu_id,String subcategory_id) {
+        final ArrayList<GrahaluTab> grahaluTabs = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_TAB + " WHERE " + SUBCATEGORY_ID + " = ? AND "+ GRAHULU_ID + " = ? ", new String[]{subcategory_id,grahalu_id});
+        if (cursor.moveToFirst()) {
+            do {
+                GrahaluTab grahaluTab = new GrahaluTab(cursor.getString(cursor.getColumnIndexOrThrow(ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(GRAHULU_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(SUBCATEGORY_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_DESCRIPTION)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                grahaluTabs.add(grahaluTab);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return grahaluTabs;
     }
     public void AddToPoojalu(String pjid, String name, String image) {
         try {
@@ -582,6 +704,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+    public void AddToGrahalu(String id, String name, String image) {
+        try {
+            if (!CheckGrahuluItemExist(id).equalsIgnoreCase("0")) {
+                UpdateGrahulu(id,name,image);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(NAME, name);
+                values.put(IMAGE, image);
+                db.insert(TABLE_GRAHALU_NAME, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint("Range")
+    private String CheckGrahuluItemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GRAHALU_NAME + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_GRAHALU_NAME + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
     public void AddToPoojaluSubMenu(String id, String pjid, String name, String image) {
         try {
             if (!CheckPoojaluSubMenuItemExist(id).equalsIgnoreCase("0")) {
@@ -601,10 +759,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-    public void AddToPoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description) {
+    public void AddToGrahuluSubMenu(String id, String ghid, String name, String image) {
+        try {
+            if (!CheckGrahuluSubMenuItemExist(id).equalsIgnoreCase("0")) {
+                UpdateGrahuluSubMenu(id,ghid,name,image);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(GHID, ghid);
+                values.put(NAME, name);
+                values.put(IMAGE, image);
+                db.insert(TABLE_GRAHALU_SUBMENU_NAME, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void AddToPoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description,String sub_title,String sub_description) {
         try {
             if (!CheckPoojaluTabItemExist(id).equalsIgnoreCase("0")) {
-                UpdatePoojaluTab(id,poojalu_id,subcategory_id,title,description);
+                UpdatePoojaluTab(id,poojalu_id,subcategory_id,title,description,sub_title,sub_description);
             } else {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
@@ -613,6 +790,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(SUBCATEGORY_ID, subcategory_id);
                 values.put(TITLE, title);
                 values.put(DESCRIPTION, description);
+                values.put(SUB_TITLE, sub_title);
+                values.put(SUB_DESCRIPTION, sub_description);
                 db.insert(TABLE_POOJALU_TAB, null, values);
                 db.close();
             }
@@ -622,7 +801,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void UpdatePoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description)
+    public void AddToGrahaluTab(String id, String grahulu_id, String subcategory_id, String title, String description,String sub_title,String sub_description) {
+        try {
+            if (!CheckGrahaluTabItemExist(id).equalsIgnoreCase("0")) {
+                UpdateGrahaluTab(id,grahulu_id,subcategory_id,title,description,sub_title,sub_description);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(GRAHULU_ID, grahulu_id);
+                values.put(SUBCATEGORY_ID, subcategory_id);
+                values.put(TITLE, title);
+                values.put(DESCRIPTION, description);
+                values.put(SUB_TITLE, sub_title);
+                values.put(SUB_DESCRIPTION, sub_description);
+                db.insert(TABLE_GRAHALU_TAB, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void UpdateGrahaluTab(String id, String grahalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(GRAHULU_ID, grahalu_id);
+        values.put(SUBCATEGORY_ID, subcategory_id);
+        values.put(TITLE, title);
+        values.put(DESCRIPTION, description);
+        values.put(SUB_TITLE, sub_title);
+        values.put(SUB_DESCRIPTION, sub_description);
+        db.update(TABLE_GRAHALU_TAB, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+
+    private void UpdatePoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -631,6 +849,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(SUBCATEGORY_ID, subcategory_id);
         values.put(TITLE, title);
         values.put(DESCRIPTION, description);
+        values.put(SUB_TITLE, sub_title);
+        values.put(SUB_DESCRIPTION, sub_description);
         db.update(TABLE_POOJALU_TAB, values, ID + " = ?", new String[]{id});
         db.close();
 

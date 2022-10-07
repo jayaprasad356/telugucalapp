@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class RaasiDetailsActivity extends AppCompatActivity {
     ImageView imgBack;
-    TextView tvRaasi,tvTitle,tvDate,tvDescription,tvLuckyNumber,tvLuckyColor,tvTreatment,tvHealth,tvWealth,tvFamily,tvThings,tvProfession,tvMarried;
+    TextView tvRaasi,tvTitle,tvHead,tvDate,tvDescription,tvLuckyNumber,tvLuckyColor,tvTreatment,tvHealth,tvWealth,tvFamily,tvThings,tvProfession,tvMarried;
     String Raasi,Horoscope;
     Activity activity;
     LinearLayout lHoroscope;
@@ -51,6 +51,7 @@ public class RaasiDetailsActivity extends AppCompatActivity {
         Horoscope = getIntent().getStringExtra(Constant.HOROSCOPE);
         imgBack = findViewById(R.id.imgBack);
         tvRaasi = findViewById(R.id.tvRaasi);
+        tvHead = findViewById(R.id.tvHead);
         tvTitle = findViewById(R.id.tvTitle);
         tvDate = findViewById(R.id.tvDate);
         tvDescription = findViewById(R.id.tvDescription);
@@ -70,7 +71,7 @@ public class RaasiDetailsActivity extends AppCompatActivity {
         imgBack.setOnClickListener(v -> onBackPressed());
 
 
-        tvTitle.setText(Raasi + " Rasi Phalalu");
+        tvHead.setText(Raasi + " Rasi Phalalu");
 
 
         tvRaasi.setText(Raasi);
@@ -116,6 +117,7 @@ public class RaasiDetailsActivity extends AppCompatActivity {
         params.put(Constant.TYPE,type);
         params.put(Constant.RASI,Raasi);
         ApiConfig.RequestToVolley((result, response) -> {
+            Log.d("Year_Res",response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -126,6 +128,9 @@ public class RaasiDetailsActivity extends AppCompatActivity {
                         ArrayList<YearTab> yearTabs = new ArrayList<>();
                         JSONObject jsonObject0 = jsonArray1.getJSONObject(0);
                         JSONArray jsonArray = jsonObject0.getJSONArray(Constant.YEARLY_HOROSCOPE_VARIANT);
+                        tvTitle.setVisibility(View.VISIBLE);
+                        tvTitle.setText(jsonArray1.getJSONObject(0).getString(Constant.TITLE));
+                        tvDescription.setText(jsonArray1.getJSONObject(0).getString(Constant.DESCRIPTION));
 
 
 

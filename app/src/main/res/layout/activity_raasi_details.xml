@@ -49,7 +49,7 @@
 
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tvHead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -66,15 +66,30 @@
                 android:text="-"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_12sdp" />
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/bordercurve3"
+                android:text=""
+                android:layout_margin="@dimen/_5sdp"
+                android:visibility="gone"
+                android:padding="@dimen/_3sdp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_12sdp"
+                 />
+
 
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
                 android:text=""
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_14sdp" />
+
+
 
             <LinearLayout
                 android:id="@+id/lHoroscope"

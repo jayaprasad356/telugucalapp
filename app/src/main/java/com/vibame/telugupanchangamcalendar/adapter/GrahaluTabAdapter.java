@@ -10,20 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.model.Grahalu;
+import com.vibame.telugupanchangamcalendar.model.GrahaluTab;
 import com.vibame.telugupanchangamcalendar.model.PoojaluTab;
-import com.vibame.telugupanchangamcalendar.model.YearTab;
 
 import java.util.ArrayList;
 
 
-public class PoojaluTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GrahaluTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     final Activity activity;
-    ArrayList<PoojaluTab> poojaluTabs;
+    ArrayList<GrahaluTab> grahaluTabs;
 
-    public PoojaluTabAdapter(Activity activity, ArrayList<PoojaluTab> poojaluTabs) {
+    public GrahaluTabAdapter(Activity activity, ArrayList<GrahaluTab> grahaluTabs) {
         this.activity = activity;
-        this.poojaluTabs = poojaluTabs;
+        this.grahaluTabs = grahaluTabs;
     }
     @NonNull
     @Override
@@ -36,9 +37,9 @@ public class PoojaluTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final PoojaluTab poojaluTab = poojaluTabs.get(position);
-        holder.tvTitle.setText(poojaluTab.getSub_title());
-        holder.tvDescription.setText(poojaluTab.getSub_description());
+        final GrahaluTab grahaluTab = grahaluTabs.get(position);
+        holder.tvTitle.setText(grahaluTab.getSub_title());
+        holder.tvDescription.setText(grahaluTab.getSub_description());
 
 
     }
@@ -46,7 +47,7 @@ public class PoojaluTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount()
     {
-        return poojaluTabs.size();
+        return grahaluTabs.size();
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {

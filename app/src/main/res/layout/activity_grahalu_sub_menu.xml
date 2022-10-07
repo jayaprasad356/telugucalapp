@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".activities.PoojaluTabActivity">
+    android:layout_height="match_parent"
+    tools:context=".activities.GrahaluSubMenuActivity">
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
@@ -21,7 +20,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
         <TextView
-            android:id="@+id/tvHead"
+            android:id="@+id/tvTitle"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,38 +31,13 @@
             />
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@drawable/bordercurve3"
-        android:text=""
-        android:layout_margin="@dimen/_5sdp"
-        android:padding="@dimen/_3sdp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
-        />
-
-
-    <TextView
-        android:id="@+id/tvDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_margin="@dimen/_5sdp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/l1"
-        android:background="@drawable/bg_rasi"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        tools:listitem="@layout/poojalu_tab_layout" />
+        tools:listitem="@layout/poojalu_layout" />
 
-
-</LinearLayout>
+</RelativeLayout>

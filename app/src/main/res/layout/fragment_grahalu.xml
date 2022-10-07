@@ -4,22 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PoojaluFragment">
+    tools:context=".fragments.GrahaluFragment">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:background="@drawable/bg_rasi"
+        android:layout_margin="@dimen/_20sdp"
+        android:text="Grahalu - Nakshathralu - Rudhrashalu"
+        android:textSize="@dimen/_14sdp"
         android:padding="@dimen/_7sdp"
-        android:text="Poojalu - Nomulu - Asttotralu"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp" />
+        android:background="@drawable/bg_rasi"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

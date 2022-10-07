@@ -1,11 +1,11 @@
 package com.vibame.telugupanchangamcalendar.model;
 
-public class PoojaluTab {
-    String id,poojalu_id,subcategory_id,title,description,sub_title,sub_description;
+public class GrahaluTab {
+    String id,grahalu_id,subcategory_id,title,description,sub_title,sub_description;
 
-    public PoojaluTab(String id, String poojalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description) {
+    public GrahaluTab(String id, String grahalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description) {
         this.id = id;
-        this.poojalu_id = poojalu_id;
+        this.grahalu_id = grahalu_id;
         this.subcategory_id = subcategory_id;
         this.title = title;
         this.description = description;
@@ -21,12 +21,12 @@ public class PoojaluTab {
         this.id = id;
     }
 
-    public String getPoojalu_id() {
-        return poojalu_id;
+    public String getGrahalu_id() {
+        return grahalu_id;
     }
 
-    public void setPoojalu_id(String poojalu_id) {
-        this.poojalu_id = poojalu_id;
+    public void setGrahalu_id(String grahalu_id) {
+        this.grahalu_id = grahalu_id;
     }
 
     public String getSubcategory_id() {

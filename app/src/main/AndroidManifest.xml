@@ -59,6 +59,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NakshathraluActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GrahaluTabActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GrahaluSubMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PoojaluTabActivity"
             android:exported="false" />
         <activity

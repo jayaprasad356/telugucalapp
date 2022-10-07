@@ -6,33 +6,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.adapter.PoojaluSubMenuAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.GrahaluTabAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluTabAdapter;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
 
-public class PoojaluTabActivity extends AppCompatActivity {
+public class GrahaluTabActivity extends AppCompatActivity {
     TextView tvHead;
     String Head;
     RecyclerView recyclerView;
     Activity activity;
     DatabaseHelper databaseHelper;
     ImageView imgBack;
-    String subcategory_id,poojalu_id;
-    PoojaluTabAdapter poojaluTabAdapter;
+    String subcategory_id,grahalu_id;
+    GrahaluTabAdapter grahaluTabAdapter;
     TextView tvTitle,tvDescription;
     Session session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_poojalu_tab);
+        setContentView(R.layout.activity_grahalu_tab);
+
 
         tvHead = findViewById(R.id.tvHead);
         imgBack = findViewById(R.id.imgBack);
@@ -41,12 +42,12 @@ public class PoojaluTabActivity extends AppCompatActivity {
         tvDescription = findViewById(R.id.tvDescription);
         Head = getIntent().getStringExtra(Constant.TITLE);
         subcategory_id = getIntent().getStringExtra(Constant.SUBCATEGORY_ID);
-        activity = PoojaluTabActivity.this;
+        activity = GrahaluTabActivity.this;
         session = new Session(activity);
-        poojalu_id = session.getData(Constant.POOJALU_ID);
+        grahalu_id = session.getData(Constant.GRAHALU_ID);
         databaseHelper = new DatabaseHelper(activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
-        poojaluTabList();
+        grahaluTabList();
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,18 +58,19 @@ public class PoojaluTabActivity extends AppCompatActivity {
         tvHead.setText(Head);
     }
 
-    private void poojaluTabList()
+    private void grahaluTabList()
     {
-        if (databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id).size() !=0){
-            tvTitle.setText(databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id).get(0).getTitle());
-            tvDescription.setText(databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id).get(0).getDescription());
+        if (databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).size() !=0){
+            tvTitle.setText(databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).get(0).getTitle());
+            tvDescription.setText(databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).get(0).getDescription());
 
-            poojaluTabAdapter = new PoojaluTabAdapter(activity, databaseHelper.getPoojaluTabList(poojalu_id,subcategory_id));
-            recyclerView.setAdapter(poojaluTabAdapter);
+            grahaluTabAdapter = new GrahaluTabAdapter(activity, databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id));
+            recyclerView.setAdapter(grahaluTabAdapter);
         }
         else {
             recyclerView.setVisibility(View.GONE);
 
         }
+
     }
 }

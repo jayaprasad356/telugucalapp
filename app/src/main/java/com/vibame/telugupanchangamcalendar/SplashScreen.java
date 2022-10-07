@@ -137,7 +137,37 @@ public class SplashScreen extends AppCompatActivity {
                         for (int i = 0; i < jsonArray8.length(); i++) {
                             JSONObject jsonObject1 = jsonArray8.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                databaseHelper.AddToPoojaluTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.POOJALU_ID),jsonObject1.getString(Constant.SUBCATEGORY_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+                                databaseHelper.AddToPoojaluTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.POOJALU_ID),jsonObject1.getString(Constant.SUBCATEGORY_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION),jsonObject1.getString(Constant.SUB_TITLE),jsonObject1.getString(Constant.SUB_DESCRIPTION));
+                            } else {
+                                break;
+                            }
+                        }
+                        JSONArray jsonArray9 = object.getJSONArray(Constant.GRAHALU_LIST);
+
+                        for (int i = 0; i < jsonArray9.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray9.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToGrahalu(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.NAME),jsonObject1.getString(Constant.IMAGE));
+                            } else {
+                                break;
+                            }
+                        }
+                        JSONArray jsonArray10 = object.getJSONArray(Constant.GRAHALU_SUB_MENU_LIST);
+
+                        for (int i = 0; i < jsonArray10.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray10.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToGrahuluSubMenu(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.GRAHALU_ID),jsonObject1.getString(Constant.NAME),jsonObject1.getString(Constant.IMAGE));
+                            } else {
+                                break;
+                            }
+                        }
+                        JSONArray jsonArray11 = object.getJSONArray(Constant.GRAHALU_TAB_LIST);
+
+                        for (int i = 0; i < jsonArray11.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray11.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToGrahaluTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.GRAHALU_ID),jsonObject1.getString(Constant.SUBCATEGORY_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION),jsonObject1.getString(Constant.SUB_TITLE),jsonObject1.getString(Constant.SUB_DESCRIPTION));
                             } else {
                                 break;
                             }
