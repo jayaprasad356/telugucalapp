@@ -172,6 +172,16 @@ public class SplashScreen extends AppCompatActivity {
                                 break;
                             }
                         }
+                        JSONArray jsonArray12 = object.getJSONArray(Constant.NAKSHATRALU_LIST);
+
+                        for (int i = 0; i < jsonArray12.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray12.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToNakshatralu(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.NAME),jsonObject1.getString(Constant.IMAGE));
+                            } else {
+                                break;
+                            }
+                        }
                         Intent i = new Intent(activity, HomeActivity.class);
                         startActivity(i);
                         finish();

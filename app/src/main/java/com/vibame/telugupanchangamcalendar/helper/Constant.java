@@ -33,6 +33,7 @@ public class Constant {
     public static final String GRAHALU_LIST = "grahalu_list";
     public static final String GRAHALU_SUB_MENU_LIST = "grahalu_sub_menu_list";
     public static final String GRAHALU_TAB_LIST = "grahalu_tab_list";
+    public static final String NAKSHATRALU_LIST = "nakshatralu_list";
     public static final String TAB = "tab";
     public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";

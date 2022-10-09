@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.GrahaluSubMenuActivity;
+import com.vibame.telugupanchangamcalendar.activities.NakshathraluActivity;
 import com.vibame.telugupanchangamcalendar.activities.PoojaluSubMenuActivity;
 import com.vibame.telugupanchangamcalendar.activities.PoojaluTabActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Grahalu;
+import com.vibame.telugupanchangamcalendar.model.Nakshatharalu;
 import com.vibame.telugupanchangamcalendar.model.Poojalu;
 
 import java.util.ArrayList;
@@ -56,10 +58,17 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             @Override
             public void onClick(View view) {
                 session.setData(Constant.GRAHALU_ID,grahalu.getId());
-                Intent intent = new Intent(activity, GrahaluSubMenuActivity.class);
-                intent.putExtra(Constant.TITLE,grahalu.getName());
-                intent.putExtra(Constant.ID,grahalu.getId());
-                activity.startActivity(intent);
+                if (grahalu.getName().equals("Nakshatharalu")){
+                    Intent intent = new Intent(activity, NakshathraluActivity.class);
+                    activity.startActivity(intent);
+
+                }else {
+                    Intent intent = new Intent(activity, GrahaluSubMenuActivity.class);
+                    intent.putExtra(Constant.TITLE,grahalu.getName());
+                    intent.putExtra(Constant.ID,grahalu.getId());
+                    activity.startActivity(intent);
+                }
+
 
             }
         });
