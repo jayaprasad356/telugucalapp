@@ -35,7 +35,9 @@
             android:id="@+id/grahalu"
             android:title="6.Grahalu" />
 
-        <item android:title="7.Sankuna Sastharam" />
+        <item
+            android:id="@+id/bakyhigeethalu"
+            android:title="7.Bakthi Geethalu" />
 
         <item android:title="8.Namakaranam" />
 

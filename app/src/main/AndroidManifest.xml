@@ -59,6 +59,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AudioPlayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AudioLiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VideoLiveActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NakshathraluActivity"
             android:exported="false" />
         <activity
@@ -75,6 +84,9 @@
             android:exported="false" />
         <activity
             android:name=".HoroscopeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BakthiGeethaluActivity"
             android:exported="false" />
         <activity
             android:name=".RaasiDetailsActivity"
