@@ -1,12 +1,13 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Audio {
-    String id,name,video;
+    String id,title,image,lyrics;
 
-    public Audio(String id, String name, String video) {
+    public Audio(String id, String title, String image, String lyrics) {
         this.id = id;
-        this.name = name;
-        this.video = video;
+        this.title = title;
+        this.image = image;
+        this.lyrics = lyrics;
     }
 
     public String getId() {
@@ -17,20 +18,28 @@ public class Audio {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getVideo() {
-        return video;
+    public String getImage() {
+        return image;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLyrics() {
+        return lyrics;
+    }
+
+    public void setLyrics(String lyrics) {
+        this.lyrics = lyrics;
     }
 }
 

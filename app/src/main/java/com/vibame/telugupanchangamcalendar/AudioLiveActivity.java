@@ -23,12 +23,15 @@ public class AudioLiveActivity extends AppCompatActivity {
     AudioLiveAdapter audioLiveAdapter;
     ImageView imgBack;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_live);
 
         activity = AudioLiveActivity.this;
+
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -54,8 +57,8 @@ public class AudioLiveActivity extends AppCompatActivity {
 
         ArrayList<Audio> audio = new ArrayList<>();
 
-        Audio audio1  = new Audio("","Venkateshwara Swamy","");
-        Audio audio2  = new Audio("","Srisailam Swamy Temple","");
+        Audio audio1  = new Audio("","Venkateshwara Swamy","","");
+        Audio audio2  = new Audio("","Srisailam Swamy Temple","","");
 
         audio.add(audio1);
         audio.add(audio2);

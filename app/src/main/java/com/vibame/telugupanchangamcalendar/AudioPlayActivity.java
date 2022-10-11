@@ -23,6 +23,7 @@ import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,11 +38,12 @@ public class AudioPlayActivity extends AppCompatActivity {
     private ImageButton playIcon, forward, backward, loopBtn, shankhBtn;
     private SeekBar mSeekBar;
     private ViewPager2 viewPager2;
-    private TextView totTime, curTime;
+    private TextView totTime, curTime,tvTitle,tvTitle1;
     private int count = 1;
     private int setcount = 0;
     private int seekForwardTime = 10 * 1000; // default 5 second
     private int seekBackwardTime = 10 * 1000; // default 5 second
+    String Title;
 
     private String timer;
     private TextView lyricsText;
@@ -67,8 +69,14 @@ public class AudioPlayActivity extends AppCompatActivity {
         loopBtn =  findViewById(R.id.loopBtn);
         forward =  findViewById(R.id.forward);
         backward =  findViewById(R.id.backward);
+        tvTitle =  findViewById(R.id.tvTitle);
+        tvTitle1 =  findViewById(R.id.tvTitle1);
+        Title = getIntent().getStringExtra(Constant.AUDIO_TITLE);
 //        viewPager2 = findViewById(R.id.viewPager2);
 //        lyricsText =  findViewById(R.id.chalisaLyrics);
+
+        tvTitle.setText(Title);
+        tvTitle1.setText(Title);
 
         loadRequest();
 

@@ -19,6 +19,7 @@ public class Constant {
     public static final String PID = "pid";
     public static final String DATE = "date";
     public static final String TITLE = "title";
+    public static final String AUDIO_TITLE = "auduio_title";
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.AudioPlayActivity;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.Audio;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
@@ -41,11 +42,12 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final Audio audio1 = audio.get(position);
 
 
-        holder.tvName.setText(audio1.getName());
+        holder.tvName.setText(audio1.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AudioPlayActivity.class);
+                intent.putExtra(Constant.AUDIO_TITLE,audio1.getTitle());
                 activity.startActivity(intent);
             }
         });
