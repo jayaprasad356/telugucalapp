@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideoLiveAdapter;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Audio;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
@@ -22,6 +23,7 @@ public class AudioLiveActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AudioLiveAdapter audioLiveAdapter;
     ImageView imgBack;
+    DatabaseHelper databaseHelper;
 
 
     @Override
@@ -33,7 +35,7 @@ public class AudioLiveActivity extends AppCompatActivity {
 
 
 
-
+        databaseHelper = new DatabaseHelper(activity);
         recyclerView = findViewById(R.id.recyclerView);
         imgBack = findViewById(R.id.imgBack);
 
@@ -55,15 +57,14 @@ public class AudioLiveActivity extends AppCompatActivity {
     private void audiolive() {
 
 
-        ArrayList<Audio> audio = new ArrayList<>();
+        if (databaseHelper.getAudioList().size() !=0){
+            audioLiveAdapter = new AudioLiveAdapter(activity, databaseHelper.getAudioList());
+            recyclerView.setAdapter(audioLiveAdapter);
 
-        Audio audio1  = new Audio("","Venkateshwara Swamy","","");
-        Audio audio2  = new Audio("","Srisailam Swamy Temple","","");
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
 
-        audio.add(audio1);
-        audio.add(audio2);
-
-        audioLiveAdapter = new AudioLiveAdapter(activity,audio);
-        recyclerView.setAdapter(audioLiveAdapter);
+        }
     }
 }

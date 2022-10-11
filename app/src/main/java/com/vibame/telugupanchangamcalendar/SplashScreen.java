@@ -182,6 +182,28 @@ public class SplashScreen extends AppCompatActivity {
                                 break;
                             }
                         }
+
+                        JSONArray jsonArray13 = object.getJSONArray(Constant.VIDEO_LIST);
+
+                        for (int i = 0; i < jsonArray13.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray13.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToVideo(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.LINK));
+                            } else {
+                                break;
+                            }
+                        }
+
+                        JSONArray jsonArray14 = object.getJSONArray(Constant.AUDIO_LIST);
+
+                        for (int i = 0; i < jsonArray14.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray14.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToAudio(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
+                            } else {
+                                break;
+                            }
+                        }
                         Intent i = new Intent(activity, HomeActivity.class);
                         startActivity(i);
                         finish();

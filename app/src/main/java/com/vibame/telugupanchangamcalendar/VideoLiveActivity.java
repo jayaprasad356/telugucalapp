@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideoLiveAdapter;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class VideoLiveActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     VideoLiveAdapter videoLiveAdapter;
     ImageView imgBack;
+    DatabaseHelper databaseHelper;
 
 
     @Override
@@ -28,7 +31,7 @@ public class VideoLiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video_live);
         activity = VideoLiveActivity.this;
 
-
+        databaseHelper = new DatabaseHelper(activity);
         recyclerView = findViewById(R.id.recyclerView);
         imgBack = findViewById(R.id.imgBack);
 
@@ -50,15 +53,14 @@ public class VideoLiveActivity extends AppCompatActivity {
 
     private void videolive() {
 
-        ArrayList<Video> videos = new ArrayList<>();
+        if (databaseHelper.getVideoList().size() !=0){
+            videoLiveAdapter = new VideoLiveAdapter(activity, databaseHelper.getVideoList());
+            recyclerView.setAdapter(videoLiveAdapter);
 
-        Video video1  = new Video("","Venkateshwara Swamy","");
-        Video video2  = new Video("","Srisailam Swamy Temple","");
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
 
-        videos.add(video1);
-        videos.add(video2);
-
-        videoLiveAdapter = new VideoLiveAdapter(activity,videos);
-        recyclerView.setAdapter(videoLiveAdapter);
+        }
     }
 }

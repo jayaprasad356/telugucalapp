@@ -16,9 +16,12 @@ public class Constant {
     public static final String SUBCATEGORY_ID = "subcategory_id";
     public static final String NAME = "name";
     public static final String IMAGE =  "image";
+    public static final String LYRICS =  "lyrics";
+    public static final String AUDIO =  "audio";
     public static final String PID = "pid";
     public static final String DATE = "date";
     public static final String TITLE = "title";
+    public static final String LINK = "link";
     public static final String AUDIO_TITLE = "auduio_title";
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
@@ -35,6 +38,8 @@ public class Constant {
     public static final String GRAHALU_SUB_MENU_LIST = "grahalu_sub_menu_list";
     public static final String GRAHALU_TAB_LIST = "grahalu_tab_list";
     public static final String NAKSHATRALU_LIST = "nakshatralu_list";
+    public static final String VIDEO_LIST = "video_list";
+    public static final String AUDIO_LIST = "audio_list";
     public static final String TAB = "tab";
     public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";

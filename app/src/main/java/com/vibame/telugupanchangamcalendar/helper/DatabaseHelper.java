@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.vibame.telugupanchangamcalendar.model.Audio;
 import com.vibame.telugupanchangamcalendar.model.Festival;
 import com.vibame.telugupanchangamcalendar.model.Grahalu;
 import com.vibame.telugupanchangamcalendar.model.GrahaluSubMenu;
@@ -19,6 +20,7 @@ import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 import com.vibame.telugupanchangamcalendar.model.Poojalu;
 import com.vibame.telugupanchangamcalendar.model.PoojaluSubMenu;
 import com.vibame.telugupanchangamcalendar.model.PoojaluTab;
+import com.vibame.telugupanchangamcalendar.model.Video;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_GRAHALU_SUBMENU_NAME = "tblgrahalusubmenu";
     public static final String TABLE_GRAHALU_TAB = "tblgrahalutab";
     public static final String TABLE_NAKSHATRALU = "tblnakshatralu";
+    public static final String TABLE_VIDEO = "tblvideo";
+    public static final String TABLE_AUDIO = "tblaudio";
     public static final String KEY_ID = "pid";
     final String ID = "id";
     final String PID = "pid";
@@ -61,12 +65,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String PTID = "ptid";
     final String MTID = "mtid";
     final String TITLE = "title";
+    final String LINK = "link";
     final String DESCRIPTION = "description";
     final String SUB_TITLE = "sub_title";
     final String SUB_DESCRIPTION = "sub_description";
     final String PJID = "pjid";
     final String GHID = "ghid";
     final String NAME = "name";
+    final String LYRICS = "lyrics";
+    final String AUDIO = "audio";
     final String IMAGE = "image";
     final String PanchangamTableInfo = TABLE_PANCHANGAM_NAME + "(" + PID + " TEXT ," + DATE + " TEXT ," + SUNRISE + " TEXT ," + SUNSET
             + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT)";
@@ -81,6 +88,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String GrahaluSubMenuTableInfo = TABLE_GRAHALU_SUBMENU_NAME + "(" + ID + " TEXT ," + GHID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String GrahaluTabTableInfo = TABLE_GRAHALU_TAB + "(" + ID + " TEXT ," + GRAHULU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
     final String NakshatraluTableInfo = TABLE_NAKSHATRALU + "(" + ID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
+    final String VideoTableInfo = TABLE_VIDEO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + LINK + " TEXT)";
+    final String AudioTableInfo = TABLE_AUDIO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -100,6 +109,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + GrahaluSubMenuTableInfo);
         db.execSQL("CREATE TABLE " + GrahaluTabTableInfo);
         db.execSQL("CREATE TABLE " + NakshatraluTableInfo);
+        db.execSQL("CREATE TABLE " + VideoTableInfo);
+        db.execSQL("CREATE TABLE " + AudioTableInfo);
     }
 
     @Override
@@ -116,6 +127,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         replaceDataToNewTable(db, TABLE_GRAHALU_SUBMENU_NAME, GrahaluSubMenuTableInfo);
         replaceDataToNewTable(db, TABLE_GRAHALU_TAB, GrahaluTabTableInfo);
         replaceDataToNewTable(db, TABLE_NAKSHATRALU, NakshatraluTableInfo);
+        replaceDataToNewTable(db, TABLE_VIDEO, VideoTableInfo);
+        replaceDataToNewTable(db, TABLE_AUDIO, AudioTableInfo);
         onCreate(db);
     }
 
@@ -469,6 +482,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return count;
     }
+
+    @SuppressLint("Range")
+    public String CheckVideotemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_VIDEO + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_VIDEO + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
+    @SuppressLint("Range")
+    public String CheckAudiotemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_AUDIO + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_AUDIO + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
     @SuppressLint("Range")
     public String CheckPoojaluSubMenuItemExist(String id) {
         String count = "0";
@@ -724,6 +771,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return nakshatharalus;
     }
+    public ArrayList<Video> getVideoList() {
+        final ArrayList<Video> videos = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_VIDEO, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Video video = new Video(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(LINK)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                videos.add(video);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return videos;
+    }
+
+    public ArrayList<Audio> getAudioList() {
+        final ArrayList<Audio> audio = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_AUDIO, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Audio audio1 = new Audio(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)),cursor.getString(cursor.getColumnIndexOrThrow(LYRICS)),cursor.getString(cursor.getColumnIndexOrThrow(AUDIO)) );
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                audio.add(audio1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return audio;
+    }
+
     public void AddToPoojalu(String pjid, String name, String image) {
         try {
             if (!CheckPoojaluItemExist(pjid).equalsIgnoreCase("0")) {
@@ -880,6 +963,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void AddToVideo(String id, String title, String link) {
+        try {
+            if (!CheckVideotemExist(id).equalsIgnoreCase("0")) {
+                UpdateVideo(id,title,link);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(NAME, title);
+                values.put(IMAGE, link);
+                db.insert(TABLE_VIDEO, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void AddToAudio(String id, String title, String image,String lyrics,String audio) {
+        try {
+            if (!CheckAudiotemExist(id).equalsIgnoreCase("0")) {
+                UpdateAudio(id,title,image,lyrics, audio);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(NAME, title);
+                values.put(IMAGE, image);
+                values.put(LYRICS, lyrics);
+                values.put(AUDIO, audio);
+                db.insert(TABLE_AUDIO, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void UpdateGrahaluTab(String id, String grahalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -903,6 +1026,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(NAME, name);
         values.put(IMAGE, image);
         db.update(TABLE_NAKSHATRALU, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+
+    private void UpdateVideo(String id, String title, String link)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(NAME, title);
+        values.put(IMAGE, link);
+        db.update(TABLE_VIDEO, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+
+    private void UpdateAudio(String id, String title, String image,String lyrics ,String audio)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(NAME, title);
+        values.put(IMAGE, image);
+        values.put(LYRICS, lyrics);
+        values.put(AUDIO, audio);
+        db.update(TABLE_AUDIO, values, ID + " = ?", new String[]{id});
         db.close();
 
     }
