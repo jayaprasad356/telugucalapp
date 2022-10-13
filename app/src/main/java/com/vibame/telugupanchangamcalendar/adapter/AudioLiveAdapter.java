@@ -48,6 +48,8 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             public void onClick(View v) {
                 Intent intent = new Intent(activity, AudioPlayActivity.class);
                 intent.putExtra(Constant.AUDIO_TITLE,audio1.getTitle());
+                intent.putExtra(Constant.AUDIO,audio1.getAudio());
+                intent.putExtra(Constant.LYRICS,audio1.getLyrics());
                 activity.startActivity(intent);
             }
         });

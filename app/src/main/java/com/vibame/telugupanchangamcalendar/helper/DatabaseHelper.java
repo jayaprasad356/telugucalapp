@@ -14,6 +14,7 @@ import com.vibame.telugupanchangamcalendar.model.GrahaluSubMenu;
 import com.vibame.telugupanchangamcalendar.model.GrahaluTab;
 import com.vibame.telugupanchangamcalendar.model.Muhurtham;
 import com.vibame.telugupanchangamcalendar.model.MuhurthamTab;
+import com.vibame.telugupanchangamcalendar.model.NakTab;
 import com.vibame.telugupanchangamcalendar.model.Nakshatharalu;
 import com.vibame.telugupanchangamcalendar.model.Panchangam;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
@@ -43,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_GRAHALU_NAME = "tblgrahalu";
     public static final String TABLE_GRAHALU_SUBMENU_NAME = "tblgrahalusubmenu";
     public static final String TABLE_GRAHALU_TAB = "tblgrahalutab";
+    public static final String TABLE_NAK_TAB = "tblnaktab";
     public static final String TABLE_NAKSHATRALU = "tblnakshatralu";
     public static final String TABLE_VIDEO = "tblvideo";
     public static final String TABLE_AUDIO = "tblaudio";
@@ -53,6 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String MID = "mid";
     final String POOJALU_ID = "poojalu_id";
     final String GRAHULU_ID = "grahulu_id";
+    final String NAK_ID = "nak_id";
     final String SUBCATEGORY_ID = "subcategory_id";
     final String DATE = "date";
     final String SUNRISE = "sunrise";
@@ -90,6 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String NakshatraluTableInfo = TABLE_NAKSHATRALU + "(" + ID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String VideoTableInfo = TABLE_VIDEO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + LINK + " TEXT)";
     final String AudioTableInfo = TABLE_AUDIO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
+    final String NakTabTableInfo = TABLE_NAK_TAB + "(" + ID + " TEXT ," + NAK_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
         super(activity, DATABASE_NAME, null, DATABASE_VERSION);
@@ -109,8 +113,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + GrahaluSubMenuTableInfo);
         db.execSQL("CREATE TABLE " + GrahaluTabTableInfo);
         db.execSQL("CREATE TABLE " + NakshatraluTableInfo);
+        db.execSQL("CREATE TABLE " + NakTabTableInfo);
         db.execSQL("CREATE TABLE " + VideoTableInfo);
         db.execSQL("CREATE TABLE " + AudioTableInfo);
+
     }
 
     @Override
@@ -127,6 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         replaceDataToNewTable(db, TABLE_GRAHALU_SUBMENU_NAME, GrahaluSubMenuTableInfo);
         replaceDataToNewTable(db, TABLE_GRAHALU_TAB, GrahaluTabTableInfo);
         replaceDataToNewTable(db, TABLE_NAKSHATRALU, NakshatraluTableInfo);
+        replaceDataToNewTable(db, TABLE_NAK_TAB, NakTabTableInfo);
         replaceDataToNewTable(db, TABLE_VIDEO, VideoTableInfo);
         replaceDataToNewTable(db, TABLE_AUDIO, AudioTableInfo);
         onCreate(db);
@@ -467,6 +474,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
     @SuppressLint("Range")
+    public String CheckNakshatharaluTabItemExist(String id) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAK_TAB + " WHERE " + ID + " = ?", new String[]{id});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(ID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_NAK_TAB + " WHERE " + ID + " = ?", new String[]{id});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+    @SuppressLint("Range")
     public String CheckNakshatralutemExist(String id) {
         String count = "0";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -754,6 +777,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return grahaluTabs;
     }
+    public ArrayList<NakTab> getNakshatharaluTabList(String nak_id) {
+        final ArrayList<NakTab> nakTabs = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAK_TAB + " WHERE " + NAK_ID + " = ? ", new String[]{nak_id});
+        if (cursor.moveToFirst()) {
+            do {
+                NakTab nakTab = new NakTab(cursor.getString(cursor.getColumnIndexOrThrow(ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(NAK_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_TITLE)),cursor.getString(cursor.getColumnIndexOrThrow(SUB_DESCRIPTION)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                nakTabs.add(nakTab);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return nakTabs;
+    }
     public ArrayList<Nakshatharalu> getNakshatharaluList() {
         final ArrayList<Nakshatharalu> nakshatharalus = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -788,6 +829,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return videos;
     }
+    public int getVideoesCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_VIDEO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+    public int getAudiosCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_AUDIO;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
 
     public ArrayList<Audio> getAudioList() {
         final ArrayList<Audio> audio = new ArrayList<>();
@@ -797,7 +854,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do {
                 Audio audio1 = new Audio(cursor.getString(cursor.getColumnIndexOrThrow(ID)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
                         ,cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)),cursor.getString(cursor.getColumnIndexOrThrow(LYRICS)),cursor.getString(cursor.getColumnIndexOrThrow(AUDIO)) );
-                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
                 audio.add(audio1);
             } while (cursor.moveToNext());
 
@@ -944,6 +1000,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+    public void AddToNakshatharaluTab(String id, String nak_id, String title, String description,String sub_title,String sub_description) {
+        try {
+            if (!CheckNakshatharaluTabItemExist(id).equalsIgnoreCase("0")) {
+                UpdateNakshatharaluTab(id,nak_id,title,description,sub_title,sub_description);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(NAK_ID, nak_id);
+                values.put(TITLE, title);
+                values.put(DESCRIPTION, description);
+                values.put(SUB_TITLE, sub_title);
+                values.put(SUB_DESCRIPTION, sub_description);
+                db.insert(TABLE_NAK_TAB, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void AddToNakshatralu(String id, String name, String image) {
         try {
             if (!CheckNakshatralutemExist(id).equalsIgnoreCase("0")) {
@@ -971,8 +1048,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(ID, id);
-                values.put(NAME, title);
-                values.put(IMAGE, link);
+                values.put(TITLE, title);
+                values.put(LINK, link);
                 db.insert(TABLE_VIDEO, null, values);
                 db.close();
             }
@@ -990,7 +1067,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(ID, id);
-                values.put(NAME, title);
+                values.put(TITLE, title);
                 values.put(IMAGE, image);
                 values.put(LYRICS, lyrics);
                 values.put(AUDIO, audio);
@@ -1015,6 +1092,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(SUB_TITLE, sub_title);
         values.put(SUB_DESCRIPTION, sub_description);
         db.update(TABLE_GRAHALU_TAB, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+    private void UpdateNakshatharaluTab(String id, String nak_id, String title, String description, String sub_title, String sub_description)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(NAK_ID, nak_id);
+        values.put(TITLE, title);
+        values.put(DESCRIPTION, description);
+        values.put(SUB_TITLE, sub_title);
+        values.put(SUB_DESCRIPTION, sub_description);
+        db.update(TABLE_NAK_TAB, values, ID + " = ?", new String[]{id});
+        db.close();
+
+    }
+    private void UpdateNakTab(String id, String nak_id, String title, String description, String sub_title, String sub_description)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ID, id);
+        values.put(NAK_ID, nak_id);
+        values.put(TITLE, title);
+        values.put(DESCRIPTION, description);
+        values.put(SUB_TITLE, sub_title);
+        values.put(SUB_DESCRIPTION, sub_description);
+        db.update(TABLE_NAK_TAB, values, ID + " = ?", new String[]{id});
         db.close();
 
     }

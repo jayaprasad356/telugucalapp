@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -52,6 +53,7 @@ public class VideoLiveActivity extends AppCompatActivity {
     }
 
     private void videolive() {
+        Log.d("VIDEO_LIVE",databaseHelper.getVideoesCount() + "");
 
         if (databaseHelper.getVideoList().size() !=0){
             videoLiveAdapter = new VideoLiveAdapter(activity, databaseHelper.getVideoList());

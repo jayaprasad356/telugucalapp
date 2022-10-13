@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AudioPlayActivity">
 
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,23 +74,18 @@
                 android:layout_height="@dimen/_180sdp"
                 android:background="@drawable/god_pik"
                 />
+                <TextView
+                    android:id="@+id/tvLyrics"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:text=""
+                    android:gravity="center"
+                    android:scrollbars = "vertical"
+                    android:lineSpacingExtra="@dimen/_6sdp"
+                    android:textColor="@color/colorBlack"
+                    android:padding="@dimen/_10sdp"
+                    />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Shree Guru Charan Saroj Raj\n
-Nija Manu Mukur Sudhaari\n
-Barnau Raghuvar Bimal Jasu\n
-Jo Daayaku Phal Chaari\n
-Buddhi Heen Tanu Jaanike\n
-Sumirow Pavan Kumaar\n
-Bal Buddhi Bidya Dehu Mohi\n
-Harahu Kalesh Bikaar"
-                android:gravity="center"
-                android:lineSpacingExtra="@dimen/_6sdp"
-                android:textColor="@color/colorBlack"
-                android:padding="@dimen/_10sdp"
-                />
 
             </LinearLayout>
 
@@ -219,11 +210,12 @@ Harahu Kalesh Bikaar"
 
         </RelativeLayout>
 
-        <ImageButton
-            android:id="@+id/loopBtn"
+        <ImageView
+            android:id="@+id/imgLoop"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:background="@drawable/b_loop"
+            android:src="@drawable/ic_baseline_loop_24"
+
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_10sdp"/>
 

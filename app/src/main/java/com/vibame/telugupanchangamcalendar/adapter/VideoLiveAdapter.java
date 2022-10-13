@@ -1,6 +1,8 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +44,16 @@ public class VideoLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final Video video = videos.get(position);
 
 
-        holder.tvName.setText(video.getName());
+        holder.tvName.setText(video.getTitle());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = video.getLink();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                activity.startActivity(i);
+            }
+        });
 
     }
 

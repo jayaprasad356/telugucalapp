@@ -1,6 +1,7 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.activities.NakshathraluTabActivity;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Nakshatharalu;
@@ -46,6 +49,15 @@ public class NakshatharaluAdapter extends RecyclerView.Adapter<RecyclerView.View
         final Nakshatharalu nakshatharalu = nakshatharalus.get(position);
         holder.tvName.setText(nakshatharalu.getName());
         Glide.with(activity).load(nakshatharalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, NakshathraluTabActivity.class);
+                intent.putExtra(Constant.NAKSHATRALU_ID,nakshatharalu.getId());
+                intent.putExtra(Constant.TITLE,nakshatharalu.getName());
+                activity.startActivity(intent);
+            }
+        });
 
     }
 

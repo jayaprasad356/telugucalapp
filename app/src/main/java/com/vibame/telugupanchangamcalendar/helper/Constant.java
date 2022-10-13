@@ -13,6 +13,7 @@ public class Constant {
     public static final String MUHURTHAM_ID = "muhurtham_id";
     public static final String POOJALU_ID = "poojalu_id";
     public static final String GRAHALU_ID = "grahalu_id";
+    public static final String NAKSHATRALU_ID = "nakshatralu_id";
     public static final String SUBCATEGORY_ID = "subcategory_id";
     public static final String NAME = "name";
     public static final String IMAGE =  "image";
@@ -37,6 +38,7 @@ public class Constant {
     public static final String GRAHALU_LIST = "grahalu_list";
     public static final String GRAHALU_SUB_MENU_LIST = "grahalu_sub_menu_list";
     public static final String GRAHALU_TAB_LIST = "grahalu_tab_list";
+    public static final String NAKSHATRALU_TAB_LIST = "nakshatralu_tab_list";
     public static final String NAKSHATRALU_LIST = "nakshatralu_list";
     public static final String VIDEO_LIST = "video_list";
     public static final String AUDIO_LIST = "audio_list";

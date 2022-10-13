@@ -27,7 +27,7 @@
             android:id="@+id/tvContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:textAlignment="center"
             android:fontFamily="@font/sree"
             android:textColor="@color/colorBlack"

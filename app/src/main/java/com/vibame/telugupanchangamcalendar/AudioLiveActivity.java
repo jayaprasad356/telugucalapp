@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -55,6 +56,8 @@ public class AudioLiveActivity extends AppCompatActivity {
     }
 
     private void audiolive() {
+        Log.d("AUDIO_COUNT",databaseHelper.getAudiosCount() + "");
+
 
 
         if (databaseHelper.getAudioList().size() !=0){
