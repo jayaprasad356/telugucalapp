@@ -39,7 +39,11 @@
             android:id="@+id/bakyhigeethalu"
             android:title="7.Bakthi Geethalu" />
 
-        <item android:title="8.Namakaranam" />
+        <item
+            android:id="@+id/bakthini"
+            android:title="8.Bakthini Chatudham"
+
+            />
 
 
         <item android:title="9.Sissu Janma Padha" />

@@ -59,6 +59,24 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".VideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrendingVideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VideoTabActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TradingImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageTabActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NakshathraluTabActivity"
             android:exported="false" />
         <activity

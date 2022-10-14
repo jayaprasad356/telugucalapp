@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiGeethaluFragment;
+import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.GrahaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
@@ -94,6 +95,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.bakyhigeethalu: {
                 fragment = new BakthiGeethaluFragment();
+                break;
+            }
+
+            case R.id.bakthini: {
+                fragment = new BakthiniFragment();
                 break;
             }
 
