@@ -25,6 +25,7 @@
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_120sdp"
                 android:background="@drawable/god_pik"
+                android:scaleType="fitXY"
                />
 
         </androidx.cardview.widget.CardView>

@@ -45,13 +45,14 @@ public class ImageTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         final ImageTab imageTab = imageTabs.get(position);
 
 
-        holder.tvTitle.setText(imageTab.getTitle());
+        holder.tvTitle.setText(imageTab.getName());
         Glide.with(activity).load(imageTab.getImage()).into(holder.imgGod);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ImagesActivity.class);
+                intent.putExtra(Constant.ID,imageTab.getId());
                 activity.startActivity(intent);
             }
         });

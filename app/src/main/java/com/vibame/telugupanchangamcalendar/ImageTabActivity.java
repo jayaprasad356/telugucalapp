@@ -1,5 +1,8 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -12,12 +15,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ImageTabActivity extends AppCompatActivity {
 
@@ -72,20 +82,35 @@ public class ImageTabActivity extends AppCompatActivity {
 
     private void images() {
 
-        ArrayList<ImageTab> imageTabs = new ArrayList<>();
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<ImageTab> imageTabs = new ArrayList<>();
 
-        ImageTab imageTab1 = new ImageTab("","Good Morning","");
-        ImageTab imageTab2 = new ImageTab("","Good Morning","");
-        ImageTab imageTab3 = new ImageTab("","Good Morning","");
-        ImageTab imageTab4 = new ImageTab("","Good Morning","");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                ImageTab group = g.fromJson(jsonObject1.toString(), ImageTab.class);
+                                imageTabs.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        imageTabAdapter = new ImageTabAdapter(activity,imageTabs);
+                        recyclerView.setAdapter(imageTabAdapter);
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, IMAGE_URL,params,true);
 
-        imageTabs.add(imageTab1);
-        imageTabs.add(imageTab2);
-        imageTabs.add(imageTab3);
-        imageTabs.add(imageTab4);
 
-        imageTabAdapter = new ImageTabAdapter(activity,imageTabs);
-        recyclerView.setAdapter(imageTabAdapter);
 
 
     }

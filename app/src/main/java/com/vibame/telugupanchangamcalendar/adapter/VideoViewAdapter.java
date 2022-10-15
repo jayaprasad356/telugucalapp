@@ -1,12 +1,17 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,6 +26,7 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     final Activity activity;
     ArrayList<VideosView> videosViews;
+    boolean like = false;
 
     public VideoViewAdapter(Activity activity, ArrayList<VideosView> videosViews) {
         this.activity = activity;
@@ -42,6 +48,25 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         Glide.with(activity).load(videosView.getImage()).into(holder.imgGod);
+//        holder.tvlikebtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//
+//            public void onClick(View v) {
+//                if(like){
+//                    like = false;
+//
+//                    holder.tvlikebtn.setBackground(activity.getResources().getDrawable());
+//
+//                }
+//                else {
+//                    like = true;
+//                    holder.tvlikebtn.setBackground(activity.getResources().getDrawable(R.drawable.ic_baseline_favorite_24));
+//
+//                }
+//
+//
+//            }
+//        });
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -65,10 +90,12 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgGod;
+        final TextView tvlikebtn;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
 
             imgGod = itemView.findViewById(R.id.imgGod);
+            tvlikebtn = itemView.findViewById(R.id.tvlikebtn);
 
         }
     }

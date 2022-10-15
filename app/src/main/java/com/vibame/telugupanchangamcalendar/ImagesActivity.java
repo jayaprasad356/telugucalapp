@@ -1,5 +1,9 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_LIST_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,10 +14,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
+import com.vibame.telugupanchangamcalendar.model.ImageTab;
 import com.vibame.telugupanchangamcalendar.model.ImagesView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ImagesActivity extends AppCompatActivity {
 
@@ -21,6 +35,8 @@ public class ImagesActivity extends AppCompatActivity {
     Activity activity;
     ImageView imgBack;
     ImageViewAdapter imageViewAdapter;
+    Session session;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +45,7 @@ public class ImagesActivity extends AppCompatActivity {
 
 
         activity = ImagesActivity.this;
+        session = new Session(activity);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -56,20 +73,37 @@ public class ImagesActivity extends AppCompatActivity {
     private void images() {
 
 
-        ArrayList<ImagesView> imagesViews = new ArrayList<>();
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.IMAGE_CATEGORY_ID,"13");
 
-        ImagesView imageTab1 = new ImagesView("","");
-        ImagesView imageTab2 = new ImagesView("","");
-        ImagesView imageTab3 = new ImagesView("","");
-        ImagesView imageTab4 = new ImagesView("","");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<ImagesView> imagesViews = new ArrayList<>();
 
-        imagesViews.add(imageTab1);
-        imagesViews.add(imageTab2);
-        imagesViews.add(imageTab3);
-        imagesViews.add(imageTab4);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                ImagesView group = g.fromJson(jsonObject1.toString(),ImagesView.class);
+                                imagesViews.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        imageViewAdapter = new ImageViewAdapter(activity,imagesViews);
+                        recyclerView.setAdapter(imageViewAdapter);
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, IMAGE_LIST_URL,params,true);
 
-        imageViewAdapter = new ImageViewAdapter(activity,imagesViews);
-        recyclerView.setAdapter(imageViewAdapter);
+
 
     }
 }

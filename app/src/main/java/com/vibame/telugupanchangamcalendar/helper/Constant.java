@@ -1,15 +1,18 @@
 package com.vibame.telugupanchangamcalendar.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
-    //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
+    //public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
+    public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
     public static final String HOROSCOPE_URL = BaseUrl + "horoscope.php";
+    public static final String IMAGE_URL = BaseUrl + "images-category.php";
+    public static final String IMAGE_LIST_URL = BaseUrl + "images-list.php";
 
     public static final String ID = "id";
     public static final String PANCHANGAM_ID = "panchangam_id";
+    public static final String IMAGE_CATEGORY_ID = "image_category_id";
     public static final String MUHURTHAM_ID = "muhurtham_id";
     public static final String POOJALU_ID = "poojalu_id";
     public static final String GRAHALU_ID = "grahalu_id";
