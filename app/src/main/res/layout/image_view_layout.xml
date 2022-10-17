@@ -40,6 +40,7 @@
             >
 
             <TextView
+                android:id="@+id/tvDownload"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +52,7 @@
                 android:drawableTop="@drawable/ic_baseline_download_24"
                 />
             <TextView
+                android:id="@+id/tvShare"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,17 +63,35 @@
                 android:textColor="@color/colorBlack"
                 android:drawableTop="@drawable/ic_baseline_share_24"
                 />
-            <TextView
+
+
+            <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Like"
-                android:textAlignment="center"
-                android:textSize="@dimen/_8sdp"
-                android:textStyle="bold"
-                android:textColor="@color/colorBlack"
-                android:drawableTop="@drawable/ic_baseline_favorite_24"
-                />
+                android:orientation="vertical"
+                >
+
+                <ImageButton
+                    android:id="@+id/imgbtnLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_favorite_24"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Like"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    />
+
+
+            </LinearLayout>
 
 
 

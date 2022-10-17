@@ -74,7 +74,7 @@ public class ImagesActivity extends AppCompatActivity {
 
 
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.IMAGE_CATEGORY_ID,"13");
+        params.put(Constant.IMAGE_CATEGORY_ID,"5");
 
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {

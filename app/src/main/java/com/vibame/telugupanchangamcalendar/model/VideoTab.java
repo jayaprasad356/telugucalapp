@@ -1,11 +1,11 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class VideoTab {
-    String id,title,image;
+    String id,name,image;
 
-    public VideoTab(String id, String title, String image) {
+    public VideoTab(String id, String name, String image) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.image = image;
     }
 
@@ -17,12 +17,12 @@ public class VideoTab {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getImage() {

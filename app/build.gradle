@@ -61,4 +61,42 @@ dependencies {
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
 
 
+    // dependency for exoplayer
+
+    implementation 'com.google.android.exoplayer:exoplayer:r2.4.0'
+
+// for core support in exoplayer.
+
+    implementation 'com.google.android.exoplayer:exoplayer-core:r2.4.0'
+
+// for adding dash support in our exoplayer.
+
+    implementation 'com.google.android.exoplayer:exoplayer-dash:r2.4.0'
+
+// for adding hls support in exoplayer.
+
+    implementation 'com.google.android.exoplayer:exoplayer-hls:r2.4.0'
+
+// for smooth streaming of video in our exoplayer.
+
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:r2.4.0'
+// for generating default ui of exoplayer
+
+    implementation 'com.google.android.exoplayer:exoplayer-ui:r2.4.0'
+    implementation 'com.artjimlop:altex-image-downloader:0.0.4'
+
+
+
+    //dexter permissions
+    implementation "com.karumi:dexter:6.2.3"
+
+    // circular imageview
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+
+   //Image download
+    implementation 'com.artjimlop:altex-image-downloader:0.0.4'
+
+
+
 }

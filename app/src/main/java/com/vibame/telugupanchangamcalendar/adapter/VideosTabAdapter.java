@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.ImagesActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.VideosActivity;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
 import com.vibame.telugupanchangamcalendar.model.VideoTab;
 
@@ -44,13 +45,14 @@ public class VideosTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final VideoTab videoTab = videoTabs.get(position);
 
 
-        holder.tvTitle.setText(videoTab.getTitle());
+        holder.tvTitle.setText(videoTab.getName());
         Glide.with(activity).load(videoTab.getImage()).into(holder.imgGod);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, VideosActivity.class);
+                intent.putExtra(Constant.ID,videoTab.getId());
                 activity.startActivity(intent);
             }
         });

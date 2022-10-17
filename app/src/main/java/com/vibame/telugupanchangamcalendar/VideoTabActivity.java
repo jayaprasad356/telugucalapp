@@ -1,5 +1,9 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.VIDEO_URL;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -12,12 +16,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideosTabAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
 import com.vibame.telugupanchangamcalendar.model.VideoTab;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class VideoTabActivity extends AppCompatActivity {
 
@@ -72,19 +83,38 @@ public class VideoTabActivity extends AppCompatActivity {
 
     private void videos() {
 
-        ArrayList<VideoTab> videoTabs = new ArrayList<>();
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<VideoTab> videoTabs = new ArrayList<>();
 
-        VideoTab imageTab1 = new VideoTab("","Good Morning","");
-        VideoTab imageTab2 = new VideoTab("","Good Morning","");
-        VideoTab imageTab3 = new VideoTab("","Good Morning","");
-        VideoTab imageTab4 = new VideoTab("","Good Morning","");
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                VideoTab group = g.fromJson(jsonObject1.toString(), VideoTab.class);
+                                videoTabs.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        videosTabAdapter = new VideosTabAdapter(activity,videoTabs);
+                        recyclerView.setAdapter(videosTabAdapter);
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, VIDEO_URL,params,true);
 
-        videoTabs.add(imageTab1);
-        videoTabs.add(imageTab2);
-        videoTabs.add(imageTab3);
-        videoTabs.add(imageTab4);
 
-        videosTabAdapter = new VideosTabAdapter(activity,videoTabs);
-        recyclerView.setAdapter(videosTabAdapter);
+
+
+
+
     }
 }

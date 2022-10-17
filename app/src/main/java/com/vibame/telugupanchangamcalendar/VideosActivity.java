@@ -1,5 +1,10 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_LIST_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.VIDEO_LIST;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.VIDEO_LIST_URL;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,11 +15,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideoViewAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.model.ImagesView;
+import com.vibame.telugupanchangamcalendar.model.VideoTab;
 import com.vibame.telugupanchangamcalendar.model.VideosView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class VideosActivity extends AppCompatActivity {
 
@@ -54,19 +68,36 @@ public class VideosActivity extends AppCompatActivity {
     }
 
     private void videos() {
-        ArrayList<VideosView> videosViews = new ArrayList<>();
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.VIDEO_CATEGORY_ID,"1");
 
-        VideosView imageTab1 = new VideosView("","");
-        VideosView imageTab2 = new VideosView("","");
-        VideosView imageTab3 = new VideosView("","");
-        VideosView imageTab4 = new VideosView("","");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<VideosView> videosViews = new ArrayList<>();
 
-        videosViews.add(imageTab1);
-        videosViews.add(imageTab2);
-        videosViews.add(imageTab3);
-        videosViews.add(imageTab4);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                VideosView group = g.fromJson(jsonObject1.toString(),VideosView.class);
+                                videosViews.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        videoViewAdapter = new VideoViewAdapter(activity,videosViews);
+                        recyclerView.setAdapter(videoViewAdapter);
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, VIDEO_LIST_URL,params,true);
 
-        videoViewAdapter = new VideoViewAdapter(activity,videosViews);
-        recyclerView.setAdapter(videoViewAdapter);
+
     }
 }
