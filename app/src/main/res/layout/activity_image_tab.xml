@@ -74,9 +74,10 @@
 
 
             <ImageView
+                android:id="@+id/imgTrend"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_80sdp"
-                android:background="@drawable/god_pik" />
+                android:layout_height="@dimen/_130sdp"
+                />
 
                 <TextView
                     android:layout_width="wrap_content"

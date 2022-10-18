@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,23 +55,17 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         Glide.with(activity).load(videosView.getVideo()).into(holder.imgGod);
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, PlayVideoActivity.class);
-                intent.putExtra("videoUrl",videosView.getVideo());
-                activity.startActivity(intent);
-            }
+        Log.d("VIDEO_VIEW",videosView.getVideo());
+        holder.tvTitle.setText(videosView.getName());
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(activity, PlayVideoActivity.class);
+            intent.putExtra("videoUrl",videosView.getVideo());
+            activity.startActivity(intent);
         });
-        holder.cartPlaybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, PlayVideoActivity.class);
-                intent.putExtra("videoUrl",videosView.getVideo());
-                activity.startActivity(intent);
-            }
+        holder.cartPlaybtn.setOnClickListener(v -> {
+            Intent intent = new Intent(activity, PlayVideoActivity.class);
+            intent.putExtra("videoUrl",videosView.getVideo());
+            activity.startActivity(intent);
         });
         holder.tvDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +130,7 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgGod;
-        final  TextView tvDownload,tvShare;
+        final  TextView tvDownload,tvShare,tvTitle;
         final ImageButton imgbtnLike;
         final ImageButton cartPlaybtn;
         public ExploreItemHolder(@NonNull View itemView) {
@@ -144,6 +139,7 @@ public class VideoViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             tvDownload = itemView.findViewById(R.id.tvDownload);
             imgbtnLike = itemView.findViewById(R.id.imgbtnLike);
             tvShare = itemView.findViewById(R.id.tvShare);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
             cartPlaybtn = itemView.findViewById(R.id.cartPlaybtn);
 
 

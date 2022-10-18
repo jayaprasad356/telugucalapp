@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:text="Videos"
+                android:text="Trending Videos"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_18sdp" />
 
@@ -67,7 +67,6 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/l1"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_5sdp"
             android:layout_gravity="center" />

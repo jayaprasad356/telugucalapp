@@ -43,21 +43,16 @@
 
 
         <EditText
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_10sdp"
+            android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
             android:background="@drawable/bg_rasi"
             android:backgroundTint="@color/colorWhite"
-            android:padding="@dimen/_10sdp"
-            android:hint="Search Videos"
             android:drawableEnd="@drawable/ic_baseline_search_24"
-            />
-
-
-
-
-
+            android:hint="Search Videos"
+            android:padding="@dimen/_10sdp" />
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -65,9 +60,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/l1"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_10sdp"
-            android:layout_gravity="center" />
+            android:layout_marginVertical="@dimen/_10sdp" />
 
 
     </LinearLayout>

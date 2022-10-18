@@ -74,7 +74,7 @@
             android:name=".ImagesActivity"
             android:exported="false" />
         <activity
-            android:name=".TradingImageActivity"
+            android:name=".TrendingImageActivity"
             android:exported="false" />
         <activity
             android:name=".ImageTabActivity"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TradingImageActivity"
+    tools:context=".TrendingImageActivity"
     android:background="#F1EDED">
 
 
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:text="images"
+                android:text="Trending images"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_18sdp" />
 

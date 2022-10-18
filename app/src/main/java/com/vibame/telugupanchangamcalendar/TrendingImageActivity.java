@@ -1,6 +1,8 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_LIST_URL;
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.TRENDING_IMAGES_LIST_URL;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,11 +16,9 @@ import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
-import com.vibame.telugupanchangamcalendar.adapter.VideoViewAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImagesView;
-import com.vibame.telugupanchangamcalendar.model.VideosView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,21 +26,22 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TrendingVideosActivity extends AppCompatActivity {
+public class TrendingImageActivity extends AppCompatActivity {
 
 
     RecyclerView recyclerView;
     Activity activity;
     ImageView imgBack;
-    VideoViewAdapter videoViewAdapter;
+    ImageViewAdapter imageViewAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trending_videos);
+        setContentView(R.layout.activity_trending_image);
 
-        activity = TrendingVideosActivity.this;
+
+        activity = TrendingImageActivity.this;
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -56,15 +57,17 @@ public class TrendingVideosActivity extends AppCompatActivity {
         });
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(gridLayoutManager);
 
 
-       videos();
+
+        images();
+
     }
 
-    private void videos() {
+    private void images() {
+
+
         HashMap<String,String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
@@ -73,24 +76,27 @@ public class TrendingVideosActivity extends AppCompatActivity {
                     if(jsonObject.getBoolean(SUCCESS)){
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-                        ArrayList<VideosView> videosViews = new ArrayList<>();
+                        ArrayList<ImagesView> imagesViews = new ArrayList<>();
+
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                VideosView group = g.fromJson(jsonObject1.toString(),VideosView.class);
-                                videosViews.add(group);
+                                ImagesView group = g.fromJson(jsonObject1.toString(),ImagesView.class);
+                                imagesViews.add(group);
                             } else {
                                 break;
                             }
                         }
-                        videoViewAdapter = new VideoViewAdapter(activity,videosViews);
-                        recyclerView.setAdapter(videoViewAdapter);
+                        imageViewAdapter = new ImageViewAdapter(activity,imagesViews);
+                        recyclerView.setAdapter(imageViewAdapter);
                     }
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.TRENDING_VIDEOS_LIST_URL,params,true);
+        },activity, Constant.TRENDING_IMAGES_LIST_URL,params,true);
 
     }
+
+
 }

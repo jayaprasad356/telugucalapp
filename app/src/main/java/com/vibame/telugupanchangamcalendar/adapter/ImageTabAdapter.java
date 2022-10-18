@@ -52,7 +52,8 @@ public class ImageTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ImagesActivity.class);
-                intent.putExtra(Constant.ID,imageTab.getId());
+                intent.putExtra(Constant.IMAGE_CATEGORY_ID,imageTab.getId());
+                intent.putExtra(Constant.NAME,imageTab.getName());
                 activity.startActivity(intent);
             }
         });

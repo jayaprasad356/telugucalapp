@@ -1,7 +1,11 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_LIST_URL;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +19,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.artjimlop.altex.AltexImageDownloader;
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
 import com.vibame.telugupanchangamcalendar.model.ImagesView;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -54,6 +65,7 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             public void onClick(View v) {
                 AltexImageDownloader.writeToDisk(activity,imagesView.getImage() , "IMAGES");
                 Toast.makeText(activity, "Image Donloading...", Toast.LENGTH_SHORT).show();
+                downloadCountApi(imagesView.getId());
             }
         });
         holder.imgbtnLike.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +80,7 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 }
 
                 else {
-
                     like = true;
-
                     holder.imgbtnLike.setBackgroundResource(R.drawable.ic_filled_heart_filled);
 
 
@@ -84,21 +94,19 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             }
         });
-        holder.tvShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /*Create an ACTION_SEND Intent*/
-                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-                /*This will be the actual content you wish you share.*/
-                String shareBody = imagesView.getImage();
-                /*The type of the content is text, obviously.*/
-                intent.setType("text/plain");
-                /*Applying information Subject and Body.*/
-                intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Share");
-                intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                /*Fire!*/
-                activity.startActivity(Intent.createChooser(intent, "Share"));
-            }
+        holder.tvTitle.setText(imagesView.getName());
+        holder.tvShare.setOnClickListener(v -> {
+            /*Create an ACTION_SEND Intent*/
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            /*This will be the actual content you wish you share.*/
+            String shareBody = imagesView.getImage();
+            /*The type of the content is text, obviously.*/
+            intent.setType("text/plain");
+            /*Applying information Subject and Body.*/
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Share");
+            intent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            /*Fire!*/
+            activity.startActivity(Intent.createChooser(intent, "Share"));
         });
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +122,28 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     }
 
+    private void downloadCountApi(String id)
+    {
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.IMAGE_ID,id);
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        Log.d("Image_download","yes");
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.DOWNLOADIMAGECOUNT_URL,params,false);
+
+
+
+    }
+
     @Override
     public int getItemCount()
     {
@@ -123,7 +153,7 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
         final ImageView imgGod;
-        final  TextView tvDownload,tvShare;
+        final  TextView tvDownload,tvShare,tvTitle;
         final ImageButton imgbtnLike;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
@@ -131,6 +161,7 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             imgGod = itemView.findViewById(R.id.imgGod);
             tvDownload = itemView.findViewById(R.id.tvDownload);
             imgbtnLike = itemView.findViewById(R.id.imgbtnLike);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
             tvShare = itemView.findViewById(R.id.tvShare);
 
         }

@@ -13,9 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideosTabAdapter;
@@ -37,18 +40,14 @@ public class VideoTabActivity extends AppCompatActivity {
     ImageView imgBack;
     VideosTabAdapter videosTabAdapter;
     CardView cardTradingImage;
+    ImageView imgTrend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_tab);
-
-
         activity = VideoTabActivity.this;
-
-
-
-
+        imgTrend = findViewById(R.id.imgTrend);
         recyclerView = findViewById(R.id.recyclerView);
         imgBack = findViewById(R.id.imgBack);
         cardTradingImage = findViewById(R.id.cardTradingImage);
@@ -78,8 +77,32 @@ public class VideoTabActivity extends AppCompatActivity {
 
 
         videos();
+        trendingVideoList();
 
     }
+    private void trendingVideoList()
+    {
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            Log.d("VIDEO_TREND",response);
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+
+                        String image = jsonArray.getJSONObject(0).getString(Constant.VIDEO);
+                        Glide.with(activity).load(image).into(imgTrend);
+
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.TRENDING_VIDEOS_LIST_URL,params,false);
+
+    }
+
 
     private void videos() {
 

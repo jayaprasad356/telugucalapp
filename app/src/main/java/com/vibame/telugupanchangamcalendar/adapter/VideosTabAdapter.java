@@ -52,7 +52,8 @@ public class VideosTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, VideosActivity.class);
-                intent.putExtra(Constant.ID,videoTab.getId());
+                intent.putExtra(Constant.VIDEO_CATEGORY_ID,videoTab.getId());
+                intent.putExtra(Constant.NAME,videoTab.getName());
                 activity.startActivity(intent);
             }
         });

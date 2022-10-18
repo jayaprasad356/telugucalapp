@@ -15,17 +15,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
-import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
+import com.vibame.telugupanchangamcalendar.model.ImagesView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -36,19 +37,15 @@ public class ImageTabActivity extends AppCompatActivity {
     ImageView imgBack;
     ImageTabAdapter imageTabAdapter;
     CardView cardTradingImage;
+    ImageView imgTrend;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_tab);
-
-
+        imgTrend = findViewById(R.id.imgTrend);
         activity = ImageTabActivity.this;
-
-
-
-
         recyclerView = findViewById(R.id.recyclerView);
         imgBack = findViewById(R.id.imgBack);
         cardTradingImage = findViewById(R.id.cardTradingImage);
@@ -58,7 +55,7 @@ public class ImageTabActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(activity,TradingImageActivity.class);
+                Intent intent = new Intent(activity, TrendingImageActivity.class);
                 startActivity(intent);
 
             }
@@ -78,6 +75,29 @@ public class ImageTabActivity extends AppCompatActivity {
 
 
         images();
+        trendingImageList();
+    }
+
+    private void trendingImageList()
+    {
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+
+                        String image = jsonArray.getJSONObject(0).getString(Constant.IMAGE);
+                        Glide.with(activity).load(image).into(imgTrend);
+
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.TRENDING_IMAGES_LIST_URL,params,false);
+
     }
 
     private void images() {

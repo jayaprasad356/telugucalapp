@@ -42,6 +42,7 @@
         </LinearLayout>
 
         <EditText
+            android:id="@+id/etSearch"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_10sdp"
             android:layout_width="match_parent"

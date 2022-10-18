@@ -11,8 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageTabAdapter;
@@ -36,6 +40,10 @@ public class ImagesActivity extends AppCompatActivity {
     ImageView imgBack;
     ImageViewAdapter imageViewAdapter;
     Session session;
+    EditText etSearch;
+    String ImageCategoryId;
+    String Title;
+    TextView tvTitle;
 
 
     @Override
@@ -49,7 +57,12 @@ public class ImagesActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.recyclerView);
+        etSearch = findViewById(R.id.etSearch);
         imgBack = findViewById(R.id.imgBack);
+        tvTitle = findViewById(R.id.tvTitle);
+        ImageCategoryId = getIntent().getStringExtra(Constant.IMAGE_CATEGORY_ID);
+        Title = getIntent().getStringExtra(Constant.NAME);
+        tvTitle.setText(Title);
 
 
 
@@ -65,17 +78,78 @@ public class ImagesActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(gridLayoutManager);
 
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!editable.toString().equals("")){
+                    searchImage(editable.toString());
+
+                }
+
+            }
+        });
+
 
 
         images();
+    }
+
+    private void searchImage(String s)
+    {
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.IMAGE_CATEGORY_ID,ImageCategoryId);
+        params.put(Constant.IMAGE,s);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<ImagesView> imagesViews = new ArrayList<>();
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                ImagesView group = g.fromJson(jsonObject1.toString(),ImagesView.class);
+                                imagesViews.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        imageViewAdapter = new ImageViewAdapter(activity,imagesViews);
+                        recyclerView.setAdapter(imageViewAdapter);
+                    }else {
+                        ArrayList<ImagesView> imagesViews = new ArrayList<>();
+                        imageViewAdapter = new ImageViewAdapter(activity,imagesViews);
+                        recyclerView.setAdapter(imageViewAdapter);
+
+
+                    }
+
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.SEARCH_IMAGE_URL,params,true);
+
+
     }
 
     private void images() {
 
 
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.IMAGE_CATEGORY_ID,"5");
-
+        params.put(Constant.IMAGE_CATEGORY_ID,ImageCategoryId);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
@@ -102,8 +176,6 @@ public class ImagesActivity extends AppCompatActivity {
                 }
             }
         },activity, IMAGE_LIST_URL,params,true);
-
-
 
     }
 }
