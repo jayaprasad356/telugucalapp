@@ -1,4 +1,4 @@
-package com.vibame.telugupanchangamcalendar;
+package com.vibame.telugupanchangamcalendar.activities;
 
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 
@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.GowriPanchangamActivity;
+import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GowriAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
@@ -28,23 +30,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GowriPanchangamActivity extends AppCompatActivity {
-
+public class HoraChakramActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Activity activity;
     GowriAdapter gowriAdapter;
     ImageButton ibNextYear,ibPreviousYear;
     TextView tvMonday,tvTuesday,tvWednesday, tvThursday,tvFriday,tvSaturday,tvSunday,tvYear;
-    int Year = 2022;
     ImageView imgBack;
-
+    int Year = 2022;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gowri_panchangam);
+        setContentView(R.layout.activity_hora_chakram);
 
-        activity = GowriPanchangamActivity.this;
+        activity = HoraChakramActivity.this;
 
         recyclerView = findViewById(R.id.recyclerView);
         tvYear = findViewById(R.id.tvYear);
@@ -58,16 +58,16 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         tvSaturday = findViewById(R.id.tvSaturday);
         tvSunday = findViewById(R.id.tvSunday);
         imgBack = findViewById(R.id.imgBack);
+        ibNextYear.setOnClickListener(v -> {
+            Year ++;
+            tvYear.setText("" + Year);
+
+        });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
-        });
-        ibNextYear.setOnClickListener(v -> {
-            Year ++;
-            tvYear.setText("" + Year);
-
         });
         ibPreviousYear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,11 +137,10 @@ public class GowriPanchangamActivity extends AppCompatActivity {
 
     private void list(String day) {
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.GOWRI,"1");
+        params.put(Constant.HORA_CHAKRAM,"1");
         params.put(Constant.DAY,day);
         params.put(Constant.YEAR,tvYear.getText().toString().trim());
         ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("GOWRI_PAN",response);
             if(result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -168,11 +167,6 @@ public class GowriPanchangamActivity extends AppCompatActivity {
                 }
             }
         },activity, Constant.PANCHANGAM_LIST_URL,params,true);
-
-
-
-
-
 
     }
 }

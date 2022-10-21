@@ -1,13 +1,12 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Thidhilu {
-    String id,name,day,date;
+    String id,title,description;
 
-    public Thidhilu(String id, String name, String day, String date) {
+    public Thidhilu(String id, String title, String description) {
         this.id = id;
-        this.name = name;
-        this.day = day;
-        this.date = date;
+        this.title = title;
+        this.description = description;
     }
 
     public String getId() {
@@ -18,28 +17,20 @@ public class Thidhilu {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDay() {
-        return day;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 

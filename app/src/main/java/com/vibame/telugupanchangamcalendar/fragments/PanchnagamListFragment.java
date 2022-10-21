@@ -14,11 +14,12 @@ import com.vibame.telugupanchangamcalendar.GowriPanchangamActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.RahukalamActivity;
 import com.vibame.telugupanchangamcalendar.ThidhiluActivity;
+import com.vibame.telugupanchangamcalendar.activities.HoraChakramActivity;
 
 
 public class PanchnagamListFragment extends Fragment {
 
-    LinearLayout llThidhi,llGowri,llRahukalam;
+    LinearLayout llThidhi,llGowri,llRahukalam,llHora;
 
 
 
@@ -37,6 +38,7 @@ public class PanchnagamListFragment extends Fragment {
         llThidhi = root.findViewById(R.id.llThidhi);
         llGowri = root.findViewById(R.id.llGowri);
         llRahukalam = root.findViewById(R.id.llRahukalam);
+        llHora = root.findViewById(R.id.llHora);
 
         llThidhi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,13 @@ public class PanchnagamListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), RahukalamActivity.class);
+                startActivity(intent);
+            }
+        });
+        llHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HoraChakramActivity.class);
                 startActivity(intent);
             }
         });

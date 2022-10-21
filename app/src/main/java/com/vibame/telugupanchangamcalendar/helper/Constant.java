@@ -16,6 +16,7 @@ public class Constant {
     public static final String DOWNLOADIMAGECOUNT_URL = BaseUrl + "downloadimagecount.php";
     public static final String VIDEO_LIST_URL = BaseUrl + "video-post-list.php";
     public static final String VIDEO_URL = BaseUrl + "video-category.php";
+    public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
 
     public static final String ID = "id";
     public static final String PANCHANGAM_ID = "panchangam_id";
@@ -33,6 +34,14 @@ public class Constant {
     public static final String VIDEO =  "video";
     public static final String LYRICS =  "lyrics";
     public static final String AUDIO =  "audio";
+    public static final String GOWRI =  "gowri";
+    public static final String RAHUKALAM =  "rahukalam";
+    public static final String YAMANGANDAM =  "yamangandam";
+    public static final String THIDHI =  "thidhi";
+    public static final String HORA_CHAKRAM =  "hora_chakram";
+    public static final String DAY =  "day";
+    public static final String YEAR =  "year";
+    public static final String MONTH =  "month";
     public static final String PID = "pid";
     public static final String DATE = "date";
     public static final String TITLE = "title";

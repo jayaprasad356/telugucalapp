@@ -20,7 +20,7 @@
         android:padding="@dimen/_5sdp"
         >
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
@@ -30,19 +30,12 @@
             android:fontFamily="@font/sree"
             android:text="Padyami"/>
         <TextView
-            android:id="@+id/tvDay"
+            android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_12sdp"
             android:textAlignment="center"
-            android:text="09 Monday"/>
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_12sdp"
-            android:textAlignment="center"
-            android:text="21 Friday"/>
+            android:text=""/>
 
     </LinearLayout>
 

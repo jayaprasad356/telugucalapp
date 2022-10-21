@@ -44,18 +44,8 @@ public class ThidhiluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         final Thidhilu thidhilu = thidhilus.get(position);
 
 
-        holder.tvName.setText(thidhilu.getName());
-
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(activity, VideosActivity.class);
-//                intent.putExtra(Constant.VIDEO_CATEGORY_ID,videoTab.getId());
-//                intent.putExtra(Constant.NAME,videoTab.getName());
-//                activity.startActivity(intent);
-//            }
-//        });
+        holder.tvTitle.setText(thidhilu.getTitle());
+        holder.tvDescription.setText(thidhilu.getDescription());
 
     }
 
@@ -66,13 +56,12 @@ public class ThidhiluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
-        final TextView tvName,tvDay,tvDate;
+        final TextView tvTitle,tvDescription;
 
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
-            tvDay = itemView.findViewById(R.id.tvDay);
-            tvDate = itemView.findViewById(R.id.tvDate);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvDescription = itemView.findViewById(R.id.tvDescription);
 
 
         }

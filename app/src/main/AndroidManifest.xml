@@ -59,6 +59,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.HoraChakramActivity"
+            android:exported="false" />
+        <activity
             android:name=".RahukalamActivity"
             android:exported="false" />
         <activity

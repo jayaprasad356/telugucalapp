@@ -99,6 +99,7 @@
 
 
             <TextView
+                android:id="@+id/tvJanuary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="January"
@@ -108,6 +109,7 @@
                 />
 
             <TextView
+                android:id="@+id/tvFebruary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="February"
@@ -117,6 +119,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvMarch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="March"
@@ -126,6 +129,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvApril"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="April"
@@ -135,6 +139,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvMay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="May"
@@ -144,6 +149,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvJune"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="June"
@@ -153,6 +159,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvJuly"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="July"
@@ -162,6 +169,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvAugust"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="August"
@@ -171,6 +179,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvSeptember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="September"
@@ -180,6 +189,7 @@
 
                 />
             <TextView
+                android:id="@+id/tvOctober"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="October"
@@ -189,15 +199,17 @@
 
                 />
             <TextView
+                android:id="@+id/tvNovember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Novenber"
+                android:text="November"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:layout_marginRight="@dimen/_10sdp"
 
                 />
             <TextView
+                android:id="@+id/tvDecember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="December"

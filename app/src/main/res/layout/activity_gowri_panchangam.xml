@@ -99,6 +99,7 @@
 
 
                 <TextView
+                    android:id="@+id/tvMonday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Monday"
@@ -108,6 +109,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tvTuesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tuesday"
@@ -117,6 +119,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/tvWednesday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday"
@@ -126,6 +129,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/tvThursday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thrusday"
@@ -135,6 +139,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/tvFriday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Friday"
@@ -144,6 +149,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/tvSaturday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Saturday"
@@ -153,6 +159,7 @@
 
                     />
                 <TextView
+                    android:id="@+id/tvSunday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sunday"
