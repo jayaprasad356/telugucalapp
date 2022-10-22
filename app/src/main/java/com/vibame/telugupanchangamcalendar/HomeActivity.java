@@ -26,6 +26,7 @@ import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
 import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PanchnagamListFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
+import com.vibame.telugupanchangamcalendar.fragments.SakunaSasthramFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -51,7 +52,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close
         );
         drawer.addDrawerListener(toggle);
@@ -106,6 +107,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.panchangamlist: {
                 fragment = new PanchnagamListFragment();
+                break;
+            }
+            case R.id.sakunasasthram: {
+                fragment = new SakunaSasthramFragment();
                 break;
             }
 

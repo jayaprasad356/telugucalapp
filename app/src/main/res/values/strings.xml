@@ -32,5 +32,13 @@
     <string name="December_2023">01  ఎయిడ్స్ డే   \n03  జ్యేష్ఠ కార్తె   \n08  ఉత్పన్న ఏకాదశి   \n09  వైష్ణవ ఉత్పన్న ఏకాదశి   \n10  ప్రదోష వ్రతం   \n11  మాస శివరాత్రి   \n12  అమావాస్య   \n13  గోవర్ధన పూజ   \n14  చంద్రోదయం   \n16  ధనుస్సంక్రమణం   \n16  చతుర్థి వ్రతం   \n16  మూల కార్తె   \n17  సుబ్రహ్మణ్య షష్ఠి   \n17  ధనుర్మాస పూజ   \n18  స్కంద షష్టి   \n18  సోమవారం వృతం   \n20  దుర్గాష్టమి వ్రతం   \n22  మోక్షద ఏకాదశి   \n22  గీతా జయంతి   \n23  ముక్కోటి ఏకాదశి   \n24  క్రిస్టమస్ ఈవ్   \n24  ప్రదోష వ్రతం   \n24  హనుమద్ర్వతం   \n25  క్రిస్టమస్   \n26  బాక్సింగ్ డే   \n26  దత్త జయంతి   \n26  పౌర్ణమి   \n26  పౌర్ణమి వ్రతం   \n26  శ్రీ సత్యనారాయణ పూజ   \n27  మండల పూజ   \n29  పూర్వాషాఢ కార్తె   \n30  సంకటహర చతుర్థి </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sakuna_sasthram">10.Sakuna Sasthram</string>
+    <string name="sakunalu">Sakunalu</string>
+    <string name="balli_sasthram">Balli Sasthram</string>
+    <string name="kaki_sasthram">Kaki Sasthram</string>
+    <string name="kukuta_sasthram">Kukuta Sasthram</string>
+    <string name="pilli_sasthram">Pilli Sasthram</string>
+    <string name="sakuna_sasthram_title">Sakuna Sasthram</string>
+
 
 </resources>

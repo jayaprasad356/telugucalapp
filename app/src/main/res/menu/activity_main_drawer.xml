@@ -47,9 +47,12 @@
 
         <item
             android:id="@+id/panchangamlist"
-            android:title="8.Panchangam List"
+            android:title="9.Panchangam List"
 
             />
+        <item
+            android:id="@+id/sakunasasthram"
+            android:title="@string/sakuna_sasthram" />
 
 
         <item android:title="9.Sissu Janma Padha" />
