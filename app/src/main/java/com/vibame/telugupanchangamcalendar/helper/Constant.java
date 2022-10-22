@@ -39,6 +39,8 @@ public class Constant {
     public static final String YAMANGANDAM =  "yamangandam";
     public static final String THIDHI =  "thidhi";
     public static final String HORA_CHAKRAM =  "hora_chakram";
+    public static final String KARANAM =  "karanam";
+    public static final String YOGAM =  "yogam";
     public static final String DAY =  "day";
     public static final String YEAR =  "year";
     public static final String MONTH =  "month";
