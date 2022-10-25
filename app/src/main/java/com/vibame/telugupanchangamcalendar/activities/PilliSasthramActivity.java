@@ -21,6 +21,7 @@ public class PilliSasthramActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView title;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
