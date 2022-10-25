@@ -14,12 +14,13 @@ import android.widget.LinearLayout;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.SakunaluActivity;
 import com.vibame.telugupanchangamcalendar.activities.KakiActivity;
+import com.vibame.telugupanchangamcalendar.activities.PilliSasthramActivity;
 
 
 public class SakunaSasthramFragment extends Fragment {
 
-    LinearLayout sakunalu, kaki;
-    Activity sakunaActivity, kakiActivity;
+    LinearLayout sakunalu, kaki, pilli;
+    Activity sakunaActivity, kakiActivity,pilliActivity;
 
 
     @Override
@@ -29,12 +30,16 @@ public class SakunaSasthramFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_sakuna_sasthram, container, false);
         sakunalu = root.findViewById(R.id.sakunalu);
         kaki = root.findViewById(R.id.kaki);
+        pilli = root.findViewById(R.id.pilli_sasthram);
 
         sakunaActivity = new SakunaluActivity();
         kakiActivity = new KakiActivity();
+        pilliActivity=new PilliSasthramActivity();
+
 
         loadSakunaSastharam(sakunalu, sakunaActivity);
         loadSakunaSastharam(kaki, kakiActivity);
+        loadSakunaSastharam(pilli,pilliActivity);
 
 
         return root;
