@@ -1,5 +1,6 @@
 package com.vibame.telugupanchangamcalendar.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,12 +13,13 @@ import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.SakunaluActivity;
-import com.vibame.telugupanchangamcalendar.ThidhiluActivity;
+import com.vibame.telugupanchangamcalendar.activities.KakiActivity;
 
 
 public class SakunaSasthramFragment extends Fragment {
 
-    LinearLayout sakunalu, balliSasthram;
+    LinearLayout sakunalu, kaki;
+    Activity sakunaActivity, kakiActivity;
 
 
     @Override
@@ -26,16 +28,27 @@ public class SakunaSasthramFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_sakuna_sasthram, container, false);
         sakunalu = root.findViewById(R.id.sakunalu);
+        kaki = root.findViewById(R.id.kaki);
 
-        sakunalu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SakunaluActivity.class);
-                startActivity(intent);
-            }
-        });
+        sakunaActivity = new SakunaluActivity();
+        kakiActivity = new KakiActivity();
+
+        loadSakunaSastharam(sakunalu, sakunaActivity);
+        loadSakunaSastharam(kaki, kakiActivity);
+
 
         return root;
 
+    }
+
+    private void loadSakunaSastharam(LinearLayout linearLayout, Activity activity) {
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), activity.getClass());
+                startActivity(intent);
+
+            }
+        });
     }
 }
