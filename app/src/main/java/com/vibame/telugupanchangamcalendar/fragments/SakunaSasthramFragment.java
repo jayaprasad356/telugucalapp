@@ -13,14 +13,15 @@ import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.SakunaluActivity;
+import com.vibame.telugupanchangamcalendar.activities.BalliSasthramActivity;
 import com.vibame.telugupanchangamcalendar.activities.KakiActivity;
 import com.vibame.telugupanchangamcalendar.activities.PilliSasthramActivity;
 
 
 public class SakunaSasthramFragment extends Fragment {
 
-    LinearLayout sakunalu, kaki, pilli;
-    Activity sakunaActivity, kakiActivity,pilliActivity;
+    LinearLayout sakunalu, kaki, pilli, balli;
+    Activity sakunaActivity, kakiActivity, pilliActivity, balliActivity;
 
 
     @Override
@@ -31,15 +32,18 @@ public class SakunaSasthramFragment extends Fragment {
         sakunalu = root.findViewById(R.id.sakunalu);
         kaki = root.findViewById(R.id.kaki);
         pilli = root.findViewById(R.id.pilli_sasthram);
+        balli = root.findViewById(R.id.balli);
 
         sakunaActivity = new SakunaluActivity();
         kakiActivity = new KakiActivity();
-        pilliActivity=new PilliSasthramActivity();
+        pilliActivity = new PilliSasthramActivity();
+        balliActivity = new BalliSasthramActivity();
 
 
         loadSakunaSastharam(sakunalu, sakunaActivity);
         loadSakunaSastharam(kaki, kakiActivity);
-        loadSakunaSastharam(pilli,pilliActivity);
+        loadSakunaSastharam(pilli, pilliActivity);
+        loadSakunaSastharam(balli, balliActivity);
 
 
         return root;

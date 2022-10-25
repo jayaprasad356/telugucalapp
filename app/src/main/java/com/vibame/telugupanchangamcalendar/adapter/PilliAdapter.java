@@ -51,35 +51,3 @@ public class PilliAdapter extends RecyclerView.Adapter<PilliAdapter.ViewHolder> 
     }
 }
 }
-
-
-//    @NonNull
-//    @Override
-//    public KakiAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-//        View listItem = layoutInflater.inflate(R.layout.sakunalu_views, parent, false);
-//        return new KakiAdapter.ViewHolder(listItem);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull KakiAdapter.ViewHolder holder, int position) {
-//        holder.title.setText(kakiData[position].getTitle());
-//        holder.description.setText(kakiData[position].getDescription());
-//    }
-//
-//
-//    @Override
-//    public int getItemCount() {
-//        return kakiData.length;
-//    }
-//
-//public static class ViewHolder extends RecyclerView.ViewHolder {
-//    public TextView title, description;
-//
-//    public ViewHolder(View itemView) {
-//        super(itemView);
-//        this.title = itemView.findViewById(R.id.tv_title);
-//        this.description = itemView.findViewById(R.id.tv_desc);
-//    }
-//}
-//}
