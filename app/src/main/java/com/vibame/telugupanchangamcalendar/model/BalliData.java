@@ -1,7 +1,15 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class BalliData {
-    private String title, description, subTitle1, subTitle2, subDesc1a, subDesc2a, subDesc1b, subDesc2b;
+    private String id, title, description, subtitle1, subtitle2, subdescription1a, subdescription2a, subdescription1b, subdescription2b;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -19,62 +27,62 @@ public class BalliData {
         this.description = description;
     }
 
-    public String getSubTitle1() {
-        return subTitle1;
+    public String getSubtitle1() {
+        return subtitle1;
     }
 
-    public void setSubTitle1(String subTitle1) {
-        this.subTitle1 = subTitle1;
+    public void setSubtitle1(String subtitle1) {
+        this.subtitle1 = subtitle1;
     }
 
-    public String getSubTitle2() {
-        return subTitle2;
+    public String getSubtitle2() {
+        return subtitle2;
     }
 
-    public void setSubTitle2(String subTitle2) {
-        this.subTitle2 = subTitle2;
+    public void setSubtitle2(String subtitle2) {
+        this.subtitle2 = subtitle2;
     }
 
-    public String getSubDesc1a() {
-        return subDesc1a;
+    public String getSubdescription1a() {
+        return subdescription1a;
     }
 
-    public void setSubDesc1a(String subDesc1a) {
-        this.subDesc1a = subDesc1a;
+    public void setSubdescription1a(String subdescription1a) {
+        this.subdescription1a = subdescription1a;
     }
 
-    public String getSubDesc2a() {
-        return subDesc2a;
+    public String getSubdescription2a() {
+        return subdescription2a;
     }
 
-    public void setSubDesc2a(String subDesc2a) {
-        this.subDesc2a = subDesc2a;
+    public void setSubdescription2a(String subdescription2a) {
+        this.subdescription2a = subdescription2a;
     }
 
-    public String getSubDesc1b() {
-        return subDesc1b;
+    public String getSubdescription1b() {
+        return subdescription1b;
     }
 
-    public void setSubDesc1b(String subDesc1b) {
-        this.subDesc1b = subDesc1b;
+    public void setSubdescription1b(String subdescription1b) {
+        this.subdescription1b = subdescription1b;
     }
 
-    public String getSubDesc2b() {
-        return subDesc2b;
+    public String getSubdescription2b() {
+        return subdescription2b;
     }
 
-    public void setSubDesc2b(String subDesc2b) {
-        this.subDesc2b = subDesc2b;
+    public void setSubdescription2b(String subdescription2b) {
+        this.subdescription2b = subdescription2b;
     }
 
     public BalliData(String title, String description, String subTitle1, String subTitle2, String subDesc1a, String subDesc2a, String subDesc1b, String subDesc2b) {
         this.title = title;
         this.description = description;
-        this.subTitle1 = subTitle1;
-        this.subTitle2 = subTitle2;
-        this.subDesc1a = subDesc1a;
-        this.subDesc2a = subDesc2a;
-        this.subDesc1b = subDesc1b;
-        this.subDesc2b = subDesc2b;
+        this.subtitle1 = subTitle1;
+        this.subtitle2 = subTitle2;
+        this.subdescription1a = subDesc1a;
+        this.subdescription2a = subDesc2a;
+        this.subdescription1b = subDesc1b;
+        this.subdescription2b = subDesc2b;
     }
 }

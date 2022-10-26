@@ -12,14 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.BalliData;
 
+import java.util.ArrayList;
+
 public class BalliAdapter extends RecyclerView.Adapter<BalliAdapter.ViewHolder> {
     Activity activity;
-    BalliData[] balliData;
+    ArrayList<BalliData> balliData;
 
-    public BalliAdapter(BalliData[] balliData, Activity activity) {
+
+    public BalliAdapter(ArrayList<BalliData> balliData, Activity activity) {
         this.balliData = balliData;
         this.activity = activity;
     }
+
 
     @NonNull
     @Override
@@ -31,20 +35,20 @@ public class BalliAdapter extends RecyclerView.Adapter<BalliAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(balliData[position].getTitle());
-        holder.description.setText(balliData[position].getDescription());
-        holder.subTitle1.setText(balliData[position].getSubTitle1());
-        holder.subTitle2.setText(balliData[position].getSubTitle2());
-        holder.subDesc1a.setText(balliData[position].getSubDesc1a());
-        holder.subDesc2a.setText(balliData[position].getSubDesc2a());
-        holder.subDesc1b.setText(balliData[position].getSubDesc1b());
-        holder.subDesc2b.setText(balliData[position].getSubDesc2b());
+        holder.title.setText(balliData.get(position).getTitle());
+        holder.description.setText(balliData.get(position).getDescription());
+        holder.subTitle1.setText(balliData.get(position).getSubtitle1());
+        holder.subTitle2.setText(balliData.get(position).getSubtitle2());
+        holder.subDesc1a.setText(balliData.get(position).getSubdescription1a());
+        holder.subDesc2a.setText(balliData.get(position).getSubdescription2a());
+        holder.subDesc1b.setText(balliData.get(position).getSubdescription1b());
+        holder.subDesc2b.setText(balliData.get(position).getSubdescription2b());
     }
 
 
     @Override
     public int getItemCount() {
-        return balliData.length;
+        return balliData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
