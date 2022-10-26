@@ -15,13 +15,14 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.SakunaluActivity;
 import com.vibame.telugupanchangamcalendar.activities.BalliSasthramActivity;
 import com.vibame.telugupanchangamcalendar.activities.KakiActivity;
+import com.vibame.telugupanchangamcalendar.activities.KukutaSaathramActivity;
 import com.vibame.telugupanchangamcalendar.activities.PilliSasthramActivity;
 
 
 public class SakunaSasthramFragment extends Fragment {
 
-    LinearLayout sakunalu, kaki, pilli, balli;
-    Activity sakunaActivity, kakiActivity, pilliActivity, balliActivity;
+    LinearLayout sakunalu, kaki, pilli, balli,kukuta;
+    Activity sakunaActivity, kakiActivity, pilliActivity, balliActivity,kukuta_sasthram;
 
 
     @Override
@@ -33,17 +34,20 @@ public class SakunaSasthramFragment extends Fragment {
         kaki = root.findViewById(R.id.kaki);
         pilli = root.findViewById(R.id.pilli_sasthram);
         balli = root.findViewById(R.id.balli);
+        kukuta = root.findViewById(R.id.kukuta_sasthram);
 
         sakunaActivity = new SakunaluActivity();
         kakiActivity = new KakiActivity();
         pilliActivity = new PilliSasthramActivity();
         balliActivity = new BalliSasthramActivity();
+        kukuta_sasthram = new KukutaSaathramActivity();
 
 
         loadSakunaSastharam(sakunalu, sakunaActivity);
         loadSakunaSastharam(kaki, kakiActivity);
         loadSakunaSastharam(pilli, pilliActivity);
         loadSakunaSastharam(balli, balliActivity);
+        loadSakunaSastharam(kukuta, kukuta_sasthram);
 
 
         return root;

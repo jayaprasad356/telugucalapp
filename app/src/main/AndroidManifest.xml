@@ -59,6 +59,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.KukutaSaathramActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BalliSasthramActivity"
             android:exported="false">
             <meta-data
