@@ -44,6 +44,9 @@ public class Constant {
     public static final String KARANAM = "karanam";
     public static final String SAKUNALU = "sakunalu";
     public static final String BALLI_SASTHRAM = "balli_sasthram";
+    public static final String KAKI_SASTHRAM = "kaki_sasthram";
+    public static final String PILLI_SASTHRAM = "pilli_sasthram";
+
     public static final String YOGAM = "yogam";
     public static final String DAY = "day";
     public static final String YEAR = "year";

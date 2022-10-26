@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.PilliSasthramData;
 
+import java.util.ArrayList;
+
 public class PilliAdapter extends RecyclerView.Adapter<PilliAdapter.ViewHolder> {
     Activity activity;
-    PilliSasthramData[] pilliSasthramData;
+    ArrayList<PilliSasthramData> pilliSasthramData;
 
-    public PilliAdapter(PilliSasthramData[] pilliSasthramData, Activity activity) {
+    public PilliAdapter(Activity activity, ArrayList<PilliSasthramData> pilliSasthramData) {
         this.activity = activity;
         this.pilliSasthramData = pilliSasthramData;
 
@@ -32,22 +34,23 @@ public class PilliAdapter extends RecyclerView.Adapter<PilliAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(pilliSasthramData[position].getTitle());
-        holder.description.setText(pilliSasthramData[position].getDescription());
+        holder.title.setText(pilliSasthramData.get(position).getTitle());
+        holder.description.setText(pilliSasthramData.get(position).getDescription());
     }
 
 
     @Override
     public int getItemCount() {
-        return pilliSasthramData.length;
+        return pilliSasthramData.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-    public TextView title, description;
 
-    public ViewHolder(View itemView) {
-        super(itemView);
-        this.title = itemView.findViewById(R.id.tv_title);
-        this.description = itemView.findViewById(R.id.tv_desc);
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView title, description;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.description = itemView.findViewById(R.id.tv_desc);
+        }
     }
-}
 }
