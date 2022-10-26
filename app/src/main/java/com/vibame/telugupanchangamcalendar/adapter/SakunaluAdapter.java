@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.SakunaluData;
 
+import java.util.ArrayList;
+
 public class SakunaluAdapter extends RecyclerView.Adapter<SakunaluAdapter.ViewHolder> {
     Activity activity;
-    SakunaluData[] sakunaluListDatas;
+    ArrayList<SakunaluData> sakunaluListDatas;
 
-    public SakunaluAdapter(SakunaluData[] sakunaluDatas, Activity activity) {
+    public SakunaluAdapter(ArrayList<SakunaluData> sakunaluDatas, Activity activity) {
         this.sakunaluListDatas = sakunaluDatas;
         this.activity = activity;
     }
@@ -32,15 +34,15 @@ public class SakunaluAdapter extends RecyclerView.Adapter<SakunaluAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(sakunaluListDatas[position].getTitle());
-        holder.description.setText(sakunaluListDatas[position].getDescription());
+        holder.title.setText(sakunaluListDatas.get(position).getTitle());
+        holder.description.setText(sakunaluListDatas.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return sakunaluListDatas.length;
+        return sakunaluListDatas.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
