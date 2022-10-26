@@ -1,8 +1,8 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class KukutaSasthramMenu2Data {
-    private String description,star_des,winning_des,losing_des;
-    private String title,star,winning,losing;
+    private String description, star_des, winning_des, losing_des;
+    private String title, star, winning, lossing;
 
     public KukutaSasthramMenu2Data(String description, String star_des, String winning_des, String losing_des, String title, String star, String winning, String losing) {
         this.description = description;
@@ -12,7 +12,7 @@ public class KukutaSasthramMenu2Data {
         this.title = title;
         this.star = star;
         this.winning = winning;
-        this.losing = losing;
+        this.lossing = losing;
     }
 
     public String getDescription() {
@@ -71,11 +71,11 @@ public class KukutaSasthramMenu2Data {
         this.winning = winning;
     }
 
-    public String getLosing() {
-        return losing;
+    public String getLossing() {
+        return lossing;
     }
 
-    public void setLosing(String losing) {
-        this.losing = losing;
+    public void setLossing(String lossing) {
+        this.lossing = lossing;
     }
 }

@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.KukutaSasthramData;
-import com.vibame.telugupanchangamcalendar.model.PilliSasthramData;
+
+import java.util.ArrayList;
 
 public class KukutaAdapter extends RecyclerView.Adapter<KukutaAdapter.ViewHolder> {
     Activity activity;
-    KukutaSasthramData[] kukutaSasthramData;
+    ArrayList<KukutaSasthramData> kukutaSasthramData;
 
-    public KukutaAdapter(KukutaSasthramData[] kukutaSasthramData, Activity activity) {
+    public KukutaAdapter(Activity activity, ArrayList<KukutaSasthramData> kukutaSasthramData) {
         this.activity = activity;
         this.kukutaSasthramData = kukutaSasthramData;
 
@@ -33,22 +34,23 @@ public class KukutaAdapter extends RecyclerView.Adapter<KukutaAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(kukutaSasthramData[position].getTitle());
-        holder.description.setText(kukutaSasthramData[position].getDescription());
+        holder.title.setText(kukutaSasthramData.get(position).getTitle());
+        holder.description.setText(kukutaSasthramData.get(position).getDescription());
     }
 
 
     @Override
     public int getItemCount() {
-        return kukutaSasthramData.length;
+        return kukutaSasthramData.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-    public TextView title, description;
 
-    public ViewHolder(View itemView) {
-        super(itemView);
-        this.title = itemView.findViewById(R.id.tv_title);
-        this.description = itemView.findViewById(R.id.tv_desc);
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView title, description;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.description = itemView.findViewById(R.id.tv_desc);
+        }
     }
-}
 }

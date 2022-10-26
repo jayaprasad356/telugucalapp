@@ -46,6 +46,8 @@ public class Constant {
     public static final String BALLI_SASTHRAM = "balli_sasthram";
     public static final String KAKI_SASTHRAM = "kaki_sasthram";
     public static final String PILLI_SASTHRAM = "pilli_sasthram";
+    public static final String KUKUTA_SASTHRAM = "kukuta_sasthram";
+    public static final String KUKUTA_SASTHRAM_MENU = "kukutasasthram_menu";
 
     public static final String YOGAM = "yogam";
     public static final String DAY = "day";
