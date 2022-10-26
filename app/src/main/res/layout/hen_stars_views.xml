@@ -49,33 +49,31 @@
 
         <TextView
             android:layout_weight="1"
-            android:id="@+id/tv_title_star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="Title"
+            android:text="Star"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
         <TextView
             android:layout_weight="1"
-            android:id="@+id/tv_title_winning"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="Title"
+            android:text="Winning"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
         <TextView
             android:layout_weight="1"
-            android:id="@+id/tv_title_Lossing"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="Title"
+            android:text="Lossing"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
@@ -95,10 +93,10 @@
 
 
         <TextView
+            android:id="@+id/tvstar"
             android:layout_weight="1"
             android:background="@drawable/corner_bg"
             android:backgroundTint="#F4F2F2"
-            android:id="@+id/tv_describtion_star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/_5sdp"
@@ -107,12 +105,12 @@
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+            />
         <TextView
+            android:id="@+id/tvWinning"
             android:layout_weight="1"
             android:background="@drawable/corner_bg"
             android:backgroundTint="#F4F2F2"
-            android:id="@+id/tv_describtion_winning"
             android:layout_margin="@dimen/_2sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,12 +119,12 @@
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+            />
         <TextView
+            android:id="@+id/tvLossing"
             android:layout_weight="1"
             android:background="@drawable/corner_bg"
             android:backgroundTint="#F4F2F2"
-            android:id="@+id/tv_describtion_Lossing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_2sdp"
@@ -135,7 +133,7 @@
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+             />
 
 
     </LinearLayout>
