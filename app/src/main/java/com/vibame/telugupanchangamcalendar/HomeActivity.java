@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.vibame.telugupanchangamcalendar.activities.AksharaluActivity;
+import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiGeethaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
@@ -44,8 +46,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                drawer.openDrawer(GravityCompat.START);
+                startActivity(new Intent(activity, AksharaluActivity.class));
+             //   drawer.openDrawer(GravityCompat.START);
 
             }
         });
