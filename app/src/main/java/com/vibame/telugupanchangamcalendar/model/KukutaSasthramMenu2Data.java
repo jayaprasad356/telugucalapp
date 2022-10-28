@@ -1,50 +1,14 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class KukutaSasthramMenu2Data {
-    private String description,star_des,winning_des,losing_des;
-    private String title,star,winning,losing;
+    private String title,description, star, winning, lossing;
 
-    public KukutaSasthramMenu2Data(String description, String star_des, String winning_des, String losing_des, String title, String star, String winning, String losing) {
-        this.description = description;
-        this.star_des = star_des;
-        this.winning_des = winning_des;
-        this.losing_des = losing_des;
+    public KukutaSasthramMenu2Data(String title, String description, String star, String winning, String lossing) {
         this.title = title;
+        this.description = description;
         this.star = star;
         this.winning = winning;
-        this.losing = losing;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getStar_des() {
-        return star_des;
-    }
-
-    public void setStar_des(String star_des) {
-        this.star_des = star_des;
-    }
-
-    public String getWinning_des() {
-        return winning_des;
-    }
-
-    public void setWinning_des(String winning_des) {
-        this.winning_des = winning_des;
-    }
-
-    public String getLosing_des() {
-        return losing_des;
-    }
-
-    public void setLosing_des(String losing_des) {
-        this.losing_des = losing_des;
+        this.lossing = lossing;
     }
 
     public String getTitle() {
@@ -53,6 +17,14 @@ public class KukutaSasthramMenu2Data {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStar() {
@@ -71,11 +43,11 @@ public class KukutaSasthramMenu2Data {
         this.winning = winning;
     }
 
-    public String getLosing() {
-        return losing;
+    public String getLossing() {
+        return lossing;
     }
 
-    public void setLosing(String losing) {
-        this.losing = losing;
+    public void setLossing(String lossing) {
+        this.lossing = lossing;
     }
 }

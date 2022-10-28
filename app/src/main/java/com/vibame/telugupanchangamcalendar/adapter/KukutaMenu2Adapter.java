@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.KukutaSasthramData;
 import com.vibame.telugupanchangamcalendar.model.KukutaSasthramMenu2Data;
+
+import java.util.ArrayList;
 
 public class KukutaMenu2Adapter extends RecyclerView.Adapter<KukutaMenu2Adapter.ViewHolder> {
     Activity activity;
-    KukutaSasthramMenu2Data[] kukutaSasthramMenu2Data;
+    ArrayList<KukutaSasthramMenu2Data> kukutaSasthramMenu2Data;
 
-    public KukutaMenu2Adapter(KukutaSasthramMenu2Data[] kukutaSasthramMenu2Data, Activity activity) {
+    public KukutaMenu2Adapter(Activity activity, ArrayList<KukutaSasthramMenu2Data> kukutaSasthramMenu2Data) {
         this.activity = activity;
         this.kukutaSasthramMenu2Data = kukutaSasthramMenu2Data;
 
@@ -33,35 +34,30 @@ public class KukutaMenu2Adapter extends RecyclerView.Adapter<KukutaMenu2Adapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(kukutaSasthramMenu2Data[position].getTitle());
-        holder.description.setText(kukutaSasthramMenu2Data[position].getDescription());
-        holder.tv_title_star.setText(kukutaSasthramMenu2Data[position].getStar());
-        holder.tv_title_Lossing.setText(kukutaSasthramMenu2Data[position].getLosing());
-        holder.tv_title_winning.setText(kukutaSasthramMenu2Data[position].getWinning());
-        holder.tv_describtion_star.setText(kukutaSasthramMenu2Data[position].getStar_des());
-        holder.tv_describtion_winning.setText(kukutaSasthramMenu2Data[position].getWinning_des());
-        holder.tv_describtion_Lossing.setText(kukutaSasthramMenu2Data[position].getLosing_des());
+        holder.title.setText(kukutaSasthramMenu2Data.get(position).getTitle());
+        holder.description.setText(kukutaSasthramMenu2Data.get(position).getDescription());
+        holder.tvstar.setText(kukutaSasthramMenu2Data.get(position).getStar());
+        holder.tvWinning.setText(kukutaSasthramMenu2Data.get(position).getLossing());
+        holder.tvLossing.setText(kukutaSasthramMenu2Data.get(position).getWinning());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return kukutaSasthramMenu2Data.length;
+        return kukutaSasthramMenu2Data.size();
     }
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-    public TextView title, description,tv_title_star,tv_title_Lossing,tv_title_winning,tv_describtion_star,tv_describtion_winning,tv_describtion_Lossing;
 
-    public ViewHolder(View itemView) {
-        super(itemView);
-        this.title = itemView.findViewById(R.id.tv_title);
-        this.description = itemView.findViewById(R.id.tv_desc);
-        this.tv_title_star = itemView.findViewById(R.id.tv_title_star);
-        this.tv_title_Lossing = itemView.findViewById(R.id.tv_title_Lossing);
-        this.tv_title_winning = itemView.findViewById(R.id.tv_title_winning);
-        this.tv_describtion_star = itemView.findViewById(R.id.tv_describtion_star);
-        this.tv_describtion_winning = itemView.findViewById(R.id.tv_describtion_winning);
-        this.tv_describtion_Lossing = itemView.findViewById(R.id.tv_describtion_Lossing);
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView title, description, tvstar, tvLossing, tvWinning;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.description = itemView.findViewById(R.id.tv_desc);
+            this.tvstar = itemView.findViewById(R.id.tvstar);
+            this.tvLossing = itemView.findViewById(R.id.tvLossing);
+            this.tvWinning = itemView.findViewById(R.id.tvWinning);
+        }
     }
-}
 }

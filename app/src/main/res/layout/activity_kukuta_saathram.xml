@@ -67,7 +67,6 @@
             android:layout_marginHorizontal="4dp"
             android:background="@drawable/corner_bg"
             android:backgroundTint="@color/colorWhite"
-            android:layout_marginTop="@dimen/_40sdp"
             />
 
 

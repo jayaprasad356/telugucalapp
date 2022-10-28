@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.KakiData;
 
+import java.util.ArrayList;
+
 public class KakiAdapter extends RecyclerView.Adapter<KakiAdapter.ViewHolder> {
     Activity activity;
-    KakiData[] kakiData;
+    ArrayList<KakiData> kakiData;
 
-    public KakiAdapter(KakiData[] kakiData, Activity activity) {
+    public KakiAdapter(Activity activity, ArrayList<KakiData> kakiData) {
         this.activity = activity;
         this.kakiData = kakiData;
     }
@@ -31,14 +33,14 @@ public class KakiAdapter extends RecyclerView.Adapter<KakiAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(kakiData[position].getTitle());
-        holder.description.setText(kakiData[position].getDescription());
+        holder.title.setText(kakiData.get(position).getTitle());
+        holder.description.setText(kakiData.get(position).getDescription());
     }
 
 
     @Override
     public int getItemCount() {
-        return kakiData.length;
+        return kakiData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
