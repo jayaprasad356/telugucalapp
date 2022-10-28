@@ -58,6 +58,59 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
+
+        <activity
+            android:name=".activities.FruitNamesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.JanaPadhaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.KolathaluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.LagnaluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.NavaGrahaluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.PakahamuluActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.PrasadhamNamesActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.PushapaluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.RuthuvuluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.ThidhiAdhiActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.WeekNamesActivity"
+            android:exported="false" />
+
+
         <activity
             android:name=".activities.AksharaluActivity"
             android:exported="false" />
