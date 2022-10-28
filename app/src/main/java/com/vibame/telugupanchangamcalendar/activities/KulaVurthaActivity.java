@@ -26,7 +26,7 @@ public class KulaVurthaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rashulu);
+        setContentView(R.layout.activity_kula_vurtha);
         activity = this;
         KulaVurthaReccycler = findViewById(R.id.RashuluRecycler);
         KulaVurthaReccycler.setLayoutManager(new LinearLayoutManager(activity));

@@ -13,15 +13,16 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.JanaPadha;
 import com.vibame.telugupanchangamcalendar.model.Pakshamulu;
 
+import java.util.ArrayList;
+
 public class JanaPadhaAdapter extends RecyclerView.Adapter<JanaPadhaAdapter.ViewHolder> {
     Activity activity;
-    JanaPadha[] janaPadhas;
+    ArrayList<JanaPadha> janaPadhaArrayList;
 
-    public JanaPadhaAdapter(JanaPadha[] janaPadhas, Activity activity) {
-        this.janaPadhas = janaPadhas;
+    public JanaPadhaAdapter(Activity activity, ArrayList<JanaPadha> janaPadhaArrayList) {
         this.activity = activity;
+        this.janaPadhaArrayList = janaPadhaArrayList;
     }
-
 
     @NonNull
     @Override
@@ -33,15 +34,16 @@ public class JanaPadhaAdapter extends RecyclerView.Adapter<JanaPadhaAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(janaPadhas[position].getTitle());
-        holder.description.setText(janaPadhas[position].getDescription());
+        JanaPadha janaPadha = janaPadhaArrayList.get(position);
+        holder.title.setText(janaPadha.getTitle());
+        holder.description.setText(janaPadha.getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return janaPadhas.length;
+        return janaPadhaArrayList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
