@@ -29,6 +29,7 @@ import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PanchnagamListFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.SakunaSasthramFragment;
+import com.vibame.telugupanchangamcalendar.fragments.TeluguSamskruthamFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -113,6 +114,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.sakunasasthram: {
                 fragment = new SakunaSasthramFragment();
+                break;
+            }
+
+            case R.id.teluguSamskurtham: {
+                fragment = new TeluguSamskruthamFragment();
                 break;
             }
 

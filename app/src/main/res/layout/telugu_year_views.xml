@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/teluguyear_bg"
+        android:backgroundTint="@color/grey"
+        android:weightSum="2"
+        >
+
+
+        <TextView
+            android:id="@+id/tvTeluguyearName"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1. Pharbava Nama Year"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:background="@drawable/teluguyear_bg"
+            android:backgroundTint="@color/colorHead"
+            android:padding="@dimen/_10sdp"
+            />
+        <TextView
+            android:id="@+id/tvteluguYears"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="1901 1910 2010 2100"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:background="@drawable/teluguyear_bg"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
