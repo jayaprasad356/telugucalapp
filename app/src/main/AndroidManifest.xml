@@ -59,6 +59,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.AksharaluActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GunintaluActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnkeluActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MonthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TeluguYearActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.KukutaSaathramActivity"
             android:exported="false" />
         <activity

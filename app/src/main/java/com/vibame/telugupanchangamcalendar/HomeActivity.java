@@ -47,8 +47,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(activity, AksharaluActivity.class));
-             //   drawer.openDrawer(GravityCompat.START);
+               //startActivity(new Intent(activity, AksharaluActivity.class));
+              drawer.openDrawer(GravityCompat.START);
 
             }
         });

@@ -51,9 +51,11 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_daily_horoscope.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_empty.xml" value="0.19010416666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_grahalu_sub_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_gunintalu.xml" value="0.2989583333333333" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_image_tab.xml" value="0.22" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_images.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_kula_vurtha.xml" value="0.2989583333333333" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_monthly_horoscope.xml" value="0.20416666666666666" />
@@ -84,9 +86,14 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_horoscope.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_muhurtham.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_poojalu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_sakuna_sasthram.xml" value="0.2989583333333333" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_telugu_samskrutham.xml" value="0.2989583333333333" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/grahalu_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/gunintalulyt.xml" value="0.2989583333333333" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/gunintamlyt.xml" value="0.2989583333333333" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_view_layout.xml" value="0.25" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/kulavurthalyt.xml" value="0.2989583333333333" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurth_list.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurtham_list.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurtham_tab_layout.xml" value="0.20416666666666666" />
