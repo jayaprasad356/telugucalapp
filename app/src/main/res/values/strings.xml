@@ -39,7 +39,8 @@
     <string name="kukuta_sasthram">Kukuta Sasthram</string>
     <string name="pilli_sasthram">Pilli Sasthram</string>
     <string name="sakuna_sasthram_title">Sakuna Sasthram</string>
-
+    <string name="Telungu_samskrutham">Telugu Samskrutham</string>
+    <string name="telugu_years">Telugu Years</string>
 
 
 </resources>
