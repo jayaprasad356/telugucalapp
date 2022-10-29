@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GunintaluAdaptor;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 
 public class JanaPadhaActivity extends AppCompatActivity {
 
+    ImageView imgBack;
+
     private RecyclerView janapadharecycler;
     private JanaPadhaAdapter janaPadhaAdapter;
     private ArrayList<JanaPadha> janaPadhaArrayList;
@@ -34,6 +38,15 @@ public class JanaPadhaActivity extends AppCompatActivity {
         janapadharecycler.setLayoutManager(new LinearLayoutManager(activity));
         janapadharecycler.setHasFixedSize(true);
         BuildRecycler();
+
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
     private void BuildRecycler() {

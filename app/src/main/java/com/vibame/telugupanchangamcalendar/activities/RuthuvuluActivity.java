@@ -42,7 +42,6 @@ public class RuthuvuluActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
         activity = RuthuvuluActivity.this;
 
-
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
