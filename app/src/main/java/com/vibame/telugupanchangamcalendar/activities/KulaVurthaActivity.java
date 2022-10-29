@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GunintaluAdaptor;
@@ -23,12 +25,21 @@ public class KulaVurthaActivity extends AppCompatActivity {
     private KulaVurthaAdaptor kulaVurthaAdaptor;
     private ArrayList<KulaVurthala> kulaVurthalaArrayList;
     private Activity activity;
+    ImageView imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kula_vurtha);
         activity = this;
-        KulaVurthaReccycler = findViewById(R.id.RashuluRecycler);
+
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+onBackPressed();            }
+        });
+
+        KulaVurthaReccycler = findViewById(R.id.VruthuluRecycler);
         KulaVurthaReccycler.setLayoutManager(new LinearLayoutManager(activity));
         KulaVurthaReccycler.setHasFixedSize(true);
         BuildRecycler();

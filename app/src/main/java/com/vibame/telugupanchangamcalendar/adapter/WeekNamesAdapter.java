@@ -10,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.MonthData;
-import com.vibame.telugupanchangamcalendar.model.SakunaluData;
+import com.vibame.telugupanchangamcalendar.model.Lagnalu;
+import com.vibame.telugupanchangamcalendar.model.WeekNames;
 
-public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> {
+public class WeekNamesAdapter extends RecyclerView.Adapter<WeekNamesAdapter.ViewHolder> {
     Activity activity;
-    MonthData[] monthData;
+    WeekNames[] weekNames;
 
-    public MonthAdapter(MonthData[] monthData, Activity activity) {
-        this.monthData = monthData;
+    public WeekNamesAdapter(WeekNames[] weekNames, Activity activity) {
+        this.weekNames = weekNames;
         this.activity = activity;
     }
 
@@ -27,21 +27,21 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem = layoutInflater.inflate(R.layout.month_views, parent, false);
+        View listItem = layoutInflater.inflate(R.layout.week_names_view, parent, false);
         return new ViewHolder(listItem);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(monthData[position].getTitle());
-        holder.description.setText(monthData[position].getDescription());
+        holder.title.setText(weekNames[position].getTitle());
+        holder.description.setText(weekNames[position].getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return monthData.length;
+        return weekNames.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +49,8 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = (TextView) itemView.findViewById(R.id.tvTitle1);
+            this.description = (TextView) itemView.findViewById(R.id.tvTitle2);
         }
     }
 }

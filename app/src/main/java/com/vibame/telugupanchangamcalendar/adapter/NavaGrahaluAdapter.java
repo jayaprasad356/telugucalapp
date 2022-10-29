@@ -27,7 +27,7 @@ public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem = layoutInflater.inflate(R.layout.nakshatharalu_layout, parent, false);
+        View listItem = layoutInflater.inflate(R.layout.nava_grahalu_view, parent, false);
         return new ViewHolder(listItem);
     }
 
@@ -49,8 +49,8 @@ public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tvTeluguyearName);
-            this.description = (TextView) itemView.findViewById(R.id.tvteluguYears);
+            this.title = (TextView) itemView.findViewById(R.id.RashiName);
+            this.description = (TextView) itemView.findViewById(R.id.RashiTime);
         }
     }
 }

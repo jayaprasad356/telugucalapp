@@ -64,12 +64,15 @@
             android:name=".activities.FruitNamesActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".activities.JanaPadhaActivity"
-            android:exported="false" />
+
 
         <activity
             android:name=".activities.KolathaluActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.KulaVurthaActivity"
             android:exported="false" />
 
 
@@ -160,6 +163,11 @@
         <activity
             android:name=".activities.YogamActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activities.JanaPadhaActivity"
+            android:exported="false" />
+
         <activity
             android:name=".activities.KaranamActivity"
             android:exported="false" />
@@ -226,6 +234,12 @@
         <activity
             android:name=".HoroscopeActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activities.RashuluActivity"
+            android:exported="false" />
+
+
         <activity
             android:name=".RaasiDetailsActivity"
             android:exported="false" />

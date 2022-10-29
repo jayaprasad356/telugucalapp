@@ -26,9 +26,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="4"
+            android:layout_marginBottom="@dimen/_20sdp"
 
             >
 
@@ -41,8 +41,8 @@
                 android:padding="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -61,7 +61,9 @@
                     android:padding="@dimen/_2sdp"
                     android:text="@string/telugu_years"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
 
             </LinearLayout>
 
@@ -76,9 +78,9 @@
                 >
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
 
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -97,7 +99,10 @@
                     android:padding="@dimen/_2sdp"
                     android:text="Rashulu"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+
+                    />
 
             </LinearLayout>
 
@@ -112,9 +117,9 @@
                 >
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
 
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -133,7 +138,9 @@
                     android:padding="@dimen/_2sdp"
                     android:text="Months"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
 
             </LinearLayout>
             <LinearLayout
@@ -147,9 +154,9 @@
                 >
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
 
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -168,79 +175,39 @@
                     android:padding="@dimen/_2sdp"
                     android:text="Ankelu"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
 
             </LinearLayout>
 
 
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
-            android:padding="@dimen/_10sdp"
-            android:weightSum="3">
+            android:weightSum="4"
+            android:layout_marginBottom="@dimen/_20sdp"
 
 
+
+            >
 
             <LinearLayout
-                android:id="@+id/llKaranam"
+                android:id="@+id/llAksharalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
-
+                android:padding="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Karanam"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/tvAksharalu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
-
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar"
-
-                    >
+                    android:background="@drawable/rounded_bar">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -257,23 +224,24 @@
                     android:padding="@dimen/_2sdp"
                     android:text="Aksharalu"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llRahukalam"
+                android:id="@+id/llGuninthalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
+                android:padding="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -290,34 +258,31 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Rahukalam"
+                    android:text="Guninthalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
-
+                    android:textSize="@dimen/_10sdp"
                     />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llYogam"
+                android:id="@+id/llJanapadha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
+                android:padding="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-
 
                 </RelativeLayout>
 
@@ -327,9 +292,44 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Yogam"
+                    android:text="Jana Padha"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llKulavruthulu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Kula Vruthulu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
 
                     />
 
@@ -342,36 +342,61 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:orientation="horizontal"
-            android:padding="@dimen/_10sdp"
-            android:weightSum="3">
+            android:weightSum="4"
+            android:layout_marginBottom="@dimen/_20sdp"
 
-
+            >
 
             <LinearLayout
-                android:id="@+id/llKulavurthala"
+                android:id="@+id/llNavagrahalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
                 >
 
-
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar"
-
-                    >
+                    android:background="@drawable/rounded_bar">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Nava Grahalu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRuthuvulu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                 </RelativeLayout>
 
@@ -381,61 +406,24 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="kulavurthala"
+                    android:text="Ruthuvulu"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
-
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Aksharalu"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llRahukalam"
+                android:id="@+id/llKolathalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
+                android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -452,27 +440,267 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Rahukalam"
+                    android:text="Kolathalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPrasadhamnames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Prasadham Names"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:weightSum="4"
+            android:layout_marginBottom="@dimen/_20sdp"
+
+            >
+
+            <LinearLayout
+                android:id="@+id/llLagnalu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Lagnalu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llThidhiadhi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Thidhi Adhi"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWeeknames"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Week Names"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+
 
                     />
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llYogam"
+                android:id="@+id/llFruitnames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
-
-                >
+                android:padding="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_60sdp"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Fruit Names"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+
+
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginStart="@dimen/_10sdp"
+            >
+
+            <LinearLayout
+                android:id="@+id/llPakshamulu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Pakshamulu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPushapalu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
 
@@ -489,17 +717,16 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Yogam"
+                    android:text="Pushapalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
-
+                    android:textSize="@dimen/_10sdp"
                     />
 
             </LinearLayout>
 
 
         </LinearLayout>
-
 
     </LinearLayout>
 

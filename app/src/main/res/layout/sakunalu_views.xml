@@ -11,10 +11,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="#F4F2F2"
-        android:paddingBottom="@dimen/_5sdp"
+        android:backgroundTint="#E0F1FF"
+        android:padding="@dimen/_8sdp"
         android:text="Title"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold" />

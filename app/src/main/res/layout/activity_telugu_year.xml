@@ -51,7 +51,7 @@
             android:layout_marginHorizontal="4dp"
             android:background="@drawable/corner_bg"
             android:backgroundTint="@color/colorWhite"
-            tools:listitem="@layout/sakunalu_views" />
+            />
     </FrameLayout>
 
 </RelativeLayout>

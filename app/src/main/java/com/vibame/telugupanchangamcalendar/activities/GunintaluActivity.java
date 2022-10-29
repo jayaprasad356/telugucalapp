@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GunintaluAdaptor;
@@ -21,12 +23,22 @@ public class GunintaluActivity extends AppCompatActivity {
     private GunintaluAdaptor gunintaluAdaptor;
     private ArrayList<Guninthalu> guninthaluArrayList;
     private Activity activity;
+    ImageView imgBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rashulu);
+        setContentView(R.layout.activity_gunintalu);
         activity = this;
-        GunintaluRecycler = findViewById(R.id.RashuluRecycler);
+
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        GunintaluRecycler = findViewById(R.id.GunintaluRecycler);
         GunintaluRecycler.setLayoutManager(new LinearLayoutManager(activity));
         GunintaluRecycler.setHasFixedSize(true);
         BuildRecycler();

@@ -49,8 +49,8 @@ public class RuthuvuluAdapter extends RecyclerView.Adapter<RuthuvuluAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = (TextView) itemView.findViewById(R.id.RashiName);
+            this.description = (TextView) itemView.findViewById(R.id.RashiTime);
         }
     }
 }
