@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Guninthalu;
 import com.vibame.telugupanchangamcalendar.model.KulaVurthala;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ public class KulaVurthaAdaptor extends RecyclerView.Adapter<KulaVurthaAdaptor.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         KulaVurthala model = kulaVurthalaArrayList.get(position);
-        holder.Occupation.setText(model.getOccupationName());
-        holder.OccupationReference.setText(model.getOccupationReference());
+        holder.Occupation.setText(model.getTitle());
+        holder.OccupationReference.setText(model.getDescription());
     }
 
 

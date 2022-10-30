@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.NavaGrahalu;
-import com.vibame.telugupanchangamcalendar.model.Pushapalu;
+
+import java.util.ArrayList;
 
 public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.ViewHolder> {
     Activity activity;
-    NavaGrahalu[] navaGrahalus;
+    ArrayList<NavaGrahalu> navaGrahalus;
 
-    public NavaGrahaluAdapter(NavaGrahalu[] navaGrahalus, Activity activity) {
+    public NavaGrahaluAdapter(Activity activity, ArrayList<NavaGrahalu> navaGrahalus) {
         this.navaGrahalus = navaGrahalus;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(navaGrahalus[position].getTitle());
-        holder.description.setText(navaGrahalus[position].getDescription());
+        holder.title.setText(navaGrahalus.get(position).getTitle());
+        holder.description.setText(navaGrahalus.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return navaGrahalus.length;
+        return navaGrahalus.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

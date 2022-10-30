@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.Guninthalu;
-import com.vibame.telugupanchangamcalendar.model.KukutaSasthramData;
 
 import java.util.ArrayList;
 
@@ -36,7 +35,7 @@ public class GunintaluAdaptor extends RecyclerView.Adapter<GunintaluAdaptor.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Guninthalu model = guninthaluArrayList.get(position);
-        holder.Gunintam.setText(model.getGunintam());
+        holder.Gunintam.setText(model.getDescription());
     }
 
 

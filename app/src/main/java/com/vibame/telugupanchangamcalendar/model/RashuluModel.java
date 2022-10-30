@@ -1,27 +1,27 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class RashuluModel {
-    private String RashiNmae;
-    private String RashiTime;
+    private String title;
+    private String description;
 
     public RashuluModel(String rashiNmae, String rashiTime) {
-        RashiNmae = rashiNmae;
-        RashiTime = rashiTime;
+        title = rashiNmae;
+        description = rashiTime;
     }
 
-    public String getRashiNmae() {
-        return RashiNmae;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRashiNmae(String rashiNmae) {
-        RashiNmae = rashiNmae;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getRashiTime() {
-        return RashiTime;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRashiTime(String rashiTime) {
-        RashiTime = rashiTime;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

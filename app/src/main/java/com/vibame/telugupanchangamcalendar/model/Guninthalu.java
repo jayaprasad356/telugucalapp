@@ -1,17 +1,17 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Guninthalu {
-    private String Gunintam;
+    private String description;
 
     public Guninthalu(String gunintam) {
-        Gunintam = gunintam;
+        description = gunintam;
     }
 
-    public String getGunintam() {
-        return Gunintam;
+    public String getDescription() {
+        return description;
     }
 
-    public void setGunintam(String gunintam) {
-        Gunintam = gunintam;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

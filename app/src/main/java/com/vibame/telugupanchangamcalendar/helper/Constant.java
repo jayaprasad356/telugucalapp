@@ -53,6 +53,14 @@ public class Constant {
     public static final String TELUGU_SAWANCHARALU = "telugu_sawancharalu";
     public static final String TELUGU_NELALU = "telugu_nelalu";
     public static final String TELUGU_ANKELU = "telugu_ankelu";
+    public static final String TELUGU_AKSHARALU = "telugu_aksharalu";
+    public static final String GUNINTHALU = "guninthalu";
+    public static final String RASHULU = "rashulu";
+    public static final String VRUTHULU = "vruthulu";
+    public static final String RUTHUVULU = "ruthuvulu";
+    public static final String KALALU = "64_kalalu";
+
+
 
 
     public static final String YOGAM = "yogam";

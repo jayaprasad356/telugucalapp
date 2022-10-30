@@ -1,7 +1,6 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.content.Context;
-import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,13 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.RashuluModel;
 
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 
 public class RashuluAdaptor extends RecyclerView.Adapter<RashuluAdaptor.RashuluViewHolder> {
 
     private ArrayList<RashuluModel> rashuluModelArrayList;
     private Context ctx;
 
-    public RashuluAdaptor(ArrayList<RashuluModel> rashuluModelArrayList, Context ctx) {
+    public RashuluAdaptor( Context ctx,ArrayList<RashuluModel> rashuluModelArrayList) {
         this.rashuluModelArrayList = rashuluModelArrayList;
         this.ctx = ctx;
     }
@@ -36,8 +34,8 @@ public class RashuluAdaptor extends RecyclerView.Adapter<RashuluAdaptor.RashuluV
     @Override
     public void onBindViewHolder(@NonNull RashuluViewHolder holder, int position) {
         RashuluModel model = rashuluModelArrayList.get(position);
-        holder.RashiName.setText(model.getRashiNmae());
-        holder.RashiTime.setText(model.getRashiTime());
+        holder.RashiName.setText(model.getTitle());
+        holder.RashiTime.setText(model.getDescription());
     }
 
     @Override

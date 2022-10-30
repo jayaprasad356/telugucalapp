@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.AksharaluModel;
-import com.vibame.telugupanchangamcalendar.model.RashuluModel;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class AksharaluAdaptor extends RecyclerView.Adapter<AksharaluAdaptor.Rash
     private ArrayList<AksharaluModel> aksharaluModelArrayList;
     private Context ctx;
 
-    public AksharaluAdaptor(ArrayList<AksharaluModel> aksharaluModelArrayList, Context ctx) {
+    public AksharaluAdaptor(Context ctx,ArrayList<AksharaluModel> aksharaluModelArrayList) {
         this.aksharaluModelArrayList = aksharaluModelArrayList;
         this.ctx = ctx;
     }
@@ -35,8 +34,8 @@ public class AksharaluAdaptor extends RecyclerView.Adapter<AksharaluAdaptor.Rash
     @Override
     public void onBindViewHolder(@NonNull RashuluViewHolder holder, int position) {
         AksharaluModel model = aksharaluModelArrayList.get(position);
-        holder.Topic.setText(model.getHeading());
-        holder.Aksharam.setText(model.getTopic());
+        holder.Topic.setText(model.getTitle());
+        holder.Aksharam.setText(model.getDescription());
     }
 
     @Override

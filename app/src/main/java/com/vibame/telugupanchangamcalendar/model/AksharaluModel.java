@@ -1,27 +1,27 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class AksharaluModel {
-    private String Heading;
-    private String Topic;
+    private String title;
+    private String description;
 
     public AksharaluModel(String heading, String topic) {
-        Heading = heading;
-        Topic = topic;
+        title = heading;
+        description = topic;
     }
 
-    public String getHeading() {
-        return Heading;
+    public String getTitle() {
+        return title;
     }
 
-    public void setHeading(String heading) {
-        Heading = heading;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getTopic() {
-        return Topic;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTopic(String topic) {
-        Topic = topic;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

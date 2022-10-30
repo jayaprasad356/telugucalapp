@@ -1,27 +1,27 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class KulaVurthala {
-    private String OccupationName;
-    private String OccupationReference;
+    private String title;
+    private String description;
 
     public KulaVurthala(String occupationName, String occupationReference) {
-        OccupationName = occupationName;
-        OccupationReference = occupationReference;
+        title = occupationName;
+        description = occupationReference;
     }
 
-    public String getOccupationName() {
-        return OccupationName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setOccupationName(String occupationName) {
-        OccupationName = occupationName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getOccupationReference() {
-        return OccupationReference;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOccupationReference(String occupationReference) {
-        OccupationReference = occupationReference;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
