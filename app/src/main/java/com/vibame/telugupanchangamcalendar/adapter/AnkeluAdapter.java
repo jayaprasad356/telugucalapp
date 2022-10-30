@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.AnkeluData;
-import com.vibame.telugupanchangamcalendar.model.MonthData;
+
+import java.util.ArrayList;
 
 public class AnkeluAdapter extends RecyclerView.Adapter<AnkeluAdapter.ViewHolder> {
     Activity activity;
-    AnkeluData[] ankeluData;
+    ArrayList<AnkeluData> ankeluData;
 
-    public AnkeluAdapter(AnkeluData[] ankeluData, Activity activity) {
+    public AnkeluAdapter(Activity activity, ArrayList<AnkeluData> ankeluData) {
         this.ankeluData = ankeluData;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class AnkeluAdapter extends RecyclerView.Adapter<AnkeluAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title1.setText(ankeluData[position].getTitle());
-        holder.title2.setText(ankeluData[position].getDescription());
+        holder.title1.setText(ankeluData.get(position).getTitle1());
+        holder.title2.setText(ankeluData.get(position).getTitle2());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return ankeluData.length;
+        return ankeluData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -6,6 +6,8 @@ public class Constant {
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String SAKUNA_SASTHRAM_URL = BaseUrl + "sakuna-sasthram-list.php";
+    public static final String TELUGU_SAMKRUTHAM_URL = BaseUrl + "telugu-samkrutham-list.php";
+
 
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
     public static final String HOROSCOPE_URL = BaseUrl + "horoscope.php";
@@ -48,6 +50,10 @@ public class Constant {
     public static final String PILLI_SASTHRAM = "pilli_sasthram";
     public static final String KUKUTA_SASTHRAM = "kukuta_sasthram";
     public static final String KUKUTA_SASTHRAM_MENU = "kukutasasthram_menu";
+    public static final String TELUGU_SAWANCHARALU = "telugu_sawancharalu";
+    public static final String TELUGU_NELALU = "telugu_nelalu";
+    public static final String TELUGU_ANKELU = "telugu_ankelu";
+
 
     public static final String YOGAM = "yogam";
     public static final String DAY = "day";

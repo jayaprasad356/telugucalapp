@@ -59,7 +59,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="@string/telugu_years"
+                    android:text="@string/sawanchralu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
@@ -67,44 +67,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llRashulu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp"
 
-                >
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_45sdp"
-
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Rashulu"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_10sdp"
-
-                    />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/llMonth"
@@ -136,7 +99,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Months"
+                    android:text="Telugu Nelalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
@@ -177,6 +140,42 @@
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llRashulu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Rashulu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+
                     />
 
             </LinearLayout>

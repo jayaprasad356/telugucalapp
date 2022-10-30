@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.MonthData;
-import com.vibame.telugupanchangamcalendar.model.SakunaluData;
+
+import java.util.ArrayList;
 
 public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> {
     Activity activity;
-    MonthData[] monthData;
+    ArrayList<MonthData> monthData;
 
-    public MonthAdapter(MonthData[] monthData, Activity activity) {
+    public MonthAdapter(Activity activity, ArrayList<MonthData> monthData) {
         this.monthData = monthData;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(monthData[position].getTitle());
-        holder.description.setText(monthData[position].getDescription());
+        holder.title.setText(monthData.get(position).getTitle());
+        holder.description.setText(monthData.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return monthData.length;
+        return monthData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

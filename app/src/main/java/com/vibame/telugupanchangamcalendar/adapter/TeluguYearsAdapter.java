@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.SakunaluData;
 import com.vibame.telugupanchangamcalendar.model.TeluguYear;
+
+import java.util.ArrayList;
 
 public class TeluguYearsAdapter extends RecyclerView.Adapter<TeluguYearsAdapter.ViewHolder> {
     Activity activity;
-    TeluguYear[] teluguYears;
+    ArrayList<TeluguYear> teluguYears;
 
-    public TeluguYearsAdapter(TeluguYear[] teluguYears, Activity activity) {
+    public TeluguYearsAdapter(Activity activity, ArrayList<TeluguYear> teluguYears) {
         this.teluguYears = teluguYears;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class TeluguYearsAdapter extends RecyclerView.Adapter<TeluguYearsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(teluguYears[position].getTitle());
-        holder.description.setText(teluguYears[position].getDescription());
+        holder.title.setText(teluguYears.get(position).getTitle());
+        holder.description.setText(teluguYears.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return teluguYears.length;
+        return teluguYears.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +50,8 @@ public class TeluguYearsAdapter extends RecyclerView.Adapter<TeluguYearsAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tvTeluguyearName);
-            this.description = (TextView) itemView.findViewById(R.id.tvteluguYears);
+            this.title = itemView.findViewById(R.id.tvTeluguyearName);
+            this.description = itemView.findViewById(R.id.tvteluguYears);
         }
     }
 }
