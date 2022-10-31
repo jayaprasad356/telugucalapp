@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.Pushapalu;
-import com.vibame.telugupanchangamcalendar.model.TeluguYear;
+
+import java.util.ArrayList;
 
 public class PushapaluAdapter extends RecyclerView.Adapter<PushapaluAdapter.ViewHolder> {
     Activity activity;
-    Pushapalu[] pushapalus;
+    ArrayList<Pushapalu> pushapalus;
 
-    public PushapaluAdapter(Pushapalu[] pushapalus, Activity activity) {
+    public PushapaluAdapter(Activity activity, ArrayList<Pushapalu> pushapalus) {
         this.pushapalus = pushapalus;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class PushapaluAdapter extends RecyclerView.Adapter<PushapaluAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(pushapalus[position].getTitle());
-        holder.description.setText(pushapalus[position].getDescription());
+        holder.title.setText(pushapalus.get(position).getTitle());
+        holder.description.setText(pushapalus.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return pushapalus.length;
+        return pushapalus.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +50,8 @@ public class PushapaluAdapter extends RecyclerView.Adapter<PushapaluAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tvTeluguyearName);
-            this.description = (TextView) itemView.findViewById(R.id.tvteluguYears);
+            this.title = (TextView) itemView.findViewById(R.id.title);
+            this.description = (TextView) itemView.findViewById(R.id.tvDescription);
         }
     }
 }

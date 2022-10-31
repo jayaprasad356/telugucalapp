@@ -41,15 +41,6 @@ public class NavaGrahaluActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nava_grahalu);
 
 
-        NavaGrahalu[] navaGrahalus = new NavaGrahalu[]{
-                new NavaGrahalu("Title","wwwwwwww"),
-                new NavaGrahalu("Title","wwwwwwww"),
-                new NavaGrahalu("Title","wwwwwwww"),
-                new NavaGrahalu("Title","wwwwwwww"),
-
-
-        };
-
 
         recyclerView = findViewById(R.id.Telugu_rcView);
 
@@ -69,7 +60,7 @@ public class NavaGrahaluActivity extends AppCompatActivity {
     }
     private void loadApiData() {
         HashMap<String, String> params = new HashMap<>();
-        params.put(Constant.VRUTHULU, "1");
+        params.put(Constant.NAVA_GRAHALU, "1");
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.FruitsNames;
-import com.vibame.telugupanchangamcalendar.model.WeekNames;
+
+import java.util.ArrayList;
 
 public class FruitsNamesAdapter extends RecyclerView.Adapter<FruitsNamesAdapter.ViewHolder> {
     Activity activity;
-    FruitsNames[] fruitsNames;
+    ArrayList<FruitsNames> fruitsNames;
 
-    public FruitsNamesAdapter(FruitsNames[] fruitsNames, Activity activity) {
+    public FruitsNamesAdapter(Activity activity, ArrayList<FruitsNames> fruitsNames) {
         this.fruitsNames = fruitsNames;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class FruitsNamesAdapter extends RecyclerView.Adapter<FruitsNamesAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(fruitsNames[position].getTitle());
-        holder.description.setText(fruitsNames[position].getDescription());
+        holder.title.setText(fruitsNames.get(position).getTitle());
+        holder.description.setText(fruitsNames.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return fruitsNames.length;
+        return fruitsNames.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +50,8 @@ public class FruitsNamesAdapter extends RecyclerView.Adapter<FruitsNamesAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tvTitle1);
-            this.description = (TextView) itemView.findViewById(R.id.tvTitle1);
+            this.title = itemView.findViewById(R.id.tvTitle1);
+            this.description = itemView.findViewById(R.id.tvTitle2);
         }
     }
 }

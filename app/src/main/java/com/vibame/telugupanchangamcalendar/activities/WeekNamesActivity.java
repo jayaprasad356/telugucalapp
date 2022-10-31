@@ -1,5 +1,7 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,12 +10,24 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.FruitsNamesAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.RashuluAdaptor;
 import com.vibame.telugupanchangamcalendar.adapter.WeekNamesAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.FruitsNames;
+import com.vibame.telugupanchangamcalendar.model.RashuluModel;
 import com.vibame.telugupanchangamcalendar.model.WeekNames;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WeekNamesActivity extends AppCompatActivity {
 
@@ -25,18 +39,7 @@ public class WeekNamesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_names);
-
-        WeekNames[] weekNames = new WeekNames[]{
-                new WeekNames("1. Pharbava Nama Year","1901 1910 2010 2100"),
-                new WeekNames("2. Pharbava Nama Year","1901 1910 2010 2100"),
-                new WeekNames("1. Pharbava Nama Year","1901 1910 2010 2100"),
-
-
-        };
-
-
         recyclerView = findViewById(R.id.Telugu_rcView);
-        WeekNamesAdapter adapter = new WeekNamesAdapter(weekNames, activity);
 
         imgBack = findViewById(R.id.imgBack);
         activity = this;
@@ -50,6 +53,40 @@ public class WeekNamesActivity extends AppCompatActivity {
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
+        loadRashuluData();
     }
+
+    private void loadRashuluData() {
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.TELUGU_VARAMULU, "1");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<WeekNames> weekNames = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                WeekNames group = g.fromJson(jsonObject1.toString(), WeekNames.class);
+                                weekNames.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        WeekNamesAdapter adapter = new WeekNamesAdapter(activity, weekNames);
+                        recyclerView.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.TELUGU_SAMKRUTHAM_URL, params, true);
+
+    }
+
 }

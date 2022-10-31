@@ -59,7 +59,15 @@ public class Constant {
     public static final String VRUTHULU = "vruthulu";
     public static final String RUTHUVULU = "ruthuvulu";
     public static final String KALALU = "64_kalalu";
-
+    public static final String NAVA_GRAHALU = "nava_grahalu";
+    public static final String KOLATHALU = "kolathalu";
+    public static final String PRASADHAMULU_PERULU = "prasadhamulu_perulu";
+    public static final String LAGNAM = "lagnam";
+    public static final String THIDHI_AADHI_DEVATHALU = "thidhi_aadhi_devathalu";
+    public static final String TELUGU_VARAMULU = "telugu_varamulu";
+    public static final String PANDLU_PERULU = "pandlu_perulu";
+    public static final String PUSHPALA_PERULA = "pushpala_perulu";
+    public static final String PAKSHAMULU = "pakshamulu";
 
 
 

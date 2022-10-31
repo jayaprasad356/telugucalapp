@@ -1,5 +1,7 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,12 +10,24 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.adapter.LagnaluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.TeluguYearsAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.ThidhiAdhiAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.model.Lagnalu;
 import com.vibame.telugupanchangamcalendar.model.TeluguYear;
 import com.vibame.telugupanchangamcalendar.model.ThidhiAdhi;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ThidhiAdhiActivity extends AppCompatActivity {
 
@@ -25,20 +39,7 @@ public class ThidhiAdhiActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thidhi_adhi);
-
-
-
-        ThidhiAdhi[] thidhiAdhis = new ThidhiAdhi[]{
-                new ThidhiAdhi("1. Pharbava","1901 1910 2010 2100"),
-                new ThidhiAdhi("2. Pharbava","1901 1910 2010 2100"),
-                new ThidhiAdhi("1. Pharbava","1901 1910 2010 2100"),
-
-
-        };
-
-
         recyclerView = findViewById(R.id.Telugu_rcView);
-        ThidhiAdhiAdapter adapter = new ThidhiAdhiAdapter(thidhiAdhis, activity);
 
         imgBack = findViewById(R.id.imgBack);
         activity = this;
@@ -52,7 +53,39 @@ public class ThidhiAdhiActivity extends AppCompatActivity {
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
+        loadRashuluData();
+    }
+
+    private void loadRashuluData() {
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.THIDHI_AADHI_DEVATHALU, "1");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<ThidhiAdhi> thidhiAdhis = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                ThidhiAdhi group = g.fromJson(jsonObject1.toString(), ThidhiAdhi.class);
+                                thidhiAdhis.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        ThidhiAdhiAdapter adapter = new ThidhiAdhiAdapter(activity, thidhiAdhis);
+                        recyclerView.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.TELUGU_SAMKRUTHAM_URL, params, true);
 
     }
 }

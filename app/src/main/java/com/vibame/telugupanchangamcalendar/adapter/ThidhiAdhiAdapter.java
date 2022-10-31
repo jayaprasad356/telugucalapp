@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Kolathalu;
 import com.vibame.telugupanchangamcalendar.model.ThidhiAdhi;
+
+import java.util.ArrayList;
 
 public class ThidhiAdhiAdapter extends RecyclerView.Adapter<ThidhiAdhiAdapter.ViewHolder> {
     Activity activity;
-    ThidhiAdhi[] thidhiAdhis;
+    ArrayList<ThidhiAdhi> thidhiAdhis;
 
-    public ThidhiAdhiAdapter(ThidhiAdhi[] thidhiAdhis, Activity activity) {
+    public ThidhiAdhiAdapter(Activity activity, ArrayList<ThidhiAdhi> thidhiAdhis) {
         this.thidhiAdhis = thidhiAdhis;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class ThidhiAdhiAdapter extends RecyclerView.Adapter<ThidhiAdhiAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(thidhiAdhis[position].getTitle());
-        holder.description.setText(thidhiAdhis[position].getDescription());
+        holder.title.setText(thidhiAdhis.get(position).getTitle());
+        holder.description.setText(thidhiAdhis.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return thidhiAdhis.length;
+        return thidhiAdhis.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

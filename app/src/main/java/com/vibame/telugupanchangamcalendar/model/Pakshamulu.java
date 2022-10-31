@@ -1,7 +1,7 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Pakshamulu {
-    private String description;
+    private String description,imageUrl;
     private String title;
 
     public String getDescription() {
@@ -20,8 +20,12 @@ public class Pakshamulu {
         this.title = title;
     }
 
-    public Pakshamulu(String title, String description) {
-        this.description = description;
-        this.title = title;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

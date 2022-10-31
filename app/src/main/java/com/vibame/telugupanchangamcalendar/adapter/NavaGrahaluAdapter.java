@@ -50,8 +50,8 @@ public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.RashiName);
-            this.description = (TextView) itemView.findViewById(R.id.RashiTime);
+            this.title = itemView.findViewById(R.id.RashiName);
+            this.description = itemView.findViewById(R.id.RashiTime);
         }
     }
 }

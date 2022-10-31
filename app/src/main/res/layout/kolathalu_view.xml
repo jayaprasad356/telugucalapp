@@ -43,7 +43,7 @@
                 app:cardBackgroundColor="@color/colorHead"
                 app:cardCornerRadius="@dimen/_30sdp">
                 <TextView
-                    android:id="@+id/tv_desc"
+                    android:id="@+id/sub_title1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="somex"
@@ -54,7 +54,7 @@
                     android:textStyle="bold"/>
             </androidx.cardview.widget.CardView>
             <TextView
-                android:id="@+id/tvOccupationReference"
+                android:id="@+id/sub_description_1a"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -86,6 +86,7 @@
                 app:cardBackgroundColor="@color/colorHead"
                 app:cardCornerRadius="@dimen/_30sdp">
                 <TextView
+                    android:id="@+id/sub_title2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="somex"
@@ -96,6 +97,7 @@
                     android:textStyle="bold"/>
             </androidx.cardview.widget.CardView>
             <TextView
+                android:id="@+id/sub_description_2a"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

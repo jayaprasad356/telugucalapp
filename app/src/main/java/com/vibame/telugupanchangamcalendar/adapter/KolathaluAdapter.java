@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.Kolathalu;
-import com.vibame.telugupanchangamcalendar.model.Ruthuvulu;
+
+import java.util.ArrayList;
 
 public class KolathaluAdapter extends RecyclerView.Adapter<KolathaluAdapter.ViewHolder> {
     Activity activity;
-    Kolathalu[] kolathalus;
+    ArrayList<Kolathalu> kolathalus;
 
-    public KolathaluAdapter(Kolathalu[] kolathalus, Activity activity) {
+    public KolathaluAdapter(Activity activity, ArrayList<Kolathalu> kolathalus) {
         this.kolathalus = kolathalus;
         this.activity = activity;
     }
@@ -33,24 +34,30 @@ public class KolathaluAdapter extends RecyclerView.Adapter<KolathaluAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(kolathalus[position].getTitle());
-        holder.description.setText(kolathalus[position].getDescription());
-
+        holder.title.setText(kolathalus.get(position).getTitle());
+        holder.subtitle1.setText(kolathalus.get(position).getSubtitle1());
+        holder.subdescription1.setText(kolathalus.get(position).getSubdescription1());
+        holder.subtitle2.setText(kolathalus.get(position).getSubtitle2());
+        holder.subdescription2.setText(kolathalus.get(position).getSubdescription2());
     }
 
 
     @Override
     public int getItemCount() {
-        return kolathalus.length;
+        return kolathalus.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, description;
+        public TextView title, subtitle1,subdescription1,subtitle2,subdescription2;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.subtitle1 = itemView.findViewById(R.id.sub_title1);
+            this.subdescription1 = itemView.findViewById(R.id.sub_description_1a);
+            this.subtitle2 = itemView.findViewById(R.id.sub_title2);
+            this.subdescription2 = itemView.findViewById(R.id.sub_description_2a);
+
         }
     }
 }

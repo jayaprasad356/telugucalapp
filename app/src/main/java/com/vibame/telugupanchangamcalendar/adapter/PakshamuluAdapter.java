@@ -9,15 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.MonthData;
 import com.vibame.telugupanchangamcalendar.model.Pakshamulu;
+
+import java.util.ArrayList;
 
 public class PakshamuluAdapter extends RecyclerView.Adapter<PakshamuluAdapter.ViewHolder> {
     Activity activity;
-    Pakshamulu[] pakshamulus;
+    ArrayList<Pakshamulu> pakshamulus;
 
-    public PakshamuluAdapter(Pakshamulu[] pakshamulus, Activity activity) {
+    public PakshamuluAdapter(Activity activity, ArrayList<Pakshamulu> pakshamulus) {
         this.pakshamulus = pakshamulus;
         this.activity = activity;
     }
@@ -33,15 +35,16 @@ public class PakshamuluAdapter extends RecyclerView.Adapter<PakshamuluAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(pakshamulus[position].getTitle());
-        holder.description.setText(pakshamulus[position].getDescription());
+        holder.title.setText(pakshamulus.get(position).getTitle());
+        holder.description.setText(pakshamulus.get(position).getDescription());
+        Glide.with(activity).load(pakshamulus.get(0).getImageUrl());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return pakshamulus.length;
+        return pakshamulus.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +52,8 @@ public class PakshamuluAdapter extends RecyclerView.Adapter<PakshamuluAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.description = itemView.findViewById(R.id.tv_desc);
         }
     }
 }

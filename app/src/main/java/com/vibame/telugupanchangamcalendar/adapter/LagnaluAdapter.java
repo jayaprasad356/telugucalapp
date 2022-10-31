@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Kolathalu;
 import com.vibame.telugupanchangamcalendar.model.Lagnalu;
+
+import java.util.ArrayList;
 
 public class LagnaluAdapter extends RecyclerView.Adapter<LagnaluAdapter.ViewHolder> {
     Activity activity;
-    Lagnalu[] lagnalus;
+    ArrayList<Lagnalu> lagnalus;
 
-    public LagnaluAdapter(Lagnalu[] lagnalus, Activity activity) {
+    public LagnaluAdapter(Activity activity, ArrayList<Lagnalu> lagnalus) {
         this.lagnalus = lagnalus;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class LagnaluAdapter extends RecyclerView.Adapter<LagnaluAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(lagnalus[position].getTitle());
-        holder.description.setText(lagnalus[position].getDescription());
+        holder.title.setText(lagnalus.get(position).getTitle());
+        holder.description.setText(lagnalus.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return lagnalus.length;
+        return lagnalus.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -49,8 +50,8 @@ public class LagnaluAdapter extends RecyclerView.Adapter<LagnaluAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.description = itemView.findViewById(R.id.tv_desc);
         }
     }
 }

@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Lagnalu;
 import com.vibame.telugupanchangamcalendar.model.WeekNames;
+
+import java.util.ArrayList;
 
 public class WeekNamesAdapter extends RecyclerView.Adapter<WeekNamesAdapter.ViewHolder> {
     Activity activity;
-    WeekNames[] weekNames;
+    ArrayList<WeekNames> weekNames;
 
-    public WeekNamesAdapter(WeekNames[] weekNames, Activity activity) {
+    public WeekNamesAdapter(Activity activity, ArrayList<WeekNames> weekNames) {
         this.weekNames = weekNames;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class WeekNamesAdapter extends RecyclerView.Adapter<WeekNamesAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(weekNames[position].getTitle());
-        holder.description.setText(weekNames[position].getDescription());
+        holder.title.setText(weekNames.get(position).getTitle());
+        holder.description.setText(weekNames.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return weekNames.length;
+        return weekNames.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

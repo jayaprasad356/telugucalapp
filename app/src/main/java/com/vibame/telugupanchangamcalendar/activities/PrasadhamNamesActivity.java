@@ -1,5 +1,7 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,13 +10,25 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.PakshamuluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.PrasadhamNamesAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.RashuluAdaptor;
 import com.vibame.telugupanchangamcalendar.adapter.TeluguYearsAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.PrasadhamNames;
+import com.vibame.telugupanchangamcalendar.model.RashuluModel;
 import com.vibame.telugupanchangamcalendar.model.TeluguYear;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PrasadhamNamesActivity extends AppCompatActivity {
 
@@ -26,19 +40,7 @@ public class PrasadhamNamesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prasadham_names);
-
-        PrasadhamNames[] prasadhamNames = new PrasadhamNames[]{
-                new PrasadhamNames("1. Pharbava Nama Year","1901 1910 2010 2100"),
-                new PrasadhamNames("2. Pharbava Nama Year","1901 1910 2010 2100"),
-                new PrasadhamNames("1. Pharbava Nama Year","1901 1910 2010 2100"),
-
-
-        };
-
-
         recyclerView = findViewById(R.id.Telugu_rcView);
-        PrasadhamNamesAdapter adapter = new PrasadhamNamesAdapter(prasadhamNames, activity);
-
         imgBack = findViewById(R.id.imgBack);
         activity = PrasadhamNamesActivity.this;
 
@@ -51,6 +53,39 @@ public class PrasadhamNamesActivity extends AppCompatActivity {
         });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapter);
+
+        loadRashuluData();
+    }
+    private void loadRashuluData() {
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.PRASADHAMULU_PERULU, "1");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<PrasadhamNames> prasadhamNames = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                PrasadhamNames group = g.fromJson(jsonObject1.toString(), PrasadhamNames.class);
+                                prasadhamNames.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        PrasadhamNamesAdapter adapter = new PrasadhamNamesAdapter(activity, prasadhamNames);
+                        recyclerView.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.TELUGU_SAMKRUTHAM_URL, params, true);
+
     }
 }

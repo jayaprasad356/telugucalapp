@@ -10,14 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Kolathalu;
 import com.vibame.telugupanchangamcalendar.model.PrasadhamNames;
+
+import java.util.ArrayList;
 
 public class PrasadhamNamesAdapter extends RecyclerView.Adapter<PrasadhamNamesAdapter.ViewHolder> {
     Activity activity;
-    PrasadhamNames[] prasadhamNames;
+    ArrayList<PrasadhamNames> prasadhamNames;
 
-    public PrasadhamNamesAdapter(PrasadhamNames[] prasadhamNames, Activity activity) {
+    public PrasadhamNamesAdapter(Activity activity, ArrayList<PrasadhamNames> prasadhamNames) {
         this.prasadhamNames = prasadhamNames;
         this.activity = activity;
     }
@@ -33,15 +34,15 @@ public class PrasadhamNamesAdapter extends RecyclerView.Adapter<PrasadhamNamesAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(prasadhamNames[position].getTitle());
-        holder.description.setText(prasadhamNames[position].getDescription());
+        holder.title.setText(prasadhamNames.get(position).getTitle());
+        holder.description.setText(prasadhamNames.get(position).getDescription());
 
     }
 
 
     @Override
     public int getItemCount() {
-        return prasadhamNames.length;
+        return prasadhamNames.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
