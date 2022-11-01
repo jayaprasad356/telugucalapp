@@ -64,17 +64,16 @@
         >
 
 
-
-    <TextView
-        android:id="@+id/tvImageTile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Image Here"
-        android:gravity="center"
-        android:padding="@dimen/_10sdp"
-        android:textSize="@dimen/_18sdp"
-        android:textColor="@color/colorBlack"
-        />
+        <TextView
+            android:id="@+id/tvImageTile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Image Here"
+            android:visibility="gone"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_18sdp" />
 
 
         <ImageView
@@ -83,6 +82,7 @@
             android:layout_height="@dimen/_120sdp"
             android:layout_below="@+id/tvImageTile"
             android:layout_centerInParent="true"
+            android:visibility="gone"
             android:background="@drawable/god_pik" />
 
 

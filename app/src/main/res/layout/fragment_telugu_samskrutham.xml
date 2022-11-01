@@ -9,8 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -118,7 +116,6 @@
 
                 <RelativeLayout
                     android:layout_width="@dimen/_45sdp"
-
                     android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_bar">
@@ -137,6 +134,93 @@
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
                     android:text="Ankelu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llAksharalu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Aksharalu"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:layout_marginBottom="@dimen/_20sdp"
+
+
+
+            >
+
+
+
+            <LinearLayout
+                android:id="@+id/llGuninthalu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/_45sdp"
+
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_bar">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Guninthalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
@@ -180,91 +264,6 @@
 
             </LinearLayout>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            android:layout_marginBottom="@dimen/_20sdp"
-
-
-
-            >
-
-            <LinearLayout
-                android:id="@+id/llAksharalu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp">
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Aksharalu"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_10sdp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llGuninthalu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/_5sdp">
-
-                <RelativeLayout
-                    android:layout_width="@dimen/_45sdp"
-
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-
-
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Guninthalu"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_10sdp"
-                    />
-
-            </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/llJanapadha"
                 android:layout_width="wrap_content"
@@ -291,7 +290,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/_2sdp"
-                    android:text="Jana Padha"
+                    android:text="64 Kalalu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
@@ -446,19 +445,22 @@
                     />
 
             </LinearLayout>
-
             <LinearLayout
-                android:id="@+id/llPrasadhamnames"
+                android:id="@+id/llPakshamulu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                >
+
 
                 <RelativeLayout
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar">
+                    android:background="@drawable/rounded_bar"
+
+                    >
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -472,14 +474,16 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Prasadham Names"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Pakshamulu"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
-
                     />
 
             </LinearLayout>
+
+
 
 
         </LinearLayout>
@@ -652,22 +656,18 @@
             android:weightSum="4"
             android:layout_marginStart="@dimen/_10sdp"
             >
-
             <LinearLayout
-                android:id="@+id/llPakshamulu"
+                android:id="@+id/llPrasadhamnames"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
-
+                android:padding="@dimen/_10sdp"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_bar"
-
-                    >
+                    android:background="@drawable/rounded_bar">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -677,18 +677,19 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:padding="@dimen/_2sdp"
-                    android:text="Pakshamulu"
+                    android:text="Prasadham \n Names"
                     android:textColor="@color/colorBlack"
                     android:textStyle="bold"
                     android:textSize="@dimen/_10sdp"
                     />
 
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:id="@+id/llPushapalu"

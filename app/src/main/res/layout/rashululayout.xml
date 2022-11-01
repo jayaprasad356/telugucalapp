@@ -27,10 +27,11 @@
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:gravity="center"
+                android:paddingTop="@dimen/_10sdp"
                 android:text="starts from x to x"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                 />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

@@ -10,10 +10,10 @@
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/_12sdp"
-        android:textAlignment="center"
         android:fontFamily="@font/sree"
         android:paddingBottom="@dimen/_5sdp"
-        android:text=""/>
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="@dimen/_12sdp" />
 
 </RelativeLayout>

@@ -43,36 +43,32 @@
         >
 
 
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/corner_bg"
+            android:backgroundTint="#E0F1FF"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="వృత్తులు"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/corner_bg"
-        android:backgroundTint="#E0F1FF"
-        android:text="Title"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
-        android:paddingHorizontal="@dimen/_20sdp"
-        android:paddingVertical="@dimen/_10sdp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_title"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/sree"
-        android:paddingHorizontal="20dp"
-        android:text="dkjlfakjl;asjkl;fajkl;afsjklafsjklafjklafjkla
-        fjkladfsjkladfsjkladfsjkladfsjkladfsjklafsjklafsjkl;afsjklaf
-        jkl;afsljk;afklj;afjkl;fajklasjkljklafsjkl;afkljafjklf
-        adjklafkjladsfjklafjkladsfjkladfjkl;"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/sree"
+            android:paddingHorizontal="20dp"
+            android:text="మనుషుల ఆచార వ్యవహారాల విషయంలో, శకునాల పాత్ర ఎక్కువగా కనిపిస్తూ ఉంటాయి.ఈ శకునాలు రెండు రకాలుగా భావించవచ్చు. శుభ శకునాలు, అశుభ శకునాలు అని. ఏ పని ప్రారంభించినా శుభ శకునం"
+            android:textAlignment="center" />
 
 
     </RelativeLayout>
@@ -97,7 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Occupation"
+                    android:text="వృత్తి పేరు"
                     android:gravity="center"
                     android:textSize="17sp"
                     android:textColor="@color/colorBlack"
@@ -106,7 +102,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="work"
+                    android:text="వృత్తికారుడు"
                     android:gravity="center"
                     android:textSize="17sp"
                     android:textColor="@color/colorBlack"

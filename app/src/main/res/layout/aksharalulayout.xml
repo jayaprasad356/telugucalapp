@@ -27,7 +27,7 @@
             android:text="1\n2\n3"
             android:textColor="@color/colorBlack"
             android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
