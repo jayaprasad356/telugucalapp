@@ -43,4 +43,9 @@
     <string name="telugu_years">Telugu Years</string>
     <string name="pushapalu">Pushapalu</string>
     <string name="sawanchralu">Telugu Sawancharalu</string>
+    <string name="aadhi_parvam">1. Adhi Parvam ( 26 )</string>
+    <string name="anusanika_parvam">2. Anusanika Parvam ( 14 )</string>
+    <string name="maha_sthanika_parvam">3. Maha Sthanika Parvam ( 19 )</string>
+    <string name="maha_puranalu">Maha Puranalu</string>
+
 </resources>

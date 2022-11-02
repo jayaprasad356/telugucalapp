@@ -57,6 +57,9 @@
         <item
             android:id="@+id/teluguSamskurtham"
             android:title="@string/Telungu_samskrutham" />
+        <item
+            android:id="@+id/mahapuranalu"
+            android:title="@string/maha_puranalu" />
 
         <item android:title="9.Sissu Janma Padha" />
 

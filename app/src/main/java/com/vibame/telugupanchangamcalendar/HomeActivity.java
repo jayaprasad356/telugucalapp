@@ -25,6 +25,7 @@ import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.GrahaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
+import com.vibame.telugupanchangamcalendar.fragments.MahaPuranaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PanchnagamListFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
@@ -119,6 +120,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.teluguSamskurtham: {
                 fragment = new TeluguSamskruthamFragment();
+                break;
+            }
+            case R.id.mahapuranalu: {
+                fragment = new MahaPuranaluFragment();
                 break;
             }
 
