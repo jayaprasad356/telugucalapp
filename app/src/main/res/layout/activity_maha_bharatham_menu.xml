@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F2F2"
-    tools:context=".activities.MahaBharathamActivity">
+    tools:context=".activities.MahaBharathamMenuActivity">
 
     <LinearLayout
         android:id="@+id/llout"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="@string/sakuna_sasthram_title"
+            android:text="Maha Bharatham"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />
@@ -52,54 +52,21 @@
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/corner_bg"
-            android:backgroundTint="#F4F2F2"
+            android:backgroundTint="#E7F1FF"
             android:gravity="center"
             android:padding="@dimen/_8sdp"
             android:text="About Maha Bharatham"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/adhi_parvam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_title"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="20dp"
+            android:id="@+id/recyclerView"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/reusetxt"
-            android:gravity="center"
-            android:paddingVertical="5dp"
-            android:text="@string/aadhi_parvam"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/anusanika_parvam"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/adhi_parvam"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/reusetxt"
-            android:gravity="center"
-            android:paddingVertical="5dp"
-            android:text="@string/anusanika_parvam"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/anusanika_parvam"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/reusetxt"
-            android:gravity="center"
-            android:paddingVertical="5dp"
-            android:text="@string/maha_sthanika_parvam"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold" />
     </RelativeLayout>
 
 </RelativeLayout>

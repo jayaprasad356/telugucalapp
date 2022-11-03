@@ -59,7 +59,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activities.MahaBharathamActivity"
+            android:name=".activities.MahaBharadhamSukthuluActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.AboutMahaBharathamActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.MahaBharathamMenuActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

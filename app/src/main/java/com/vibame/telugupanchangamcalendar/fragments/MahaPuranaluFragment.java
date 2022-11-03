@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.activities.MahaBharathamActivity;
+import com.vibame.telugupanchangamcalendar.activities.MahaBharathamMenuActivity;
 
 public class MahaPuranaluFragment extends Fragment {
 
@@ -29,7 +29,7 @@ public class MahaPuranaluFragment extends Fragment {
         bhagvatham = root.findViewById(R.id.bhagvatham);
         sethakamulu = root.findViewById(R.id.sethakamulu);
         sivaPuranam = root.findViewById(R.id.shiva_puranam);
-        mahaBharathamActivity= new MahaBharathamActivity();
+        mahaBharathamActivity= new MahaBharathamMenuActivity();
 
         loadActivity(mahaBharathamActivity, mahaBharatham);
         // Inflate the layout for this fragment
