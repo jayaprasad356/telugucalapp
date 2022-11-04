@@ -30,7 +30,7 @@ import java.util.Map;
 public class RamyanamMenuActivity extends AppCompatActivity {
 
     TextView tvHead;
-    String Tittle,id;
+    String Tittle,id,ramayam_id;
     ImageView imgBack;
     Activity activity;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
@@ -46,6 +46,7 @@ public class RamyanamMenuActivity extends AppCompatActivity {
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
         id=getIntent().getStringExtra(Constant.ID);
+        ramayam_id=getIntent().getStringExtra(Constant.RAMAYANAM_ID);
 
         tvHead.setText(Tittle);
 
@@ -65,8 +66,8 @@ public class RamyanamMenuActivity extends AppCompatActivity {
 
     private void loadApiData() {
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.RAMAYANAM_MENU, id);
-        params.put(Constant.RAMAYANAM_ID, id);
+        params.put(Constant.RAMAYANAM_MENU_ID, id);
+        params.put(Constant.RAMAYANAM_ID, ramayam_id);
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

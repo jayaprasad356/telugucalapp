@@ -73,7 +73,8 @@ public class Constant {
     public static final String RAMAYAM_MENU = "ramayanam_menu";
     public static final String RAMAYANAM = "ramayanam";
     public static final String RAMAYANAM_ID = "ramayanam_id";
-    public static final String RAMAYANAM_MENU = "ramayanam_menu";
+    public static final String RAMAYANAM_MENU_ID = "ramayanam_menu_id";
+    public static final String RAMAYANAM_SUB_MENU = "ramayanam_submenu";
 
 
     public static final String YOGAM = "yogam";
