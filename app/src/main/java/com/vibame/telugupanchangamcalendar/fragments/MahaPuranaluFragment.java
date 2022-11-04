@@ -13,11 +13,12 @@ import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.MahaBharathamMenuActivity;
+import com.vibame.telugupanchangamcalendar.activities.RamayanamActivity;
 
 public class MahaPuranaluFragment extends Fragment {
 
     LinearLayout mahaBharatham, ramayanam, bhagvathGeetha, bhagvatham, sethakamulu, sivaPuranam;
-    Activity mahaBharathamActivity;
+    Activity mahaBharathamActivity,ramayanamActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,9 +30,21 @@ public class MahaPuranaluFragment extends Fragment {
         bhagvatham = root.findViewById(R.id.bhagvatham);
         sethakamulu = root.findViewById(R.id.sethakamulu);
         sivaPuranam = root.findViewById(R.id.shiva_puranam);
+
+        ramayanamActivity = new RamayanamActivity();
         mahaBharathamActivity= new MahaBharathamMenuActivity();
 
         loadActivity(mahaBharathamActivity, mahaBharatham);
+
+        ramayanam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                startActivity(intent);
+
+            }
+        });
         // Inflate the layout for this fragment
         return root;
     }
@@ -42,5 +55,8 @@ public class MahaPuranaluFragment extends Fragment {
             startActivity(intent);
 
         });
+
+
+
     }
 }

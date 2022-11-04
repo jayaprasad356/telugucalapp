@@ -59,6 +59,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.RamayamSubMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RamyanamMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RamayanamActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MahaBharadhamSukthuluActivity"
             android:exported="false">
             <meta-data

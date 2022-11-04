@@ -68,6 +68,7 @@ public class Constant {
     public static final String PANDLU_PERULU = "pandlu_perulu";
     public static final String PUSHPALA_PERULA = "pushpala_perulu";
     public static final String PAKSHAMULU = "pakshamulu";
+    public static final String RAMAYAM_MENU = "ramayanam_menu";
 
 
 

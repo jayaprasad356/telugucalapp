@@ -9,13 +9,12 @@
     android:layout_margin="@dimen/_5sdp">
 
     <TextView
-        android:id="@+id/tvDescription"
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#E7F1FF"
         android:fontFamily="@font/sree"
         android:paddingBottom="@dimen/_5sdp"
-
         android:textAlignment="center"
         android:textSize="@dimen/_12sdp" />
 

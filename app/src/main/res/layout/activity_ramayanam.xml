@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F2F2"
-    tools:context=".activities.AboutMahaBharathamActivity">
+    tools:context=".activities.RamayanamActivity">
+
 
     <LinearLayout
         android:id="@+id/llout"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="About Maha Bharatham"
+            android:text="Ramayanam"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />
@@ -45,13 +45,16 @@
         android:background="@drawable/corner_bg"
         android:backgroundTint="@color/colorWhite">
 
+
+
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="20dp"
             android:id="@+id/recyclerView"
-            android:layout_marginHorizontal="25dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp" />
 
     </RelativeLayout>
+
 
 </RelativeLayout>
