@@ -1,17 +1,17 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class RamayanamMenu {
-    String Title;
+    String title;
 
     public RamayanamMenu(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 }

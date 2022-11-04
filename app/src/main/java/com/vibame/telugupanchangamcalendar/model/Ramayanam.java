@@ -1,17 +1,25 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Ramayanam {
-    String Title;
+    String id,title;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Ramayanam(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 }

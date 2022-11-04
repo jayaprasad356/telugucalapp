@@ -25,10 +25,11 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     final Activity activity;
     ArrayList<Ramayanam> ramayanam;
 
-    public RamayanamAdapter(Activity activity, ArrayList<Ramayanam> ramayanam) {
+    public RamayanamAdapter(ArrayList<Ramayanam> ramayanam, Activity activity) {
         this.activity = activity;
         this.ramayanam = ramayanam;
     }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,18 +41,18 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final Ramayanam ramayanam1  = ramayanam.get(position);
+        final Ramayanam ramayanam1 = ramayanam.get(position);
 
 
         holder.tvTitle.setText(ramayanam1.getTitle());
-
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RamyanamMenuActivity.class);
-                intent.putExtra(Constant.RAMAYAM_MENU,ramayanam1.getTitle());
+                intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
+                intent.putExtra(Constant.ID,ramayanam1.getId());
                 activity.startActivity(intent);
             }
         });
@@ -59,8 +60,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return ramayanam.size();
     }
 
@@ -70,8 +70,6 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-
-
 
 
         }

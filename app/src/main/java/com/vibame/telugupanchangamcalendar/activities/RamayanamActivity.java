@@ -1,33 +1,40 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.adapter.GowriAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.RamayanamAdapter;
-import com.vibame.telugupanchangamcalendar.model.Gowri;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.Ramayanam;
-import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RamayanamActivity extends AppCompatActivity {
 
     ImageView imgBack;
+    Activity activity;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
-    RamayanamAdapter ramayanamAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ramayanam);
-
+        activity = this;
 
         imgBack = findViewById(R.id.imgBack);
         imgBack.setOnClickListener(view -> onBackPressed());
@@ -37,35 +44,39 @@ public class RamayanamActivity extends AppCompatActivity {
         RecyclerView.setLayoutManager(linearLayoutManager);
 
 
-        menu_list();
-
+        loadApiData();
 
     }
 
-    private void menu_list() {
-
-
-        ArrayList<Ramayanam> ramayanam = new ArrayList<>();
-
-
-
-        Ramayanam rings1 = new Ramayanam("Ramayanam Import");
-        Ramayanam rings2 = new Ramayanam("Ramayanam Import");
-        Ramayanam rings3 = new Ramayanam("Ramayanam Import");
-
-
-
-        ramayanam.add(rings1);
-        ramayanam.add(rings2);
-        ramayanam.add(rings3);
-
-
-
-
-        ramayanamAdapter = new RamayanamAdapter(this,ramayanam);
-        RecyclerView.setAdapter(ramayanamAdapter);
-
-
-
+    private void loadApiData() {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.RAMAYANAM, "1");
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<Ramayanam> ramayanams = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Ramayanam group = g.fromJson(jsonObject1.toString(), Ramayanam.class);
+                                ramayanams.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        RamayanamAdapter adapter = new RamayanamAdapter(ramayanams, activity);
+                        RecyclerView.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.MAHA_PURANALU_URL, params, true);
     }
 }

@@ -25,10 +25,11 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     final Activity activity;
     ArrayList<RamayanamMenu> ramayanamMenus;
 
-    public RamayanamMenuAdapter(Activity activity, ArrayList<RamayanamMenu> ramayanamMenus) {
+    public RamayanamMenuAdapter(ArrayList<RamayanamMenu> ramayanamMenus, Activity activity) {
         this.activity = activity;
         this.ramayanamMenus = ramayanamMenus;
     }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -40,18 +41,17 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final RamayanamMenu ramayanamMenu  = ramayanamMenus.get(position);
+        final RamayanamMenu ramayanamMenu = ramayanamMenus.get(position);
 
 
         holder.tvTitle.setText(ramayanamMenu.getTitle());
-
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
-                intent.putExtra(Constant.RAMAYAM_MENU,ramayanamMenu.getTitle());
+                intent.putExtra(Constant.RAMAYAM_MENU, ramayanamMenu.getTitle());
                 activity.startActivity(intent);
             }
         });
@@ -59,8 +59,7 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return ramayanamMenus.size();
     }
 
@@ -70,8 +69,6 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-
-
 
 
         }

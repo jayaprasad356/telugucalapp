@@ -7,6 +7,8 @@ public class Constant {
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String SAKUNA_SASTHRAM_URL = BaseUrl + "sakuna-sasthram-list.php";
     public static final String TELUGU_SAMKRUTHAM_URL = BaseUrl + "telugu-samkrutham-list.php";
+    public static final String MAHA_PURANALU_URL = BaseUrl + "mahapuranalu-list.php";
+
 
 
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
@@ -69,7 +71,9 @@ public class Constant {
     public static final String PUSHPALA_PERULA = "pushpala_perulu";
     public static final String PAKSHAMULU = "pakshamulu";
     public static final String RAMAYAM_MENU = "ramayanam_menu";
-
+    public static final String RAMAYANAM = "ramayanam";
+    public static final String RAMAYANAM_ID = "ramayanam_id";
+    public static final String RAMAYANAM_MENU = "ramayanam_menu";
 
 
     public static final String YOGAM = "yogam";
