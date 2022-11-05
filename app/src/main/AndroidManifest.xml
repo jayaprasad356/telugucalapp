@@ -68,27 +68,6 @@
             android:name=".activities.RamayanamActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.MahaBharadhamSukthuluActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activities.AboutMahaBharathamActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activities.MahaBharathamMenuActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activities.FruitNamesActivity"
             android:exported="false" />
         <activity

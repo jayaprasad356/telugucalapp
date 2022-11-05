@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import com.vibame.telugupanchangamcalendar.adapter.RamayanamMenuAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.RamayanamSubMenuAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
 import com.vibame.telugupanchangamcalendar.model.RamayanamSubMenu;
 
@@ -27,6 +29,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.Response;
+
 public class RamayamSubMenuActivity extends AppCompatActivity {
 
 
@@ -36,6 +40,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
     RamayanamSubMenuAdapter ramayanamSubMenuAdapter;
     Activity activity;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +48,12 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ramayam_sub_menu);
 
         activity = RamayamSubMenuActivity.this;
+        session = new Session(activity);
 
 
         tvHead = findViewById(R.id.tvHead);
-        id=getIntent().getStringExtra(Constant.ID);
-        ramayam_id=getIntent().getStringExtra(Constant.RAMAYANAM_ID);
+        id=getIntent().getStringExtra(Constant.RAMAYANAM_MENU_ID);
+        ramayam_id=session.getData(Constant.RAMAYANAM_ID);
 
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
@@ -68,9 +74,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     private void menu_list() {
 
 
-
-
-
+      //  Toast.makeText(activity, ""+id, Toast.LENGTH_SHORT).show();
 
         Map<String, String> params = new HashMap<>();
         params.put(Constant.RAMAYANAM_SUB_MENU, "1");
@@ -103,13 +107,6 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
                 }
             }
         }, activity, Constant.MAHA_PURANALU_URL, params, true);
-
-
-
-
-
-
-
 
     }
 }

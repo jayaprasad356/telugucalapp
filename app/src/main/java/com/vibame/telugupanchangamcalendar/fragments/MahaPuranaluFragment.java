@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.activities.MahaBharathamMenuActivity;
 import com.vibame.telugupanchangamcalendar.activities.RamayanamActivity;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 
 public class MahaPuranaluFragment extends Fragment {
 
@@ -31,16 +31,63 @@ public class MahaPuranaluFragment extends Fragment {
         sethakamulu = root.findViewById(R.id.sethakamulu);
         sivaPuranam = root.findViewById(R.id.shiva_puranam);
 
-        ramayanamActivity = new RamayanamActivity();
-        mahaBharathamActivity= new MahaBharathamMenuActivity();
-
-        loadActivity(mahaBharathamActivity, mahaBharatham);
 
         ramayanam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Rayanam");
+                startActivity(intent);
+
+            }
+        });
+        mahaBharatham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Maha Bharatham");
+                startActivity(intent);
+
+            }
+        });
+        bhagvathGeetha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Bhagvath Geetha");
+                startActivity(intent);
+
+            }
+        });
+        bhagvatham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Bhagvatham");
+                startActivity(intent);
+
+            }
+        });
+        sethakamulu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Sethakamulu");
+                startActivity(intent);
+
+            }
+        });
+        sivaPuranam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),RamayanamActivity.class);
+                intent.putExtra(Constant.TITLE,"Shiva Puranam");
                 startActivity(intent);
 
             }
@@ -49,14 +96,5 @@ public class MahaPuranaluFragment extends Fragment {
         return root;
     }
 
-    private void loadActivity(Activity activity, LinearLayout linearLayout) {
-        linearLayout.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), activity.getClass());
-            startActivity(intent);
 
-        });
-
-
-
-    }
 }

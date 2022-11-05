@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -29,12 +30,23 @@ public class RamayanamActivity extends AppCompatActivity {
     ImageView imgBack;
     Activity activity;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
+    String Tittle;
+    TextView tvHead;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ramayanam);
         activity = this;
+
+
+        Tittle = getIntent().getStringExtra(Constant.TITLE);
+
+
+        tvHead = findViewById(R.id.tvHead);
+
+        tvHead.setText(Tittle);
+
 
         imgBack = findViewById(R.id.imgBack);
         imgBack.setOnClickListener(view -> onBackPressed());

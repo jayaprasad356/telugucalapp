@@ -52,6 +52,7 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
                 intent.putExtra(Constant.RAMAYAM_MENU, ramayanamMenu.getTitle());
+                intent.putExtra(Constant.RAMAYANAM_MENU_ID, ramayanamMenu.getId());
                 activity.startActivity(intent);
             }
         });

@@ -66,8 +66,8 @@ public class RamyanamMenuActivity extends AppCompatActivity {
 
     private void loadApiData() {
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.RAMAYANAM_MENU_ID, id);
-        params.put(Constant.RAMAYANAM_ID, ramayam_id);
+        params.put(Constant.RAMAYANAM_MENU, "1");
+        params.put(Constant.RAMAYANAM_ID, id);
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

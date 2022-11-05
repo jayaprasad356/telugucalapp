@@ -1,11 +1,20 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class RamayanamSubMenu {
-    String title,describition;
+    String id, title,description;
 
-    public RamayanamSubMenu(String title, String describition) {
+    public RamayanamSubMenu(String id, String title, String description) {
+        this.id = id;
         this.title = title;
-        this.describition = describition;
+        this.description = description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -16,11 +25,11 @@ public class RamayanamSubMenu {
         this.title = title;
     }
 
-    public String getDescribition() {
-        return describition;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribition(String describition) {
-        this.describition = describition;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

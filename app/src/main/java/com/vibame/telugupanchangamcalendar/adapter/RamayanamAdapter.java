@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.RamyanamMenuActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Gowri;
 import com.vibame.telugupanchangamcalendar.model.Ramayanam;
 import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
@@ -24,6 +25,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     final Activity activity;
     ArrayList<Ramayanam> ramayanam;
+    Session session;
 
     public RamayanamAdapter(ArrayList<Ramayanam> ramayanam, Activity activity) {
         this.activity = activity;
@@ -40,6 +42,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Ramayanam ramayanam1 = ramayanam.get(position);
 
@@ -53,6 +56,8 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 Intent intent = new Intent(activity, RamyanamMenuActivity.class);
                 intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
                 intent.putExtra(Constant.ID,ramayanam1.getId());
+
+                session.setData(Constant.RAMAYANAM_ID,ramayanam1.getId());
                 activity.startActivity(intent);
             }
         });

@@ -40,7 +40,7 @@ public class RamayanamSubMenuAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
         holder.tvTitle.setText(ramayanamSubMenu.getTitle());
-        holder.tvDescription.setText(ramayanamSubMenu.getDescribition());
+        holder.tvDescription.setText(ramayanamSubMenu.getDescription());
 
 
 //
