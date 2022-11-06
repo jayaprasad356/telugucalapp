@@ -22,6 +22,7 @@ import com.vibame.telugupanchangamcalendar.activities.AksharaluActivity;
 import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiGeethaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
+import com.vibame.telugupanchangamcalendar.fragments.BhakthiArticlesFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.GrahaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
@@ -124,6 +125,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.mahapuranalu: {
                 fragment = new MahaPuranaluFragment();
+                break;
+            }
+
+            case R.id.bhakthiArticles: {
+                fragment = new BhakthiArticlesFragment();
                 break;
             }
 

@@ -59,6 +59,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.OldArticlesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NewArticlesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.RamayamSubMenuActivity"
             android:exported="false" />
         <activity
