@@ -39,13 +39,13 @@
     <string name="kukuta_sasthram">Kukuta Sasthram</string>
     <string name="pilli_sasthram">Pilli Sasthram</string>
     <string name="sakuna_sasthram_title">Sakuna Sasthram</string>
-    <string name="Telungu_samskrutham">Telugu Samskrutham</string>
+    <string name="Telungu_samskrutham">11.Telugu Samskrutham</string>
     <string name="telugu_years">Telugu Years</string>
     <string name="pushapalu">Pushapalu</string>
     <string name="sawanchralu">Telugu Sawancharalu</string>
     <string name="aadhi_parvam">1. Adhi Parvam ( 26 )</string>
     <string name="anusanika_parvam">2. Anusanika Parvam ( 14 )</string>
     <string name="maha_sthanika_parvam">3. Maha Sthanika Parvam ( 19 )</string>
-    <string name="maha_puranalu">Maha Puranalu</string>
+    <string name="maha_puranalu">12.Maha Puranalu</string>
 
 </resources>

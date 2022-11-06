@@ -16,6 +16,7 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.RamayanamAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Ramayanam;
 
 import org.json.JSONArray;
@@ -32,12 +33,14 @@ public class RamayanamActivity extends AppCompatActivity {
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
     String Tittle;
     TextView tvHead;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ramayanam);
         activity = this;
+        session = new Session(activity);
 
 
         Tittle = getIntent().getStringExtra(Constant.TITLE);
@@ -62,7 +65,7 @@ public class RamayanamActivity extends AppCompatActivity {
 
     private void loadApiData() {
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.RAMAYANAM, "1");
+        params.put(session.getData(Constant.TAB), "1");
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

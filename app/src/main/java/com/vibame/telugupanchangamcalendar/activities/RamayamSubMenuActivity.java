@@ -35,7 +35,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
 
 
     TextView tvHead;
-    String Tittle,id,ramayam_id;
+    String Tittle;
     ImageView imgBack;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
     RamayanamSubMenuAdapter ramayanamSubMenuAdapter;
@@ -52,9 +52,6 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
 
 
         tvHead = findViewById(R.id.tvHead);
-        id=getIntent().getStringExtra(Constant.RAMAYANAM_MENU_ID);
-        ramayam_id=session.getData(Constant.RAMAYANAM_ID);
-
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
         tvHead.setText(Tittle);
@@ -72,14 +69,10 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     }
 
     private void menu_list() {
-
-
-      //  Toast.makeText(activity, ""+id, Toast.LENGTH_SHORT).show();
-
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.RAMAYANAM_SUB_MENU, "1");
-        params.put(Constant.RAMAYANAM_MENU_ID, id);
-        params.put(Constant.RAMAYANAM_ID,ramayam_id);
+        params.put(session.getData(Constant.SUBMENU), "1");
+        params.put(Constant.ID, session.getData(Constant.ID));
+        params.put(Constant.MENU_ID,session.getData(Constant.MENU_ID));
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

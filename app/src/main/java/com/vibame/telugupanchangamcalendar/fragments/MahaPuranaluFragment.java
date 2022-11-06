@@ -14,16 +14,21 @@ import android.widget.LinearLayout;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.RamayanamActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 
 public class MahaPuranaluFragment extends Fragment {
 
     LinearLayout mahaBharatham, ramayanam, bhagvathGeetha, bhagvatham, sethakamulu, sivaPuranam;
     Activity mahaBharathamActivity,ramayanamActivity;
+    Session session;
+    Activity activity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_maha_puranalu, container, false);
+        activity = getActivity();
+        session = new Session(activity);
         mahaBharatham = root.findViewById(R.id.maha_bharatham);
         ramayanam = root.findViewById(R.id.ramayanam);
         bhagvathGeetha = root.findViewById(R.id.bhagvath_geetha);
@@ -35,9 +40,11 @@ public class MahaPuranaluFragment extends Fragment {
         ramayanam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"ramayanam");
+                session.setData(Constant.MENU,"ramayanam_menu");
+                session.setData(Constant.SUBMENU,"ramayanam_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
-                intent.putExtra(Constant.TITLE,"Rayanam");
+                intent.putExtra(Constant.TITLE,"Ramayanam");
                 startActivity(intent);
 
             }
@@ -45,7 +52,9 @@ public class MahaPuranaluFragment extends Fragment {
         mahaBharatham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"mahabharatham");
+                session.setData(Constant.MENU,"mahabharatham_menu");
+                session.setData(Constant.SUBMENU,"mahabharatham_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Maha Bharatham");
                 startActivity(intent);
@@ -55,7 +64,9 @@ public class MahaPuranaluFragment extends Fragment {
         bhagvathGeetha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"bhagawath_geetha");
+                session.setData(Constant.MENU,"bhagawath_geetha_menu");
+                session.setData(Constant.SUBMENU,"bhagawath_geetha_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Bhagvath Geetha");
                 startActivity(intent);
@@ -65,7 +76,9 @@ public class MahaPuranaluFragment extends Fragment {
         bhagvatham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"bhagawatham");
+                session.setData(Constant.MENU,"bhagawatham_menu");
+                session.setData(Constant.SUBMENU,"bhagawath_geetha_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Bhagvatham");
                 startActivity(intent);
@@ -75,7 +88,9 @@ public class MahaPuranaluFragment extends Fragment {
         sethakamulu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"telugu_sethakamulu");
+                session.setData(Constant.MENU,"");
+                session.setData(Constant.SUBMENU,"telugu_sethakamulu_menu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Sethakamulu");
                 startActivity(intent);
@@ -85,7 +100,9 @@ public class MahaPuranaluFragment extends Fragment {
         sivaPuranam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                session.setData(Constant.TAB,"shivapuranam");
+                session.setData(Constant.MENU,"");
+                session.setData(Constant.SUBMENU,"shivapuranam_menu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Shiva Puranam");
                 startActivity(intent);

@@ -17,6 +17,7 @@ import com.vibame.telugupanchangamcalendar.adapter.RamayanamAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.RamayanamMenuAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Ramayanam;
 import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
 
@@ -30,22 +31,21 @@ import java.util.Map;
 public class RamyanamMenuActivity extends AppCompatActivity {
 
     TextView tvHead;
-    String Tittle,id,ramayam_id;
+    String Tittle,ramayam_id;
     ImageView imgBack;
     Activity activity;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
-    RamayanamMenuAdapter ramayanamMenuAdapter;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ramyanam_menu);
         activity = this;
-
+        session = new Session(activity);
         tvHead = findViewById(R.id.tvHead);
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
-        id=getIntent().getStringExtra(Constant.ID);
         ramayam_id=getIntent().getStringExtra(Constant.RAMAYANAM_ID);
 
         tvHead.setText(Tittle);
@@ -66,8 +66,8 @@ public class RamyanamMenuActivity extends AppCompatActivity {
 
     private void loadApiData() {
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.RAMAYANAM_MENU, "1");
-        params.put(Constant.RAMAYANAM_ID, id);
+        params.put(session.getData(Constant.MENU), "1");
+        params.put(Constant.ID, session.getData(Constant.ID));
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

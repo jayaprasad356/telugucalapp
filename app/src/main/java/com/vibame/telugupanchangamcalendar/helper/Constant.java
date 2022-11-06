@@ -25,6 +25,7 @@ public class Constant {
     public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
 
     public static final String ID = "id";
+    public static final String MENU_ID = "menu_id";
     public static final String PANCHANGAM_ID = "panchangam_id";
     public static final String IMAGE_ID = "image_id";
     public static final String IMAGE_CATEGORY_ID = "image_category_id";
@@ -106,6 +107,8 @@ public class Constant {
     public static final String VIDEO_LIST = "video_list";
     public static final String AUDIO_LIST = "audio_list";
     public static final String TAB = "tab";
+    public static final String MENU = "menu";
+    public static final String SUBMENU = "submenu";
     public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";
     public static final String SUNSET = "sunset";

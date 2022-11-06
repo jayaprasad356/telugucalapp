@@ -14,6 +14,7 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.RamayamSubMenuActivity;
 import com.vibame.telugupanchangamcalendar.activities.RamyanamMenuActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Ramayanam;
 import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
 
@@ -24,6 +25,8 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     final Activity activity;
     ArrayList<RamayanamMenu> ramayanamMenus;
+    Session session;
+
 
     public RamayanamMenuAdapter(ArrayList<RamayanamMenu> ramayanamMenus, Activity activity) {
         this.activity = activity;
@@ -40,6 +43,7 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final RamayanamMenu ramayanamMenu = ramayanamMenus.get(position);
 
@@ -50,9 +54,9 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                session.setData(Constant.MENU_ID,ramayanamMenu.getId());
                 Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
                 intent.putExtra(Constant.RAMAYAM_MENU, ramayanamMenu.getTitle());
-                intent.putExtra(Constant.RAMAYANAM_MENU_ID, ramayanamMenu.getId());
                 activity.startActivity(intent);
             }
         });

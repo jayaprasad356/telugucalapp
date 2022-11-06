@@ -61,16 +61,9 @@
             android:id="@+id/mahapuranalu"
             android:title="@string/maha_puranalu" />
 
-        <item android:title="9.Sissu Janma Padha" />
 
 
     </group>
-
-    <item android:title="10.Ramayanam" />
-
-    <item android:title="11.Bagawath Geetha" />
-
-    <item android:title="12.Few More" />
 
 
     <item android:title="Feedback" />
