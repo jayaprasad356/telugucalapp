@@ -78,7 +78,7 @@ public class MahaPuranaluFragment extends Fragment {
             public void onClick(View v) {
                 session.setData(Constant.TAB,"bhagawatham");
                 session.setData(Constant.MENU,"bhagawatham_menu");
-                session.setData(Constant.SUBMENU,"bhagawath_geetha_submenu");
+                session.setData(Constant.SUBMENU,"bhagawatham_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Bhagvatham");
                 startActivity(intent);
@@ -89,8 +89,8 @@ public class MahaPuranaluFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 session.setData(Constant.TAB,"telugu_sethakamulu");
-                session.setData(Constant.MENU,"");
-                session.setData(Constant.SUBMENU,"telugu_sethakamulu_menu");
+                session.setData(Constant.MENU,"telugu_sethakamulu_menu");
+                session.setData(Constant.SUBMENU,"telugu_sethakamulu_submenu");
                 Intent intent = new Intent(getActivity(),RamayanamActivity.class);
                 intent.putExtra(Constant.TITLE,"Sethakamulu");
                 startActivity(intent);
