@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.activities.NewArticlesActivity;
+import com.vibame.telugupanchangamcalendar.activities.NetiArticlesActivity;
 import com.vibame.telugupanchangamcalendar.activities.OldArticlesActivity;
 
 
@@ -40,7 +40,7 @@ public class BhakthiArticlesFragment extends Fragment {
         cardNewArticles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NewArticlesActivity.class);
+                Intent intent = new Intent(getActivity(), NetiArticlesActivity.class);
                 startActivity(intent);
             }
         });

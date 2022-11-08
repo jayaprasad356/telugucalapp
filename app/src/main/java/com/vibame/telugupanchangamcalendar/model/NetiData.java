@@ -1,9 +1,9 @@
 package com.vibame.telugupanchangamcalendar.model;
 
-public class OldData {
+public class NetiData {
     private String id,image,title,description;
 
-    public OldData(String id, String image, String title, String description) {
+    public NetiData(String id, String image, String title, String description) {
         this.id = id;
         this.image = image;
         this.title = title;

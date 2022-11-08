@@ -1,8 +1,10 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
 import static com.vibame.telugupanchangamcalendar.helper.Constant.BHAKTHI_ARTICLES_LIST;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.IMAGE_LIST_URL;
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +16,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.NetiArticlesAdaptor;
-import com.vibame.telugupanchangamcalendar.adapter.OldArticlesAdaptor;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
+import com.vibame.telugupanchangamcalendar.model.ImagesView;
 import com.vibame.telugupanchangamcalendar.model.NetiData;
-import com.vibame.telugupanchangamcalendar.model.OldData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,21 +30,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class OldArticlesActivity extends AppCompatActivity {
+public class NetiArticlesActivity extends AppCompatActivity {
 
     ImageView imgBack;
     Activity activity;
     RecyclerView recyclerView;
-    OldArticlesAdaptor oldArticlesAdaptor;
+    NetiArticlesAdaptor newArticlesAdaptor;
+    Session session;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_old_articles);
+        setContentView(R.layout.activity_neti_articles);
 
-        recyclerView = findViewById(R.id.Old_recyclerView);
+        recyclerView = findViewById(R.id.New_recyclerView);
         imgBack = findViewById(R.id.imgBack);
-        activity = OldArticlesActivity.this;
+        activity = NetiArticlesActivity.this;
+        session = new Session(activity);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,15 +59,15 @@ public class OldArticlesActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        oldarticles();
+        newarticles();
     }
 
-    private void oldarticles() {
+    private void newarticles() {
 
 
 
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.old_ARTICLES, "1");
+        params.put(Constant.NETI_ARTICLES, "1");
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
@@ -69,27 +75,27 @@ public class OldArticlesActivity extends AppCompatActivity {
                     if(jsonObject.getBoolean(SUCCESS)){
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-                        ArrayList<OldData> oldData = new ArrayList<>();
+                        ArrayList<NetiData> netiData = new ArrayList<>();
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                OldData group = g.fromJson(jsonObject1.toString(),OldData.class);
-                                oldData.add(group);
+                                NetiData group = g.fromJson(jsonObject1.toString(),NetiData.class);
+                                netiData.add(group);
                             } else {
                                 break;
                             }
                         }
 
-
-                        oldArticlesAdaptor = new OldArticlesAdaptor(this,oldData);
-                        recyclerView.setAdapter(oldArticlesAdaptor);
+                        newArticlesAdaptor = new NetiArticlesAdaptor(this,netiData);
+                        recyclerView.setAdapter(newArticlesAdaptor);
                     }
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         },activity, BHAKTHI_ARTICLES_LIST,params,true);
+
 
 
 

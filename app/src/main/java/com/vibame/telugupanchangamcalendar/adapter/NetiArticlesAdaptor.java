@@ -15,35 +15,35 @@ import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.ArticleViewActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.model.ImagesView;
 import com.vibame.telugupanchangamcalendar.model.NetiData;
-import com.vibame.telugupanchangamcalendar.model.OldData;
 
 import java.util.ArrayList;
 
-public class OldArticlesAdaptor extends RecyclerView.Adapter<OldArticlesAdaptor.ExploreItemHolder> {
+public class NetiArticlesAdaptor extends RecyclerView.Adapter<NetiArticlesAdaptor.ExploreItemHolder> {
     final Activity activity;
-    ArrayList<OldData> oldData;
+    ArrayList<NetiData> netiData;
 
-    public OldArticlesAdaptor(Activity activity, ArrayList<OldData> oldData) {
+    public NetiArticlesAdaptor(Activity activity, ArrayList<NetiData> netiData) {
         this.activity = activity;
-        this.oldData = oldData;
+        this.netiData = netiData;
     }
 
     @NonNull
     @Override
-    public OldArticlesAdaptor.ExploreItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ExploreItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity).inflate(R.layout.articles_view_layout, parent, false);
-        return new OldArticlesAdaptor.ExploreItemHolder(view);
+        return new NetiArticlesAdaptor.ExploreItemHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OldArticlesAdaptor.ExploreItemHolder holderParent, int position) {
-        final OldArticlesAdaptor.ExploreItemHolder holder = (OldArticlesAdaptor.ExploreItemHolder) holderParent;
-        final OldData oldDatas = oldData.get(position);
+    public void onBindViewHolder(@NonNull ExploreItemHolder holderParent, int position) {
+        final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
+        final NetiData netiDatas = netiData.get(position);
 
 
-        holder.tvTitle.setText(oldDatas.getTitle());
-        Glide.with(activity).load(oldDatas.getImage()).into(holder.imgGod);
+        holder.tvTitle.setText(netiDatas.getTitle());
+        Glide.with(activity).load(netiDatas.getImage()).into(holder.imgGod);
 
 
 
@@ -51,17 +51,17 @@ public class OldArticlesAdaptor extends RecyclerView.Adapter<OldArticlesAdaptor.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ArticleViewActivity.class);
-                intent.putExtra(Constant.ID,oldDatas.getId());
-                intent.putExtra(Constant.TITLE,oldDatas.getTitle());
-                intent.putExtra(Constant.DESCRIPTION,oldDatas.getDescription());
-                intent.putExtra(Constant.IMAGE,oldDatas.getImage());
+                intent.putExtra(Constant.ID,netiDatas.getId());
+                intent.putExtra(Constant.TITLE,netiDatas.getTitle());
+                intent.putExtra(Constant.DESCRIPTION,netiDatas.getDescription());
+                intent.putExtra(Constant.IMAGE,netiDatas.getImage());
                 activity.startActivity(intent);
             }
         });
     }
 
     @Override
-    public int getItemCount() { return oldData.size(); }
+    public int getItemCount() { return netiData.size(); }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
@@ -74,4 +74,5 @@ public class OldArticlesAdaptor extends RecyclerView.Adapter<OldArticlesAdaptor.
             tvTitle = itemView.findViewById(R.id.tvTitle);
         }
     }
+
 }

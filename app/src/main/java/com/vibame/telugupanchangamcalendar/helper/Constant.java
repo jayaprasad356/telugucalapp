@@ -23,6 +23,7 @@ public class Constant {
     public static final String VIDEO_LIST_URL = BaseUrl + "video-post-list.php";
     public static final String VIDEO_URL = BaseUrl + "video-category.php";
     public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
+    public static final String BHAKTHI_ARTICLES_LIST = BaseUrl + "bhakthi_articles-list.php";
 
     public static final String ID = "id";
     public static final String MENU_ID = "menu_id";
@@ -77,6 +78,8 @@ public class Constant {
     public static final String RAMAYANAM_MENU_ID = "ramayanam_menu_id";
     public static final String RAMAYANAM_MENU = "ramayanam_menu";
     public static final String RAMAYANAM_SUB_MENU = "ramayanam_submenu";
+    public static final String NETI_ARTICLES = "neti_articles";
+    public static final String old_ARTICLES = "old_articles";
 
 
     public static final String YOGAM = "yogam";

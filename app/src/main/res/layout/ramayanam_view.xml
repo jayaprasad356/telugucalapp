@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_rasi"
     android:backgroundTint="#E7F1FF"
-
     android:layout_margin="@dimen/_5sdp">
 
     <TextView

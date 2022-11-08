@@ -91,6 +91,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/Nakshatharalu_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_about_maha_bharatham.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_aksharalu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_article_view.xml" value="0.22" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_audio_live.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_audio_play.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_bakthi_geethalu.xml" value="0.5" />
@@ -107,6 +108,8 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_monthly_horoscope.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_muhurthamtab.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_nakshathralu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_neti_articles.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_old_articles.xml" value="0.19010416666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_panchangam.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_poojalu_sub_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_poojalu_tab.xml" value="0.20416666666666666" />

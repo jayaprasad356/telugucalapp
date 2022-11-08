@@ -1,6 +1,9 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.ID;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.MESSAGE;
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.TITLE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -51,12 +55,16 @@ public class RashuluActivity extends AppCompatActivity {
         params.put(Constant.RASHULU, "1");
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
+                Log.d("res",response);
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(SUCCESS)) {
+//                        Log.d("msg", jsonObject.getString(MESSAGE));
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ArrayList<RashuluModel> rashuluModels = new ArrayList<>();
+                        Log.d("msg",    jsonArray.getJSONObject(2).getString(Constant.ID));
+
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
