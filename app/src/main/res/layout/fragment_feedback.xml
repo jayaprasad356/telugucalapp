@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FeedbackFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FeedBack"
+            android:gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/sree"
+            />
+
+
+        <EditText
+            android:id="@+id/edTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@drawable/et_bg"
+            android:padding="@dimen/_10sdp"
+            />
+
+
+
+        <EditText
+            android:id="@+id/edDescription"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:hint="Description"
+            android:gravity="start"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@drawable/et_bg"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            />
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_50sdp"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:backgroundTint="@color/colorHead"
+        />
+</FrameLayout>

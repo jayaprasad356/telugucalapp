@@ -78,6 +78,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/current_day.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/curve1.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/custom_progress_dialog.xml" value="0.1115" />
+        <entry key="..\:/telugucalapp/app/src/main/res/drawable/et_bg.xml" value="0.126" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_circle.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_clicked.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_currentday.xml" value="0.1115" />
@@ -134,11 +135,13 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bakthi_geethalu.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bakthini.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bhakthi_articles.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_feedback.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_festival.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_horoscope.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_maha_puranalu.xml" value="0.5" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_muhurtham.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_poojalu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/grahalu_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_view_layout.xml" value="0.25" />

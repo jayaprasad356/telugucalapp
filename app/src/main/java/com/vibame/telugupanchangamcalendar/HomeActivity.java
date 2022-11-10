@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ShareCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +25,7 @@ import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiGeethaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BhakthiArticlesFragment;
+import com.vibame.telugupanchangamcalendar.fragments.FeedbackFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.GrahaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
@@ -30,6 +33,7 @@ import com.vibame.telugupanchangamcalendar.fragments.MahaPuranaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.MuhurthamFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PanchnagamListFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
+import com.vibame.telugupanchangamcalendar.fragments.PrivacyPolicyFragment;
 import com.vibame.telugupanchangamcalendar.fragments.SakunaSasthramFragment;
 import com.vibame.telugupanchangamcalendar.fragments.TeluguSamskruthamFragment;
 
@@ -130,6 +134,34 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.bhakthiArticles: {
                 fragment = new BhakthiArticlesFragment();
+                break;
+            }
+
+            case R.id.feedback: {
+                fragment = new FeedbackFragment();
+                break;
+            }
+
+            case R.id.Rateus: {
+                String url = "http://play.google.com/store/apps/details?id="+BuildConfig.APPLICATION_ID;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+            }
+
+            case R.id.share: {
+                ShareCompat.IntentBuilder.from(activity)
+                        .setType("text/plain")
+                        .setChooserTitle("Chooser title")
+                        .setText("http://play.google.com/store/apps/details?id=" + activity.getPackageName())
+                        .startChooser();
+                break;
+            }
+            case R.id.PrivacyPolicy: {
+
+                fragment = new PrivacyPolicyFragment();
+
                 break;
             }
 

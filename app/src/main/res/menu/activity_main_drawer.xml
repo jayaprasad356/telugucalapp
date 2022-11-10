@@ -71,14 +71,24 @@
     </group>
 
 
-    <item android:title="Feedback" />
+    <item
+        android:id="@+id/feedback"
+        android:title="Feedback" />
 
-    <item android:title="Rate Us" />
+    <item
+        android:id="@+id/Rateus"
+        android:title="Rate Us" />
 
 
-    <item android:title="Share This App" />
+    <item
+        android:id="@+id/share"
+        android:title="Share This App"
+
+        />
 
     <item android:title="Remove Ads" />
 
-    <item android:title="Privacy Policy" />
+    <item
+        android:id="@+id/PrivacyPolicy"
+        android:title="Privacy Policy" />
 </menu>
