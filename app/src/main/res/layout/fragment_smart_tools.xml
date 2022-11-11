@@ -59,7 +59,7 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/compasss"
+                        android:background="@drawable/compass"
                         android:layout_gravity="center"
                         />
 
@@ -84,6 +84,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvSimpleInterest"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"
@@ -112,7 +113,7 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/interest"
+                        android:background="@drawable/simple_interest"
                         android:layout_gravity="center"
                         />
 
@@ -136,7 +137,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvSimpleInterest"
+
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"
@@ -165,7 +166,7 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/growth"
+                        android:background="@drawable/compount_interest"
                         android:layout_gravity="center"
                         />
 
@@ -217,7 +218,7 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/emicalculator"
+                        android:background="@drawable/emi_calculator"
                         android:layout_gravity="center"
                         />
 
@@ -432,7 +433,7 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/notes"
+                        android:background="@drawable/emi_calculator"
                         android:layout_gravity="center"
 
                         />
