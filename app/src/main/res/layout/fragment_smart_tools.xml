@@ -59,9 +59,8 @@
                     <ImageView
                         android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/compass"
+                        android:background="@drawable/compasss"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/_3sdp"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -111,9 +110,9 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/simple_interest"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/interest"
                         android:layout_gravity="center"
                         />
 
@@ -164,9 +163,9 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/compount_interest"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/growth"
                         android:layout_gravity="center"
                         />
 
@@ -216,9 +215,9 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/emi_calculator"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/emicalculator"
                         android:layout_gravity="center"
                         />
 
@@ -272,9 +271,9 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/calculator"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/accounting"
                         android:layout_gravity="center"
 
                         />
@@ -327,7 +326,7 @@
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/unity"
+                        android:background="@drawable/blackunity"
                         android:layout_gravity="center"
 
                         />
@@ -380,7 +379,7 @@
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/percentage_calculator"
+                        android:background="@drawable/calculator"
                         android:layout_gravity="center"
 
                         />
@@ -431,9 +430,9 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/writing"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/notes"
                         android:layout_gravity="center"
 
                         />
@@ -694,8 +693,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -703,9 +702,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/location"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -720,6 +720,7 @@
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_8sdp"
                     />
 
 
@@ -744,8 +745,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -753,9 +754,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/world_clock"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -766,9 +768,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="World Clock"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -794,8 +797,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -803,9 +806,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/stop_watch"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -816,9 +820,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Stop Watch"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -844,8 +849,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -853,9 +858,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/file"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -866,9 +872,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Number to Word"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -897,8 +904,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -906,9 +913,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/coin_toss"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -919,9 +927,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Coin Toss"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -947,8 +956,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -956,9 +965,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/ifsc"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -969,9 +979,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="IFSC"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -997,8 +1008,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -1006,9 +1017,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/typing"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -1019,9 +1031,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Telugu Keyboard"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -1047,8 +1060,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -1056,9 +1069,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@drawable/text_to_speech"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -1069,9 +1083,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Text to Speech"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
@@ -1079,211 +1094,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_65sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_row="5"
-            android:layout_column="0"
-            >
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center"
-                >
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorHead"
-                    app:cardCornerRadius="@dimen/_4sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    >
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Compass"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_65sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_row="5"
-            android:layout_column="1"
-            >
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center"
-                >
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorHead"
-                    app:cardCornerRadius="@dimen/_4sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    >
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Compass"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_65sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_row="5"
-            android:layout_column="2"
-            >
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center"
-                >
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorHead"
-                    app:cardCornerRadius="@dimen/_4sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    >
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Compass"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="@dimen/_65sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:layout_margin="@dimen/_5sdp"
-            android:layout_row="5"
-            android:layout_column="3"
-            >
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_gravity="center"
-                >
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorHead"
-                    app:cardCornerRadius="@dimen/_4sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    >
-
-
-                    <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Compass"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
 
 
         <androidx.cardview.widget.CardView
@@ -1304,8 +1114,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -1313,9 +1123,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/speech_to_text"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -1326,10 +1137,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Speech to Text"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_8sdp"
                     />
 
 
@@ -1354,8 +1166,8 @@
                 >
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:backgroundTint="@color/colorHead"
                     app:cardCornerRadius="@dimen/_4sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -1363,9 +1175,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_50sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:background="@drawable/ic_baseline_search_24"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/counter"
+                        android:layout_gravity="center"
                         />
 
                 </androidx.cardview.widget.CardView>
@@ -1376,9 +1189,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Counter"
                     android:gravity="center"
                     android:textStyle="bold"
+                    android:textSize="@dimen/_8sdp"
                     android:textColor="@color/colorBlack"
                     />
 
