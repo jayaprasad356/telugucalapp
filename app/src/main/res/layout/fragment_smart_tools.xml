@@ -85,6 +85,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvSimpleInterest"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"
@@ -137,7 +138,6 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvSimpleInterest"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"
