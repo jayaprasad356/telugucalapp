@@ -59,6 +59,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.GstCalulatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EMICalculatorActivity"
             android:exported="false" />
         <activity
