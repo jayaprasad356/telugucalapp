@@ -13,10 +13,7 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/drawable/festival_circle.xml" value="0.184" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/drawable/festival_clicked.xml" value="0.184" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/drawable/festival_currentday.xml" value="0.184" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/drawable/spinner_bg.xml" value="0.1025" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_aksharalu.xml" value="0.17135416666666667" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_compound_interest.xml" value="0.17552083333333332" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_emicalculator.xml" value="0.16145833333333334" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_fruit_names.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_gowri_panchangam.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_hora_chakram.xml" value="0.17135416666666667" />
@@ -34,8 +31,6 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_pushapalu.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_rahukalam.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_sakunalu.xml" value="0.22" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_simple_interest.xml" value="0.17552083333333332" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_simple_interest2.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_thidhilu.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_trading_image.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_trending_image.xml" value="0.17552083333333332" />
@@ -46,10 +41,7 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/activity_yogam.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/aksharalulayout.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/cal_item.xml" value="0.3333333333333333" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/fragment_muhurtham.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/fragment_panchnagam_list.xml" value="0.17135416666666667" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/fragment_poojalu.xml" value="0.17552083333333332" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/fragment_smart_tools.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/fragment_telugu_samskrutham.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/gowri_tab_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/gunintalulyt.xml" value="0.3333333333333333" />
@@ -58,18 +50,14 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/image_view_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/karanam_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/karanam_tab_layout.xml" value="0.3333333333333333" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/nakshatharalu_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/panchang_frag.xml" value="0.22" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/panchangam_tab_layout.xml" value="0.3333333333333333" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/permission_dialog_layout.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/poojalu_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/poojalu_tab_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/pushapalu_view.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/rashululayout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/row.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/sakunalu_views.xml" value="0.17135416666666667" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/share_print.xml" value="0.144017094017094" />
-        <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/spinner_item.xml" value="0.17447916666666666" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/splash_screen.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/thidhilu_tab_layout.xml" value="0.17135416666666667" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/video_view_layout.xml" value="0.3333333333333333" />
@@ -90,6 +78,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/current_day.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/curve1.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/custom_progress_dialog.xml" value="0.1115" />
+        <entry key="..\:/telugucalapp/app/src/main/res/drawable/et_bg.xml" value="0.126" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_circle.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_clicked.xml" value="0.1115" />
         <entry key="..\:/telugucalapp/app/src/main/res/drawable/festival_currentday.xml" value="0.1115" />
@@ -108,6 +97,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_audio_play.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_bakthi_geethalu.xml" value="0.5" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_daily_horoscope.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_emicalculator.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_empty.xml" value="0.19010416666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_gowri_panchangam.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_grahalu_sub_menu.xml" value="0.20416666666666666" />
@@ -129,6 +119,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_ramayam_sub_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_ramayanam.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_ramyanam_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_simple_interest.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_trading_image.xml" value="0.2" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_trending_videos.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_video_live.xml" value="0.20416666666666666" />
@@ -146,11 +137,14 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bakthi_geethalu.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bakthini.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bhakthi_articles.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_feedback.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_festival.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_horoscope.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_maha_puranalu.xml" value="0.5" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_muhurtham.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_poojalu.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_smart_tools.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/grahalu_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_view_layout.xml" value="0.25" />
@@ -167,7 +161,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/video_tab_layout.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/video_view_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/videos_tab_layout.xml" value="0.20416666666666666" />
-        <entry key="..\:/telugucalapp/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/menu/activity_main_drawer.xml" value="0.18" />
       </map>
     </option>
   </component>

@@ -82,10 +82,22 @@ public class EMICalculatorActivity extends AppCompatActivity {
     /* renamed from: r */
     public LinearLayout f2334r;
 
+    ImageView imgBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emicalculator);
+
+
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.sharemainlayy);
         this.f2334r = linearLayout;
@@ -102,6 +114,7 @@ public class EMICalculatorActivity extends AppCompatActivity {
         this.f2319c.addTextChangedListener(new C0656c());
         this.f2320d.addTextChangedListener(new C0657d());
         this.f2325i.setOnClickListener(new C0658e());
+
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.ads_lay);
 //        if (this.f2330n.mo2459c(this, "Main_Daily_Click") == 1) {
 //            this.f2330n.mo2458b(this, "add_remove").booleanValue();
