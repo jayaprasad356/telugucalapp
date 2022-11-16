@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
 
 public class SmartToolsFragment extends Fragment {
 
 
     CardView cvSimpleInterest;
+    CardView cvEmi;
 
 
 
@@ -34,11 +36,19 @@ public class SmartToolsFragment extends Fragment {
 
 
         cvSimpleInterest=root.findViewById(R.id.cvSimpleInterest);
+        cvEmi=root.findViewById(R.id.cvEmi);
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SimpleInterestActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvEmi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EMICalculatorActivity.class);
                 startActivity(intent);
             }
         });

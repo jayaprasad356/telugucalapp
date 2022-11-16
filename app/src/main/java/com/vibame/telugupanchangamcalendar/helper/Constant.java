@@ -1,5 +1,7 @@
 package com.vibame.telugupanchangamcalendar.helper;
 
+import android.widget.EditText;
+
 public class Constant {
     public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
     //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
@@ -8,9 +10,6 @@ public class Constant {
     public static final String SAKUNA_SASTHRAM_URL = BaseUrl + "sakuna-sasthram-list.php";
     public static final String TELUGU_SAMKRUTHAM_URL = BaseUrl + "telugu-samkrutham-list.php";
     public static final String MAHA_PURANALU_URL = BaseUrl + "mahapuranalu-list.php";
-
-
-
     public static final String ALLDATALIST_URL = BaseUrl + "alldatalist.php";
     public static final String HOROSCOPE_URL = BaseUrl + "horoscope.php";
     public static final String IMAGE_URL = BaseUrl + "images-category.php";
@@ -148,4 +147,28 @@ public class Constant {
     public static final String PROFESSION = "profession";
     public static final String MARRIED_LIFE = "married_life";
     public static final String YEARLY_HOROSCOPE_VARIANT = "yearly_horoscope_variant";
+    public static int etLengthConversion(EditText editText) {
+        return editText.getText().toString().length();
+    }
+    public static StringBuilder strbappend(String str) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        return sb;
+    }
+    public static StringBuilder strbappend2(String str, String str2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(str2);
+        return sb;
+    }
+    public static void strappendbuild(String str, Object[] objArr, StringBuilder sb, String str2) {
+        sb.append(String.format(str, objArr));
+        sb.append(str2);
+    }
+    public static String addStr(String str, String str2) {
+        return str + str2;
+    }
+    public static float floatConvert(EditText editText) {
+        return Float.parseFloat(editText.getText().toString());
+    }
 }
