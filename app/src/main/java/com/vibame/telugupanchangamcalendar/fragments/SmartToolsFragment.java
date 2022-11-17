@@ -17,6 +17,7 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
+import com.vibame.telugupanchangamcalendar.activities.TextToSpeechActivity;
 import com.vibame.telugupanchangamcalendar.activities.TrackerActivity;
 import com.vibame.telugupanchangamcalendar.activities.WorldClockActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
@@ -25,7 +26,7 @@ public class SmartToolsFragment extends Fragment {
 
 
     CardView cvSimpleInterest,cvGstcalculator,cvTraker;
-    CardView cvEmi,cvPostalTracker,cvPnrStatus,cvCourierStatus,cvWorldClock;
+    CardView cvEmi,cvPostalTracker,cvPnrStatus,cvCourierStatus,cvWorldClock,cvTexttoSpeech;
     ImageView ivClose;
 
 
@@ -51,11 +52,19 @@ public class SmartToolsFragment extends Fragment {
         cvGstcalculator=root.findViewById(R.id.cvGstcalculator);
         cvTraker = root.findViewById(R.id.cvTraker);
         cvWorldClock = root.findViewById(R.id.cvWorldClock);
+        cvTexttoSpeech = root.findViewById(R.id.cvTexttoSpeech);
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SimpleInterestActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvTexttoSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TextToSpeechActivity.class);
                 startActivity(intent);
             }
         });

@@ -59,7 +59,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MileageCalculatorActivity"
+            android:name=".activities.TextToSpeechActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MileageCalculatorActivity"
             android:exported="false" />
         <activity
             android:name=".activities.WorldClockActivity"
