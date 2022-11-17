@@ -108,6 +108,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_maha_bharatham_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_mileage_calculator.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_monthly_horoscope.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_muhurthamtab.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_nakshathralu.xml" value="0.20416666666666666" />
@@ -121,18 +122,21 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_ramayanam.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_ramyanam_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_simple_interest.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_tracker.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_trading_image.xml" value="0.2" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_trending_videos.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_video_live.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_video_tab.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_videos.xml" value="0.22" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_weekly_horoscope.xml" value="0.19010416666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_world_clock.xml" value="0.22" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_yearly_horoscope.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/appbar.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/articles_view_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/audio_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/bharatham_view.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/cal_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/dialog_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/festival_frag.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/festival_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_bakthi_geethalu.xml" value="0.33" />

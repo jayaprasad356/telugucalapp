@@ -147,6 +147,10 @@ public class Constant {
     public static final String PROFESSION = "profession";
     public static final String MARRIED_LIFE = "married_life";
     public static final String YEARLY_HOROSCOPE_VARIANT = "yearly_horoscope_variant";
+    public static final String POSTAL_TRACKER_URL = "https://www.indiapost.gov.in/vas/Pages/IndiaPostHome.aspx";
+    public static final String PNR_TRACKER_URL = "https://www.indianrail.gov.in/enquiry/StaticPages/StaticEnquiry.jsp?StaticPage=index.html";
+    public static final String COURIER_TRACKER_URL = "https://www.professionalcourier.in/";
+
     public static int etLengthConversion(EditText editText) {
         return editText.getText().toString().length();
     }

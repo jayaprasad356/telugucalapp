@@ -680,6 +680,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvTraker"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"
@@ -720,7 +721,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Compass"
+                    android:text="Tracker"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
@@ -732,6 +733,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvWorldClock"
             android:layout_width="@dimen/_65sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_margin="@dimen/_5sdp"

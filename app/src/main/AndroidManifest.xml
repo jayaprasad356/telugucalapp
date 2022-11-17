@@ -59,6 +59,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MileageCalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WorldClockActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TrackerActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GstCalulatorActivity"
             android:exported="false" />
         <activity
