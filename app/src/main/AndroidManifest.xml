@@ -59,6 +59,24 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.DateplusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NumbertoTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.StopWatchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.NotesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PercentageCalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CoinTossActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.TextToSpeechActivity"
             android:exported="false" />
         <activity
