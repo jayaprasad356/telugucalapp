@@ -59,10 +59,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activities.DateplusActivity"
+            android:name=".activities.NumbertoWordsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.NumbertoTextActivity"
+            android:name=".activities.SpeechtoTextActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DateplusActivity"
             android:exported="false" />
         <activity
             android:name=".activities.StopWatchActivity"

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
@@ -19,9 +18,10 @@ import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
-import com.vibame.telugupanchangamcalendar.activities.NumbertoTextActivity;
+import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
 import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
+import com.vibame.telugupanchangamcalendar.activities.SpeechtoTextActivity;
 import com.vibame.telugupanchangamcalendar.activities.StopWatchActivity;
 import com.vibame.telugupanchangamcalendar.activities.TextToSpeechActivity;
 import com.vibame.telugupanchangamcalendar.activities.TrackerActivity;
@@ -31,7 +31,7 @@ import com.vibame.telugupanchangamcalendar.helper.Constant;
 public class SmartToolsFragment extends Fragment {
 
 
-    CardView cvSimpleInterest,cvGstcalculator,cvTraker,cvPercentageConventer,cvNotes,cvDateplus;
+    CardView cvSimpleInterest,cvGstcalculator,cvTraker,cvPercentageConventer,cvNotes,cvDateplus,cvSpeechtoText;
     CardView cvEmi,cvPostalTracker,cvPnrStatus,cvCourierStatus,cvWorldClock,cvTexttoSpeech,cvToss,cvStopWatch,cvNUmbertoText;
     ImageView ivClose;
 
@@ -65,6 +65,7 @@ public class SmartToolsFragment extends Fragment {
         cvStopWatch = root.findViewById(R.id.cvStopWatch);
         cvNUmbertoText = root.findViewById(R.id.cvNUmbertoText);
         cvDateplus = root.findViewById(R.id.cvDateplus);
+        cvSpeechtoText = root.findViewById(R.id.cvSpeechtoText);
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +81,13 @@ public class SmartToolsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        cvSpeechtoText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),SpeechtoTextActivity.class);
+                startActivity(intent);
+            }
+        });
         cvPercentageConventer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,8 +98,8 @@ public class SmartToolsFragment extends Fragment {
         cvNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NotesActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), NotesActivity.class);
+//                startActivity(intent);
             }
         });
         cvStopWatch.setOnClickListener(new View.OnClickListener() {
@@ -104,8 +112,8 @@ public class SmartToolsFragment extends Fragment {
         cvToss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CoinTossActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), CoinTossActivity.class);
+//                startActivity(intent);
             }
         });
         cvTexttoSpeech.setOnClickListener(new View.OnClickListener() {
@@ -118,8 +126,8 @@ public class SmartToolsFragment extends Fragment {
         cvWorldClock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WorldClockActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), WorldClockActivity.class);
+//                startActivity(intent);
             }
         });
         cvEmi.setOnClickListener(new View.OnClickListener() {
@@ -129,10 +137,10 @@ public class SmartToolsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        cvEmi.setOnClickListener(new View.OnClickListener() {
+        cvNUmbertoText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NumbertoTextActivity.class);
+                Intent intent = new Intent(getActivity(), NumbertoWordsActivity.class);
                 startActivity(intent);
             }
         });

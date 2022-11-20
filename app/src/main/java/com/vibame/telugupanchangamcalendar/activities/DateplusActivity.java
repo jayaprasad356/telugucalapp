@@ -89,10 +89,23 @@ public class DateplusActivity extends AppCompatActivity {
     /* renamed from: v */
     public Calendar f36488v;
 
+
+    ImageView imgBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dateplus);
+
+
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         this.f36480n = new C0619z5();

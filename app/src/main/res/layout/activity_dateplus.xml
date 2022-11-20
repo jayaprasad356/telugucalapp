@@ -5,26 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
-        android:id="@+id/coordinatorlayout"
+    <LinearLayout
+        android:id="@+id/l1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorHead"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar_lay"
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Calendar Date(+/-)"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_18sdp" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/app_bar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-        </com.google.android.material.appbar.AppBarLayout>
-    </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -178,6 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:text="+"
+                        android:background="@color/calHeaderT"
                         android:textColor="#fff" />
                 </androidx.cardview.widget.CardView>
 
@@ -197,6 +205,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="-"
+                        android:background="@color/calHeaderT"
                         android:textColor="#fff" />
                 </androidx.cardview.widget.CardView>
 
