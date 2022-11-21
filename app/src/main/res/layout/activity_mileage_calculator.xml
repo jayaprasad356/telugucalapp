@@ -1,9 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.MileageCalculatorActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ad_layout"
+        android:orientation="vertical">
+
+        <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout
+            android:id="@+id/coordinatorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/app_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    app:cardBackgroundColor="#fcf8e8"
+                    app:cardElevation="@dimen/_5sdp"
+                    app:contentPaddingTop="@dimen/_5sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:text="Start Reading (km)"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/start_reading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/design_login"
+                                android:ems="10"
+                                android:focusable="true"
+                                android:hint="Enter starting speedometer reading"
+                                android:inputType="number"
+                                android:maxLength="8"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="#000">
+
+                                <requestFocus />
+                            </androidx.appcompat.widget.AppCompatEditText>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:text="End Reading (km)"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/end_reading"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/design_login"
+                                android:ems="10"
+                                android:hint="Enter last speedometer reading"
+                                android:inputType="number"
+                                android:maxLength="8"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="#000">
+
+                                <requestFocus />
+                            </androidx.appcompat.widget.AppCompatEditText>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:text="Fuel Quantity (ltr)"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/cnsume_fuel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/design_login"
+                                android:ems="10"
+                                android:hint="Enter fuel quantity"
+                                android:inputType="numberDecimal"
+                                android:maxLength="8"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="#000">
+
+                                <requestFocus />
+                            </androidx.appcompat.widget.AppCompatEditText>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_15sdp"
+                                android:layout_marginRight="@dimen/_15sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:text="Fuel Cost "
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:textColor="#000"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/Fuel_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/design_login"
+                                android:ems="10"
+                                android:hint="Enter fuel total cost"
+                                android:inputType="numberDecimal"
+                                android:maxLength="8"
+                                android:padding="@dimen/_5sdp"
+                                android:textColor="#000">
+
+                                <requestFocus />
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:layout_weight="0.33"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                app:cardBackgroundColor="#ce004a"
+                                app:cardCornerRadius="@dimen/_5sdp">
+
+                                <TextView
+                                    android:id="@+id/calculate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Calculate"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/colorWhite" />
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:layout_weight="0.33"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                app:cardBackgroundColor="#ce004a"
+                                app:cardCornerRadius="@dimen/_5sdp">
+
+                                <TextView
+                                    android:id="@+id/btn_clear"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Clear"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/colorWhite" />
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_margin="@dimen/_5sdp"
+                                android:layout_weight="0.33"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                app:cardBackgroundColor="#ce004a"
+                                app:cardCornerRadius="@dimen/_5sdp">
+
+                                <TextView
+                                    android:id="@+id/btn_reset"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Reset"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/colorWhite" />
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="gone" />
+</RelativeLayout>

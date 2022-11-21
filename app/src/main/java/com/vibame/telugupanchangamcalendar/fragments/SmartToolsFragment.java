@@ -18,6 +18,7 @@ import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
 import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
+import com.vibame.telugupanchangamcalendar.activities.MileageCalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
 import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
 import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;
@@ -32,7 +33,7 @@ import com.vibame.telugupanchangamcalendar.helper.Constant;
 public class SmartToolsFragment extends Fragment {
 
 
-    CardView cvSimpleInterest, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass;
+    CardView cvSimpleInterest, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass,cvMileageCalculator;
     CardView cvEmi, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText;
     ImageView ivClose;
 
@@ -65,6 +66,7 @@ public class SmartToolsFragment extends Fragment {
         cvNUmbertoText = root.findViewById(R.id.cvNUmbertoText);
         cvDateplus = root.findViewById(R.id.cvDateplus);
         cvSpeechtoText = root.findViewById(R.id.cvSpeechtoText);
+        cvMileageCalculator = root.findViewById(R.id.cvMileageCalculator);
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +79,13 @@ public class SmartToolsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), DateplusActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvMileageCalculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MileageCalculatorActivity.class);
                 startActivity(intent);
             }
         });
