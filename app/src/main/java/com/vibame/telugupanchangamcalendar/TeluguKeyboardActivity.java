@@ -1,21 +1,21 @@
-package com.vibame.telugupanchangamcalendar.activities;
+package com.vibame.telugupanchangamcalendar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.vibame.telugupanchangamcalendar.R;
-
-public class CompoundInterestActivity extends AppCompatActivity {
+public class TeluguKeyboardActivity extends AppCompatActivity {
 
     ImageView imgBack;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compound_interest);
+        setContentView(R.layout.activity_telugu_keyboard);
 
         imgBack = findViewById(R.id.imgBack);
 

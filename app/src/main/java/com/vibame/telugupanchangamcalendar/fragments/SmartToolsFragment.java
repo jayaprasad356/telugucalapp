@@ -1,25 +1,29 @@
 package com.vibame.telugupanchangamcalendar.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+
+import com.vibame.telugupanchangamcalendar.HeightWeightChartsActivity;
+import com.vibame.telugupanchangamcalendar.IfscActivity;
+import com.vibame.telugupanchangamcalendar.InternetSpeedMeterActivity;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
+import com.vibame.telugupanchangamcalendar.TeluguKeyboardActivity;
+import com.vibame.telugupanchangamcalendar.UnitConvertedActivity;
 import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
+import com.vibame.telugupanchangamcalendar.activities.CompoundInterestActivity;
 import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.MileageCalculatorActivity;
-import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
 import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
 import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
@@ -27,14 +31,13 @@ import com.vibame.telugupanchangamcalendar.activities.SpeechtoTextActivity;
 import com.vibame.telugupanchangamcalendar.activities.StopWatchActivity;
 import com.vibame.telugupanchangamcalendar.activities.TextToSpeechActivity;
 import com.vibame.telugupanchangamcalendar.activities.TrackerActivity;
-import com.vibame.telugupanchangamcalendar.activities.WorldClockActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 
 public class SmartToolsFragment extends Fragment {
 
 
-    CardView cvSimpleInterest, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass,cvMileageCalculator;
-    CardView cvEmi, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText;
+    CardView cvSimpleInterest, cvCompoundInterest, cvHeightweightcharts, cvTelugukeyboard,cvInternetspeedmeter, cvUnitconverter, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass,cvMileageCalculator;
+    CardView cvEmi,cvIfsc, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText;
     ImageView ivClose;
 
 
@@ -43,6 +46,7 @@ public class SmartToolsFragment extends Fragment {
     }
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +58,13 @@ public class SmartToolsFragment extends Fragment {
 
         cvCompass = root.findViewById(R.id.cvCompass);
         cvSimpleInterest = root.findViewById(R.id.cvSimpleInterest);
+        cvCompoundInterest = root.findViewById(R.id.cvCompoundInterest);
+        cvInternetspeedmeter = root.findViewById(R.id.cvInternetspeedmeter);
+        cvTelugukeyboard = root.findViewById(R.id.cvTelugukeyboard);
+        cvHeightweightcharts = root.findViewById(R.id.cvHeightweightcharts);
+        cvUnitconverter = root.findViewById(R.id.cvUnitconverter);
         cvEmi = root.findViewById(R.id.cvEmi);
+        cvIfsc = root.findViewById(R.id.cvIfsc);
         cvGstcalculator = root.findViewById(R.id.cvGstcalculator);
         cvTraker = root.findViewById(R.id.cvTraker);
         cvWorldClock = root.findViewById(R.id.cvWorldClock);
@@ -72,6 +82,48 @@ public class SmartToolsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SimpleInterestActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvHeightweightcharts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HeightWeightChartsActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvTelugukeyboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TeluguKeyboardActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvIfsc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), IfscActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvCompoundInterest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CompoundInterestActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvInternetspeedmeter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InternetSpeedMeterActivity.class);
+                startActivity(intent);
+            }
+        });
+        cvUnitconverter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), UnitConvertedActivity.class);
                 startActivity(intent);
             }
         });

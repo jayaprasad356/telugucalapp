@@ -1,20 +1,20 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.material.appbar.AppBarLayout;
@@ -99,6 +99,9 @@ public class MileageCalculatorActivity extends AppCompatActivity {
     /* renamed from: y */
     public Toolbar f36534y;
 
+    ImageView imgBack;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +113,16 @@ public class MileageCalculatorActivity extends AppCompatActivity {
 
         StringBuilder a2 = C3709a.m6100a(RequestConfiguration.MAX_AD_CONTENT_RATING_UNSPECIFIED);
         a2.append(this.f36525p.mo2460d(this, "fess_title"));
+
+        imgBack = findViewById(R.id.imgBack);
+
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         this.f36511b = (AppCompatEditText) findViewById(R.id.start_reading);
         this.f36512c = (AppCompatEditText) findViewById(R.id.end_reading);

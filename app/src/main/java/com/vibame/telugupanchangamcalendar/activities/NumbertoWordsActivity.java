@@ -3,8 +3,9 @@ package com.vibame.telugupanchangamcalendar.activities;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class NumbertoWordsActivity extends AppCompatActivity {
 
     TextView tvText;
     EditText edText;
+    ImageView imgBack;
 
 
     @Override
@@ -26,6 +28,14 @@ public class NumbertoWordsActivity extends AppCompatActivity {
 
         tvText = findViewById(R.id.tvText);
         edText = findViewById(R.id.edText);
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
 
         edText.addTextChangedListener(new TextWatcher() {
