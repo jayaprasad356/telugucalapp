@@ -14,9 +14,8 @@ import com.vibame.telugupanchangamcalendar.R;
 
 public class NumbertoWordsActivity extends AppCompatActivity {
 
-   TextView tvText;
-   EditText edText;
-
+    TextView tvText;
+    EditText edText;
 
 
     @Override
@@ -37,8 +36,12 @@ public class NumbertoWordsActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    int i = Integer.parseInt(String.valueOf(s));
+                    tvText.setText("" + convert(i));
+                } catch (NumberFormatException ex) { // handle your exception
+                }
 
-               tvText.setText(""+convert(Integer.parseInt(edText.getText().toString())));
 
             }
 
@@ -46,11 +49,8 @@ public class NumbertoWordsActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
 
-
             }
         });
-
-
 
 
 //        NumberToWord obj = new NumberToWord();
@@ -59,15 +59,13 @@ public class NumbertoWordsActivity extends AppCompatActivity {
     }
 
 
-
     private String convertLessThanOneThousand(int number) {
         String current;
 
-        if (number % 100 < 20){
+        if (number % 100 < 20) {
             current = numNames[number % 100];
             number /= 100;
-        }
-        else {
+        } else {
             current = numNames[number % 10];
             number /= 10;
 
@@ -80,7 +78,9 @@ public class NumbertoWordsActivity extends AppCompatActivity {
 
     public String convert(int number) {
 
-        if (number == 0) { return "zero"; }
+        if (number == 0) {
+            return "zero";
+        }
 
         String prefix = "";
 
@@ -94,7 +94,7 @@ public class NumbertoWordsActivity extends AppCompatActivity {
 
         do {
             int n = number % 1000;
-            if (n != 0){
+            if (n != 0) {
                 String s = convertLessThanOneThousand(n);
                 current = s + specialNames[place] + current;
             }
@@ -106,55 +106,51 @@ public class NumbertoWordsActivity extends AppCompatActivity {
     }
 
 
+    private static final String[] specialNames = {
+            "",
+            " thousand",
+            " million",
+            " billion",
+            " trillion",
+            " quadrillion",
+            " quintillion"
+    };
+
+    private static final String[] tensNames = {
+            "",
+            " ten",
+            " twenty",
+            " thirty",
+            " forty",
+            " fifty",
+            " sixty",
+            " seventy",
+            " eighty",
+            " ninety"
+    };
+
+    private static final String[] numNames = {
+            "",
+            " one",
+            " two",
+            " three",
+            " four",
+            " five",
+            " six",
+            " seven",
+            " eight",
+            " nine",
+            " ten",
+            " eleven",
+            " twelve",
+            " thirteen",
+            " fourteen",
+            " fifteen",
+            " sixteen",
+            " seventeen",
+            " eighteen",
+            " nineteen"
+    };
 
 
-        private static final String[] specialNames = {
-                "",
-                " thousand",
-                " million",
-                " billion",
-                " trillion",
-                " quadrillion",
-                " quintillion"
-        };
-
-        private static final String[] tensNames = {
-                "",
-                " ten",
-                " twenty",
-                " thirty",
-                " forty",
-                " fifty",
-                " sixty",
-                " seventy",
-                " eighty",
-                " ninety"
-        };
-
-        private static final String[] numNames = {
-                "",
-                " one",
-                " two",
-                " three",
-                " four",
-                " five",
-                " six",
-                " seven",
-                " eight",
-                " nine",
-                " ten",
-                " eleven",
-                " twelve",
-                " thirteen",
-                " fourteen",
-                " fifteen",
-                " sixteen",
-                " seventeen",
-                " eighteen",
-                " nineteen"
-        };
-
-
-
-
-    }
+}

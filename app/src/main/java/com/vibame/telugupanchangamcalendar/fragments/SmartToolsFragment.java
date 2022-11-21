@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
+import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
 import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
@@ -31,16 +32,14 @@ import com.vibame.telugupanchangamcalendar.helper.Constant;
 public class SmartToolsFragment extends Fragment {
 
 
-    CardView cvSimpleInterest,cvGstcalculator,cvTraker,cvPercentageConventer,cvNotes,cvDateplus,cvSpeechtoText;
-    CardView cvEmi,cvPostalTracker,cvPnrStatus,cvCourierStatus,cvWorldClock,cvTexttoSpeech,cvToss,cvStopWatch,cvNUmbertoText;
+    CardView cvSimpleInterest, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass;
+    CardView cvEmi, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText;
     ImageView ivClose;
-
 
 
     public SmartToolsFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -52,10 +51,10 @@ public class SmartToolsFragment extends Fragment {
 
         Dialog dialog = new Dialog(getActivity());
 
-
-        cvSimpleInterest=root.findViewById(R.id.cvSimpleInterest);
-        cvEmi=root.findViewById(R.id.cvEmi);
-        cvGstcalculator=root.findViewById(R.id.cvGstcalculator);
+        cvCompass = root.findViewById(R.id.cvCompass);
+        cvSimpleInterest = root.findViewById(R.id.cvSimpleInterest);
+        cvEmi = root.findViewById(R.id.cvEmi);
+        cvGstcalculator = root.findViewById(R.id.cvGstcalculator);
         cvTraker = root.findViewById(R.id.cvTraker);
         cvWorldClock = root.findViewById(R.id.cvWorldClock);
         cvTexttoSpeech = root.findViewById(R.id.cvTexttoSpeech);
@@ -84,7 +83,7 @@ public class SmartToolsFragment extends Fragment {
         cvSpeechtoText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),SpeechtoTextActivity.class);
+                Intent intent = new Intent(getActivity(), SpeechtoTextActivity.class);
                 startActivity(intent);
             }
         });
@@ -151,6 +150,10 @@ public class SmartToolsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        cvCompass.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), CompassActivity.class);
+            startActivity(intent);
+        });
         cvTraker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +170,6 @@ public class SmartToolsFragment extends Fragment {
                 cvCourierStatus = dialog.findViewById(R.id.cvCourierStatus);
 
 
-
                 cvPostalTracker.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -175,7 +177,7 @@ public class SmartToolsFragment extends Fragment {
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getActivity(), TrackerActivity.class);
-                        intent.putExtra("link",Constant.POSTAL_TRACKER_URL);
+                        intent.putExtra("link", Constant.POSTAL_TRACKER_URL);
                         startActivity(intent);
 
                     }
@@ -187,7 +189,7 @@ public class SmartToolsFragment extends Fragment {
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getActivity(), TrackerActivity.class);
-                        intent.putExtra("link",Constant.PNR_TRACKER_URL);
+                        intent.putExtra("link", Constant.PNR_TRACKER_URL);
                         startActivity(intent);
 
                     }
@@ -199,7 +201,7 @@ public class SmartToolsFragment extends Fragment {
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(getActivity(), TrackerActivity.class);
-                        intent.putExtra("link",Constant.COURIER_TRACKER_URL);
+                        intent.putExtra("link", Constant.COURIER_TRACKER_URL);
                         startActivity(intent);
 
                     }
