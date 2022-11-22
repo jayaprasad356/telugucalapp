@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#042321"
     tools:context=".InternetSpeedMeterActivity">
 
     <LinearLayout
@@ -34,5 +34,39 @@
             android:textSize="@dimen/_18sdp" />
 
     </LinearLayout>
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/l1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/speedtest"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/speed"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="24dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/checkSpeed"
+            android:background="@drawable/corner_bg"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:text="@string/test_speed"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorHead"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
