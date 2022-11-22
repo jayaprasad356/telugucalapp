@@ -18,8 +18,10 @@ import com.vibame.telugupanchangamcalendar.InternetSpeedMeterActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.TeluguKeyboardActivity;
 import com.vibame.telugupanchangamcalendar.UnitConvertedActivity;
+import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
 import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
 import com.vibame.telugupanchangamcalendar.activities.CompoundInterestActivity;
+import com.vibame.telugupanchangamcalendar.activities.CounterActivity;
 import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
@@ -37,7 +39,7 @@ public class SmartToolsFragment extends Fragment {
 
 
     CardView cvSimpleInterest, cvCompoundInterest, cvHeightweightcharts, cvTelugukeyboard,cvInternetspeedmeter, cvUnitconverter, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass,cvMileageCalculator;
-    CardView cvEmi,cvIfsc, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText;
+    CardView cvEmi,cvIfsc, cvPostalTracker, cvPnrStatus, cvCourierStatus, cvWorldClock, cvTexttoSpeech, cvToss, cvStopWatch, cvNUmbertoText, cvCounter;
     ImageView ivClose;
 
 
@@ -77,6 +79,7 @@ public class SmartToolsFragment extends Fragment {
         cvDateplus = root.findViewById(R.id.cvDateplus);
         cvSpeechtoText = root.findViewById(R.id.cvSpeechtoText);
         cvMileageCalculator = root.findViewById(R.id.cvMileageCalculator);
+        cvCounter=root.findViewById(R.id.cvCounter);
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,8 +175,8 @@ public class SmartToolsFragment extends Fragment {
         cvToss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), CoinTossActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), CoinTossActivity.class);
+                startActivity(intent);
             }
         });
         cvTexttoSpeech.setOnClickListener(new View.OnClickListener() {
@@ -215,6 +218,11 @@ public class SmartToolsFragment extends Fragment {
             Intent intent = new Intent(getActivity(), CompassActivity.class);
             startActivity(intent);
         });
+        cvCounter.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), CounterActivity.class);
+            startActivity(intent);
+        });
+
         cvTraker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1036,6 +1036,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvCounter"
                 android:layout_width="@dimen/_65sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_row="6"
