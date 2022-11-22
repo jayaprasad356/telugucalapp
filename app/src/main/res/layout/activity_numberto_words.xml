@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
@@ -28,10 +27,9 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:text="Number to Text"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_18sdp" />
+            android:textSize="@dimen/_16sdp" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +39,13 @@
         android:layout_marginTop="@dimen/_30sdp"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter the number"
+            android:textColor="@color/colorBlack"
+            android:layout_margin="@dimen/_5sdp"/>
+
 
         <EditText
             android:id="@+id/edText"
@@ -48,21 +53,32 @@
             android:layout_height="wrap_content"
             android:background="@drawable/et_bg"
             android:gravity="start"
-            android:hint="Enter Your Text"
             android:inputType="number"
             android:maxLength="9"
             android:padding="@dimen/_10sdp" />
 
         <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/ivCopy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/et_bg"
+            android:hint="Word"
+            android:drawableEnd="@drawable/ic_copy"
+            android:textColorHint="@color/colorBlack"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"/>
+
+
+        <TextView
             android:id="@+id/tvText"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_110sdp"
             android:background="@drawable/et_bg"
             android:gravity="start"
             android:padding="@dimen/_10sdp" />
 
 
     </LinearLayout>
-
 
 </RelativeLayout>
