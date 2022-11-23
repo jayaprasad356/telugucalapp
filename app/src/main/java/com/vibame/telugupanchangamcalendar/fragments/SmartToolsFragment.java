@@ -26,6 +26,7 @@ import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.MileageCalculatorActivity;
+import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
 import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
 import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
@@ -33,6 +34,7 @@ import com.vibame.telugupanchangamcalendar.activities.SpeechtoTextActivity;
 import com.vibame.telugupanchangamcalendar.activities.StopWatchActivity;
 import com.vibame.telugupanchangamcalendar.activities.TextToSpeechActivity;
 import com.vibame.telugupanchangamcalendar.activities.TrackerActivity;
+import com.vibame.telugupanchangamcalendar.activities.WorldClockActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 
 public class SmartToolsFragment extends Fragment {
@@ -161,8 +163,8 @@ public class SmartToolsFragment extends Fragment {
         cvNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), NotesActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), NotesActivity.class);
+                startActivity(intent);
             }
         });
         cvStopWatch.setOnClickListener(new View.OnClickListener() {
@@ -189,8 +191,8 @@ public class SmartToolsFragment extends Fragment {
         cvWorldClock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), WorldClockActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getActivity(), WorldClockActivity.class);
+                startActivity(intent);
             }
         });
         cvEmi.setOnClickListener(new View.OnClickListener() {
