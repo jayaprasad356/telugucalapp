@@ -1,23 +1,39 @@
-package com.vibame.telugupanchangamcalendar;
+package com.vibame.telugupanchangamcalendar.activities;
 
-import android.annotation.SuppressLint;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.material.tabs.TabLayout;
+import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.source.C3709a;
 
-public class IfscActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConvertActivity extends AppCompatActivity {
 
     ImageView imgBack;
 
-    @SuppressLint("MissingInflatedId")
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ifsc);
+        setContentView(R.layout.activity_convert);
+
 
         imgBack = findViewById(R.id.imgBack);
 
@@ -33,7 +49,7 @@ public class IfscActivity extends AppCompatActivity {
 
 
         // loading http://www.google.com url in the WebView.
-        webView.loadUrl("https://paymatrix.in/find-ifsc-code");
+        webView.loadUrl("https://www.unitconverters.net/");
 
         // this will enable the javascript.
         webView.getSettings().setJavaScriptEnabled(true);
@@ -41,6 +57,8 @@ public class IfscActivity extends AppCompatActivity {
         // WebViewClient allows you to handle
         // onPageFinished and override Url loading.
         webView.setWebViewClient(new WebViewClient());
+
+
 
     }
 }

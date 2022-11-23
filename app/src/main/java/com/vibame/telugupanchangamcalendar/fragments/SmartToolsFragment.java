@@ -21,6 +21,7 @@ import com.vibame.telugupanchangamcalendar.UnitConvertedActivity;
 import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
 import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
 import com.vibame.telugupanchangamcalendar.activities.CompoundInterestActivity;
+import com.vibame.telugupanchangamcalendar.activities.ConvertActivity;
 import com.vibame.telugupanchangamcalendar.activities.CounterActivity;
 import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
@@ -128,7 +129,7 @@ public class SmartToolsFragment extends Fragment {
         cvUnitconverter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UnitConvertedActivity.class);
+                Intent intent = new Intent(getActivity(), ConvertActivity.class);
                 startActivity(intent);
             }
         });

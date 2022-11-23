@@ -110,6 +110,11 @@
         <activity
             android:name=".activities.NumbertoWordsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".activities.ConvertActivity"
+            android:exported="false" />
+
         <activity
             android:name=".activities.SpeechtoTextActivity"
             android:exported="false" />
