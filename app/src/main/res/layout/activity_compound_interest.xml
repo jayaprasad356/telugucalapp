@@ -3,7 +3,8 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinatorlayout"
@@ -58,7 +59,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/e_principal"
+                android:id="@+id/etPrincipal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -72,7 +73,7 @@
                 android:inputType="numberDecimal" />
 
             <EditText
-                android:id="@+id/e_intrest"
+                android:id="@+id/etInterestRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/e_principal"
@@ -96,7 +97,8 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radio_years"
+                    android:onClick="onClick"
+                    android:id="@+id/rbTenureYears"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_25sdp"
@@ -105,7 +107,8 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/radio_months"
+                    android:onClick="onClick"
+                    android:id="@+id/rbTenureMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_25sdp"
@@ -114,7 +117,7 @@
             </RadioGroup>
 
             <EditText
-                android:id="@+id/e_time"
+                android:id="@+id/etTenure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/radio_time"
@@ -129,18 +132,11 @@
                 android:inputType="numberDecimal" />
 
             <Spinner
-                android:id="@+id/spinner_id"
+                android:id="@+id/spCompoundingFrequency"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/e_time"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_25sdp"
-                android:background="@drawable/spinner_bg"
-                android:gravity="center"
-                android:padding="@dimen/_5sdp"
-                android:spinnerMode="dropdown" />
+                android:layout_height="40dp"
+                android:entries="@array/compoundingfrequency"
+                />
 
             <EditText
                 android:id="@+id/e_custom"
@@ -173,7 +169,7 @@
                 app:cardCornerRadius="@dimen/_15sdp">
 
                 <Button
-                    android:id="@+id/calculate"
+                    android:id="@+id/Calbtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/e_custom"
@@ -183,6 +179,9 @@
                     android:text="Calculate"
                     android:textColor="#fff" />
             </androidx.cardview.widget.CardView>
+
+
+
 
             <LinearLayout
                 android:id="@+id/sharemainlayy"
@@ -220,22 +219,31 @@
                         android:visibility="gone"/>
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/result_relative"
+                <LinearLayout
+                    android:id="@+id/calculateemi_ll_visible"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nextbutt"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_5sdp" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_5sdp"
-                    android:layout_below="@+id/linear_button"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginBottom="@dimen/_15sdp" />
+                    <include
+                        android:layout_margin="5dp"
+                        android:id="@+id/news_title"
+                        layout="@layout/view_compound_interest_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+
+
+
+                </LinearLayout>
+
             </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

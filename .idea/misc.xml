@@ -98,6 +98,7 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_audio_play.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_bakthi_geethalu.xml" value="0.5" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_coin_toss.xml" value="0.2" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_compound_interest.xml" value="0.19722222222222222" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_daily_horoscope.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_dateplus.xml" value="0.22" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/activity_emicalculator.xml" value="0.20416666666666666" />
@@ -163,10 +164,12 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fragment_smart_tools.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/fuelresultnew_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/gowri_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/grahalu_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_tab_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/image_view_layout.xml" value="0.25" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/month_views.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/more_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurth_list.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurtham_list.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/muhurtham_tab_layout.xml" value="0.20416666666666666" />
@@ -174,12 +177,19 @@
         <entry key="..\:/telugucalapp/app/src/main/res/layout/nav_header_main.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/panchang_frag.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/panchangam_tab_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/permission_dialog_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/ramayanam_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/row.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/share_print.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/spinner_item.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/splash_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/video_tab_layout.xml" value="0.33" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/video_view_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/layout/videos_tab_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/view_compound_interest_result.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/week_names_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/year_tab_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/telugucalapp/app/src/main/res/layout/yogam_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/telugucalapp/app/src/main/res/menu/activity_main_drawer.xml" value="0.18" />
       </map>
     </option>
