@@ -59,6 +59,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name=".activities.SelectTimezonesActivity"
+            android:exported="false" />
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name=".activities.TimeZoneActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.NoteEditorActivity"
             android:exported="false">
             <meta-data
@@ -110,11 +118,9 @@
         <activity
             android:name=".activities.NumbertoWordsActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.ConvertActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.SpeechtoTextActivity"
             android:exported="false" />

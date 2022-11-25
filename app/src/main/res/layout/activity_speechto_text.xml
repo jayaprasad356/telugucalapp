@@ -59,7 +59,7 @@
         android:layout_marginTop="44dp"
         android:textSize="30sp"
         android:padding="10dp"
-        android:text=""
+        android:text="Tap to Speak"
         app:layout_constraintEnd_toEndOf="@+id/iv_mic"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/iv_mic"
