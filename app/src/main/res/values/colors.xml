@@ -32,4 +32,12 @@
     <color name="seek_bar_progress">#0D232A</color>
     <color name="seek_bar_secondary_progress">#3399CC</color>
 
+    <color name="cyellow">#fbd560</color>
+    <color name="bgscroll">#f5f8fd</color>
+    <color name="bgcard1">#e1f6fb</color>
+    <color name="bgscreen">#f89839</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
 </resources>

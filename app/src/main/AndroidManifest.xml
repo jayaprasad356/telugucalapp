@@ -59,13 +59,20 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:name=".activities.SelectTimezonesActivity"
-            android:exported="false" />
+            android:name=".activities.NewCalendarActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name=".activities.SelectTimezonesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
             android:name=".activities.TimeZoneActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name=".activities.NoteEditorActivity"
             android:exported="false">

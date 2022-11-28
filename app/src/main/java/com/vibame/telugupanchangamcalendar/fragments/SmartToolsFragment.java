@@ -27,6 +27,7 @@ import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
 import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
 import com.vibame.telugupanchangamcalendar.activities.MileageCalculatorActivity;
+import com.vibame.telugupanchangamcalendar.activities.NewCalendarActivity;
 import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
 import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
 import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;

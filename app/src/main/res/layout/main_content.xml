@@ -1,0 +1,1804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.vibame.telugupanchangamcalendar.CustomScrollView
+        android:id="@+id/myscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarSize="0dp"
+        android:background="@color/bgscroll"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/cyellow"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="23dp"
+                            android:layout_marginLeft="15dp"
+                            android:src="@drawable/lefta"/>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Panchangam"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            />
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Festivals"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            />
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Horoscope"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            />
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="23dp"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/righta"/>
+
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginBottom="15dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp">
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Poojalu Nomulu"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Pooja Vidhanam"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Nithya Parayana Slokalu"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:maxLines="2"
+                                android:textSize="15sp"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Pooja Samanla List"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Ashtothara Shathanamavali"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Ashtothara Shathanama Stotram"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Nomulu Vrathalu"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Govinda Namalu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Sthothralu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Grahalu Stars Rudhraksha"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Nava Grahalu"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Stars"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Rudhraksha"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Stars Vrukshalu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Naksthramula Ghayatri Manthramulu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Janma Rudhrakshalu"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Naksthramu Dharinchalsina Rudhraksha"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="NavaRathnalu Dharinchalsina Naksthramu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bgcard1"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BhakthiGeethalu-LiveDharsanam"
+                    android:gravity="center"
+                    android:textSize="18dp"  
+					android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="7dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="207dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginBottom="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="15dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/active_dot"/>
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/non_active_dot"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/cyellow"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bhakthini Chatudham"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="20dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="20dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:layout_marginRight="20dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="20dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Panchangam"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Gowri Panchangam"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Hora Chakram"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Thidi Date Time"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Karanamulu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/active_dot"/>
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/non_active_dot"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shakuna Shasthram"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Shakunalu Nammakalu"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Balli Shasthram"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Kaki Shasthram"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Kukkuta Shasthram"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="7dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/active_dot"/>
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/non_active_dot"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Telugu Sanskrit"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Telugu Letters"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Telugu Numbers"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Telugu Months"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="More"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgcard1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Maha Puranas"
+                    android:gravity="center"
+                    android:textSize="18dp"  
+					android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="110dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="15dp">
+
+                        </androidx.cardview.widget.CardView>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="110dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="15dp">
+
+                        </androidx.cardview.widget.CardView>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="110dp"
+                            android:layout_height="120dp"
+                            android:layout_marginRight="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="15dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/active_dot"/>
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/non_active_dot"/>
+
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/cyellow"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bhakti News / Articals"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:layout_marginLeft="20dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="20dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="150dp"
+                            android:layout_height="120dp"
+                            android:layout_marginRight="20dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="20dp">
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/non_active_dot"/>
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/non_active_dotw"/>
+                        <ImageView
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:layout_marginLeft="3dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/non_active_dotw"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="More Info"
+                        android:gravity="center"
+                        android:textSize="18dp"  
+						android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Sankya Shasthram"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Slokalu"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Namakaranam"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/roundicon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="More"
+                                
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"  
+								android:maxLines="2"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/bgcard1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Jyothis Sevas"
+                    android:gravity="center"
+                    android:textSize="18dp"  
+					android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="115dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp">
+
+                    </androidx.cardview.widget.CardView>
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="115dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="5dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp">
+
+                    </androidx.cardview.widget.CardView>
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="115dp"
+                        android:layout_height="120dp"
+                        android:layout_marginRight="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp">
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/active_dot"/>
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/non_active_dot"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="160dp"
+                            android:layout_height="207dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginBottom="10dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="15dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Usefull Tools"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textSize="20dp"
+                                android:textColor="@color/black"
+                                />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="7dp"
+                                    android:background="@drawable/shareicon"/>
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="7dp"
+                                    android:background="@drawable/feedb"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="7dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="7dp"
+                                    android:background="@drawable/rating"/>
+
+                            </androidx.cardview.widget.CardView>
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginLeft="7dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginBottom="10dp"
+                                app:cardBackgroundColor="@color/white"
+                                app:cardCornerRadius="15dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="7dp"
+                                    android:background="@drawable/privacy"/>
+
+                            </androidx.cardview.widget.CardView>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </com.vibame.telugupanchangamcalendar.CustomScrollView>
+
+
+
+</LinearLayout>
