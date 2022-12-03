@@ -59,7 +59,7 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
     implementation 'com.google.android.gms:play-services-ads:21.0.0'
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
-    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
 
 
 
@@ -94,7 +94,8 @@ dependencies {
 
     // circular imageview
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
-    implementation 'com.github.yalantis:ucrop:2.2.2'
+
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
    //Image download
     implementation 'com.artjimlop:altex-image-downloader:0.0.4'

@@ -3,7 +3,6 @@ package com.vibame.telugupanchangamcalendar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ShareCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,15 +16,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
-import com.vibame.telugupanchangamcalendar.activities.AksharaluActivity;
-import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiGeethaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BakthiniFragment;
 import com.vibame.telugupanchangamcalendar.fragments.BhakthiArticlesFragment;
-import com.vibame.telugupanchangamcalendar.fragments.FeedbackFragment;
 import com.vibame.telugupanchangamcalendar.fragments.FestivalFragment;
 import com.vibame.telugupanchangamcalendar.fragments.GrahaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.HoroscopeFragment;
@@ -138,10 +133,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
 
-            case R.id.feedback: {
-                fragment = new FeedbackFragment();
-                break;
-            }
+
 
             case R.id.Rateus: {
                 String url = "http://play.google.com/store/apps/details?id="+BuildConfig.APPLICATION_ID;

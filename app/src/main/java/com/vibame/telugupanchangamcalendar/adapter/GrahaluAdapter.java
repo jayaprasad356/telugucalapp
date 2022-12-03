@@ -41,7 +41,7 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.grahalu_layout, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.round_recyculer_view, parent, false);
         return new ExploreItemHolder(view);
     }
 
@@ -88,8 +88,8 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ImageView imgGrahalu;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            imgGrahalu = itemView.findViewById(R.id.imgGrahalu);
-            tvName = itemView.findViewById(R.id.tvName);
+            imgGrahalu = itemView.findViewById(R.id.image);
+            tvName = itemView.findViewById(R.id.tvTitle);
         }
     }
 }

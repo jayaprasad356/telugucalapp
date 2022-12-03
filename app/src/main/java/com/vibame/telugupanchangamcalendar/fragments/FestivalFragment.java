@@ -148,6 +148,7 @@ public class FestivalFragment extends Fragment {
     private void festivalList(String monthNum, String yearNum)
     {
         if (databaseHelper.getmodelFestivalList(monthNum,yearNum).size() !=0){
+            Log.d("festival",databaseHelper.getmodelFestivalList(monthNum,yearNum).toString());
             festivalAdapter = new FestivalAdapter(activity, databaseHelper.getmodelFestivalList(monthNum,yearNum));
             recyclerView.setAdapter(festivalAdapter);
 

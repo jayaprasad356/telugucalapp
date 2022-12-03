@@ -34,8 +34,8 @@ public class NavaGrahaluAdapter extends RecyclerView.Adapter<NavaGrahaluAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(navaGrahalus.get(position).getTitle());
-        holder.description.setText(navaGrahalus.get(position).getDescription());
+        holder.title.setText(navaGrahalus.get(position).getTitle().trim());
+        holder.description.setText(navaGrahalus.get(position).getDescription().trim());
 
     }
 

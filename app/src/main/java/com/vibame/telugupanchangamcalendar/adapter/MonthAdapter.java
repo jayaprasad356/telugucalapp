@@ -50,8 +50,8 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.description = (TextView) itemView.findViewById(R.id.tv_desc);
+            this.title = (TextView) itemView.findViewById(R.id.tvTitle);
+            this.description = (TextView) itemView.findViewById(R.id.tvDescription);
         }
     }
 }

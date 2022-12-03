@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".activities.NewCalendarActivity">
+    android:orientation="vertical"
+    >
+
     <Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -37,7 +38,7 @@
             android:clickable="true"
             android:focusable="false">
 
-            <include layout="@layout/content_scrolling" />
+            <include layout="@layout/main_content" />
 
         </RelativeLayout>
 

@@ -90,6 +90,8 @@ public class TeluguSamskruthamFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         llAnkelu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
