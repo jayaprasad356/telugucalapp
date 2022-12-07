@@ -12,21 +12,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.GestureDetector;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.vibame.telugupanchangamcalendar.AudioLiveActivity;
 import com.vibame.telugupanchangamcalendar.BuildConfig;
-import com.vibame.telugupanchangamcalendar.CustomScrollView;
 import com.vibame.telugupanchangamcalendar.GowriPanchangamActivity;
 import com.vibame.telugupanchangamcalendar.ImageTabActivity;
 import com.vibame.telugupanchangamcalendar.R;
@@ -35,10 +35,10 @@ import com.vibame.telugupanchangamcalendar.SakunaluActivity;
 import com.vibame.telugupanchangamcalendar.ThidhiluActivity;
 import com.vibame.telugupanchangamcalendar.VideoLiveActivity;
 import com.vibame.telugupanchangamcalendar.VideoTabActivity;
+import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter;
-import com.vibame.telugupanchangamcalendar.fragments.TeluguSamskruthamFragment;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
@@ -52,7 +52,14 @@ import java.util.Date;
 public class NewCalendarActivity extends AppCompatActivity {
 
     private Boolean panelcchange = true;
+    // Your Video URL
+    String videoUrl = "";
 
+
+
+
+    RecyclerView recyclerView;
+    AudioLiveAdapter audioLiveAdapter;
     ImageView imgLeft,imgRight;
     TextView tvMonthYear;
     String month_year;
@@ -62,10 +69,6 @@ public class NewCalendarActivity extends AppCompatActivity {
     Calendar c = Calendar.getInstance();
     DatabaseHelper databaseHelper;
     Activity activity;
-    RecyclerView recyclerView;
-    FestivalAdapter festivalAdapter;
-    String MonthYear = "";
-    String[] montharray = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
 
 
     LinearLayout llNavaGrahalu, llNithyaParayana;
@@ -79,7 +82,7 @@ public class NewCalendarActivity extends AppCompatActivity {
     LinearLayout llThidhi, llGowri, llRahukalam, llHora, llKaranam, llYogam;
     CardView mahaBharatham, ramayanam, bhagvathGeetha, bhagvatham, sethakamulu, sivaPuranam,cardShare,Rateus,cardFeedback,cardPrivacy;
     Session session;
-    CardView cardNewArticles,cardOldArticles;
+    CardView cardNewArticles,cardOldArticles,cardSmartTools,cardVideolive;
     LinearLayout llAudiolive,llVideolive;
 
 
@@ -93,8 +96,49 @@ public class NewCalendarActivity extends AppCompatActivity {
         databaseHelper = new DatabaseHelper(activity);
 
 
+        // Video Live
+        WebView webView = findViewById(R.id.web);
+        cardVideolive = findViewById(R.id.cardVideolive);
+        webView.loadUrl("https://www.mslivestream.com/ttd/index2.html");
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                String url = "https://www.mslivestream.com/ttd/index2.html";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                return true;
+
+            }
+        });
+
+
+
+        //Audio Live
+        databaseHelper = new DatabaseHelper(activity);
+        recyclerView = findViewById(R.id.recyclerView);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        audiolive();
+
+
+
         rvGrahaluStars = findViewById(R.id.rvGrahaluStars);
         rvPoojaluNomulu = findViewById(R.id.rvPoojaluNomulu);
+
+
+
+        cardSmartTools = findViewById(R.id.cardSmartTools);
+        cardSmartTools.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, SmartToolsActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
         cardImageTab = findViewById(R.id.cardImageTab);
@@ -350,23 +394,6 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
 
-        llAudiolive = findViewById(R.id.llAudiolive);
-        llVideolive = findViewById(R.id.llVideolive);
-        llAudiolive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, AudioLiveActivity.class);
-                startActivity(intent);
-            }
-        });
-        llVideolive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity, VideoLiveActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
         cardShare = findViewById(R.id.cardShare);
         Rateus = findViewById(R.id.Rateus);
@@ -409,52 +436,10 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
 
-        imgLeft = findViewById(R.id.imgLeft);
-        imgRight = findViewById(R.id.imgRight);
-        tvMonthYear = findViewById(R.id.tvMonthYear);
-        recyclerView = findViewById(R.id.recyclerView);
-        cal.add(Calendar.MONTH, monthcount);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy");
-        month_year = dateFormat.format(cal.getTime());
-        tvMonthYear.setText(setTeluguMonth(month_year));
 
-        imgLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                Date dateFormat = null;
-                try {
-                    dateFormat = df.parse(month_year);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                c.setTime(dateFormat);
-                c.add(Calendar.MONTH, -1);
 
-                month_year = df.format(c.getTime());
-                tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(),getYearNum());
 
-            }
-        });
-        imgRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Date dateFormat = null;
-                try {
-                    dateFormat = df.parse(month_year);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                c.setTime(dateFormat);
-                c.add(Calendar.MONTH, 1);
-                month_year = df.format(c.getTime());
-                tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(), getYearNum());
-
-            }
-        });
-        festivalList(getMonthNum(), getYearNum());
 
 
 
@@ -510,53 +495,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
 
-    private String setTeluguMonth(String month_year)
-    {
-        int index = month_year.indexOf(' ');
-        String month = month_year.substring(0, index);
-        int p = Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December").indexOf(month);
-        String teluguMonth = montharray[p];
-        return teluguMonth;
-    }
 
-    private String getMonthNum() {
-        Date newDate = null;
-        try {
-            newDate = df.parse(""+month_year);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        SimpleDateFormat format = new SimpleDateFormat("MM");
-        String date = format.format(newDate);
-        return date;
-    }
-    private String getYearNum() {
-        Date newDate = null;
-        try {
-            newDate = df.parse(""+month_year);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        SimpleDateFormat format = new SimpleDateFormat("yyyy");
-        String date = format.format(newDate);
-        return date;
-    }
-
-
-    private void festivalList(String monthNum, String yearNum)
-    {
-        if (databaseHelper.getmodelFestivalList(monthNum,yearNum).size() !=0){
-            festivalAdapter = new FestivalAdapter(activity, databaseHelper.getmodelFestivalList(monthNum,yearNum));
-            recyclerView.setAdapter(festivalAdapter);
-
-        }
-        else {
-            recyclerView.setVisibility(View.GONE);
-
-        }
-
-
-    }
 
     private void poojaluList() {
         if (databaseHelper.getPoojaluList().size() != 0) {
@@ -595,6 +534,25 @@ public class NewCalendarActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+    private void audiolive() {
+        Log.d("AUDIO_COUNT",databaseHelper.getAudiosCount() + "");
+
+
+
+        if (databaseHelper.getAudioList().size() !=0){
+            audioLiveAdapter = new AudioLiveAdapter(activity, databaseHelper.getAudioList());
+            recyclerView.setAdapter(audioLiveAdapter);
+
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+
+        }
+    }
+
 
 
 

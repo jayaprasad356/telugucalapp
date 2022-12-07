@@ -6,8 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".activities.MoreTeluguSamskruthamActivity">
 
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cyellow"
+        android:padding="@dimen/_8sdp"
+        >
+
+        <ImageButton
+            android:id="@+id/ibBackbtn"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/left_arroww12"
+            />
+
+
+    </RelativeLayout>
+
+
 
     <LinearLayout
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">

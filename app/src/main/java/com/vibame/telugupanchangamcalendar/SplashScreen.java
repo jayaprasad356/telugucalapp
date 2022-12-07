@@ -9,6 +9,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.vibame.telugupanchangamcalendar.activities.NewCalendarActivity;
 import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
@@ -219,7 +220,7 @@ public class SplashScreen extends AppCompatActivity {
                             }
                         }
 
-                        Intent i = new Intent(activity, HomeActivity.class);
+                        Intent i = new Intent(activity, NewCalendarActivity.class);
                         startActivity(i);
                         finish();
 

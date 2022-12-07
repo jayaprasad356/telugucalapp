@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.vibame.telugupanchangamcalendar.AnkeluActivity;
@@ -16,14 +17,16 @@ public class MoreTeluguSamskruthamActivity extends AppCompatActivity {
     LinearLayout llTeluguYear,llRashulu,llMonth,llAnkelu,llAksharalu,llGuninthalu,llJanapadha,llKulavruthulu,llPakshamulu;
     LinearLayout llNavagrahalu,llRuthuvulu,llKolathalu,llPrasadhamnames,llLagnalu,llThidhiadhi,llWeeknames,llFruitnames,llPushapalu;
     Activity activity;
-    
+    ImageButton ibBackbtn;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_telugu_samskrutham);
-        activity = new MoreTeluguSamskruthamActivity();
+        activity = MoreTeluguSamskruthamActivity.this;
 
 
         llTeluguYear = findViewById(R.id.llTeluguYear);
@@ -44,7 +47,13 @@ public class MoreTeluguSamskruthamActivity extends AppCompatActivity {
         llFruitnames = findViewById(R.id.llFruitnames);
         llPakshamulu = findViewById(R.id.llPakshamulu);
         llPushapalu = findViewById(R.id.llPushapalu);
-
+        ibBackbtn = findViewById(R.id.ibBackbtn);
+        ibBackbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         llTeluguYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

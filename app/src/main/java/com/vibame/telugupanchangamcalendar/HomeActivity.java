@@ -30,7 +30,6 @@ import com.vibame.telugupanchangamcalendar.fragments.PanchnagamListFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PoojaluFragment;
 import com.vibame.telugupanchangamcalendar.fragments.PrivacyPolicyFragment;
 import com.vibame.telugupanchangamcalendar.fragments.SakunaSasthramFragment;
-import com.vibame.telugupanchangamcalendar.fragments.SmartToolsFragment;
 import com.vibame.telugupanchangamcalendar.fragments.TeluguSamskruthamFragment;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -157,12 +156,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             }
-            case R.id.Smarttools: {
 
-                fragment = new SmartToolsFragment();
-
-                break;
-            }
 
         }
         //replacing the fragment

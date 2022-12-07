@@ -59,6 +59,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.SmartToolsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PrivacyPolicyActivity"
             android:exported="false" />
         <activity
@@ -70,11 +73,7 @@
         <activity
             android:name=".activities.NewCalendarActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.SelectTimezonesActivity"
@@ -387,7 +386,15 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"

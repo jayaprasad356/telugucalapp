@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.AudioPlayActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
@@ -23,6 +25,8 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     final Activity activity;
     ArrayList<Audio> audio;
+    private final int limit = 4;
+
 
     public AudioLiveAdapter(Activity activity, ArrayList<Audio> audio) {
         this.activity = activity;
@@ -43,6 +47,7 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         holder.tvName.setText(audio1.getTitle());
+        Glide.with(activity).load(audio1.getImage()).placeholder(R.drawable.logo).into(holder.image);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,14 +64,24 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public int getItemCount()
     {
-        return audio.size();
+
+        if(audio.size() > limit){
+            return limit;
+        }
+        else
+        {
+            return audio.size();
+        }
+
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
         final TextView tvName;
+        final ImageView image;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);
+            image = itemView.findViewById(R.id.image);
 
         }
     }

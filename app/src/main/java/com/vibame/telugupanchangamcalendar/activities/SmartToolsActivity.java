@@ -1,43 +1,24 @@
-package com.vibame.telugupanchangamcalendar.fragments;
+package com.vibame.telugupanchangamcalendar.activities;
 
-import android.annotation.SuppressLint;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 
 import com.vibame.telugupanchangamcalendar.HeightWeightChartsActivity;
 import com.vibame.telugupanchangamcalendar.IfscActivity;
 import com.vibame.telugupanchangamcalendar.InternetSpeedMeterActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.TeluguKeyboardActivity;
-import com.vibame.telugupanchangamcalendar.activities.CoinTossActivity;
-import com.vibame.telugupanchangamcalendar.activities.CompassActivity;
-import com.vibame.telugupanchangamcalendar.activities.CompoundInterestActivity;
-import com.vibame.telugupanchangamcalendar.activities.ConvertActivity;
-import com.vibame.telugupanchangamcalendar.activities.CounterActivity;
-import com.vibame.telugupanchangamcalendar.activities.DateplusActivity;
-import com.vibame.telugupanchangamcalendar.activities.EMICalculatorActivity;
-import com.vibame.telugupanchangamcalendar.activities.GstCalulatorActivity;
-import com.vibame.telugupanchangamcalendar.activities.MileageCalculatorActivity;
-import com.vibame.telugupanchangamcalendar.activities.NotesActivity;
-import com.vibame.telugupanchangamcalendar.activities.NumbertoWordsActivity;
-import com.vibame.telugupanchangamcalendar.activities.PercentageCalculatorActivity;
-import com.vibame.telugupanchangamcalendar.activities.SimpleInterestActivity;
-import com.vibame.telugupanchangamcalendar.activities.SpeechtoTextActivity;
-import com.vibame.telugupanchangamcalendar.activities.StopWatchActivity;
-import com.vibame.telugupanchangamcalendar.activities.TextToSpeechActivity;
-import com.vibame.telugupanchangamcalendar.activities.TrackerActivity;
-import com.vibame.telugupanchangamcalendar.activities.WorldClockActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 
-public class SmartToolsFragment extends Fragment {
+public class SmartToolsActivity extends AppCompatActivity {
+
 
 
     CardView cvSimpleInterest, cvCompoundInterest, cvHeightweightcharts, cvTelugukeyboard,cvInternetspeedmeter, cvUnitconverter, cvGstcalculator, cvTraker, cvPercentageConventer, cvNotes, cvDateplus, cvSpeechtoText, cvCompass,cvMileageCalculator;
@@ -45,183 +26,178 @@ public class SmartToolsFragment extends Fragment {
     ImageView ivClose;
 
 
-    public SmartToolsFragment() {
-        // Required empty public constructor
-    }
-
-
-    @SuppressLint("MissingInflatedId")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_smart_tools, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_smart_tools);
 
 
-        Dialog dialog = new Dialog(getActivity());
+        Dialog dialog = new Dialog(SmartToolsActivity.this);
 
-        cvCompass = root.findViewById(R.id.cvCompass);
-        cvSimpleInterest = root.findViewById(R.id.cvSimpleInterest);
-        cvCompoundInterest = root.findViewById(R.id.cvCompoundInterest);
-        cvInternetspeedmeter = root.findViewById(R.id.cvInternetspeedmeter);
-        cvTelugukeyboard = root.findViewById(R.id.cvTelugukeyboard);
-        cvHeightweightcharts = root.findViewById(R.id.cvHeightweightcharts);
-        cvUnitconverter = root.findViewById(R.id.cvUnitconverter);
-        cvEmi = root.findViewById(R.id.cvEmi);
-        cvIfsc = root.findViewById(R.id.cvIfsc);
-        cvGstcalculator = root.findViewById(R.id.cvGstcalculator);
-        cvTraker = root.findViewById(R.id.cvTraker);
-        cvWorldClock = root.findViewById(R.id.cvWorldClock);
-        cvTexttoSpeech = root.findViewById(R.id.cvTexttoSpeech);
-        cvToss = root.findViewById(R.id.cvToss);
-        cvPercentageConventer = root.findViewById(R.id.cvPercentageConventer);
-        cvNotes = root.findViewById(R.id.cvNotes);
-        cvStopWatch = root.findViewById(R.id.cvStopWatch);
-        cvNUmbertoText = root.findViewById(R.id.cvNUmbertoText);
-        cvDateplus = root.findViewById(R.id.cvDateplus);
-        cvSpeechtoText = root.findViewById(R.id.cvSpeechtoText);
-        cvMileageCalculator = root.findViewById(R.id.cvMileageCalculator);
-        cvCounter=root.findViewById(R.id.cvCounter);
+        cvCompass = findViewById(R.id.cvCompass);
+        cvSimpleInterest = findViewById(R.id.cvSimpleInterest);
+        cvCompoundInterest = findViewById(R.id.cvCompoundInterest);
+        cvInternetspeedmeter = findViewById(R.id.cvInternetspeedmeter);
+        cvTelugukeyboard = findViewById(R.id.cvTelugukeyboard);
+        cvHeightweightcharts = findViewById(R.id.cvHeightweightcharts);
+        cvUnitconverter = findViewById(R.id.cvUnitconverter);
+        cvEmi = findViewById(R.id.cvEmi);
+        cvIfsc = findViewById(R.id.cvIfsc);
+        cvGstcalculator = findViewById(R.id.cvGstcalculator);
+        cvTraker = findViewById(R.id.cvTraker);
+        cvWorldClock = findViewById(R.id.cvWorldClock);
+        cvTexttoSpeech = findViewById(R.id.cvTexttoSpeech);
+        cvToss = findViewById(R.id.cvToss);
+        cvPercentageConventer = findViewById(R.id.cvPercentageConventer);
+        cvNotes = findViewById(R.id.cvNotes);
+        cvStopWatch = findViewById(R.id.cvStopWatch);
+        cvNUmbertoText = findViewById(R.id.cvNUmbertoText);
+        cvDateplus = findViewById(R.id.cvDateplus);
+        cvSpeechtoText = findViewById(R.id.cvSpeechtoText);
+        cvMileageCalculator = findViewById(R.id.cvMileageCalculator);
+        cvCounter=findViewById(R.id.cvCounter);
+
+
 
         cvSimpleInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SimpleInterestActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, SimpleInterestActivity.class);
                 startActivity(intent);
             }
         });
         cvHeightweightcharts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HeightWeightChartsActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, HeightWeightChartsActivity.class);
                 startActivity(intent);
             }
         });
         cvTelugukeyboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TeluguKeyboardActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, TeluguKeyboardActivity.class);
                 startActivity(intent);
             }
         });
         cvIfsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), IfscActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, IfscActivity.class);
                 startActivity(intent);
             }
         });
         cvCompoundInterest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CompoundInterestActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, CompoundInterestActivity.class);
                 startActivity(intent);
             }
         });
         cvInternetspeedmeter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), InternetSpeedMeterActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, InternetSpeedMeterActivity.class);
                 startActivity(intent);
             }
         });
         cvUnitconverter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ConvertActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, ConvertActivity.class);
                 startActivity(intent);
             }
         });
         cvDateplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DateplusActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, DateplusActivity.class);
                 startActivity(intent);
             }
         });
         cvMileageCalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MileageCalculatorActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, MileageCalculatorActivity.class);
                 startActivity(intent);
             }
         });
         cvSpeechtoText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SpeechtoTextActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, SpeechtoTextActivity.class);
                 startActivity(intent);
             }
         });
         cvPercentageConventer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PercentageCalculatorActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, PercentageCalculatorActivity.class);
                 startActivity(intent);
             }
         });
         cvNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NotesActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, NotesActivity.class);
                 startActivity(intent);
             }
         });
         cvStopWatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), StopWatchActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, StopWatchActivity.class);
                 startActivity(intent);
             }
         });
         cvToss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CoinTossActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, CoinTossActivity.class);
                 startActivity(intent);
             }
         });
         cvTexttoSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TextToSpeechActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, TextToSpeechActivity.class);
                 startActivity(intent);
             }
         });
         cvWorldClock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WorldClockActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, WorldClockActivity.class);
                 startActivity(intent);
             }
         });
         cvEmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), EMICalculatorActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, EMICalculatorActivity.class);
                 startActivity(intent);
             }
         });
         cvNUmbertoText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NumbertoWordsActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, NumbertoWordsActivity.class);
                 startActivity(intent);
             }
         });
         cvGstcalculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GstCalulatorActivity.class);
+                Intent intent = new Intent(SmartToolsActivity.this, GstCalulatorActivity.class);
                 startActivity(intent);
             }
         });
         cvCompass.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), CompassActivity.class);
+            Intent intent = new Intent(SmartToolsActivity.this, CompassActivity.class);
             startActivity(intent);
         });
         cvCounter.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), CounterActivity.class);
+            Intent intent = new Intent(SmartToolsActivity.this, CounterActivity.class);
             startActivity(intent);
         });
 
@@ -247,7 +223,7 @@ public class SmartToolsFragment extends Fragment {
 //                        dialog.dismiss();
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(getActivity(), TrackerActivity.class);
+                        Intent intent = new Intent(SmartToolsActivity.this, TrackerActivity.class);
                         intent.putExtra("link", Constant.POSTAL_TRACKER_URL);
                         startActivity(intent);
 
@@ -259,7 +235,7 @@ public class SmartToolsFragment extends Fragment {
 //                        dialog.dismiss();
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(getActivity(), TrackerActivity.class);
+                        Intent intent = new Intent(SmartToolsActivity.this, TrackerActivity.class);
                         intent.putExtra("link", Constant.PNR_TRACKER_URL);
                         startActivity(intent);
 
@@ -271,7 +247,7 @@ public class SmartToolsFragment extends Fragment {
 //                        dialog.dismiss();
 //                        Toast.makeText(MainActivity.this, "okay clicked", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(getActivity(), TrackerActivity.class);
+                        Intent intent = new Intent(SmartToolsActivity.this, TrackerActivity.class);
                         intent.putExtra("link", Constant.COURIER_TRACKER_URL);
                         startActivity(intent);
 
@@ -291,6 +267,6 @@ public class SmartToolsFragment extends Fragment {
             }
         });
 
-        return root;
+
     }
 }
