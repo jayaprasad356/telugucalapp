@@ -45,6 +45,7 @@ import com.vibame.telugupanchangamcalendar.helper.Session;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,7 +61,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     AudioLiveAdapter audioLiveAdapter;
-    ImageView imgLeft,imgRight;
+    ImageView imgLeft,imgRight,img;
     TextView tvMonthYear;
     String month_year;
     int monthcount = 0;
@@ -84,8 +85,12 @@ public class NewCalendarActivity extends AppCompatActivity {
     Session session;
     CardView cardNewArticles,cardOldArticles,cardSmartTools,cardVideolive;
     LinearLayout llAudiolive,llVideolive;
+    TextView tvTile ;
 
 
+
+    int[] images = {R.drawable.fest_2,R.drawable.muhur_2,R.drawable.panchangam,R.drawable.rasiphalalu_3};
+    String[] titles = {"Festival","Muhurthalu","Panchanga","Rashipalalu"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,6 +146,33 @@ public class NewCalendarActivity extends AppCompatActivity {
         });
 
 
+        imgLeft = findViewById(R.id.left_arrow);
+        imgRight = findViewById(R.id.right_arrow);
+        img = findViewById(R.id.main_image);
+        tvTile = findViewById(R.id.tvTitle);
+        imgRight.setOnClickListener(new View.OnClickListener() {
+            int i =0;
+            @Override
+            public void onClick(View v) {
+                i++;
+                if(i == 3) {
+                    i = 0 ;
+                }
+                setImage(i);
+            }
+        });
+
+        imgLeft.setOnClickListener(new View.OnClickListener() {
+            int i =0;
+            @Override
+            public void onClick(View v) {
+                i++;
+                if(i == 3) {
+                    i = 0 ;
+                }
+                setImage(i);
+            }
+        });
         cardImageTab = findViewById(R.id.cardImageTab);
         cardVideoTab = findViewById(R.id.cardVideoTab);
 
@@ -551,6 +583,12 @@ public class NewCalendarActivity extends AppCompatActivity {
             recyclerView.setVisibility(View.GONE);
 
         }
+    }
+
+
+    private void setImage(int i) {
+        img.setImageResource(images[i]);
+        tvTile.setText(titles[i]);
     }
 
 
