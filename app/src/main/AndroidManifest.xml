@@ -43,9 +43,7 @@
         </intent>
     </queries>
 
-    <uses-permission
-        android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
+
 
     <application
         android:name=".helper.ApiConfig"
@@ -57,7 +55,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup">
         <activity
             android:name=".activities.SmartToolsActivity"
             android:exported="false" />

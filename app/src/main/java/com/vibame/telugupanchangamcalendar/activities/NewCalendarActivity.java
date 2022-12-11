@@ -12,6 +12,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +26,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.smarteist.autoimageslider.SliderView;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.vibame.telugupanchangamcalendar.AudioLiveActivity;
 import com.vibame.telugupanchangamcalendar.BuildConfig;
@@ -39,9 +42,11 @@ import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.SliderAdapter;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
+import com.vibame.telugupanchangamcalendar.model.SliderItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,7 +66,8 @@ public class NewCalendarActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     AudioLiveAdapter audioLiveAdapter;
-    ImageView imgLeft,imgRight,img;
+    ImageView imgLeft,imgRight;
+    SliderView sliderView;
     TextView tvMonthYear;
     String month_year;
     int monthcount = 0;
@@ -90,7 +96,6 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
     int[] images = {R.drawable.fest_2,R.drawable.muhur_2,R.drawable.panchangam,R.drawable.rasiphalalu_3};
-    String[] titles = {"Festival","Muhurthalu","Panchanga","Rashipalalu"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,33 +151,6 @@ public class NewCalendarActivity extends AppCompatActivity {
         });
 
 
-        imgLeft = findViewById(R.id.left_arrow);
-        imgRight = findViewById(R.id.right_arrow);
-        img = findViewById(R.id.main_image);
-        tvTile = findViewById(R.id.tvTitle);
-        imgRight.setOnClickListener(new View.OnClickListener() {
-            int i =0;
-            @Override
-            public void onClick(View v) {
-                i++;
-                if(i == 3) {
-                    i = 0 ;
-                }
-                setImage(i);
-            }
-        });
-
-        imgLeft.setOnClickListener(new View.OnClickListener() {
-            int i =0;
-            @Override
-            public void onClick(View v) {
-                i++;
-                if(i == 3) {
-                    i = 0 ;
-                }
-                setImage(i);
-            }
-        });
         cardImageTab = findViewById(R.id.cardImageTab);
         cardVideoTab = findViewById(R.id.cardVideoTab);
 
@@ -259,6 +237,14 @@ public class NewCalendarActivity extends AppCompatActivity {
         more = findViewById(R.id.more);
 
 
+        sliderView = findViewById(R.id.main_image);
+        SliderAdapter adapter = new SliderAdapter(this);
+        adapter.addItem(new SliderItem(images[0]));
+        adapter.addItem(new SliderItem(images[1]));
+        adapter.addItem(new SliderItem(images[2]));
+        adapter.addItem(new SliderItem(images[3]));
+        sliderView.setSliderAdapter(adapter);
+
         llTeluguYear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,6 +266,7 @@ public class NewCalendarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -585,11 +572,6 @@ public class NewCalendarActivity extends AppCompatActivity {
         }
     }
 
-
-    private void setImage(int i) {
-        img.setImageResource(images[i]);
-        tvTile.setText(titles[i]);
-    }
 
 
 
