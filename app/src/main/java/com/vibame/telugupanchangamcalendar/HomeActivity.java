@@ -7,6 +7,7 @@ import androidx.core.app.ShareCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
@@ -35,6 +36,7 @@ import com.vibame.telugupanchangamcalendar.fragments.TeluguSamskruthamFragment;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     Activity activity;
+    public static FragmentManager fm = null;
 
 
     @Override
@@ -45,6 +47,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         activity = HomeActivity.this;
         ImageButton mButton = findViewById(R.id.toolbar);
+
+        fm = getSupportFragmentManager();
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +66,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        Fragment fragment = new Panchang_Frag();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
+
+
+    }
+
+    private void redirecttopanchnagam() {
         Fragment fragment = new Panchang_Frag();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_frame, fragment);

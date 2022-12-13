@@ -95,7 +95,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
 
-    int[] images = {R.drawable.fest_2,R.drawable.muhur_2,R.drawable.panchangam,R.drawable.rasiphalalu_3};
+    int[] images = {R.drawable.panchangam,R.drawable.fest_2,R.drawable.rasiphalalu_3,R.drawable.muhur_2};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,20 +107,13 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
         // Video Live
-        WebView webView = findViewById(R.id.web);
-        cardVideolive = findViewById(R.id.cardVideolive);
-        webView.loadUrl("https://www.mslivestream.com/ttd/index2.html");
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
-        webView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                String url = "https://www.mslivestream.com/ttd/index2.html";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-                return true;
 
+        cardVideolive = findViewById(R.id.cardVideolive);
+        cardVideolive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, VideoLiveActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -239,10 +232,10 @@ public class NewCalendarActivity extends AppCompatActivity {
 
         sliderView = findViewById(R.id.main_image);
         SliderAdapter adapter = new SliderAdapter(this);
-        adapter.addItem(new SliderItem(images[0]));
-        adapter.addItem(new SliderItem(images[1]));
-        adapter.addItem(new SliderItem(images[2]));
-        adapter.addItem(new SliderItem(images[3]));
+        adapter.addItem(new SliderItem(images[0],"Panchangam"));
+        adapter.addItem(new SliderItem(images[1],"Festivals"));
+        adapter.addItem(new SliderItem(images[2],"Rasiphalalu"));
+        adapter.addItem(new SliderItem(images[3],"Muhurthamulu"));
         sliderView.setSliderAdapter(adapter);
 
         llTeluguYear.setOnClickListener(new View.OnClickListener() {

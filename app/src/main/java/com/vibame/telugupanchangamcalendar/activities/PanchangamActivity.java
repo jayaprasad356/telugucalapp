@@ -19,13 +19,20 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.HomeCollection;
 import com.vibame.telugupanchangamcalendar.HwAdapter;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.XmlRecords;
 import com.vibame.telugupanchangamcalendar.adapter.PanchangamTabAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -38,6 +45,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class PanchangamActivity extends AppCompatActivity {
@@ -60,20 +69,22 @@ public class PanchangamActivity extends AppCompatActivity {
     private int clickedDate;
     private String dateFormat;
     private Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+    DatabaseHelper databaseHelper;
 
-    private TextView goodtimeText,sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
+    private TextView sunTxt,moonTxt,sunrise,sunset,moonrise,moonset;
     private TextView tv_month;
     private String[] month = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", " మే ", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
     private String[] monthE = {"January", "February", "March", "Aprial", "May", "June", "July", "August", "September", "October", "November", "December"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panchangam);
+
         activity = PanchangamActivity.this;
+
+        databaseHelper = new DatabaseHelper(activity);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
-        panchangamTabList();
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
 
@@ -205,7 +216,6 @@ public class PanchangamActivity extends AppCompatActivity {
         TextView tv_week5 = findViewById(R.id.TextView04);
         TextView tv_week6 = findViewById(R.id.TextView05);
         TextView tv_week7 = findViewById(R.id.TextView06);
-        goodtimeText = findViewById(R.id.goodTimeText);
         sunTxt = findViewById(R.id.sunrise);
         moonTxt = findViewById(R.id.moonrise);
         sunrise = findViewById(R.id.sunriseT);
@@ -245,7 +255,7 @@ public class PanchangamActivity extends AppCompatActivity {
         clickedDate = (calendar.get(Calendar.DATE)-1);
         selectedGridDate = "";
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/sree.ttf");
+        Typeface typeface = Typeface.createFromAsset(activity.getAssets(),"fonts/sree.ttf");
         tv_week1.setTypeface(typeface);
         tv_week2.setTypeface(typeface);
         tv_week3.setTypeface(typeface);
@@ -254,11 +264,10 @@ public class PanchangamActivity extends AppCompatActivity {
         tv_week6.setTypeface(typeface);
         tv_week7.setTypeface(typeface);
         tv_month.setTypeface(typeface);
-        goodtimeText.setTypeface(typeface);
         sunTxt.setTypeface(typeface);
         moonTxt.setTypeface(typeface);
 
-        Typeface typefaceText = Typeface.createFromAsset(getAssets(),"fonts/arlrb.TTF");
+        Typeface typefaceText = Typeface.createFromAsset(activity.getAssets(),"fonts/arlrb.TTF");
         sunrise.setTypeface(typefaceText);
         sunset.setTypeface(typefaceText);
         moonrise.setTypeface(typefaceText);
@@ -284,14 +293,8 @@ public class PanchangamActivity extends AppCompatActivity {
 
                     }else
                     {
-                        try {
-                            setPreviousMonth();
-                            allFunc();
-
-                        }catch (Exception e){
-
-                        }
-
+                        setPreviousMonth();
+                        allFunc();
                     }
                 }
             }
@@ -308,29 +311,70 @@ public class PanchangamActivity extends AppCompatActivity {
 
                     }else
                     {
-                        try {
-                            setNextMonth();
-                            allFunc();
+                        setNextMonth();
+                        allFunc();
 
-                        }catch (Exception e){
-
-                        }
                     }
                 }
             }
         });
-
-
-
+        
     }
 
-    private void panchangamTabList()
+    private void panchangamApi(String date)
     {
-        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
+
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.DATE,date);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        JSONObject object2 = jsonArray.getJSONObject(0);
+                        JSONArray jsonArray1 = object2.getJSONArray(Constant.TAB);
+
+                        sunrise.setText(jsonArray.getJSONObject(0).getString(Constant.SUNRISE));
+                        sunset.setText(jsonArray.getJSONObject(0).getString(Constant.SUNSET));
+                        moonrise.setText(jsonArray.getJSONObject(0).getString(Constant.MOONRISE));
+                        moonset.setText(jsonArray.getJSONObject(0).getString(Constant.MOONSET));
+                        Gson g = new Gson();
+                        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
+
+                        for (int i = 0; i < jsonArray1.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                PanchangamTab group = g.fromJson(jsonObject1.toString(), PanchangamTab.class);
+                                panchangamTabs.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
+                        recyclerView.setAdapter(panchangamTabAdapter);
+
+                    }
+                    else {
+                        sunrise.setText("-");
+                        sunset.setText("-");
+                        moonrise.setText("-");
+                        moonset.setText("-");
+                        ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
+
+                        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
+                        recyclerView.setAdapter(panchangamTabAdapter);
 
 
-        panchangamTabAdapter = new PanchangamTabAdapter(activity, panchangamTabs);
-        recyclerView.setAdapter(panchangamTabAdapter);
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.PANCHANGAM_URL, params,true);
+
     }
 
     private void allFunc()
@@ -401,7 +445,7 @@ public class PanchangamActivity extends AppCompatActivity {
                 {
                     dateFormat = cl_day+" - "+month[(Integer.parseInt(cl_month)-1)]+" - "+cl_year+" -  శోభకృతు" ;
                 }
-                ((HwAdapter) parent.getAdapter()).getPositionList(selectedGridDate,activity);
+                ((HwAdapter) parent.getAdapter()).getPositionList(selectedGridDate, activity);
                 hwAdapter.notifyDataSetChanged();
                 if(loadXmlFile.equals(monthE[(Integer.parseInt(cl_month)-1)]+"_"+ Integer.parseInt(cl_year)))
                 {
@@ -461,7 +505,7 @@ public class PanchangamActivity extends AppCompatActivity {
             XmlPullParser pullParser = parserFactory.newPullParser();
             try
             {
-                InputStream inputStream = getAssets().open("Months/"+loadXmlFile+".xml");
+                InputStream inputStream = activity.getAssets().open("Months/"+loadXmlFile+".xml");
                 pullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES,false);
                 pullParser.setInput(inputStream,null);
                 processParser(pullParser);
@@ -599,6 +643,9 @@ public class PanchangamActivity extends AppCompatActivity {
         format = new SimpleDateFormat("yyyy-MM-dd");
         String cadate = format.format(newDate);
         Log.d("CURRENTDATE",""+cadate);
+        //panchangamApi(cadate);
+        panchangamList(cadate);
+
         String festival;
 
         if(records.get(clickedDate).Festival == null)
@@ -680,12 +727,37 @@ public class PanchangamActivity extends AppCompatActivity {
 
                     "</body></html>";
         }
-        sunrise.setText(records.get(clickedDate).Sunrise);
-        sunset.setText(records.get(clickedDate).Sunset);
-        moonrise.setText(records.get(clickedDate).Moonrise);
-        moonset.setText(records.get(clickedDate).Moonset);
-        goodtimeText.setText(records.get(clickedDate).Paksham+" * "+records.get(clickedDate).Masam+" * "+records.get(clickedDate).Ruthu+" * "+records.get(clickedDate).Kalam);
-        //Log.d(String.valueOf(goodtimeText.getText()), "printRecords:goodtimeText ");
-        Log.d("PANCHANGDATA",htmlData);
+    }
+
+    private void panchangamList(String cadate)
+    {
+        if (databaseHelper.getmodelPanchangamList(cadate).size() !=0){
+            recyclerView.setVisibility(View.VISIBLE);
+            sunrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunrise());
+            sunset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunset());
+            moonrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonrise());
+            moonset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonset());
+
+            if (databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()).size() !=0){
+                panchangamTabAdapter = new PanchangamTabAdapter(activity, databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()));
+                recyclerView.setAdapter(panchangamTabAdapter);
+
+            }
+            else {
+                recyclerView.setVisibility(View.GONE);
+            }
+
+
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            sunrise.setText("-");
+            sunset.setText("-");
+            moonrise.setText("-");
+            moonset.setText("-");
+
+        }
+
+
     }
 }

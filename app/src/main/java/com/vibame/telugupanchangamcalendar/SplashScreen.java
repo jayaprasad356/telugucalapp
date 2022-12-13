@@ -35,18 +35,6 @@ public class SplashScreen extends AppCompatActivity {
 
         if (ApiConfig.isConnected(activity)){
             getDatalist();
-        }else {
-            new Handler().postDelayed(new Runnable() {
-
-
-                @Override
-                public void run() {
-                    Intent i = new Intent(SplashScreen.this, RashuluActivity.class);
-                    startActivity(i);
-                    finish();
-                }
-            }, 2000);
-
         }
 
 

@@ -186,11 +186,15 @@
 
 
 
-                            <WebView
-                                android:id="@+id/web"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:filterTouchesWhenObscured="true" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:textSize="@dimen/_16sdp"
+                                android:textColor="@color/bgscreen"
+                                android:textStyle="bold"
+                                android:text="Live Telecast"/>
 
                         </androidx.cardview.widget.CardView>
 

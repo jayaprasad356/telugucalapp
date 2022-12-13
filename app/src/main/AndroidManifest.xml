@@ -43,8 +43,6 @@
         </intent>
     </queries>
 
-
-
     <application
         android:name=".helper.ApiConfig"
         android:allowBackup="false"
@@ -57,6 +55,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
+        <activity
+            android:name=".RasiphaluluActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MuhurthamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FestivalActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.SmartToolsActivity"
             android:exported="false" />
@@ -71,9 +78,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.NewCalendarActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".activities.SelectTimezonesActivity"
             android:exported="false"
@@ -385,14 +390,12 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" >
-
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".MainActivity"
