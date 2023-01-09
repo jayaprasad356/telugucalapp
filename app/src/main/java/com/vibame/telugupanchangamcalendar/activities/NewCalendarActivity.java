@@ -92,9 +92,6 @@ public class NewCalendarActivity extends AppCompatActivity {
     CardView cardNewArticles,cardOldArticles,cardSmartTools,cardVideolive;
     LinearLayout llAudiolive,llVideolive;
     TextView tvTile ;
-
-
-
     int[] images = {R.drawable.panchangam,R.drawable.fest_2,R.drawable.rasiphalalu_3,R.drawable.muhur_2};
 
     @Override
