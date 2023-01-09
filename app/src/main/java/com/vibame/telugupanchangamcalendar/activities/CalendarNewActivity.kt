@@ -15,17 +15,18 @@ import androidx.cardview.widget.CardView
 import androidx.core.app.ShareCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.smarteist.autoimageslider.SliderView
 import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
-import com.vibame.telugupanchangamcalendar.adapter.SliderAdapter
 import com.vibame.telugupanchangamcalendar.helper.Constant
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
 import com.vibame.telugupanchangamcalendar.helper.Session
-import com.vibame.telugupanchangamcalendar.model.SliderItem
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,7 +38,7 @@ class CalendarNewActivity : AppCompatActivity() {
     var audioLiveAdapter: AudioLiveAdapter? = null
     var imgLeft: ImageView? = null
     var imgRight:android.widget.ImageView? = null
-    var sliderView: SliderView? = null
+    lateinit  var sliderView: ImageSlider
     var tvMonthYear: TextView? = null
     var month_year: String? = null
     var monthcount = 0
@@ -206,12 +207,63 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         sliderView = findViewById(R.id.main_image)
-        val adapter = SliderAdapter(this)
-        adapter.addItem(SliderItem(images[0], "Panchangam"))
-        adapter.addItem(SliderItem(images[1], "Festivals"))
-        adapter.addItem(SliderItem(images[2], "Rasiphalalu"))
-        adapter.addItem(SliderItem(images[3], "Muhurthamulu"))
-        sliderView!!.setSliderAdapter(adapter)
+//        val adapter = SliderAdapter(this)
+//        adapter.addItem(SliderItem(images[0], "Panchangam"))
+//        adapter.addItem(SliderItem(images[1], "Festivals"))
+//        adapter.addItem(SliderItem(images[2], "Rasiphalalu"))
+//        adapter.addItem(SliderItem(images[3], "Muhurthamulu"))
+//        sliderView!!.setIndicatorAnimation(IndicatorAnimationType.WORM);
+//        sliderView!!.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+//        sliderView!!.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR)
+//        sliderView!!.setSliderAdapter(adapter)
+//        sliderView!!.setAutoCycle(true);
+//        sliderView!!.startAutoCycle();
+
+
+        val imageList = ArrayList<SlideModel>() // Create image list
+
+// imageList.add(SlideModel("String Url" or R.drawable)
+// imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+
+        imageList.add(SlideModel(R.drawable.panchangam))
+        imageList.add(SlideModel( R.drawable.fest_2))
+        imageList.add(SlideModel( R.drawable.rasiphalalu_3))
+        imageList.add(SlideModel(  R.drawable.muhur_2 ))
+
+
+
+        val imageSlider = findViewById<ImageSlider>(R.id.main_image)
+        imageSlider.setImageList(imageList)
+        imageSlider.startSliding(3000) // with new period
+        imageSlider.startSliding()
+        imageSlider.setImageList(imageList, ScaleTypes.FIT)
+
+
+        imageSlider.setItemClickListener(object : ItemClickListener {
+            override fun onItemSelected(position: Int) {
+
+                when (position) {
+                    0 -> {
+                        val intent = Intent(activity, PanchangamActivity::class.java)
+                       startActivity(intent)
+                    }
+                    1 -> {
+                        val intent1 = Intent(activity, FestivalActivity::class.java)
+                        startActivity(intent1)
+                    }
+                    2 -> {
+                        val intent2 = Intent(activity, RasiphaluluActivity::class.java)
+                        startActivity(intent2)
+                    }
+                    3 -> {
+                        val intent3 = Intent(activity, MuhurthamActivity::class.java)
+                        startActivity(intent3)
+                    }
+                }
+                // You can listen here
+            }
+        })
+
 
         llTeluguYear!!.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, TeluguYearActivity::class.java)
