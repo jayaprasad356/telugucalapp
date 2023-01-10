@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.app.ShareCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -124,8 +125,8 @@ class CalendarNewActivity : AppCompatActivity() {
         //Audio Live
         databaseHelper = DatabaseHelper(activity)
         recyclerView = findViewById(R.id.recyclerView)
-        val gridLayoutManager = GridLayoutManager(activity, 2)
-        recyclerView!!.setLayoutManager(gridLayoutManager)
+       // val gridLayoutManager = GridLayoutManager(activity, 2)
+        recyclerView!!.setLayoutManager(LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false))
         audiolive()
 
 
