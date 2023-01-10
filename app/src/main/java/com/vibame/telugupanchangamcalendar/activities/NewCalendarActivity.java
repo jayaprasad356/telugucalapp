@@ -508,7 +508,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
     private void poojaluList() {
         if (databaseHelper.getPoojaluList().size() != 0) {
-            poojaluAdapter = new PoojaluAdapter(activity, databaseHelper.getPoojaluList());
+            poojaluAdapter = new PoojaluAdapter(activity, databaseHelper.getPoojaluList(),databaseHelper.getPoojaluList().size(),"new");
             rvPoojaluNomulu.setAdapter(poojaluAdapter);
 
         } else {
@@ -522,7 +522,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
         if (databaseHelper.getGrahaluList().size() != 0) {
-            grahaluAdapter = new GrahaluAdapter(activity, databaseHelper.getGrahaluList());
+            grahaluAdapter = new GrahaluAdapter(activity, databaseHelper.getGrahaluList(),databaseHelper.getGrahaluList().size(),"new");
             rvGrahaluStars.setAdapter(grahaluAdapter);
 
         } else {

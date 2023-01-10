@@ -43,7 +43,7 @@ public class PoojaluFragment extends Fragment {
     private void poojaluList()
     {
         if (databaseHelper.getPoojaluList().size() !=0){
-            poojaluAdapter = new PoojaluAdapter(activity, databaseHelper.getPoojaluList());
+            poojaluAdapter = new PoojaluAdapter(activity, databaseHelper.getPoojaluList(),databaseHelper.getPoojaluList().size(),"fragment");
             recyclerView.setAdapter(poojaluAdapter);
 
         }

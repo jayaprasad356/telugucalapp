@@ -428,7 +428,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
     private fun poojaluList() {
         if (databaseHelper!!.poojaluList.size != 0) {
-            poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList)
+            poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList,4,"home")
             rvPoojaluNomulu!!.adapter = poojaluAdapter
         } else {
             rvPoojaluNomulu!!.visibility = View.GONE
@@ -437,7 +437,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
     private fun grahaluList() {
         if (databaseHelper!!.grahaluList.size != 0) {
-            grahaluAdapter = GrahaluAdapter(activity, databaseHelper!!.grahaluList)
+            grahaluAdapter = GrahaluAdapter(activity, databaseHelper!!.grahaluList,4,"home")
             rvGrahaluStars!!.adapter = grahaluAdapter
         } else {
             rvGrahaluStars!!.visibility = View.GONE

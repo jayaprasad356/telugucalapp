@@ -43,7 +43,7 @@ public class GrahaluFragment extends Fragment {
     private void grahaluList()
     {
         if (databaseHelper.getGrahaluList().size() !=0){
-            grahaluAdapter = new GrahaluAdapter(activity, databaseHelper.getGrahaluList());
+            grahaluAdapter = new GrahaluAdapter(activity, databaseHelper.getGrahaluList(),databaseHelper.getGrahaluList().size(),"frag");
             recyclerView.setAdapter(grahaluAdapter);
 
         }
