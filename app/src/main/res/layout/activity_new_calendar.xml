@@ -8,12 +8,9 @@
     android:orientation="vertical"
     >
 
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/toolbarbg">
 
-    </Toolbar>
+    <include layout="@layout/newappbar"/>
+
 
     <com.sothree.slidinguppanel.SlidingUpPanelLayout
         xmlns:sothree="http://schemas.android.com/apk/lib/res-auto"

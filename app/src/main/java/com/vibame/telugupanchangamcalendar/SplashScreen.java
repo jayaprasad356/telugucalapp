@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.vibame.telugupanchangamcalendar.activities.RashuluActivity;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,20 +28,26 @@ import java.util.Map;
 public class SplashScreen extends AppCompatActivity {
     Activity activity;
     DatabaseHelper databaseHelper;
+    Session session;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activity = SplashScreen.this;
         databaseHelper = new DatabaseHelper(activity);
+        session = new Session(activity);
 
 
         if (ApiConfig.isConnected(activity)){
             getDatalist();
+
         }
 
 
     }
+
+
+
     private void getDatalist()
     {
         Map<String, String> params = new HashMap<>();
@@ -50,6 +58,44 @@ public class SplashScreen extends AppCompatActivity {
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                         databaseHelper.deleteDb(activity);
                         JSONObject object = new JSONObject(response);
+                        JSONArray setArray = object.getJSONArray(Constant.SETTINGS_LIST);
+                        JSONArray setArraySakunaSasthram = object.getJSONArray(Constant.SAKUNA_SASTHRAM_LIST);
+                        String image = setArray.getJSONObject(0).getString(Constant.IMAGE);
+                        session.setData(Constant.GODIMAGE,image);
+                        String live_telecast_image = setArray.getJSONObject(0).getString(Constant.TELECAST_IMAGE);
+                        session.setData(Constant.LIVE_TELECAST_IMAGE,live_telecast_image);
+                        String imagetab = setArray.getJSONObject(0).getString(Constant.IMAGE_TAB);
+                        session.setData(Constant.IMAGE_TAB,imagetab);
+                        String videotab = setArray.getJSONObject(0).getString(Constant.VIDEO_TAB);
+                        session.setData(Constant.VIDEO_TAB,videotab);
+                        String gowri_image = setArray.getJSONObject(0).getString(Constant.GOWRI_IMAGE);
+                        session.setData(Constant.GOWRI_IMAGE,gowri_image);
+                        String chakram_image = setArray.getJSONObject(0).getString(Constant.CHAKRAM_IMAGE);
+                        session.setData(Constant.CHAKRAM_IMAGE,chakram_image);
+                        String thidhi_image = setArray.getJSONObject(0).getString(Constant.THIDHI_IMAGE);
+                        session.setData(Constant.THIDHI_IMAGE,thidhi_image);
+                        String karanam_image = setArray.getJSONObject(0).getString(Constant.KARANAM_IMAGE);
+                        session.setData(Constant.KARANAM_IMAGE,karanam_image);
+                        String rahukalam_image = setArray.getJSONObject(0).getString(Constant.RAHUKALAM_IMAGE);
+                        session.setData(Constant.RAHUKALAM_IMAGE,rahukalam_image);
+                        String yogam_image = setArray.getJSONObject(0).getString(Constant.YOGAM_IMAGE);
+                        session.setData(Constant.YOGAM_IMAGE,yogam_image);
+
+
+                        String sakunalu_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.SAKUNALU_IMAGE);
+                        session.setData(Constant.SAKUNALU_IMAGE,sakunalu_image);
+                        String balli_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.BALLI_IMAGE);
+                        session.setData(Constant.BALLI_IMAGE,balli_image);
+                        String kaki_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.KAKI_IMAGE);
+                        session.setData(Constant.KAKI_IMAGE,kaki_image);
+                        String kukuta_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.KUKUTA_IMAGE);
+                        session.setData(Constant.KUKUTA_IMAGE,kukuta_image);
+                        String sasthram_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.SASTHRAM_IMAGE);
+                        session.setData(Constant.SASTHRAM_IMAGE,sasthram_image);
+                        String pilli_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.PILLI_IMAGE);
+                        session.setData(Constant.PILLI_IMAGE,pilli_image);
+                        //Toast.makeText(activity, ""+image, Toast.LENGTH_SHORT).show();
+
                         JSONArray jsonArray = object.getJSONArray(Constant.PANCHANGAM_LIST);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);

@@ -150,6 +150,26 @@ public class Constant {
     public static final String POSTAL_TRACKER_URL = "https://www.indiapost.gov.in/vas/Pages/IndiaPostHome.aspx";
     public static final String PNR_TRACKER_URL = "https://www.indianrail.gov.in/enquiry/StaticPages/StaticEnquiry.jsp?StaticPage=index.html";
     public static final String COURIER_TRACKER_URL = "https://www.professionalcourier.in/";
+    public static final String SETTINGS_LIST = "Settings_list";
+    public static final String HOMEIMAGE = "homeimage" ;
+    public static final String GODIMAGE = "godimage";
+    public static final String TELECAST_IMAGE = "telecast_image";
+    public static final String LIVE_TELECAST_IMAGE = "live_telecast_image";
+    public static final String IMAGE_TAB = "image_tab";
+    public static final String VIDEO_TAB = "video_tab";
+    public static final String GOWRI_IMAGE = "gowri_image";
+    public static final String CHAKRAM_IMAGE = "chakram_image";
+    public static final String KARANAM_IMAGE = "karanam_image";
+    public static final String RAHUKALAM_IMAGE = "rahukalam_image";
+    public static final String YOGAM_IMAGE = "yogam_image";
+    public static final String SAKUNA_SASTHRAM_LIST = "Sakuna Sasthram _list";
+    public static final String SAKUNALU_IMAGE = "sakunalu_image" ;
+    public static final String BALLI_IMAGE = "balli_image";
+    public static final String KAKI_IMAGE = "kaki_image" ;
+    public static final String KUKUTA_IMAGE = "kukuta_image";
+    public static final String SASTHRAM_IMAGE = "sasthram_image";
+    public static final String PILLI_IMAGE = "pilli_image";
+    public static String THIDHI_IMAGE = "thidhi_image";
 
     public static int etLengthConversion(EditText editText) {
         return editText.getText().toString().length();

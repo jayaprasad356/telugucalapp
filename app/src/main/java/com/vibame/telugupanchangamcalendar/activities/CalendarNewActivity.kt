@@ -1,26 +1,29 @@
 package com.vibame.telugupanchangamcalendar.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.app.ShareCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.navigation.NavigationView
 import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
@@ -30,6 +33,7 @@ import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
 import com.vibame.telugupanchangamcalendar.helper.Session
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class CalendarNewActivity : AppCompatActivity() {
 
@@ -97,7 +101,18 @@ class CalendarNewActivity : AppCompatActivity() {
     var llVideolive:LinearLayout? = null
     var tvTile: TextView? = null
     var images = intArrayOf(R.drawable.panchangam, R.drawable.fest_2, R.drawable.rasiphalalu_3, R.drawable.muhur_2)
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    lateinit var llShareapp:LinearLayout
+    lateinit var llFeedback:LinearLayout
+    lateinit var llPrivacypolicy:LinearLayout
+    lateinit var llRateus:LinearLayout
+    var nvDrawer: NavigationView? = null
 
+
+
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_new)
@@ -106,6 +121,91 @@ class CalendarNewActivity : AppCompatActivity() {
         activity = this@CalendarNewActivity
         session = Session(activity)
         databaseHelper = DatabaseHelper(activity)
+
+
+        var image = findViewById<ImageView>(R.id.image);
+        var liveimage = findViewById<ImageView>(R.id.liveimage);
+        var imagetab = findViewById<ImageView>(R.id.imagetab);
+        var videotab = findViewById<ImageView>(R.id.videotab);
+        var imgyogam = findViewById<ImageView>(R.id.imgyogam);
+        var imgrahu = findViewById<ImageView>(R.id.imgrahu);
+        var imgKaranam = findViewById<ImageView>(R.id.imgKaranam);
+        var imgThidhi = findViewById<ImageView>(R.id.imgThidhi);
+        var imghora = findViewById<ImageView>(R.id.imghora);
+        var imgowri = findViewById<ImageView>(R.id.imgowri);
+        var imgsakunalu = findViewById<ImageView>(R.id.imgsakunalu);
+        var imgpalli = findViewById<ImageView>(R.id.imgpalli);
+        var imgkukuta = findViewById<ImageView>(R.id.imgkukuta);
+        var imgkaki = findViewById<ImageView>(R.id.imgkaki);
+        var imgballi = findViewById<ImageView>(R.id.imgballi);
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.GODIMAGE)).placeholder(R.drawable.logo).into(image)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.LIVE_TELECAST_IMAGE)).placeholder(R.drawable.logo).into(liveimage)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.IMAGE_TAB)).placeholder(R.drawable.logo).into(imagetab)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.VIDEO_TAB)).placeholder(R.drawable.logo).into(videotab)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.GOWRI_IMAGE)).placeholder(R.drawable.logo).into(imgowri)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.THIDHI_IMAGE)).placeholder(R.drawable.logo).into(imgThidhi)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KARANAM_IMAGE)).placeholder(R.drawable.logo).into(imgKaranam)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.RAHUKALAM_IMAGE)).placeholder(R.drawable.logo).into(imgrahu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.YOGAM_IMAGE)).placeholder(R.drawable.logo).into(imgyogam)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.CHAKRAM_IMAGE)).placeholder(R.drawable.logo).into(imghora)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.SAKUNALU_IMAGE)).placeholder(R.drawable.logo).into(imgsakunalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.PILLI_IMAGE)).placeholder(R.drawable.logo).into(imgpalli)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KUKUTA_IMAGE)).placeholder(R.drawable.logo).into(imgkukuta)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KAKI_IMAGE)).placeholder(R.drawable.logo).into(imgkaki)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.BALLI_IMAGE)).placeholder(R.drawable.logo).into(imgballi)
+
+
+        val mButton = findViewById<Button>(R.id.sidemenu)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout,  R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
+            drawerLayout!!.openDrawer(GravityCompat.START)
+        }
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        nvDrawer = findViewById<View>(R.id.nav_view) as NavigationView
+        setupDrawerContent(nvDrawer!!)
+
+        val headerView: View = layoutInflater.inflate(R.layout.nav_header_main, nvDrawer, false)
+        nvDrawer!!.addHeaderView(headerView)
+
+        /* TODO get the IMAGE and make it clickable */
+
+
+        /* TODO get the IMAGE and make it clickable */
+        llShareapp = headerView.findViewById<View>(R.id.llShareapp) as LinearLayout
+        llFeedback = headerView.findViewById<View>(R.id.llFeedback) as LinearLayout
+        llPrivacypolicy = headerView.findViewById<View>(R.id.llPrivacypolicy) as LinearLayout
+        llRateus = headerView.findViewById<View>(R.id.llRateus) as LinearLayout
+
+
+
+        llShareapp!!.setOnClickListener(View.OnClickListener {
+            ShareCompat.IntentBuilder.from(activity!!)
+                    .setType("text/plain")
+                    .setChooserTitle("Chooser title")
+                    .setText("http://play.google.com/store/apps/details?id=" + activity!!.packageName)
+                    .startChooser()
+        })
+        llRateus!!.setOnClickListener(View.OnClickListener {
+            val url = "http://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        })
+        llFeedback!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, FeedBackActivity::class.java)
+            startActivity(intent)
+        })
+        llPrivacypolicy!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, PrivacyPolicyActivity::class.java)
+            startActivity(intent)
+        })
+
+
+
 
 
         // Video Live
@@ -426,6 +526,10 @@ class CalendarNewActivity : AppCompatActivity() {
 
     }
 
+    private fun setupDrawerContent(nvDrawer: NavigationView) {
+
+    }
+
 
     private fun poojaluList() {
         if (databaseHelper!!.poojaluList.size != 0) {
@@ -463,4 +567,8 @@ class CalendarNewActivity : AppCompatActivity() {
             recyclerView!!.visibility = View.GONE
         }
     }
+
+
+
+
 }
