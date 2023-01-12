@@ -2213,15 +2213,13 @@
                             app:cardBackgroundColor="@color/white"
                             app:cardCornerRadius="20dp">
 
-                            <TextView
-                                android:layout_gravity="center"
-                                android:gravity="center"
+                            <ImageView
+                                android:id="@+id/imageneti"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Neti Articles"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/_14sdp" />
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                />
+
 
                         </androidx.cardview.widget.CardView>
 
@@ -2239,16 +2237,12 @@
                             app:cardCornerRadius="20dp">
 
 
-                            <TextView
-                                android:layout_gravity="center"
-                                android:gravity="center"
+                            <ImageView
+                                android:id="@+id/imageold"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Old Articles"
-                                android:textColor="@color/colorBlack"
-                                android:textStyle="bold"
-                                android:textSize="@dimen/_14sdp" />
-
+                                android:layout_height="match_parent"
+                                android:scaleType="fitXY"
+                                />
                         </androidx.cardview.widget.CardView>
 
                     </LinearLayout>

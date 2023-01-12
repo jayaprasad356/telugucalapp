@@ -271,6 +271,8 @@ class CalendarNewActivity : AppCompatActivity() {
         }
 
 
+        var imageold = findViewById<ImageView>(R.id.imageold);
+        var imageneti = findViewById<ImageView>(R.id.imageneti);
         var image = findViewById<ImageView>(R.id.image);
         var liveimage = findViewById<ImageView>(R.id.liveimage);
         var imagetab = findViewById<ImageView>(R.id.imagetab);
@@ -301,6 +303,8 @@ class CalendarNewActivity : AppCompatActivity() {
         Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KUKUTA_IMAGE)).placeholder(R.drawable.logo).into(imgkukuta)
         Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KAKI_IMAGE)).placeholder(R.drawable.logo).into(imgkaki)
         Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.BALLI_IMAGE)).placeholder(R.drawable.logo).into(imgballi)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.NETI_ARTI_IMAGE)).placeholder(R.drawable.logo).into(imageneti)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.OLD_ARTI_IMAGES)).placeholder(R.drawable.logo).into(imageold)
 
 
         val mButton = findViewById<Button>(R.id.sidemenu)

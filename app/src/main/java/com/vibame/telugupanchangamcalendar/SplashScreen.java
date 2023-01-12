@@ -81,6 +81,10 @@ public class SplashScreen extends AppCompatActivity {
                         session.setData(Constant.RAHUKALAM_IMAGE,rahukalam_image);
                         String yogam_image = setArray.getJSONObject(0).getString(Constant.YOGAM_IMAGE);
                         session.setData(Constant.YOGAM_IMAGE,yogam_image);
+                        String neti_arti_image = setArray.getJSONObject(0).getString(Constant.NETI_ARTI_IMAGE);
+                        session.setData(Constant.NETI_ARTI_IMAGE,neti_arti_image);
+                        String old_arti_images = setArray.getJSONObject(0).getString(Constant.OLD_ARTI_IMAGES);
+                        session.setData(Constant.OLD_ARTI_IMAGES,old_arti_images);
 
 
                         String sakunalu_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.SAKUNALU_IMAGE);

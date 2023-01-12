@@ -180,6 +180,8 @@ public class Constant {
     public static final String PUSHPALU = "Pushpalu";
     public static final String FRUITNAMES = "FruitNames";
     public static final String PRASADHAMNAMES = "PrasadhamNames";
+    public static final String NETI_ARTI_IMAGE = "neti_arti_image";
+    public static final String OLD_ARTI_IMAGES = "old_arti_images";
     public static String THIDHI_IMAGE = "thidhi_image";
 
     public static int etLengthConversion(EditText editText) {
