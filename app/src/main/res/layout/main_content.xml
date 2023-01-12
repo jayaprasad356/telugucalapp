@@ -937,138 +937,1034 @@
                     android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Telugu Sanskrit"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
 
                     <LinearLayout
+                        android:layout_below="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Telugu Sanskrit"
+                            android:textColor="@color/black"
+                            android:textSize="18dp"
+                            android:textStyle="bold" />
+
 
                         <LinearLayout
-                            android:id="@+id/llTeluguYear"
-                            android:layout_width="80dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:orientation="vertical">
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            android:layout_marginBottom="@dimen/_20sdp"
+                            >
 
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/roundicon" />
-
-                            <TextView
+                            <LinearLayout
+                                android:id="@+id/llTeluguYear"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:maxLines="2"
-                                android:text="Telugu Letters"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp">
+
+                                <RelativeLayout
+                                    android:layout_width="@dimen/_45sdp"
+                                    android:layout_height="@dimen/_45sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rounded_bar">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+
+                                        >
+
+
+                                        <ImageView
+                                            android:id="@+id/TeluguYear"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:scaleType="fitXY"
+                                            />
+
+                                    </androidx.cardview.widget.CardView>
+
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_2sdp"
+                                    android:text="@string/sawanchralu"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_10sdp"
+                                    />
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:id="@+id/llMonth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="@dimen/_45sdp"
+
+                                    android:layout_height="@dimen/_45sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rounded_bar">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+
+                                        >
+
+
+                                        <ImageView
+                                            android:id="@+id/Month"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:scaleType="fitXY"
+                                            />
+
+                                    </androidx.cardview.widget.CardView>
+
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_2sdp"
+                                    android:text="Telugu Nelalu"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_10sdp"
+                                    />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/llAnkelu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="@dimen/_45sdp"
+                                    android:layout_height="@dimen/_45sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rounded_bar">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+
+                                        >
+
+
+                                        <ImageView
+                                            android:id="@+id/Ankelu"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:scaleType="fitXY"
+                                            />
+
+                                    </androidx.cardview.widget.CardView>
+
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_2sdp"
+                                    android:text="Ankelu"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_10sdp"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/more"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="5dp"
+                                android:orientation="vertical">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_20sdp"
+                                    android:layout_gravity="center"
+
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="60dp"
+                                        android:layout_height="60dp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/more" />
+
+                                </androidx.cardview.widget.CardView>
+
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:maxLines="2"
+                                    android:text="More"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:visibility="gone"
+                                android:id="@+id/llAksharalu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp">
+
+                                <RelativeLayout
+                                    android:layout_width="@dimen/_45sdp"
+                                    android:layout_height="@dimen/_45sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rounded_bar">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_20sdp"
+                                        android:layout_gravity="center"
+
+                                        >
+
+
+                                        <ImageView
+                                            android:id="@+id/Aksharalu"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:scaleType="fitXY"
+                                            />
+
+                                    </androidx.cardview.widget.CardView>
+
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_2sdp"
+                                    android:text="Aksharalu"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_10sdp"
+                                    />
+
+                            </LinearLayout>
+
+
+
                         </LinearLayout>
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
 
                         <LinearLayout
-                            android:id="@+id/llRashulu"
-                            android:layout_width="80dp"
+                            android:visibility="gone"
+                            android:id="@+id/lltelungusanskritmore"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/roundicon" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:maxLines="2"
-                                android:text="Telugu Numbers"
-                                android:textAlignment="center"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="4"
 
-                                android:textColor="@color/black"
-                                android:textSize="15sp" />
-                        </LinearLayout>
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
+                                >
 
-                        <LinearLayout
-                            android:id="@+id/llMonth"
-                            android:layout_width="80dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/roundicon" />
+                                <LinearLayout
+                                    android:id="@+id/llGuninthalu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Guninthalu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Guninthalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llRashulu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Rashulu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Rashulu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp"
+
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llJanapadha"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Janapadha"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="64 Kalalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llKulavruthulu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Kulavruthulu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Kula Vruthulu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp"
+
+                                        />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:maxLines="2"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="4"
 
-                                android:text="Telugu Months"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="15sp" />
-                        </LinearLayout>
+                                >
 
-                        <Space
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
+                                <LinearLayout
+                                    android:id="@+id/llNavagrahalu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
-                        <LinearLayout
-                            android:id="@+id/more"
-                            android:layout_width="80dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
-                            android:orientation="vertical">
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
 
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/roundicon" />
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
 
-                            <TextView
-                                android:layout_width="wrap_content"
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Navagrahalu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text="Nava Grahalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llRuthuvulu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Ruthuvulu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Ruthuvulu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llKolathalu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Kolathalu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Kolathalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llPakshamulu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar"
+
+                                        >
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Pakshamulu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Pakshamulu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:maxLines="2"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_5sdp"
+                                android:weightSum="4"
 
-                                android:text="More"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="15sp" />
+                                >
+
+                                <LinearLayout
+                                    android:id="@+id/llLagnalu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar"
+
+                                        >
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Lagnalu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Lagnalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llThidhiadhi"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar"
+
+                                        >
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Thidhiadhi"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Thidhi Adhi"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llWeeknames"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Weeknames"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Week Names"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/llFruitnames"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Fruitnames"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text="Fruit Names"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="4">
+
+                                <LinearLayout
+                                    android:id="@+id/llPrasadhamnames"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_10sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Prasadhamnames"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:text="Prasadham \n Names"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/llPushapalu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_10sdp">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_20sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:id="@+id/Pushapalu"
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Pushapalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
                         </LinearLayout>
-
-
 
 
                     </LinearLayout>
+
 
                 </LinearLayout>
 

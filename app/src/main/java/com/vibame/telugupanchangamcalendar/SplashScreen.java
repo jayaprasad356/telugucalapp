@@ -60,6 +60,7 @@ public class SplashScreen extends AppCompatActivity {
                         JSONObject object = new JSONObject(response);
                         JSONArray setArray = object.getJSONArray(Constant.SETTINGS_LIST);
                         JSONArray setArraySakunaSasthram = object.getJSONArray(Constant.SAKUNA_SASTHRAM_LIST);
+                        JSONArray setArrayTeluguSamkrutham= object.getJSONArray(Constant.TELUGU_SAMKRUTHAM_LIST);
                         String image = setArray.getJSONObject(0).getString(Constant.IMAGE);
                         session.setData(Constant.GODIMAGE,image);
                         String live_telecast_image = setArray.getJSONObject(0).getString(Constant.TELECAST_IMAGE);
@@ -94,6 +95,44 @@ public class SplashScreen extends AppCompatActivity {
                         session.setData(Constant.SASTHRAM_IMAGE,sasthram_image);
                         String pilli_image = setArraySakunaSasthram.getJSONObject(0).getString(Constant.PILLI_IMAGE);
                         session.setData(Constant.PILLI_IMAGE,pilli_image);
+
+
+                        String TeluguYears = setArrayTeluguSamkrutham.getJSONObject(0).getString(Constant.IMAGE);
+                        session.setData(Constant.TELUGUYEARS,TeluguYears);
+                        String TeluguMonths = setArrayTeluguSamkrutham.getJSONObject(1).getString(Constant.IMAGE);
+                        session.setData(Constant.TELUGUMONTHS,TeluguMonths);
+                        String TeluguWeeks = setArrayTeluguSamkrutham.getJSONObject(2).getString(Constant.IMAGE);
+                        session.setData(Constant.TELUGUWEEKS,TeluguWeeks);
+                        String Ankelu = setArrayTeluguSamkrutham.getJSONObject(3).getString(Constant.IMAGE);
+                        session.setData(Constant.ANKELU,Ankelu);
+                        String Aksharalu = setArrayTeluguSamkrutham.getJSONObject(4).getString(Constant.IMAGE);
+                        session.setData(Constant.AKSHARALU,Aksharalu);
+                        String Guninthalu = setArrayTeluguSamkrutham.getJSONObject(5).getString(Constant.IMAGE);
+                        session.setData(Constant.GUNINTHALU,Guninthalu);
+                        String Rashulu = setArrayTeluguSamkrutham.getJSONObject(6).getString(Constant.IMAGE);
+                        session.setData(Constant.RASHULU,Rashulu);
+                        String kalalu = setArrayTeluguSamkrutham.getJSONObject(7).getString(Constant.IMAGE);
+                        session.setData(Constant.KALALU,kalalu);
+                        String Vruthulu = setArrayTeluguSamkrutham.getJSONObject(8).getString(Constant.IMAGE);
+                        session.setData(Constant.VRUTHULU,Vruthulu);
+                        String Navagrahalu = setArrayTeluguSamkrutham.getJSONObject(9).getString(Constant.IMAGE);
+                        session.setData(Constant.NAVAGRAHALU,Navagrahalu);
+                        String Ruthuvulu = setArrayTeluguSamkrutham.getJSONObject(10).getString(Constant.IMAGE);
+                        session.setData(Constant.RUTHUVULU,Ruthuvulu);
+                        String Kolathalu = setArrayTeluguSamkrutham.getJSONObject(11).getString(Constant.IMAGE);
+                        session.setData(Constant.KOLATHALU,Kolathalu);
+                        String Pakshamulu = setArrayTeluguSamkrutham.getJSONObject(12).getString(Constant.IMAGE);
+                        session.setData(Constant.PAKSHAMULU,Pakshamulu);
+                        String Lagnam = setArrayTeluguSamkrutham.getJSONObject(13).getString(Constant.IMAGE);
+                        session.setData(Constant.LAGNAM,Lagnam);
+                        String ThidhiAddhi = setArrayTeluguSamkrutham.getJSONObject(14).getString(Constant.IMAGE);
+                        session.setData(Constant.THIDHIADDHI,ThidhiAddhi);
+                        String Pushpalu = setArrayTeluguSamkrutham.getJSONObject(15).getString(Constant.IMAGE);
+                        session.setData(Constant.PUSHPALU,Pushpalu);
+                        String FruitNames = setArrayTeluguSamkrutham.getJSONObject(16).getString(Constant.IMAGE);
+                        session.setData(Constant.FRUITNAMES,FruitNames);
+                        String PrasadhamNames = setArrayTeluguSamkrutham.getJSONObject(17).getString(Constant.IMAGE);
+                        session.setData(Constant.PRASADHAMNAMES,PrasadhamNames);
                         //Toast.makeText(activity, ""+image, Toast.LENGTH_SHORT).show();
 
                         JSONArray jsonArray = object.getJSONArray(Constant.PANCHANGAM_LIST);

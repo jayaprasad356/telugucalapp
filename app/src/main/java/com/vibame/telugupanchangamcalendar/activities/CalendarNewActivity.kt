@@ -56,7 +56,6 @@ class CalendarNewActivity : AppCompatActivity() {
 
     var llNavaGrahalu: LinearLayout? = null
     var llNithyaParayana:LinearLayout? = null
-    var llTeluguYear: LinearLayout? = null
     var llRashulu:LinearLayout? = null
     var llMonth:LinearLayout? = null
     var more:LinearLayout? = null
@@ -112,6 +111,8 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
+
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,6 +122,153 @@ class CalendarNewActivity : AppCompatActivity() {
         activity = this@CalendarNewActivity
         session = Session(activity)
         databaseHelper = DatabaseHelper(activity)
+
+
+
+        var llAnkelu = findViewById<LinearLayout>(R.id.llAnkelu)
+        var llTeluguYear = findViewById<LinearLayout>(R.id.llTeluguYear)
+        var llAksharalu = findViewById<LinearLayout>(R.id.llAksharalu)
+        var llGuninthalu = findViewById<LinearLayout>(R.id.llGuninthalu)
+        var llMonth = findViewById<LinearLayout>(R.id.llMonth)
+        var llJanapadha = findViewById<LinearLayout>(R.id.llJanapadha)
+        var  llKulavruthulu = findViewById<LinearLayout>(R.id.llKulavruthulu)
+        var llNavagrahalu = findViewById<LinearLayout>(R.id.llNavagrahalu)
+        var llRuthuvulu = findViewById<LinearLayout>(R.id.llRuthuvulu)
+        var llKolathalu = findViewById<LinearLayout>(R.id.llKolathalu)
+        var llPrasadhamnames = findViewById<LinearLayout>(R.id.llPrasadhamnames)
+        var  llLagnalu = findViewById<LinearLayout>(R.id.llLagnalu)
+        var  llThidhiadhi = findViewById<LinearLayout>(R.id.llThidhiadhi)
+        var  llWeeknames = findViewById<LinearLayout>(R.id.llWeeknames)
+        var  llFruitnames = findViewById<LinearLayout>(R.id.llFruitnames)
+        var  llPakshamulu = findViewById<LinearLayout>(R.id.llPakshamulu)
+        var   llPushapalu = findViewById<LinearLayout>(R.id.llPushapalu)
+        var   llRashulu = findViewById<LinearLayout>(R.id.llRashulu)
+
+
+
+
+
+        var Ankelu = findViewById<ImageView>(R.id.Ankelu)
+        var TeluguYear = findViewById<ImageView>(R.id.TeluguYear)
+        var Aksharalu = findViewById<ImageView>(R.id.Aksharalu)
+        var Guninthalu = findViewById<ImageView>(R.id.Guninthalu)
+        var Month = findViewById<ImageView>(R.id.Month)
+        var Janapadha = findViewById<ImageView>(R.id.Janapadha)
+        var  Kulavruthulu = findViewById<ImageView>(R.id.Kulavruthulu)
+        var Navagrahalu = findViewById<ImageView>(R.id.Navagrahalu)
+        var Ruthuvulu = findViewById<ImageView>(R.id.Ruthuvulu)
+        var Kolathalu = findViewById<ImageView>(R.id.Kolathalu)
+        var Prasadhamnames = findViewById<ImageView>(R.id.Prasadhamnames)
+        var  Lagnalu = findViewById<ImageView>(R.id.Lagnalu)
+        var  Thidhiadhi = findViewById<ImageView>(R.id.Thidhiadhi)
+        var  Weeknames = findViewById<ImageView>(R.id.Weeknames)
+        var  Fruitnames = findViewById<ImageView>(R.id.Fruitnames)
+        var  Pakshamulu = findViewById<ImageView>(R.id.Pakshamulu)
+        var   Pushapalu = findViewById<ImageView>(R.id.Pushapalu)
+        var   Rashulu = findViewById<ImageView>(R.id.Rashulu)
+
+
+
+
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.ANKELU)).placeholder(R.drawable.logo).into(Ankelu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.TELUGUYEARS)).placeholder(R.drawable.logo).into(TeluguYear)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.AKSHARALU)).placeholder(R.drawable.logo).into(Aksharalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.GUNINTHALU)).placeholder(R.drawable.logo).into(Guninthalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.TELUGUMONTHS)).placeholder(R.drawable.logo).into(Month)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.NAVAGRAHALU)).placeholder(R.drawable.logo).into(Navagrahalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.RUTHUVULU)).placeholder(R.drawable.logo).into(Ruthuvulu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KOLATHALU)).placeholder(R.drawable.logo).into(Kolathalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KOLATHALU)).placeholder(R.drawable.logo).into(Kolathalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.PRASADHAMNAMES)).placeholder(R.drawable.logo).into(Prasadhamnames)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.LAGNAM)).placeholder(R.drawable.logo).into(Lagnalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.THIDHIADDHI)).placeholder(R.drawable.logo).into(Thidhiadhi)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.TELUGUWEEKS)).placeholder(R.drawable.logo).into(Weeknames)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.FRUITNAMES)).placeholder(R.drawable.logo).into(Fruitnames)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.PAKSHAMULU)).placeholder(R.drawable.logo).into(Pakshamulu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.PUSHPALU)).placeholder(R.drawable.logo).into(Pushapalu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.RASHULU)).placeholder(R.drawable.logo).into(Rashulu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.VRUTHULU)).placeholder(R.drawable.logo).into(Kulavruthulu)
+        Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.KALALU)).placeholder(R.drawable.logo).into(Janapadha)
+
+
+
+
+
+
+
+
+        llAnkelu.setOnClickListener {
+            val intent = Intent(activity, AnkeluActivity::class.java)
+            startActivity(intent)
+        }
+        llRashulu.setOnClickListener {
+            val intent = Intent(activity, RashuluActivity::class.java)
+            startActivity(intent)
+        }
+        llTeluguYear.setOnClickListener {
+            val intent = Intent(activity, TeluguYearActivity::class.java)
+            startActivity(intent)
+        }
+        llMonth.setOnClickListener {
+            val intent = Intent(activity, MonthActivity::class.java)
+            startActivity(intent)
+        }
+        llAksharalu.setOnClickListener {
+            val intent = Intent(activity, AksharaluActivity::class.java)
+            startActivity(intent)
+        }
+        llGuninthalu.setOnClickListener {
+            val intent = Intent(activity, GunintaluActivity::class.java)
+            startActivity(intent)
+        }
+        llJanapadha.setOnClickListener {
+            val intent = Intent(activity, JanaPadhaActivity::class.java)
+            startActivity(intent)
+        }
+        llKulavruthulu.setOnClickListener {
+            val intent = Intent(activity, KulaVurthaActivity::class.java)
+            startActivity(intent)
+        }
+        llNavagrahalu.setOnClickListener {
+            val intent = Intent(activity, NavaGrahaluActivity::class.java)
+            startActivity(intent)
+        }
+        llRuthuvulu.setOnClickListener {
+            val intent = Intent(activity, RuthuvuluActivity::class.java)
+            startActivity(intent)
+        }
+        llKolathalu.setOnClickListener {
+            val intent = Intent(activity, KolathaluActivity::class.java)
+            startActivity(intent)
+        }
+        llPrasadhamnames.setOnClickListener {
+            val intent = Intent(activity, PrasadhamNamesActivity::class.java)
+            startActivity(intent)
+        }
+        llLagnalu.setOnClickListener {
+            val intent = Intent(activity, LagnaluActivity::class.java)
+            startActivity(intent)
+        }
+        llThidhiadhi.setOnClickListener {
+            val intent = Intent(activity, ThidhiAdhiActivity::class.java)
+            startActivity(intent)
+        }
+        llWeeknames.setOnClickListener {
+            val intent = Intent(activity, WeekNamesActivity::class.java)
+            startActivity(intent)
+        }
+        llFruitnames.setOnClickListener {
+            val intent = Intent(activity, FruitNamesActivity::class.java)
+            startActivity(intent)
+        }
+        llPakshamulu.setOnClickListener {
+            val intent = Intent(activity, PakahamuluActivity::class.java)
+            startActivity(intent)
+        }
+        llPushapalu.setOnClickListener {
+            val intent = Intent(activity, PushapaluActivity::class.java)
+            startActivity(intent)
+        }
 
 
         var image = findViewById<ImageView>(R.id.image);
@@ -366,22 +514,19 @@ class CalendarNewActivity : AppCompatActivity() {
         })
 
 
-        llTeluguYear!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, TeluguYearActivity::class.java)
-            startActivity(intent)
-        })
-        llRashulu!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, RashuluActivity::class.java)
-            startActivity(intent)
-        })
-        llMonth!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, MonthActivity::class.java)
-            startActivity(intent)
-        })
+
 
         more!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, MoreTeluguSamskruthamActivity::class.java)
-            startActivity(intent)
+
+            var lltelungusanskritmore = findViewById<LinearLayout>(R.id.lltelungusanskritmore);
+
+            lltelungusanskritmore!!.visibility = View.VISIBLE
+            llAksharalu!!.visibility = View.VISIBLE
+            more!!.visibility = View.GONE
+
+
+
+
         })
 
 

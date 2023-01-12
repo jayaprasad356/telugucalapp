@@ -169,6 +169,17 @@ public class Constant {
     public static final String KUKUTA_IMAGE = "kukuta_image";
     public static final String SASTHRAM_IMAGE = "sasthram_image";
     public static final String PILLI_IMAGE = "pilli_image";
+    public static final String TELUGU_SAMKRUTHAM_LIST = "Telugu Samkrutham List";
+    public static final String TELUGUYEARS = "TeluguYears";
+    public static final String TELUGUMONTHS = "TeluguMonths";
+    public static final String TELUGUWEEKS = "TeluguWeeks";
+    public static final String ANKELU = "Ankelu";
+    public static final String AKSHARALU = "Aksharalu";
+    public static final String NAVAGRAHALU = "Navagrahalu";
+    public static final String THIDHIADDHI = "ThidhiAddhi";
+    public static final String PUSHPALU = "Pushpalu";
+    public static final String FRUITNAMES = "FruitNames";
+    public static final String PRASADHAMNAMES = "PrasadhamNames";
     public static String THIDHI_IMAGE = "thidhi_image";
 
     public static int etLengthConversion(EditText editText) {

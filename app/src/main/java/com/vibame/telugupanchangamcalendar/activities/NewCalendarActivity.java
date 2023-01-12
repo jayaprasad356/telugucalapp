@@ -131,6 +131,7 @@ public class NewCalendarActivity extends AppCompatActivity {
 
 
         cardSmartTools = findViewById(R.id.cardSmartTools);
+        cardSmartTools.setVisibility(View.GONE);
         cardSmartTools.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
