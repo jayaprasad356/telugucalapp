@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        app:dividerColor="@color/grey"
+        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="31dp"
+        android:layout_height="40dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:background="@drawable/stroke_calendar"
+        >
+
+        <ImageView
+            android:id="@+id/ampuImage"
+            android:layout_below="@+id/date"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginTop="-3dp"
+            android:background="@drawable/amavasya"/>
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17dp"
+            android:textSize="@dimen/_8sdp"
             android:layout_marginTop="-2dp"
             android:text="11"
-            android:textStyle="bold"
             android:textColor="@color/colorBlack"/>
 
-        <ImageView
-            android:id="@+id/ampuImage"
-            android:layout_below="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-3dp"
-            android:background="@drawable/amavasya"/>
+
 
 
     </LinearLayout>

@@ -1,6 +1,7 @@
 package com.vibame.telugupanchangamcalendar;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -49,7 +50,25 @@ import java.util.TimeZone;
 
 public class Panchang_Frag extends Fragment
 
+
+
 {
+
+
+    private MyFragmentListener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof MyFragmentListener) {
+            mListener = (MyFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement MyFragmentListener");
+        }
+
+    }
+
     RecyclerView recyclerView;
     Activity activity;
     PanchangamTabAdapter panchangamTabAdapter;
@@ -285,43 +304,55 @@ public class Panchang_Frag extends Fragment
             @Override
             public void onClick(View v)
             {
-                if(cal_month.get(GregorianCalendar.YEAR) >2020)
-                {
-                    if(currentMonth == 10 && cal_month.get(GregorianCalendar.YEAR) == 2021)
-                    {
-                        Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
 
-                    }else
-                    {
-                        setPreviousMonth();
-                        allFunc();
-                    }
-                }
+
+                PreviousMonth();
+
             }
         });
         nextMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                if(cal_month.get(GregorianCalendar.YEAR) <2024)
-                {
-                    if(currentMonth == 11 && cal_month.get(GregorianCalendar.YEAR) == 2023)
-                    {
-                        Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
-
-                    }else
-                    {
-                        setNextMonth();
-                        allFunc();
-
-                    }
-                }
+              NextMonth();
             }
         });
 
 
 
         return view;
+    }
+
+    public void PreviousMonth() {
+
+        if(cal_month.get(GregorianCalendar.YEAR) >2020)
+        {
+            if(currentMonth == 10 && cal_month.get(GregorianCalendar.YEAR) == 2021)
+            {
+                Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
+
+            }else
+            {
+                setPreviousMonth();
+                allFunc();
+            }
+        }
+    }
+    public void NextMonth() {
+
+        if(cal_month.get(GregorianCalendar.YEAR) <2024)
+        {
+            if(currentMonth == 04 && cal_month.get(GregorianCalendar.YEAR) == 2024)
+            {
+                Toast.makeText(getContext(),"ప్రదర్శించడానికి డేటా లేదు", Toast.LENGTH_SHORT).show();
+
+            }else
+            {
+                setNextMonth();
+                allFunc();
+
+            }
+        }
     }
 
     private void panchangamApi(String date)
@@ -628,10 +659,10 @@ public class Panchang_Frag extends Fragment
             }
             eventType = pullParser.next();
         }
-        printRecords();
+            printRecords();
     }
 
-    private void printRecords()
+    public void printRecords()
     {
         String date  = (clickedDate + 1) + "" ;
         String strCurrentDate = loadXmlFile + "_"+date;
@@ -643,11 +674,11 @@ public class Panchang_Frag extends Fragment
             e.printStackTrace();
         }
 
-        format = new SimpleDateFormat("yyyy-MM-dd");
-        String cadate = format.format(newDate);
-        Log.d("CURRENTDATE",""+cadate);
-        //panchangamApi(cadate);
-        panchangamList(cadate);
+       // format = new SimpleDateFormat("yyyy-MM-dd");
+     //   String cadate = format.format(newDate);
+//        Log.d("CURRENTDATE",""+cadate);
+//        //panchangamApi(cadate);
+//        panchangamList(cadate);
 
         String festival;
 
@@ -763,5 +794,29 @@ public class Panchang_Frag extends Fragment
 
 
     }
+
+    public interface MyFragmentListener {
+
+
+
+ void  PreviousMonth();
+
+
+
+
+    }
+    public interface MyFragmentListener2 {
+
+
+
+ void  NextMonth();
+
+
+
+
+    }
+
+
 }
+
 

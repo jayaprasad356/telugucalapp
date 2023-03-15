@@ -1,28 +1,52 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.SwipeRecyclerView;
+import com.vibame.telugupanchangamcalendar.SwipeableScrollView;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.model.Festival;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
-public class FestivalActivity extends AppCompatActivity {
-    ImageView imgLeft, imgRight;
+public class FestivalActivity extends AppCompatActivity   implements SwipeableScrollView.SwipeListener  {
+    CardView imgLeft, imgRight;
+    ImageButton ivArrowRight, ivArrowLeft;
     TextView tvMonthYear;
     String month_year;
     int monthcount = 0;
@@ -33,16 +57,47 @@ public class FestivalActivity extends AppCompatActivity {
     Activity activity;
     RecyclerView recyclerView;
     FestivalAdapter festivalAdapter;
-    String MonthYear = "";
-    String[] montharray = {"జనవరి", "ఫిబ్రవరి", "మార్చి", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగస్టు", "సెప్టెంబర్", "అక్టోబర్", "నవంబర్", "డిసెంబర్"};
+    String year;
+    String[] montharray = {"జనవరి ", "ఫిబ్రవరి ", "మార్చి ", "ఏప్రిల్ ", "మే ", "జూన్ ", "జూలై ", "ఆగస్టు ", "సెప్టెంబర్ ", "అక్టోబర్ ", "నవంబర్ ", "డిసెంబర్ "};
+    Calendar calendar;
+    Calendar targetCalendar;
+    RelativeLayout relativeLayout;
+    private SwipeableScrollView scrollView;
 
 
+
+
+
+
+    private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            if (Math.abs(velocityX) > Math.abs(velocityY)) {
+                if (e1.getX() < e2.getX()) {
+                    // Swipe right
+                    onSwipeRight();
+                } else {
+                    // Swipe left
+                    onSwipeLeft();
+                }
+                return true;
+            }
+            return false;
+        }
+    });
+
+
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_festival);
-        imgLeft = findViewById(R.id.imgLeft);
-        imgRight = findViewById(R.id.imgRight);
+        imgLeft = findViewById(R.id.arrowleft);
+        imgRight = findViewById(R.id.arrowright);
+        ivArrowRight = findViewById(R.id.ivArrowRight);
+        ivArrowLeft = findViewById(R.id.ivArrowLeft);
         tvMonthYear = findViewById(R.id.tvMonthYear);
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -50,53 +105,157 @@ public class FestivalActivity extends AppCompatActivity {
         activity = FestivalActivity.this;
 
         databaseHelper = new DatabaseHelper(activity);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+       // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
 
 
+        relativeLayout = findViewById(R.id.slider);
+        scrollView = findViewById(R.id.scroll_view);
+        scrollView.setSwipeListener(this);
+
+
+        targetCalendar = Calendar.getInstance();
+        targetCalendar.set(Calendar.YEAR, 2024);
+        targetCalendar.set(Calendar.MONTH, Calendar.APRIL);
+        targetCalendar.set(Calendar.DAY_OF_MONTH, 9);
         cal.add(Calendar.MONTH, monthcount);
+        calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy");
+        year = String.valueOf(calendar.get(Calendar.YEAR));
         month_year = dateFormat.format(cal.getTime());
 
 
-        tvMonthYear.setText(setTeluguMonth(month_year));
+
+
+
+        ivArrowLeft.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                left();
+
+
+
+
+
+
+            }
+        });
 
         imgLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Date dateFormat = null;
-                try {
-                    dateFormat = df.parse(month_year);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                c.setTime(dateFormat);
-                c.add(Calendar.MONTH, -1);
 
-                month_year = df.format(c.getTime());
-                tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(), getYearNum());
+                left();
+
+
+
+            }
+        });
+        ivArrowRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                right();
+
+
 
             }
         });
         imgRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Date dateFormat = null;
-                try {
-                    dateFormat = df.parse(month_year);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                c.setTime(dateFormat);
-                c.add(Calendar.MONTH, 1);
-                month_year = df.format(c.getTime());
-                tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(), getYearNum());
+
+
+                right();
+
+
+
+
 
             }
         });
-        festivalList(getMonthNum(), getYearNum());
+
+        tvMonthYear.setText(setTeluguMonth(month_year)+year);
+
+        festivalList(setTeluguMonth(month_year), getYearNum());
+
+    }
+
+    @SuppressLint("ResourceType")
+    private void right() {
+
+        if (getYearNum().equals("2023")&&getMonthNum().equals("12")) {
+
+
+
+        }
+
+        else {
+
+            relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_in_right));
+            Date dateFormat = null;
+            try {
+                dateFormat = df.parse(month_year);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            c.setTime(dateFormat);
+            c.add(Calendar.MONTH, 1);
+            month_year = df.format(c.getTime());
+            year = String.valueOf(c.get(Calendar.YEAR));
+            tvMonthYear.setText(setTeluguMonth(month_year)+year);
+            festivalList(setTeluguMonth(month_year), getYearNum());
+
+
+        }
+
+
+    }
+
+    @SuppressLint("ResourceType")
+    private void left() {
+
+
+
+
+        if (getYearNum().equals("2023")&&getMonthNum().equals("01")) {
+
+
+
+
+
+        }
+
+
+        else {
+
+            Date dateFormat = null;
+            relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_out_left));
+
+            try {
+                dateFormat = df.parse(month_year);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            c.setTime(dateFormat);
+            c.add(Calendar.MONTH, -1);
+
+            year = String.valueOf(c.get(Calendar.YEAR));
+            month_year = df.format(c.getTime());
+            tvMonthYear.setText(setTeluguMonth(month_year)+year);
+            festivalList(setTeluguMonth(month_year), getYearNum());
+
+
+
+
+        }
+
+
 
     }
 
@@ -120,6 +279,7 @@ public class FestivalActivity extends AppCompatActivity {
         return date;
     }
 
+
     private String getYearNum() {
         Date newDate = null;
         try {
@@ -134,16 +294,73 @@ public class FestivalActivity extends AppCompatActivity {
 
 
     private void festivalList(String monthNum, String yearNum) {
-        if (databaseHelper.getmodelFestivalList(monthNum, yearNum).size() != 0) {
-            Log.d("festival", databaseHelper.getmodelFestivalList(monthNum, yearNum).toString());
-            festivalAdapter = new FestivalAdapter(activity, databaseHelper.getmodelFestivalList(monthNum, yearNum));
-            recyclerView.setAdapter(festivalAdapter);
 
-        } else {
-            recyclerView.setVisibility(View.GONE);
 
-        }
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.MONTH,monthNum);
+        params.put(Constant.YEAR,yearNum);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        Log.d("Festivallise",response);
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+
+
+                        recyclerView.setVisibility(View.VISIBLE);
+                        ArrayList<Festival> festivals = new ArrayList<>();
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                            if (jsonObject1 != null) {
+                                Festival group = g.fromJson(jsonObject1.toString(), Festival.class);
+                                festivals.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+
+                        festivalAdapter = new FestivalAdapter(FestivalActivity.this,festivals);
+                        recyclerView.setAdapter(festivalAdapter);
+
+
+                    }else {
+
+                        recyclerView.setVisibility(View.GONE);
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.MONTH_FESTIVAL,params,true);
+
+
 
 
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        gestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+
+    public void onSwipeLeft() {
+        right();
+
+    }
+
+    public void onSwipeRight() {
+        left();
+    }
+
+
+
+
+
 }

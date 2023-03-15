@@ -86,7 +86,7 @@ public class FestivalFragment extends Fragment {
 
                 month_year = df.format(c.getTime());
                 tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(),getYearNum());
+//                festivalList(getMonthNum(),getYearNum());
 
             }
         });
@@ -103,11 +103,11 @@ public class FestivalFragment extends Fragment {
                 c.add(Calendar.MONTH, 1);
                 month_year = df.format(c.getTime());
                 tvMonthYear.setText(setTeluguMonth(month_year));
-                festivalList(getMonthNum(), getYearNum());
+//                festivalList(getMonthNum(), getYearNum());
 
             }
         });
-        festivalList(getMonthNum(), getYearNum());
+//        festivalList(getMonthNum(), getYearNum());
 
         return root;
     }
@@ -145,19 +145,19 @@ public class FestivalFragment extends Fragment {
     }
 
 
-    private void festivalList(String monthNum, String yearNum)
-    {
-        if (databaseHelper.getmodelFestivalList(monthNum,yearNum).size() !=0){
-            Log.d("festival",databaseHelper.getmodelFestivalList(monthNum,yearNum).toString());
-            festivalAdapter = new FestivalAdapter(activity, databaseHelper.getmodelFestivalList(monthNum,yearNum));
-            recyclerView.setAdapter(festivalAdapter);
-
-        }
-        else {
-            recyclerView.setVisibility(View.GONE);
-
-        }
-
-
-    }
+//    private void festivalList(String monthNum, String yearNum)
+//    {
+//        if (databaseHelper.getmodelFestivalList(monthNum,yearNum).size() !=0){
+//            Log.d("festival",databaseHelper.getmodelFestivalList(monthNum,yearNum).toString());
+//            festivalAdapter = new FestivalAdapter(activity, databaseHelper.getmodelFestivalList(monthNum,yearNum));
+//            recyclerView.setAdapter(festivalAdapter);
+//
+//        }
+//        else {
+//            recyclerView.setVisibility(View.GONE);
+//
+//        }
+//
+//
+//    }
 }

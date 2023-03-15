@@ -5,7 +5,9 @@ import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,23 +27,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class RahukalamActivity extends AppCompatActivity {
 
-    ImageButton ibNextYear,ibPreviousYear;
-    TextView tvYear;
-    int Year = 2022;
-    TextView tvMonday,tvTuesday,tvWednesday, tvThursday,tvFriday,tvSaturday,tvSunday;
-    ImageView imgBack;
-    Activity activity;
-    TextView tvRahukalam,tvYamagandam;
 
+    Activity activity;
+    ImageButton ibNextYear,ibPreviousYear;
+    TextView tvMonday,tvTuesday,tvWednesday, tvThursday,tvFriday,tvSaturday,tvSunday,tvYear;
+    ImageView imgBack;
+    int Year = 2022;
+
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rahukalam);
         activity = RahukalamActivity.this;
+
 
 
         tvYear = findViewById(R.id.tvYear);
@@ -55,18 +60,16 @@ public class RahukalamActivity extends AppCompatActivity {
         tvSaturday = findViewById(R.id.tvSaturday);
         tvSunday = findViewById(R.id.tvSunday);
         imgBack = findViewById(R.id.imgBack);
-        tvRahukalam = findViewById(R.id.tvRahukalam);
-        tvYamagandam = findViewById(R.id.tvYamagandam);
+        ibNextYear.setOnClickListener(v -> {
+            Year ++;
+            tvYear.setText("" + Year);
+
+        });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
-        });
-        ibNextYear.setOnClickListener(v -> {
-            Year ++;
-            tvYear.setText("" + Year);
-
         });
         ibPreviousYear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,44 +82,98 @@ public class RahukalamActivity extends AppCompatActivity {
         });
 
 
+        // Get the current day of the week
+        Calendar calendar = Calendar.getInstance();
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        // Map the day of the week to a string
+        String dayOfWeekString = "";
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                dayOfWeekString = "Sunday";
+                unselecctallday();
+                tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+           //     list("Sunday");
+                break;
+            case Calendar.MONDAY:
+                dayOfWeekString = "Monday";
+                unselecctallday();
+                tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+         //       list("Monday");
+                break;
+            case Calendar.TUESDAY:
+                dayOfWeekString = "Tuesday";
+                unselecctallday();
+                tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+          //      list("Tuesday");
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfWeekString = "Wednesday";
+                unselecctallday();
+                tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+            //    list("Wednesday");
+                break;
+            case Calendar.THURSDAY:
+                dayOfWeekString = "Thursday";
+                unselecctallday();
+                tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+             //   list("Thursday");
+                break;
+            case Calendar.FRIDAY:
+                dayOfWeekString = "Friday";
+                unselecctallday();
+                tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+             //   list("Friday");
+                break;
+            case Calendar.SATURDAY:
+                dayOfWeekString = "Saturday";
+                unselecctallday();
+                tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+             //   list("Saturday");
+                break;
+        }
+
         tvMonday.setOnClickListener(view -> {
             unselecctallday();
             tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Monday");
+          //  list("Monday");
         });
         tvTuesday.setOnClickListener(view -> {
             unselecctallday();
             tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Tuesday");
+          //  list("Tuesday");
         });
         tvWednesday.setOnClickListener(view -> {
             unselecctallday();
             tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Wednesday");
+        //    list("Wednesday");
         });
         tvThursday.setOnClickListener(view -> {
             unselecctallday();
             tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Thursday");
+          //  list("Thursday");
         });
         tvFriday.setOnClickListener(view -> {
             unselecctallday();
             tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Friday");
+         //   list("Friday");
         });
         tvSaturday.setOnClickListener(view -> {
             unselecctallday();
             tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Saturday");
+        //    list("Saturday");
         });
         tvSunday.setOnClickListener(view -> {
             unselecctallday();
             tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-            list("Sunday");
+        //    list("Sunday");
         });
 
 
+
+
     }
+
     private void unselecctallday()
     {
         tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.colorBlack));
@@ -129,47 +186,4 @@ public class RahukalamActivity extends AppCompatActivity {
 
     }
 
-    private void list(String day) {
-        HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.RAHUKALAM,"1");
-        params.put(Constant.DAY,day);
-        params.put(Constant.YEAR,tvYear.getText().toString().trim());
-        ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("GOWRI_PAN",response);
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        tvRahukalam.setText(jsonArray.getJSONObject(0).getString(Constant.RAHUKALAM));
-                        tvYamagandam.setText(jsonArray.getJSONObject(0).getString(Constant.YAMANGANDAM));
-                        Gson g = new Gson();
-                        ArrayList<Gowri> gowris = new ArrayList<>();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                Gowri group = g.fromJson(jsonObject1.toString(),Gowri.class);
-                                gowris.add(group);
-                            } else {
-                                break;
-                            }
-                        }
-
-                    }else {
-                        tvRahukalam.setText("-");
-                        tvYamagandam.setText("-");
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        },activity, Constant.PANCHANGAM_LIST_URL,params,true);
-
-
-
-
-
-
-    }
 }

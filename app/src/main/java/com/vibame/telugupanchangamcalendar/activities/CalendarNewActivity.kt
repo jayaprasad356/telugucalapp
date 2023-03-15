@@ -113,6 +113,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -143,6 +144,7 @@ class CalendarNewActivity : AppCompatActivity() {
         var  llPakshamulu = findViewById<LinearLayout>(R.id.llPakshamulu)
         var   llPushapalu = findViewById<LinearLayout>(R.id.llPushapalu)
         var   llRashulu = findViewById<LinearLayout>(R.id.llRashulu)
+
 
 
 
@@ -192,6 +194,113 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
+
+        var   card1 = findViewById<CardView>(R.id.card1)
+        var card2 = findViewById<CardView>(R.id.card2)
+        var cardFestival = findViewById<CardView>(R.id.cardFestival)
+        var cardImportant = findViewById<CardView>(R.id.cardImportant)
+        var cardHolidays = findViewById<CardView>(R.id.cardHoliday)
+        var cardHoroscope = findViewById<CardView>(R.id.cardHoroscope)
+        var cardSissujanma = findViewById<CardView>(R.id.cardSissujanma)
+        var cardMuhurtham = findViewById<CardView>(R.id.cardMuhurtham)
+        var cardShasti =  findViewById<CardView>(R.id.cardShasti)
+        var llHoroscope = findViewById<LinearLayout>(R.id.llHoroscope)
+        var llGowri1 = findViewById<LinearLayout>(R.id.llGowri1)
+        var llBhargava = findViewById<LinearLayout>(R.id.llBhargava)
+        var llabdhikam = findViewById<LinearLayout>(R.id.llabdhikam)
+        var llGrahanam = findViewById<LinearLayout>(R.id.llGrahanam)
+        var llMoudyaDinamulu = findViewById<LinearLayout>(R.id.llMoudyaDinamulu)
+        var llRahuKaalam = findViewById<LinearLayout>(R.id.llRahuKaalam)
+        var llGrahalu = findViewById<LinearLayout>(R.id.llGrahalu)
+
+
+        card1.setOnClickListener {
+            val intent = Intent(activity, DailyPanchangamActivity::class.java)
+            startActivity(intent)
+        }
+        card2.setOnClickListener {
+            val intent = Intent(activity, MonthlyPanchangam::class.java)
+            startActivity(intent)
+        }
+
+        cardFestival.setOnClickListener {
+            val intent = Intent(activity, FestivalActivity::class.java)
+            startActivity(intent)
+        }
+
+        cardImportant.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, ImpoetantDaysActivity::class.java)
+            startActivity(intent)
+        });
+
+
+        cardHolidays.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, HolidaysActivity::class.java)
+            startActivity(intent)
+        });
+
+        cardHoroscope .setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, HoroscopeActivity::class.java)
+            startActivity(intent)
+
+        })
+
+
+        cardSissujanma.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, SissuJanmaActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        cardMuhurtham.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, com.vibame.telugupanchangamcalendar.MuhurthamActivity::class.java)
+            startActivity(intent)
+        })
+
+        cardShasti.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, ShastiVrustiActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        llGowri1.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, GowriPanchangamActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        llHoroscope.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, HoraChakramActivity::class.java)
+            startActivity(intent)
+        })
+
+        llabdhikam.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, AbdhikamActivity::class.java)
+            startActivity(intent)
+        })
+
+        llGrahanam.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, GrahanamActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        llMoudyaDinamulu.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, MoudyaDinamuluActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        llRahuKaalam .setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, RahukalamActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        llGrahalu.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, GrahaluActivity::class.java)
+            startActivity(intent)
+        })
 
 
 
@@ -269,6 +378,14 @@ class CalendarNewActivity : AppCompatActivity() {
             val intent = Intent(activity, PushapaluActivity::class.java)
             startActivity(intent)
         }
+
+        llBhargava.setOnClickListener(
+
+            View.OnClickListener {
+                val intent = Intent(activity, BhargavaPanchangamActivity::class.java)
+                startActivity(intent)
+            }
+        )
 
 
         var imageold = findViewById<ImageView>(R.id.imageold);
@@ -459,7 +576,7 @@ class CalendarNewActivity : AppCompatActivity() {
         more = findViewById(R.id.more)
 
 
-        sliderView = findViewById(R.id.main_image)
+//        sliderView = findViewById(R.id.main_image)
 //        val adapter = SliderAdapter(this)
 //        adapter.addItem(SliderItem(images[0], "Panchangam"))
 //        adapter.addItem(SliderItem(images[1], "Festivals"))
@@ -485,37 +602,37 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
-        val imageSlider = findViewById<ImageSlider>(R.id.main_image)
-        imageSlider.setImageList(imageList)
-        imageSlider.startSliding(3000) // with new period
-        imageSlider.startSliding()
-        imageSlider.setImageList(imageList, ScaleTypes.FIT)
+//        val imageSlider = findViewById<ImageSlider>(R.id.main_image)
+//        imageSlider.setImageList(imageList)
+//        imageSlider.startSliding(3000) // with new period
+//        imageSlider.startSliding()
+//        imageSlider.setImageList(imageList, ScaleTypes.FIT)
 
-
-        imageSlider.setItemClickListener(object : ItemClickListener {
-            override fun onItemSelected(position: Int) {
-
-                when (position) {
-                    0 -> {
-                        val intent = Intent(activity, PanchangamActivity::class.java)
-                       startActivity(intent)
-                    }
-                    1 -> {
-                        val intent1 = Intent(activity, FestivalActivity::class.java)
-                        startActivity(intent1)
-                    }
-                    2 -> {
-                        val intent2 = Intent(activity, RasiphaluluActivity::class.java)
-                        startActivity(intent2)
-                    }
-                    3 -> {
-                        val intent3 = Intent(activity, MuhurthamActivity::class.java)
-                        startActivity(intent3)
-                    }
-                }
-                // You can listen here
-            }
-        })
+//
+//        imageSlider.setItemClickListener(object : ItemClickListener {
+//            override fun onItemSelected(position: Int) {
+//
+//                when (position) {
+//                    0 -> {
+//                        val intent = Intent(activity, PanchangamActivity::class.java)
+//                       startActivity(intent)
+//                    }
+//                    1 -> {
+//                        val intent1 = Intent(activity, FestivalActivity::class.java)
+//                        startActivity(intent1)
+//                    }
+//                    2 -> {
+//                        val intent2 = Intent(activity, RasiphaluluActivity::class.java)
+//                        startActivity(intent2)
+//                    }
+//                    3 -> {
+//                        val intent3 = Intent(activity, MuhurthamActivity::class.java)
+//                        startActivity(intent3)
+//                    }
+//                }
+//                // You can listen here
+//            }
+//        })
 
 
 

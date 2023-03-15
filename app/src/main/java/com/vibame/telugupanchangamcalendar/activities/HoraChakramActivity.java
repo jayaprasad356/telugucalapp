@@ -28,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class HoraChakramActivity extends AppCompatActivity {
@@ -81,6 +82,57 @@ public class HoraChakramActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        // Get the current day of the week
+        Calendar calendar = Calendar.getInstance();
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        // Map the day of the week to a string
+        String dayOfWeekString = "";
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                dayOfWeekString = "Sunday";
+                unselecctallday();
+                tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Sunday");
+                break;
+            case Calendar.MONDAY:
+                dayOfWeekString = "Monday";
+                unselecctallday();
+                tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Monday");
+                break;
+            case Calendar.TUESDAY:
+                dayOfWeekString = "Tuesday";
+                unselecctallday();
+                tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Tuesday");
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfWeekString = "Wednesday";
+                unselecctallday();
+                tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Wednesday");
+                break;
+            case Calendar.THURSDAY:
+                dayOfWeekString = "Thursday";
+                unselecctallday();
+                tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Thursday");
+                break;
+            case Calendar.FRIDAY:
+                dayOfWeekString = "Friday";
+                unselecctallday();
+                tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Friday");
+                break;
+            case Calendar.SATURDAY:
+                dayOfWeekString = "Saturday";
+                unselecctallday();
+                tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Saturday");
+                break;
+        }
 
         tvMonday.setOnClickListener(view -> {
             unselecctallday();

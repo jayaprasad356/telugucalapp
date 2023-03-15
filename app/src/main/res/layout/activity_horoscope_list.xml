@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HoroscopeListActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/calHeaderT"
+        android:padding="@dimen/_8sdp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+        <TextView
+            android:id="@+id/tvHoroscopeTitle"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Horoscope"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_18sdp"
+            />
+
+    </LinearLayout>
+
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_centerInParent="true"
+
+        >
+
+
+        <LinearLayout
+            android:id="@+id/llmesha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="0"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mesha" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvMesha"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="మేషరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llvrusha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="1"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/vrusha" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvVrusha"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="వృషభరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llmithuna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="2"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mithun" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvMithuna"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="మిథునరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llkarka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="1"
+            android:layout_column="0"
+            >
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvkarka"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/karka" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvKarka"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="కర్కాటకరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llsimha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="1"
+            android:layout_column="1"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/simha" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvSimha"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="సింహరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llkanya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="1"
+            android:layout_column="2"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/kanya" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvKanya"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="కన్యారాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lltula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="2"
+            android:layout_column="0"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/thula" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvTula"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="తులారాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llvrushchika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="2"
+            android:layout_column="1"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/vruchika" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvVrushchika"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="వృశ్చిక రాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lldhanu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="2"
+            android:layout_column="2"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dhanu" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvDhanu"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ధనూరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/llmakara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="3"
+            android:layout_column="0"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/makara" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvMakara"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="మకరరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llkumbha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="3"
+            android:layout_column="1"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/kumba" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvKumbha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="కుంభరాశి"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llmeena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_row="3"
+            android:layout_column="2"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/black_stork"
+                app:cardCornerRadius="@dimen/_10sdp"
+
+                >
+
+                <ImageView
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/mina" />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvMeena"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="మీనరాశి"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    </GridLayout>
+
+</RelativeLayout>

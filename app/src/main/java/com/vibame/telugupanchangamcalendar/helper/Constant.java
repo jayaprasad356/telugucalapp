@@ -3,7 +3,8 @@ package com.vibame.telugupanchangamcalendar.helper;
 import android.widget.EditText;
 
 public class Constant {
-    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
+   // public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
+    public static final String MainBaseUrl = "https://telucalweb.graymatterworks.com/";
     //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
@@ -23,6 +24,12 @@ public class Constant {
     public static final String VIDEO_URL = BaseUrl + "video-category.php";
     public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
     public static final String BHAKTHI_ARTICLES_LIST = BaseUrl + "bhakthi_articles-list.php";
+    public static final String PANCHANGAMLIST_BYDATE = BaseUrl + "panchangamlist_bydate.php";
+    public static final String MONTH_FESTIVAL = BaseUrl + "month_festivals.php";
+    public static final String MONTHLY_PANCHANGAMLIST = BaseUrl + "monthly_panchangamlist.php";
+    public static final String HOLIDAYS = BaseUrl + "holidays.php";
+    public static final String HOROSCOPE_LIST = BaseUrl + "horoscope.php";
+    public static final String IMPORTANT_DAYS = BaseUrl + "important_days.php";
 
     public static final String ID = "id";
     public static final String MENU_ID = "menu_id";
@@ -181,7 +188,7 @@ public class Constant {
     public static final String FRUITNAMES = "FruitNames";
     public static final String PRASADHAMNAMES = "PrasadhamNames";
     public static final String NETI_ARTI_IMAGE = "neti_arti_image";
-    public static final String OLD_ARTI_IMAGES = "old_arti_images";
+    public static final String OLD_ARTI_IMAGES = "old_arti_images";;
     public static String THIDHI_IMAGE = "thidhi_image";
 
     public static int etLengthConversion(EditText editText) {

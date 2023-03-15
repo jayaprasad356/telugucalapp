@@ -228,7 +228,7 @@ public class NewCalendarActivity extends AppCompatActivity {
         more = findViewById(R.id.more);
 
 
-        sliderView = findViewById(R.id.main_image);
+//        sliderView = findViewById(R.id.main_image);
         SliderAdapter adapter = new SliderAdapter(this);
         adapter.addItem(new SliderItem(images[0],"Panchangam"));
         adapter.addItem(new SliderItem(images[1],"Festivals"));

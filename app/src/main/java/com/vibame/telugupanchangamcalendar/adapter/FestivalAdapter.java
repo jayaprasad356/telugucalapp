@@ -39,20 +39,13 @@ public class FestivalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final Festival festival = festivals.get(position);
-        String strCurrentDate = "Wed, 18 Apr 2012 07:55:29 +0000";
-        SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd");
-        Date newDate = null;
-        try {
-            newDate = format.parse(festival.getDate());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
-        format = new SimpleDateFormat("dd,MMMM");
-        String date = format.format(newDate);
-        holder.tvFestival.setText(festival.getFestival());
-        holder.tvDate.setText(date);
+
+        holder.tvDate.setText(festivals.get(position).getTitle());
+        holder.tvFestival.setText(festivals.get(position).getDescription());
+
+
+
     }
 
     @Override

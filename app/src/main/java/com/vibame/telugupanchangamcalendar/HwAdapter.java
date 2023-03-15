@@ -291,12 +291,12 @@ public class HwAdapter extends BaseAdapter {
                     }else if(name.equals("Amayasya"))
                     {
                         ampu.setVisibility(View.VISIBLE);
-                        //ampu.setBackgroundResource(R.drawable.amaasya);
+                        ampu.setBackgroundResource(R.drawable.darkmoon);
 
                     }else if(name.equals("Purnami"))
                     {
                         ampu.setVisibility(View.VISIBLE);
-                        ampu.setBackgroundResource(R.drawable.punnami);
+                        ampu.setBackgroundResource(R.drawable.moon);
                         //v.setBackgroundResource(R.drawable.paurnami);
 
                     }else

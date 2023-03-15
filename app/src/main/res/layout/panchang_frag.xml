@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/headerMonth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,12 +57,13 @@
 
         </LinearLayout>
         <LinearLayout
+            android:layout_marginLeft="@dimen/_6sdp"
             android:id="@+id/ll_calendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/headerMonth"
             android:orientation="vertical"
-            android:background="@color/calDates">
+          >
 
 
             <TableRow
@@ -77,9 +79,9 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="ఆది"
-                    android:textColor="#ff005d"
+                    android:textColor="@color/black"
                     android:textAlignment="center"
-                    android:textSize="18dp"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -89,8 +91,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="సోమ"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -100,8 +102,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="మంగ"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -112,8 +114,8 @@
                     android:gravity="center"
                     android:layout_marginRight="5dp"
                     android:text="బుధ"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -124,8 +126,8 @@
                     android:gravity="center"
                     android:layout_marginRight="5dp"
                     android:text="గురు"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -136,8 +138,8 @@
                     android:gravity="center"
                     android:layout_marginRight="5dp"
                     android:text="శుక్ర"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -148,8 +150,8 @@
                     android:gravity="center"
                     android:layout_marginRight="5dp"
                     android:text="శని"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
             </TableRow>
@@ -160,15 +162,14 @@
             android:id="@+id/gv_calendar"
             android:layout_below="@+id/ll_calendar"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:nestedScrollingEnabled="true"
+            android:layout_height="@dimen/_180sdp"
             android:gravity="center"
-            android:background="@color/calDates"
             android:listSelector="@android:color/transparent"
             android:numColumns="7">
         </GridView>
 
         <RelativeLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/calPan1">
@@ -177,6 +178,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/calSunrise">
@@ -206,6 +208,7 @@
 
         </LinearLayout>
         <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/sunimage"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -220,6 +223,7 @@
 
         </RelativeLayout>
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/suntext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -280,6 +284,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
