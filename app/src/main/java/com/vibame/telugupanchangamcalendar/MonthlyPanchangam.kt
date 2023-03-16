@@ -324,9 +324,86 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
     private fun montlyPanchangam(year: String, month: String) {
 
+
+
+        var Months = ""
+
+        if(month == "జనవరి"){
+
+            Months = "January"
+
+        }
+        else if (month =="ఫిబ్రవరి")
+        {
+            Months = "February"
+
+        }
+
+        else if (month =="మార్చి")
+        {
+            Months = "March"
+
+        }
+
+        else if (month =="ఏప్రిల్")
+        {
+            Months = "April"
+
+        }
+
+        else if (month =="మే")
+        {
+            Months = "May"
+
+        }
+
+        else if (month =="జూన్")
+        {
+            Months = "June"
+
+        }
+
+        else if (month =="జూలై")
+        {
+            Months = "July"
+
+        }
+
+        else if (month =="ఆగస్ట్")
+        {
+            Months = "August"
+
+        }
+
+        else if (month =="సెప్టెంబర్")
+        {
+            Months = "September"
+
+        }
+
+        else if (month =="అక్టోబర్")
+        {
+            Months = "October"
+
+        }
+
+        else if (month =="నవంబర్")
+        {
+            Months = "November"
+
+        }
+
+        else if (month =="డిసెంబర్")
+        {
+            Months = "December"
+
+        }
+
+
+
         val params = HashMap<String, String>()
         params[Constant.YEAR] = year.toString()
-        params[Constant.MONTH] = month.toString()
+        params[Constant.MONTH] = Months.toString()
         ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
             if (result) {
                 try {

@@ -19,15 +19,19 @@ import com.vibame.telugupanchangamcalendar.helper.Session;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class WeeklyHoroscopeActivity extends AppCompatActivity {
 
 
-    TextView tvHoroscopeTitle,tvRaasi,tvDescription;
+    TextView tvHoroscopeTitle,tvRaasi,tvDescription,tvDate;
 
     Activity activity;
     Session session;
+    String raasi;
+    int year;
+    Calendar calendar;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,11 +42,18 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
         activity = this;
         session = new Session(activity);
 
+
         tvHoroscopeTitle = findViewById(R.id.tvHoroscopeTitle);
         tvHoroscopeTitle.setText(getIntent().getStringExtra(Constant.TITLE)+" - "+getIntent().getStringExtra("Name"));
+        raasi = getIntent().getStringExtra("Name");
 
         tvRaasi = findViewById(R.id.tvRaasi);
         tvDescription = findViewById(R.id.tvDescription);
+        tvDate = findViewById(R.id.tvDate);
+
+        // get corrent year
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
 
 
 
@@ -57,20 +68,21 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
 
 
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.TYPE,"Daily");
-        params.put(Constant.RASI,"Mesham");
+        params.put(Constant.TYPE,"Weekly");
+        params.put(Constant.RASI,raasi);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Festivallise",response);
+                        Log.d("dailyhoroscope",response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
 
 
-                        tvRaasi.setText(jsonArray.getJSONObject(0).getString("rasi"));
+                        tvRaasi.setText(year+" - "+jsonArray.getJSONObject(0).getString("rasi"));
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
+                        tvDate.setText("("+jsonArray.getJSONObject(0).getString("week")+")");
 
 
 

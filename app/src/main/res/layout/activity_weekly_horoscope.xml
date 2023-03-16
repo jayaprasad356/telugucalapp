@@ -48,6 +48,7 @@
 
 
         <RelativeLayout
+            android:layout_marginBottom="@dimen/_20sdp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_60sdp">
 
@@ -56,7 +57,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="wrap_content"
                 android:backgroundTint="@color/calHeaderT"
                 app:cardCornerRadius="@dimen/_10sdp"
                 >
@@ -77,25 +78,40 @@
                     android:background="@drawable/ic_reload"
                     />
 
-                <TextView
-                    android:id="@+id/tvHoroscopeDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="text"
-                    android:layout_gravity="center|top"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
 
-                <TextView
-                    android:id="@+id/tvRaasi"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text"
-                    android:layout_gravity="center|bottom"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    />
+                    android:orientation="vertical"
+                    >
+
+
+                    <TextView
+                        android:padding="@dimen/_4sdp"
+                        android:textSize="@dimen/_18sdp"
+                        android:id="@+id/tvRaasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_16sdp"
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_gravity="center|bottom"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+
+
 
 
 
@@ -117,15 +133,21 @@
             android:padding="@dimen/_20sdp"
             >
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text=""
-                android:textSize="@dimen/_12sdp"
                 android:textColor="@color/black"
-                />
+                android:textSize="@dimen/_12sdp" />
+
+            </ScrollView>
 
 
         </RelativeLayout>

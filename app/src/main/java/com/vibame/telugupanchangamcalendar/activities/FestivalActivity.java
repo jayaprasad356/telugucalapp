@@ -123,6 +123,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy");
         year = String.valueOf(calendar.get(Calendar.YEAR));
         month_year = dateFormat.format(cal.getTime());
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
 
 
 
@@ -182,7 +183,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
         tvMonthYear.setText(setTeluguMonth(month_year)+year);
 
-        festivalList(setTeluguMonth(month_year), getYearNum());
+        festivalList(month, getYearNum());
 
     }
 
@@ -206,10 +207,11 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
             }
             c.setTime(dateFormat);
             c.add(Calendar.MONTH, 1);
+            String month = String.valueOf(c.get(Calendar.MONTH));
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
             tvMonthYear.setText(setTeluguMonth(month_year)+year);
-            festivalList(setTeluguMonth(month_year), getYearNum());
+            festivalList(month, getYearNum());
 
 
         }
@@ -247,8 +249,10 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
+            String month = String.valueOf(c.get(Calendar.MONTH));
             tvMonthYear.setText(setTeluguMonth(month_year)+year);
-            festivalList(setTeluguMonth(month_year), getYearNum());
+            festivalList(month, getYearNum());
+
 
 
 
@@ -296,8 +300,82 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     private void festivalList(String monthNum, String yearNum) {
 
 
+        String Month = monthNum;
+
+        if (monthNum.equals("0")){
+
+            Month = "January";
+        }
+
+        else if (monthNum.equals("1")){
+
+            Month = "February";
+        }
+
+        else if (monthNum.equals("2")){
+
+            Month = "March";
+        }
+
+        else if (monthNum.equals("3")){
+
+            Month = "April";
+        }
+
+        else if (monthNum.equals("4")){
+
+            Month = "May";
+        }
+
+        else if (monthNum.equals("5")){
+
+            Month = "June";
+        }
+
+        else if (monthNum.equals("6")){
+
+            Month = "July";
+        }
+
+        else if (monthNum.equals("7")){
+
+            Month = "August";
+        }
+
+        else if (monthNum.equals("8")){
+
+            Month = "September";
+        }
+
+        else if (monthNum.equals("9")){
+
+            Month = "October";
+        }
+
+        else if (monthNum.equals("10")){
+
+            Month = "November";
+        }
+
+        else if (monthNum.equals("11")){
+
+            Month = "December";
+        }
+
+
+        
+
+
+
+
+
+
+
+
+
+
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.MONTH,monthNum);
+        params.put(Constant.MONTH,Month);
         params.put(Constant.YEAR,yearNum);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
