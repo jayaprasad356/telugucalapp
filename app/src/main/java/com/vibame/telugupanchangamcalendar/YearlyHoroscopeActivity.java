@@ -103,25 +103,19 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
                         Log.d("Yearlyhoroscope",response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         JSONObject jsonarray2= jsonArray.getJSONObject(0);
-
-
                         JSONArray files = jsonarray2.getJSONArray(Constant.YEARLY_HOROSCOPE_VARIANT);
                         Gson g = new Gson();
                         ArrayList<YearlyHoroscope> yearlyHoroscopes = new ArrayList<>();
-                        for (int i = 0; i < jsonArray.length(); i++) {
+                        for (int i = 0; i < files.length(); i++) {
                             JSONObject jsonObject1 = files.getJSONObject(i);
-
                             if (jsonObject1 != null) {
-
                                 Log.d("Varine",jsonObject1.toString());
                                 YearlyHoroscope group = g.fromJson(jsonObject1.toString(), YearlyHoroscope.class);
                                 yearlyHoroscopes.add(group);
-
                             } else {
                                 break;
                             }
                         }
-
                         adapter = new YearlyHoroscopeAdapter(activity, yearlyHoroscopes);
                         recyclerView.setAdapter(adapter);
 

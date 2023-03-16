@@ -36,7 +36,7 @@ public class YearlyHoroscopeAdapter extends RecyclerView.Adapter<YearlyHoroscope
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(yearlyHoroscopes.get(position).getSub_title()+" : ");
-        holder.tvDescription.setText(yearlyHoroscopes.get(position).getSub_description());
+        holder.tvDescription.setText(yearlyHoroscopes.get(position).getSub_description().trim());
 
     }
 
