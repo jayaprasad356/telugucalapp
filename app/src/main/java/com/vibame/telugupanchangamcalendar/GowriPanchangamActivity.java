@@ -48,8 +48,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     ImageView imgBack;
     Calendar calendar;
     String dateString;
-
-
+    String dayOfWeekString = "";
+    String dayName = "";
+    int currentDay, clickedDay;
 
     private RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -60,10 +61,11 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             if (Math.abs(velocityX) > Math.abs(velocityY)) {
                 if (e1.getX() < e2.getX()) {
                     // Swipe right
-                    onSwipeRight();
+                    if (!dayOfWeekString.equals("Monday"))
+                        onSwipeRight();
                 } else {
-                    // Swipe left
-                    onSwipeLeft();
+                    if (!dayOfWeekString.equals("Sunday"))
+                        onSwipeLeft();
                 }
                 return true;
             }
@@ -103,22 +105,102 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         relativeLayout = findViewById(R.id.slider);
 
 
-
-
         // Get the current day of the week
-         calendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String dateString = dateFormat.format(date);
+        SimpleDateFormat dayformat = new SimpleDateFormat("EEEE", Locale.getDefault());
+        dayName = dayformat.format(date);
+
+        if (dayName.trim().equals("Monday")) {
+            currentDay = 1;
+        }
+        if (dayName.trim().equals("Tuesday")) {
+            currentDay = 2;
+        }
+        if (dayName.trim().equals("Wednesday")) {
+            currentDay = 3;
+        }
+        if (dayName.trim().equals("Thursday")) {
+            currentDay = 4;
+        }
+        if (dayName.trim().equals("Friday")) {
+            currentDay = 5;
+        }
+        if (dayName.trim().equals("Saturday")) {
+            currentDay = 6;
+        }
+        if (dayName.trim().equals("Sunday")) {
+            currentDay = 7;
+        }
+
+        tvMonday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 1;
+                getClickedDay(clickedDay);
+
+            }
+        });
+        tvTuesday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 2;
+                getClickedDay(clickedDay);
+
+
+            }
+        });
+        tvWednesday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 3;
+                getClickedDay(clickedDay);
+
+            }
+        });
+        tvThursday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 4;
+                getClickedDay(clickedDay);
+
+            }
+        });
+        tvFriday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 5;
+                getClickedDay(clickedDay);
+            }
+        });
+
+        tvSaturday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 6;
+                getClickedDay(clickedDay);
+
+            }
+        });
+        tvSunday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clickedDay = 7;
+                getClickedDay(clickedDay);
+
+
+            }
+        });
+
 
         Toast.makeText(activity, "" + dayOfWeek, Toast.LENGTH_SHORT).show();
 
 
-
-
         // Map the day of the week to a string
-        String dayOfWeekString = "";
+
         switch (dayOfWeek) {
             case Calendar.SUNDAY:
                 dayOfWeekString = "Sunday";
@@ -169,7 +251,24 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
+    }
 
+    private void getClickedDay(int clickedDay) {
+        if (clickedDay<currentDay){
+            int temp=currentDay-clickedDay;
+            temp = temp * -1;
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_YEAR, temp);
+            Date date = calendar.getTime();
+            Toast.makeText(GowriPanchangamActivity.this, date.toString(), Toast.LENGTH_SHORT).show();
+
+        }else {
+            int temp=clickedDay-currentDay;
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_YEAR, temp);
+            Date date = calendar.getTime();
+            Toast.makeText(GowriPanchangamActivity.this, date.toString(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void unselecctallday() {
@@ -246,59 +345,54 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     private void backward() {
 
 
-
-
         calendar.add(Calendar.DAY_OF_YEAR, -1);
-            relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_out_left));
-            String dayOfWeekString = "";
-            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-            switch (dayOfWeek) {
-                case Calendar.SUNDAY:
-                    dayOfWeekString = "Sunday";
-                    unselecctallday();
-                    tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.MONDAY:
-                    dayOfWeekString = "Monday";
-                    unselecctallday();
-                    tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.TUESDAY:
-                    dayOfWeekString = "Tuesday";
-                    unselecctallday();
-                    tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.WEDNESDAY:
-                    dayOfWeekString = "Wednesday";
-                    unselecctallday();
-                    tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.THURSDAY:
-                    dayOfWeekString = "Thursday";
-                    unselecctallday();
-                    tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.FRIDAY:
-                    dayOfWeekString = "Friday";
-                    unselecctallday();
-                    tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.SATURDAY:
-                    dayOfWeekString = "Saturday";
-                    unselecctallday();
-                    tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-            }
-            updateUI(calendar.getTime());
-
-
+        relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_out_left));
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                dayOfWeekString = "Sunday";
+                unselecctallday();
+                tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.MONDAY:
+                dayOfWeekString = "Monday";
+                unselecctallday();
+                tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.TUESDAY:
+                dayOfWeekString = "Tuesday";
+                unselecctallday();
+                tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfWeekString = "Wednesday";
+                unselecctallday();
+                tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.THURSDAY:
+                dayOfWeekString = "Thursday";
+                unselecctallday();
+                tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.FRIDAY:
+                dayOfWeekString = "Friday";
+                unselecctallday();
+                tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.SATURDAY:
+                dayOfWeekString = "Saturday";
+                unselecctallday();
+                tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+        }
+        updateUI(calendar.getTime());
 
 
     }
@@ -307,62 +401,56 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     private void forward() {
 
 
-
-
-
-            relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_in_right));
-            // Move the calendar one day forward
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-            String dayOfWeekString = "";
+        relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_in_right));
+        // Move the calendar one day forward
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-            switch (dayOfWeek) {
-                case Calendar.SUNDAY:
-                    dayOfWeekString = "Sunday";
-                    unselecctallday();
-                    tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.MONDAY:
-                    dayOfWeekString = "Monday";
-                    unselecctallday();
-                    tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.TUESDAY:
-                    dayOfWeekString = "Tuesday";
-                    unselecctallday();
-                    tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.WEDNESDAY:
-                    dayOfWeekString = "Wednesday";
-                    unselecctallday();
-                    tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.THURSDAY:
-                    dayOfWeekString = "Thursday";
-                    unselecctallday();
-                    tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.FRIDAY:
-                    dayOfWeekString = "Friday";
-                    unselecctallday();
-                    tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-                case Calendar.SATURDAY:
-                    dayOfWeekString = "Saturday";
-                    unselecctallday();
-                    tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                    list(dateString);
-                    break;
-            }
-            // Update your UI with the new date
-            updateUI(calendar.getTime());
-
-
+        switch (dayOfWeek) {
+            case Calendar.SUNDAY:
+                dayOfWeekString = "Sunday";
+                unselecctallday();
+                tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.MONDAY:
+                dayOfWeekString = "Monday";
+                unselecctallday();
+                tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.TUESDAY:
+                dayOfWeekString = "Tuesday";
+                unselecctallday();
+                tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.WEDNESDAY:
+                dayOfWeekString = "Wednesday";
+                unselecctallday();
+                tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.THURSDAY:
+                dayOfWeekString = "Thursday";
+                unselecctallday();
+                tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.FRIDAY:
+                dayOfWeekString = "Friday";
+                unselecctallday();
+                tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+            case Calendar.SATURDAY:
+                dayOfWeekString = "Saturday";
+                unselecctallday();
+                tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list(dateString);
+                break;
+        }
+        // Update your UI with the new date
+        updateUI(calendar.getTime());
 
 
     }
