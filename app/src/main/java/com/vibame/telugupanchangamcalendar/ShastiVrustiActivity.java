@@ -1,11 +1,16 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,15 +19,26 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.KarthiVrustiAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.model.KarthiVrusti;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class ShastiVrustiActivity extends AppCompatActivity {
 
@@ -44,6 +60,9 @@ public class ShastiVrustiActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
     ImageView imgBack;
+    RecyclerView recyclerView;
+    KarthiVrustiAdapter adapter;
+    TextView tvTitle;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -62,6 +81,7 @@ public class ShastiVrustiActivity extends AppCompatActivity {
         }
     });
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,9 +93,17 @@ public class ShastiVrustiActivity extends AppCompatActivity {
         tvMonthYear = findViewById(R.id.tvMonthYear);
         imgBack = findViewById(R.id.imgBack);
 
+        tvTitle = findViewById(R.id.tvtext1);
+
+
 
 
         activity = ShastiVrustiActivity.this;
+
+
+        recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
 
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +112,6 @@ public class ShastiVrustiActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
 
 
         relativeLayout = findViewById(R.id.slider);
@@ -146,13 +172,16 @@ public class ShastiVrustiActivity extends AppCompatActivity {
 
         tvMonthYear.setText(setTeluguMonth(month_year) + year);
 
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        Karthi(month);
+
 
     }
 
     @SuppressLint("ResourceType")
     private void right() {
 
-        if (getYearNum().equals("2023") && getMonthNum().equals("12")) {
+        if (getYearNum().equals("2024") && getMonthNum().equals("04")) {
 
 
         } else {
@@ -169,6 +198,9 @@ public class ShastiVrustiActivity extends AppCompatActivity {
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            Karthi(month);
+
 
 
         }
@@ -199,6 +231,8 @@ public class ShastiVrustiActivity extends AppCompatActivity {
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            Karthi(month);
 
 
         }
@@ -256,6 +290,130 @@ public class ShastiVrustiActivity extends AppCompatActivity {
     public void onSwipeRight() {
         left();
     }
+
+
+
+    private void Karthi(String month) {
+
+
+        String Month = month;
+
+        if (month.equals("0")){
+
+            Month = "January";
+        }
+
+        else if (month.equals("1")){
+
+            Month = "February";
+        }
+
+        else if (month.equals("2")){
+
+            Month = "March";
+        }
+
+        else if (month.equals("3")){
+
+            Month = "April";
+        }
+
+        else if (month.equals("4")){
+
+            Month = "May";
+        }
+
+        else if (month.equals("5")){
+
+            Month = "June";
+        }
+
+        else if (month.equals("6")){
+
+            Month = "July";
+        }
+
+        else if (month.equals("7")){
+
+            Month = "August";
+        }
+
+        else if (month.equals("8")){
+
+            Month = "September";
+        }
+
+        else if (month.equals("9")){
+
+            Month = "October";
+        }
+
+        else if (month.equals("10")){
+
+            Month = "November";
+        }
+
+        else if (month.equals("11")){
+
+            Month = "December";
+        }
+
+
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.MONTH,Month);
+        params.put(Constant.YEAR,year);
+
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+
+                        recyclerView.setVisibility(View.VISIBLE);
+                        Log.e("Shasti",response);
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
+                        JSONArray files = jsonarray2.getJSONArray(Constant.KARTHI_VRUSTI_VARIANT);
+                        Gson g = new Gson();
+                        ArrayList<KarthiVrusti> karthiVrustis = new ArrayList<>();
+                        for (int i = 0; i < files.length(); i++) {
+                            JSONObject jsonObject1 = files.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Log.d("Varine",jsonObject1.toString());
+                                KarthiVrusti group = g.fromJson(jsonObject1.toString(), KarthiVrusti.class);
+                                karthiVrustis.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        adapter = new KarthiVrustiAdapter(activity,karthiVrustis);
+                        recyclerView.setAdapter(adapter);
+
+                        tvTitle.setText(jsonArray.getJSONObject(0).getString("text1"));
+
+
+
+
+                    }else {
+
+                        recyclerView.setVisibility(View.GONE);
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.KARTHI_VRUSTI_LIST,params,true);
+
+
+
+
+
+    }
+
 
 
 }

@@ -47,6 +47,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
         tvHoroscopeTitle.setText(getIntent().getStringExtra(Constant.TITLE)+" - "+getIntent().getStringExtra("Name"));
         raasi = getIntent().getStringExtra("Name");
 
+
         tvRaasi = findViewById(R.id.tvRaasi);
         tvDescription = findViewById(R.id.tvDescription);
         tvDate = findViewById(R.id.tvDate);
@@ -68,7 +69,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
 
 
         HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.TYPE,"Weekly");
+        params.put(Constant.TYPE,"Monthly");
         params.put(Constant.RASI,raasi);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {

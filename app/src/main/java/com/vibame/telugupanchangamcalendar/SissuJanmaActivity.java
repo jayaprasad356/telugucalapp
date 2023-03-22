@@ -1,7 +1,11 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.annotation.SuppressLint;
@@ -16,15 +20,26 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.adapter.ChildBirthAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.model.ChildBirth;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class SissuJanmaActivity extends AppCompatActivity {
 
@@ -47,6 +62,9 @@ public class SissuJanmaActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
     ImageView imgBack;
+    TextView tvtext1;
+    ChildBirthAdapter adapter;
+    RecyclerView recyclerView;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -70,16 +88,23 @@ public class SissuJanmaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sissu_janma);
+
+        activity = SissuJanmaActivity.this;
         imgLeft = findViewById(R.id.arrowleft);
         imgRight = findViewById(R.id.arrowright);
         ivArrowRight = findViewById(R.id.ivArrowRight);
         ivArrowLeft = findViewById(R.id.ivArrowLeft);
         tvMonthYear = findViewById(R.id.tvMonthYear);
         imgBack = findViewById(R.id.imgBack);
-        
+
+        tvtext1 = findViewById(R.id.tvtext1);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
 
-        activity = SissuJanmaActivity.this;
+
 
 
         imgBack .setOnClickListener(new View.OnClickListener() {
@@ -152,12 +177,137 @@ public class SissuJanmaActivity extends AppCompatActivity {
         tvMonthYear.setText(setTeluguMonth(month_year) + year);
 
 
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        childbirthlist(month);
+
+
+
+    }
+
+    private void childbirthlist(String month) {
+
+
+        String Month = month;
+
+        if (month.equals("0")){
+
+            Month = "January";
+        }
+
+        else if (month.equals("1")){
+
+            Month = "February";
+        }
+
+        else if (month.equals("2")){
+
+            Month = "March";
+        }
+
+        else if (month.equals("3")){
+
+            Month = "April";
+        }
+
+        else if (month.equals("4")){
+
+            Month = "May";
+        }
+
+        else if (month.equals("5")){
+
+            Month = "June";
+        }
+
+        else if (month.equals("6")){
+
+            Month = "July";
+        }
+
+        else if (month.equals("7")){
+
+            Month = "August";
+        }
+
+        else if (month.equals("8")){
+
+            Month = "September";
+        }
+
+        else if (month.equals("9")){
+
+            Month = "October";
+        }
+
+        else if (month.equals("10")){
+
+            Month = "November";
+        }
+
+        else if (month.equals("11")){
+
+            Month = "December";
+        }
+
+
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.MONTH,Month);
+        params.put(Constant.YEAR,year);
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+
+                        recyclerView.setVisibility(View.VISIBLE);
+                        Log.e("Sissu",response);
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
+                        JSONArray files = jsonarray2.getJSONArray(Constant.CHILD_BIRTH_VARIANT);
+                        Gson g = new Gson();
+                        ArrayList<ChildBirth> childBirths = new ArrayList<>();
+                        for (int i = 0; i < files.length(); i++) {
+                            JSONObject jsonObject1 = files.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Log.d("Varine",jsonObject1.toString());
+                                ChildBirth group = g.fromJson(jsonObject1.toString(), ChildBirth.class);
+                                childBirths.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        adapter = new ChildBirthAdapter(activity, childBirths);
+                        recyclerView.setAdapter(adapter);
+
+                        tvtext1.setText(jsonArray.getJSONObject(0).getString("text1"));
+
+
+
+
+                    }else {
+
+                        recyclerView.setVisibility(View.GONE);
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.CHILD_BIRTHLIST,params,true);
+
+
+
+
+
     }
 
     @SuppressLint("ResourceType")
     private void right() {
 
-        if (getYearNum().equals("2023") && getMonthNum().equals("12")) {
+        if (getYearNum().equals("2024") && getmonth().equals("04")) {
 
 
         } else {
@@ -174,6 +324,8 @@ public class SissuJanmaActivity extends AppCompatActivity {
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            childbirthlist(month);
     
 
         }
@@ -185,7 +337,7 @@ public class SissuJanmaActivity extends AppCompatActivity {
     private void left() {
 
 
-        if (getYearNum().equals("2023") && getMonthNum().equals("01")) {
+        if (getYearNum().equals("2023") && getmonth().equals("03")) {
 
 
         } else {
@@ -204,7 +356,11 @@ public class SissuJanmaActivity extends AppCompatActivity {
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
-    
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            childbirthlist(month);
+            
+
+
 
         }
 
@@ -219,7 +375,7 @@ public class SissuJanmaActivity extends AppCompatActivity {
         return teluguMonth;
     }
 
-    private String getMonthNum() {
+    private String getmonth() {
         Date newDate = null;
         try {
             newDate = df.parse("" + month_year);

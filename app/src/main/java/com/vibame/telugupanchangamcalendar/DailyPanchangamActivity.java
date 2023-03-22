@@ -305,7 +305,6 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     private void updateUI(Date date) {
         // Format the date as a string
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        SimpleDateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         dateString = dateFormat.format(date);
 
         // Update your UI elements with the new date

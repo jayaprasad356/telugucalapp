@@ -1,13 +1,15 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Gowri {
-    String id,time,description;
+    String id,time,morning,night;
 
-    public Gowri(String id, String time, String description) {
+    public Gowri(String id, String time, String morning, String night) {
         this.id = id;
         this.time = time;
-        this.description = description;
+        this.morning = morning;
+        this.night = night;
     }
+
 
     public String getId() {
         return id;
@@ -25,12 +27,20 @@ public class Gowri {
         this.time = time;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMorning() {
+        return morning;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMorning(String morning) {
+        this.morning = morning;
+    }
+
+    public String getNight() {
+        return night;
+    }
+
+    public void setNight(String night) {
+        this.night = night;
     }
 }
 

@@ -29,6 +29,9 @@ public class Constant {
     public static final String MONTHLY_PANCHANGAMLIST = BaseUrl + "monthly_panchangamlist.php";
     public static final String HOLIDAYS = BaseUrl + "holidays.php";
     public static final String HOROSCOPE_LIST = BaseUrl + "horoscope.php";
+    public static final String CHILD_BIRTHLIST = BaseUrl + "child_birthlist.php";
+    public static final String KARTHI_VRUSTI_LIST = BaseUrl + "karthi_vrusti-list.php";
+    public static final String SUBHA_MUHURTHAMULU_LIST = BaseUrl + "subha_muhurthamulu-list.php";
     public static final String IMPORTANT_DAYS = BaseUrl + "important_days.php";
 
     public static final String ID = "id";
@@ -36,6 +39,9 @@ public class Constant {
     public static final String PANCHANGAM_ID = "panchangam_id";
     public static final String IMAGE_ID = "image_id";
     public static final String IMAGE_CATEGORY_ID = "image_category_id";
+    public static final String CHILD_BIRTH_VARIANT = "child_birth_variant";
+    public static final String KARTHI_VRUSTI_VARIANT = "karthi_vrusti_variant";
+    public static final String SUBHA_MUHURTHAM_VARIANT = "subha_muhurtham_variant";
 
     public static final String VIDEO_CATEGORY_ID = "video_category_id";
     public static final String MUHURTHAM_ID = "muhurtham_id";

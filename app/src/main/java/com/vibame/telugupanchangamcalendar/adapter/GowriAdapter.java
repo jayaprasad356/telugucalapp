@@ -40,7 +40,8 @@ public class GowriAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
         holder.tvtime.setText(gowri.getTime());
-        holder.tvDescription.setText(gowri.getDescription());
+        holder.tvMorning.setText(gowri.getMorning());
+        holder.tvNight.setText(gowri.getNight());
 
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,13 +63,13 @@ public class GowriAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
-        final TextView tvtime,tvDescription;
+        final TextView tvtime,tvNight,tvMorning;
 
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvtime = itemView.findViewById(R.id.tvtime);
-            tvDescription = itemView.findViewById(R.id.tvDescription);
-
+            tvNight = itemView.findViewById(R.id.tvNight);
+            tvMorning = itemView.findViewById(R.id.tvMorning);
 
 
         }
