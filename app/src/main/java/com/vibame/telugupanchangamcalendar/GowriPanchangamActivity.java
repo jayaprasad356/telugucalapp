@@ -61,10 +61,10 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             if (Math.abs(velocityX) > Math.abs(velocityY)) {
                 if (e1.getX() < e2.getX()) {
                     // Swipe right
-                    if (!dayOfWeekString.equals("Monday"))
+                    if (!dayOfWeekString.equals("Sunday"))
                         onSwipeRight();
                 } else {
-                    if (!dayOfWeekString.equals("Sunday"))
+                    if (!dayOfWeekString.equals("Saturday"))
                         onSwipeLeft();
                 }
                 return true;
@@ -114,33 +114,14 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         SimpleDateFormat dayformat = new SimpleDateFormat("EEEE", Locale.getDefault());
         dayName = dayformat.format(date);
 
-        if (dayName.trim().equals("Monday")) {
-            currentDay = 1;
-        }
-        if (dayName.trim().equals("Tuesday")) {
-            currentDay = 2;
-        }
-        if (dayName.trim().equals("Wednesday")) {
-            currentDay = 3;
-        }
-        if (dayName.trim().equals("Thursday")) {
-            currentDay = 4;
-        }
-        if (dayName.trim().equals("Friday")) {
-            currentDay = 5;
-        }
-        if (dayName.trim().equals("Saturday")) {
-            currentDay = 6;
-        }
-        if (dayName.trim().equals("Sunday")) {
-            currentDay = 7;
-        }
-
         tvMonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 clickedDay = 1;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Monday");
+
 
             }
         });
@@ -148,7 +129,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 2;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Tuesday");
 
 
             }
@@ -157,7 +140,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 3;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Wednesday");
 
             }
         });
@@ -165,7 +150,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 4;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Thursday");
 
             }
         });
@@ -173,7 +160,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 5;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Friday");
             }
         });
 
@@ -181,7 +170,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 6;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Saturday");
 
             }
         });
@@ -189,14 +180,15 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 clickedDay = 7;
-                getClickedDay(clickedDay);
+                unselecctallday();
+                tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
+                list("Sunday");
 
 
             }
         });
 
 
-        Toast.makeText(activity, "" + dayOfWeek, Toast.LENGTH_SHORT).show();
 
 
         // Map the day of the week to a string
@@ -206,43 +198,43 @@ public class GowriPanchangamActivity extends AppCompatActivity {
                 dayOfWeekString = "Sunday";
                 unselecctallday();
                 tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Sunday");
                 break;
             case Calendar.MONDAY:
                 dayOfWeekString = "Monday";
                 unselecctallday();
                 tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Monday");
                 break;
             case Calendar.TUESDAY:
                 dayOfWeekString = "Tuesday";
                 unselecctallday();
                 tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Tuesday");
                 break;
             case Calendar.WEDNESDAY:
                 dayOfWeekString = "Wednesday";
                 unselecctallday();
                 tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Wednesday");
                 break;
             case Calendar.THURSDAY:
                 dayOfWeekString = "Thursday";
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Thursday");
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Friday");
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Saturday");
                 break;
         }
 
@@ -253,23 +245,7 @@ public class GowriPanchangamActivity extends AppCompatActivity {
 
     }
 
-    private void getClickedDay(int clickedDay) {
-        if (clickedDay<currentDay){
-            int temp=currentDay-clickedDay;
-            temp = temp * -1;
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DAY_OF_YEAR, temp);
-            Date date = calendar.getTime();
-            Toast.makeText(GowriPanchangamActivity.this, date.toString(), Toast.LENGTH_SHORT).show();
 
-        }else {
-            int temp=clickedDay-currentDay;
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DAY_OF_YEAR, temp);
-            Date date = calendar.getTime();
-            Toast.makeText(GowriPanchangamActivity.this, date.toString(), Toast.LENGTH_SHORT).show();
-        }
-    }
 
     private void unselecctallday() {
         tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.colorBlack));
@@ -285,33 +261,36 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     private void list(String day) {
         HashMap<String, String> params = new HashMap<>();
         params.put(Constant.GOWRI, "1");
-        params.put(Constant.DATE, day);
+        params.put(Constant.DAY, day);
         ApiConfig.RequestToVolley((result, response) -> {
             Log.d("GOWRI_PAN", response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(SUCCESS)) {
-                        recyclerView.setVisibility(View.VISIBLE);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ArrayList<Gowri> gowris = new ArrayList<>();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
+                                recyclerView.setVisibility(View.VISIBLE);
                                 Gowri group = g.fromJson(jsonObject1.toString(), Gowri.class);
                                 gowris.add(group);
-                            } else {
-                                break;
                             }
+
+                            else {
+
+                                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                         gowriAdapter = new GowriAdapter(activity, gowris);
                         recyclerView.setAdapter(gowriAdapter);
                     } else {
 
                         recyclerView.setVisibility(View.GONE);
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                       Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -353,43 +332,43 @@ public class GowriPanchangamActivity extends AppCompatActivity {
                 dayOfWeekString = "Sunday";
                 unselecctallday();
                 tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Sunday");
                 break;
             case Calendar.MONDAY:
                 dayOfWeekString = "Monday";
                 unselecctallday();
                 tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Monday");
                 break;
             case Calendar.TUESDAY:
                 dayOfWeekString = "Tuesday";
                 unselecctallday();
                 tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Tuesday");
                 break;
             case Calendar.WEDNESDAY:
                 dayOfWeekString = "Wednesday";
                 unselecctallday();
                 tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Wednesday");
                 break;
             case Calendar.THURSDAY:
                 dayOfWeekString = "Thursday";
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Thursday");
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Friday");
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Saturday");
                 break;
         }
         updateUI(calendar.getTime());
@@ -410,43 +389,43 @@ public class GowriPanchangamActivity extends AppCompatActivity {
                 dayOfWeekString = "Sunday";
                 unselecctallday();
                 tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Sunday");
                 break;
             case Calendar.MONDAY:
                 dayOfWeekString = "Monday";
                 unselecctallday();
                 tvMonday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Monday");
                 break;
             case Calendar.TUESDAY:
                 dayOfWeekString = "Tuesday";
                 unselecctallday();
                 tvTuesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Tuesday");
                 break;
             case Calendar.WEDNESDAY:
                 dayOfWeekString = "Wednesday";
                 unselecctallday();
                 tvWednesday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Wednesday");
                 break;
             case Calendar.THURSDAY:
                 dayOfWeekString = "Thursday";
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Thursday");
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Friday");
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
-                list(dateString);
+                list("Saturday");
                 break;
         }
         // Update your UI with the new date

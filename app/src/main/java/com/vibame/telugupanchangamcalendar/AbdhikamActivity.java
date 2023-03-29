@@ -1,11 +1,16 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,15 +19,28 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.adapter.AbdhikamAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.ChildBirthAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.model.Abdhikam;
+import com.vibame.telugupanchangamcalendar.model.ChildBirth;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 public class AbdhikamActivity extends AppCompatActivity {
 
@@ -44,6 +62,9 @@ public class AbdhikamActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
     ImageView imgBack;
+    AbdhikamAdapter adapter;
+    RecyclerView recyclerView;
+    TextView tvtext1;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -88,10 +109,17 @@ public class AbdhikamActivity extends AppCompatActivity {
             }
         });
 
+        tvtext1 = findViewById(R.id.tvtext1);
+
 
 
 
         relativeLayout = findViewById(R.id.slider);
+        recyclerView = findViewById(R.id.recyclerView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
 
 
         targetCalendar = Calendar.getInstance();
@@ -148,6 +176,8 @@ public class AbdhikamActivity extends AppCompatActivity {
         });
 
         tvMonthYear.setText(setTeluguMonth(month_year) + year);
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        Abdhikam(month);
 
 
     }
@@ -155,7 +185,7 @@ public class AbdhikamActivity extends AppCompatActivity {
     @SuppressLint("ResourceType")
     private void right() {
 
-        if (getYearNum().equals("2023") && getMonthNum().equals("12")) {
+        if (getYearNum().equals("2024") && getMonthNum().equals("04")) {
 
 
         } else {
@@ -173,6 +203,8 @@ public class AbdhikamActivity extends AppCompatActivity {
             year = String.valueOf(c.get(Calendar.YEAR));
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
 
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            Abdhikam(month);
 
         }
 
@@ -183,7 +215,7 @@ public class AbdhikamActivity extends AppCompatActivity {
     private void left() {
 
 
-        if (getYearNum().equals("2023") && getMonthNum().equals("01")) {
+        if (getYearNum().equals("2023") && getMonthNum().equals("03")) {
 
 
         } else {
@@ -202,8 +234,8 @@ public class AbdhikamActivity extends AppCompatActivity {
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
-
-
+            String month = String.valueOf(c.get(Calendar.MONTH));
+            Abdhikam(month);
         }
 
 
@@ -259,6 +291,129 @@ public class AbdhikamActivity extends AppCompatActivity {
     public void onSwipeRight() {
         left();
     }
+
+
+
+
+    private void Abdhikam(String month) {
+
+
+        String Month = month;
+
+        if (month.equals("0")){
+
+            Month = "January";
+        }
+
+        else if (month.equals("1")){
+
+            Month = "February";
+        }
+
+        else if (month.equals("2")){
+
+            Month = "March";
+        }
+
+        else if (month.equals("3")){
+
+            Month = "April";
+        }
+
+        else if (month.equals("4")){
+
+            Month = "May";
+        }
+
+        else if (month.equals("5")){
+
+            Month = "June";
+        }
+
+        else if (month.equals("6")){
+
+            Month = "July";
+        }
+
+        else if (month.equals("7")){
+
+            Month = "August";
+        }
+
+        else if (month.equals("8")){
+
+            Month = "September";
+        }
+
+        else if (month.equals("9")){
+
+            Month = "October";
+        }
+
+        else if (month.equals("10")){
+
+            Month = "November";
+        }
+
+        else if (month.equals("11")){
+
+            Month = "December";
+        }
+
+
+        HashMap<String,String> params = new HashMap<>();
+        params.put(Constant.MONTH,Month);
+        params.put(Constant.YEAR,year);
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+
+
+                        Log.e("Sissu",response);
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
+                        JSONArray files = jsonarray2.getJSONArray(Constant.ABDHIKAM_VARIANT);
+                        Gson g = new Gson();
+                        ArrayList<Abdhikam> abdhikams = new ArrayList<>();
+                        for (int i = 0; i < files.length(); i++) {
+                            JSONObject jsonObject1 = files.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                recyclerView.setVisibility(View.VISIBLE);
+                                Log.d("Varine",jsonObject1.toString());
+                                Abdhikam group = g.fromJson(jsonObject1.toString(), Abdhikam.class);
+                                abdhikams.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        adapter = new AbdhikamAdapter(activity,abdhikams);
+                        recyclerView.setAdapter(adapter);
+
+                        tvtext1.setText(jsonArray.getJSONObject(0).getString("text1"));
+
+
+
+
+                    }else {
+
+                        recyclerView.setVisibility(View.GONE);
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.ABDHIKAM_LIST,params,true);
+
+
+
+
+
+    }
+
 
 
 }

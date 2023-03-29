@@ -1,5 +1,7 @@
 package com.vibame.telugupanchangamcalendar;
 
+import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -13,9 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 public class GrahaluActivity extends AppCompatActivity {
 
-    LinearLayout llRahu,llGuru,llBudha,llSukra,llShani,llRah,llKetu,llMangal,lllast;
+    LinearLayout llRahu, llGuru, llBudha, llSukra, llShani, llRah, llKetu, llMangal, lllast;
     Activity activity;
 
     @SuppressLint("MissingInflatedId")
@@ -37,13 +47,13 @@ public class GrahaluActivity extends AppCompatActivity {
         llMangal = findViewById(R.id.llMangal);
         lllast = findViewById(R.id.lllast);
 
-
-
         llRahu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
+                String name = "Rahuvu";
+                apicall(name);
+                //  showdialog();
 
 
             }
@@ -52,50 +62,67 @@ public class GrahaluActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showdialog();
+                String name = "Gurudu";
+                apicall(name);
+                //  showdialog();
 
-            }});
+            }
+        });
 
         llBudha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
-
-            }});
+                String name = "Bhudhudu";
+                apicall(name);
+                //  showdialog();
+            }
+        });
 
 
         llSukra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
 
-            }});
+                String name = "Shani";
+                apicall(name);
+                //  showdialog();
+            }
+        });
 
         llShani.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
 
-            }});
+                String name = "Suryudu";
+                apicall(name);
+                //  showdialog();
+
+            }
+        });
 
         llRah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
 
-            }});
+                String name = "Shukrudu";
+                apicall(name);
+                //  showdialog();
+            }
+        });
 
         llKetu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
-
-            }});
+                String name = "Kethuvu";
+                apicall(name);
+                //  showdialog();
+            }
+        });
 
         llMangal.setOnClickListener(new View.OnClickListener() {
 
@@ -103,17 +130,58 @@ public class GrahaluActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showdialog();
-
-            }});
+                String name = "Kujudu";
+                apicall(name);
+                //  showdialog();
+            }
+        });
 
         lllast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                showdialog();
+                String name = "Chandhrudu";
+                apicall(name);
+                //  showdialog();
 
-            }});
+            }
+        });
+
+
+    }
+
+    private void apicall(String name) {
+
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.NAME, name);
+
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+
+
+                        String Title = jsonArray.getJSONObject(0).getString("title");
+                        String Description = jsonArray.getJSONObject(0).getString("description");
+
+                       showdialog(Title, Description);
+
+
+                    } else {
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.NAVA_GRAHA_PRAVESHAM, params, true);
 
 
     }
@@ -121,7 +189,7 @@ public class GrahaluActivity extends AppCompatActivity {
 
 
 
-    private void showdialog() {
+    private void showdialog(String title, String description) {
 
         Dialog dialog = new Dialog(activity);
 
@@ -130,8 +198,14 @@ public class GrahaluActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
 
-       TextView tvdescription = dialog.findViewById(R.id.tvdescription);
-       ImageButton dialogDismiss_button = dialog.findViewById(R.id.dialogDismiss_button);
+        TextView tvdescription = dialog.findViewById(R.id.tvdescription);
+        TextView tvdate = dialog.findViewById(R.id.tvdate);
+        ImageButton dialogDismiss_button = dialog.findViewById(R.id.dialogDismiss_button);
+
+
+        tvdate.setText(title);
+        tvdescription.setText(description);
+
 
 
 
@@ -147,4 +221,4 @@ public class GrahaluActivity extends AppCompatActivity {
 
     }
 
-    }
+}

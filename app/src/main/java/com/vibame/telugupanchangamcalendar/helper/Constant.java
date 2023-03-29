@@ -23,6 +23,9 @@ public class Constant {
     public static final String VIDEO_LIST_URL = BaseUrl + "video-post-list.php";
     public static final String VIDEO_URL = BaseUrl + "video-category.php";
     public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
+    public static final String RAHU_YAMAGANDAM = BaseUrl + "rahu_yamagandam-list.php";
+    public static final String MOUDYA_DHINAMULU = BaseUrl + "moudya_dhinamulu.php";
+    public static final String GRAHANAM = BaseUrl + "grahanam.php";
     public static final String BHAKTHI_ARTICLES_LIST = BaseUrl + "bhakthi_articles-list.php";
     public static final String PANCHANGAMLIST_BYDATE = BaseUrl + "panchangamlist_bydate.php";
     public static final String MONTH_FESTIVAL = BaseUrl + "month_festivals.php";
@@ -30,6 +33,8 @@ public class Constant {
     public static final String HOLIDAYS = BaseUrl + "holidays.php";
     public static final String HOROSCOPE_LIST = BaseUrl + "horoscope.php";
     public static final String CHILD_BIRTHLIST = BaseUrl + "child_birthlist.php";
+    public static final String ABDHIKAM_LIST = BaseUrl + "abdhikam-list.php";
+    public static final String NAVA_GRAHA_PRAVESHAM = BaseUrl + "nava_graha_pravesham-list.php";
     public static final String KARTHI_VRUSTI_LIST = BaseUrl + "karthi_vrusti-list.php";
     public static final String SUBHA_MUHURTHAMULU_LIST = BaseUrl + "subha_muhurthamulu-list.php";
     public static final String IMPORTANT_DAYS = BaseUrl + "important_days.php";
@@ -40,6 +45,7 @@ public class Constant {
     public static final String IMAGE_ID = "image_id";
     public static final String IMAGE_CATEGORY_ID = "image_category_id";
     public static final String CHILD_BIRTH_VARIANT = "child_birth_variant";
+    public static final String ABDHIKAM_VARIANT = "abdhikam_variant";
     public static final String KARTHI_VRUSTI_VARIANT = "karthi_vrusti_variant";
     public static final String SUBHA_MUHURTHAM_VARIANT = "subha_muhurtham_variant";
 
@@ -59,6 +65,7 @@ public class Constant {
     public static final String YAMANGANDAM = "yamangandam";
     public static final String THIDHI = "thidhi";
     public static final String HORA_CHAKRAM = "hora_chakram";
+    public static final String BHARGAVA_PANCHANGAM = "bhargava_panchangam";
     public static final String KARANAM = "karanam";
     public static final String SAKUNALU = "sakunalu";
     public static final String BALLI_SASTHRAM = "balli_sasthram";

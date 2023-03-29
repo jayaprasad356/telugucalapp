@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/slider"
     tools:context=".BhargavaPanchangamActivity">
 
 
@@ -25,15 +26,17 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+                android:background="@drawable/ic_baseline_keyboard_arrow_left_24"
+                android:backgroundTint="@color/black"
+                />
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bhargava Panchangam"
+                android:text="భార్గవ పంచాంగం"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_18sdp"
                 />
 
@@ -75,105 +78,123 @@
 
         </LinearLayout>
 
-
-        <HorizontalScrollView
+        <RelativeLayout
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:scrollbars="none"
             android:background="@drawable/corner_bg"
             android:backgroundTint="@color/colorWhite"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+
             >
 
 
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/_10sdp"
+                android:scrollbars="none"
+                android:padding="@dimen/_5sdp"
                 >
 
 
 
-                <TextView
-                    android:id="@+id/tvMonday"
-                    android:layout_width="wrap_content"
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Monday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    />
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10sdp"
+                    >
 
-                <TextView
-                    android:id="@+id/tvTuesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tuesday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    <TextView
+                        android:id="@+id/tvSunday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ఆది"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
 
-                    />
-                <TextView
-                    android:id="@+id/tvWednesday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wednesday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                        />
 
-                    />
-                <TextView
-                    android:id="@+id/tvThursday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Thrusday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    <TextView
+                        android:id="@+id/tvMonday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="సోమ"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        />
 
-                    />
-                <TextView
-                    android:id="@+id/tvFriday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Friday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                    <TextView
+                        android:id="@+id/tvTuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="మంగళ"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
 
-                    />
-                <TextView
-                    android:id="@+id/tvSaturday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Saturday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvWednesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="బుధ"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
 
-                    />
-                <TextView
-                    android:id="@+id/tvSunday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sunday"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorBlack"
-                    android:layout_marginRight="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:id="@+id/tvThursday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="గురు"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
 
-                    />
+                        />
+                    <TextView
+                        android:id="@+id/tvFriday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="శుక్ర"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
+
+                        />
+                    <TextView
+                        android:id="@+id/tvSaturday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="శనివారము"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorBlack"
+                        android:layout_marginRight="@dimen/_10sdp"
+
+                        />
 
 
 
-            </LinearLayout>
 
-        </HorizontalScrollView>
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+
 
 
         <androidx.recyclerview.widget.RecyclerView
