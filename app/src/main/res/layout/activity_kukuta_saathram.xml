@@ -28,8 +28,10 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
+            android:text="కుక్కుట శాస్త్రం"
+            android:fontFamily="@font/sree"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+            />
 
     </LinearLayout>
 

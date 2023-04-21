@@ -118,7 +118,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         "ఫిబ్రవరి",
         "మార్చి",
         "ఏప్రిల్",
-        " మే ",
+        "మే",
         "జూన్",
         "జూలై",
         "ఆగస్టు",
@@ -131,7 +131,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         "January",
         "February",
         "March",
-        "Aprial",
+        "April",
         "May",
         "June",
         "July",
@@ -324,8 +324,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
     private fun montlyPanchangam(year: String, month: String) {
 
-
-
         var Months = ""
 
         if(month == "జనవరి"){
@@ -363,13 +361,13 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
         }
 
-        else if (month =="జూలై")
+        else if (month =="జూలై")
         {
             Months = "July"
 
         }
 
-        else if (month =="ఆగస్ట్")
+        else if (month =="ఆగస్టు")
         {
             Months = "August"
 

@@ -1,6 +1,7 @@
 package com.vibame.telugupanchangamcalendar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,7 +46,7 @@ public class PoojaluTabActivity extends AppCompatActivity {
         session = new Session(activity);
         poojalu_id = session.getData(Constant.POOJALU_ID);
         databaseHelper = new DatabaseHelper(activity);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(activity, 1));
         poojaluTabList();
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override

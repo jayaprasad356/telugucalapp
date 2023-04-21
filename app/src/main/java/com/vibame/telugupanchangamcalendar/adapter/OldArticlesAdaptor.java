@@ -53,6 +53,7 @@ public class OldArticlesAdaptor extends RecyclerView.Adapter<OldArticlesAdaptor.
                 Intent intent = new Intent(activity, ArticleViewActivity.class);
                 intent.putExtra(Constant.ID,oldDatas.getId());
                 intent.putExtra(Constant.TITLE,oldDatas.getTitle());
+                intent.putExtra(Constant.NAME,"పండుగలు విశిష్టత");
                 intent.putExtra(Constant.DESCRIPTION,oldDatas.getDescription());
                 intent.putExtra(Constant.IMAGE,oldDatas.getImage());
                 activity.startActivity(intent);

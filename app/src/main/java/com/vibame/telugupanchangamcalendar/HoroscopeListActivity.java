@@ -341,6 +341,42 @@ public class HoroscopeListActivity extends AppCompatActivity {
         });
 
 
+        lldhanu.setOnClickListener(view -> {
+
+            String Name = tvDhanu.getText().toString();
+
+            if (Objects.equals(value, "1")){
+                Intent intent = new Intent(HoroscopeListActivity.this, DailyHoroscopeActivity.class);
+                intent.putExtra(Constant.TITLE, "ధిన ఫలాలు");
+                intent.putExtra("Name", Name);
+                startActivity(intent);
+            }
+
+            else if (Objects.equals(value, "2")){
+                Intent intent = new Intent(HoroscopeListActivity.this, WeeklyHoroscopeActivity.class);
+                intent.putExtra(Constant.TITLE, "వార ఫలాలు");
+                intent.putExtra("Name", Name);
+                startActivity(intent);
+            }
+
+            else if (Objects.equals(value, "3")){
+                Intent intent = new Intent(HoroscopeListActivity.this, MontliHoroscopeActivity.class);
+                intent.putExtra(Constant.TITLE, "మాస ఫలాలు");
+                intent.putExtra("Name", Name);
+                startActivity(intent);
+            }
+
+            else if (Objects.equals(value, "4")){
+                Intent intent = new Intent(HoroscopeListActivity.this, YearlyHoroscopeActivity.class);
+                intent.putExtra(Constant.TITLE, "వార్షిక  ఫలాలు");
+                intent.putExtra("Name", Name);
+                startActivity(intent);
+            }
+
+        });
+
+
+
         llmakara.setOnClickListener(v -> {
 
             String Name = tvMakara.getText().toString();

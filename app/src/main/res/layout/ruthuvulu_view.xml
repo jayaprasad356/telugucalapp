@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_90sdp"
+    android:layout_height="@dimen/_300sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="5dp"
     android:layout_marginHorizontal="10dp">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="0dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_centerInParent="true"
         app:cardBackgroundColor="#E0F1FF"
         app:cardCornerRadius="30dp"
@@ -17,22 +19,22 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/RashiTime"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/mallanna"
                 android:gravity="center"
-                android:text="starts from x to x"
+                android:text="starts from x to x "
                 android:textColor="@color/colorBlack"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp" />
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="160dp"
@@ -48,10 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/ramabhadra"
             android:text="Somex"
             android:textColor="@color/colorBlack"
-            android:textSize="17sp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
             android:typeface="monospace" />
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

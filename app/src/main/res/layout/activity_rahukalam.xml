@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:text="Rahukalam"
+                android:text="రాహుకాలం"
+                android:fontFamily="@font/sree"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_18sdp" />
 
@@ -110,15 +111,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
                     >
 
                     <TextView
                         android:id="@+id/tvSunday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ఆది"
-                        android:textStyle="bold"
+                        android:text="ఆదివారం"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
@@ -128,8 +130,9 @@
                         android:id="@+id/tvMonday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="సోమ"
-                        android:textStyle="bold"
+                        android:text="సోమవారం"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
                         />
@@ -138,8 +141,9 @@
                         android:id="@+id/tvTuesday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="మంగళ"
-                        android:textStyle="bold"
+                        android:text="మంగళవారం"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
@@ -148,8 +152,9 @@
                         android:id="@+id/tvWednesday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="బుధ"
-                        android:textStyle="bold"
+                        android:text="బుధవారం"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
@@ -158,8 +163,10 @@
                         android:id="@+id/tvThursday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="గురు"
-                        android:textStyle="bold"
+                        android:text="గురువారం"
+
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
@@ -168,9 +175,10 @@
                         android:id="@+id/tvFriday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="శుక్ర"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorBlack"
+                        android:text="శుక్రవారం"
+
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"                        android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
                         />
@@ -178,8 +186,9 @@
                         android:id="@+id/tvSaturday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="శనివారము"
-                        android:textStyle="bold"
+                        android:text="శనివారం"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:textColor="@color/colorBlack"
                         android:layout_marginRight="@dimen/_10sdp"
 
@@ -213,16 +222,18 @@
                 android:text="రాహుకాలం"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16sdp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/ramabhadra"
+                />
 
             <TextView
                 android:id="@+id/tvRahukalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/mallanna"
                 android:text="-"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
 
@@ -242,7 +253,7 @@
                 android:text="యమగండం"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_16sdp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/ramabhadra" />
 
             <TextView
                 android:id="@+id/tvYamagandam"
@@ -251,7 +262,9 @@
                 android:gravity="center"
                 android:text="-"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                />
 
         </LinearLayout>
 

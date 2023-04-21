@@ -48,7 +48,7 @@ public class RamayanamActivity extends AppCompatActivity {
 
         tvHead = findViewById(R.id.tvHead);
 
-        tvHead.setText(Tittle);
+
 
 
         imgBack = findViewById(R.id.imgBack);

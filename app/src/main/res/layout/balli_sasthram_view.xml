@@ -15,10 +15,11 @@
         android:paddingVertical="5dp"
         android:paddingBottom="@dimen/_5sdp"
         android:text="Title"
+        android:fontFamily="@font/ramabhadra"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/_14sdp"
+      />
 
     <TextView
         android:id="@+id/tv_desc"
@@ -26,8 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/sree"
+        android:fontFamily="@font/mallanna"
+        android:textColor="@color/black"
         android:paddingHorizontal="20dp"
+        android:textSize="@dimen/_16sdp"
         android:text="dkjlfakjl;asjkl;fajkl;afsjklafsjklafjklafjkla
         fjkladfsjkladfsjkladfsjkladfsjkladfsjklafsjklafsjkl;afsjklaf
         jkl;afsljk;afklj;afjkl;fajklasjkljklafsjkl;afkljafjklf
@@ -60,11 +63,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/ramabhadra"
                 android:gravity="center_horizontal"
                 android:text="Female Body"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_14sdp" />
 
         </RelativeLayout>
 
@@ -81,9 +84,9 @@
                 android:layout_height="wrap_content"
                 android:text="Uses"
                 android:textAlignment="center"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_14sdp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -132,10 +135,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Desc"
+                android:fontFamily="@font/mallanna"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp"
+                 />
         </LinearLayout>
     </LinearLayout>
 
@@ -184,8 +188,9 @@
                 android:text="Desc"
                 android:textAlignment="center"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                 />
         </LinearLayout>
     </LinearLayout>
 

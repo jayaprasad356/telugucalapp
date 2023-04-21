@@ -40,8 +40,7 @@ public class KakiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_kaki);
         recyclerView = findViewById(R.id.kaki_rcView);
         imgBack = findViewById(R.id.back_opt);
-        title = findViewById(R.id.tvHead);
-        title.setText(R.string.kaki_sasthram);
+
 
         activity = KakiActivity.this;
         imgBack.setOnClickListener(view -> onBackPressed());

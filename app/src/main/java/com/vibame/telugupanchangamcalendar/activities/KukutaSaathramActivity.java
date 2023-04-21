@@ -46,8 +46,7 @@ public class KukutaSaathramActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.pilli_rcView);
         hen_start_rcView = findViewById(R.id.hen_start_rcView);
         imgBack = findViewById(R.id.back_opt);
-        title = findViewById(R.id.tvHead);
-        title.setText(R.string.kukuta_sasthram);
+
 
 
         activity = KukutaSaathramActivity.this;

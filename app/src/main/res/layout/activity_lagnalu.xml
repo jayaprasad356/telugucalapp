@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Lagnalu"
+            android:text="లగ్నాలు"
+            android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />

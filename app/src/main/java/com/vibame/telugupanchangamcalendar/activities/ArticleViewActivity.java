@@ -19,7 +19,7 @@ public class ArticleViewActivity extends AppCompatActivity {
     TextView tvHead,tvTitle,tvDescription;
     ImageView imgGod,imgBack;
     Activity activity;
-    String Title,Decription,Image;
+    String Title,Decription,Image,Name;
     ImageButton btnWAShare;
 
     @Override
@@ -39,9 +39,10 @@ public class ArticleViewActivity extends AppCompatActivity {
         Title = getIntent().getStringExtra(Constant.TITLE);
         Decription = getIntent().getStringExtra(Constant.DESCRIPTION);
         Image = getIntent().getStringExtra(Constant.IMAGE);
+        Name = getIntent().getStringExtra(Constant.NAME);
 
 
-        tvHead.setText(Title);
+        tvHead.setText(Name);
         tvTitle.setText(Title);
         tvDescription.setText(Decription);
         Glide.with(activity).load(Image).into(imgGod);

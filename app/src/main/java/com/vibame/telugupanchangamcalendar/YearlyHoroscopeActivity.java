@@ -32,8 +32,8 @@ import java.util.HashMap;
 
 public class YearlyHoroscopeActivity extends AppCompatActivity {
 
-    TextView tvHoroscopeTitle,tvRaasi,tvDescription,tvDate,tvTitle;
-    TextView tvtext1,tvtext2,tvtext3,tvtext4;
+    TextView tvHoroscopeTitle, tvRaasi, tvDescription, tvTitle;
+    TextView tvtext1, tvtext2, tvtext3, tvtext4;
     Activity activity;
     Session session;
     String raasi;
@@ -41,6 +41,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
     Calendar calendar;
     RecyclerView recyclerView;
     YearlyHoroscopeAdapter adapter;
+    String rasi;
 
 
     @SuppressLint("MissingInflatedId")
@@ -54,12 +55,43 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
 
         tvHoroscopeTitle = findViewById(R.id.tvHoroscopeTitle);
-        tvHoroscopeTitle.setText(getIntent().getStringExtra(Constant.TITLE)+" - "+getIntent().getStringExtra("Name"));
+        tvHoroscopeTitle.setText(getIntent().getStringExtra(Constant.TITLE) + " - " + getIntent().getStringExtra("Name"));
         raasi = getIntent().getStringExtra("Name");
+
+
+
+
+
+
+        if (raasi.equals("మేషరాశి")) {
+            rasi = "Mesham";
+        } else if (raasi.equals("వృషభరాశి")) {
+            rasi = "Vrushabham";
+        } else if (raasi.equals("మిథునరాశి")) {
+            rasi = "Midhunam";
+        } else if (raasi.equals("కర్కాటకరాశి")) {
+            rasi = "Karkatakam";
+        } else if (raasi.equals("సింహరాశి")) {
+            rasi = "Simham";
+        } else if (raasi.equals("కన్యారాశి")) {
+            rasi = "Kanya";
+        } else if (raasi.equals("తులారాశి")) {
+            rasi = "Thula";
+        } else if (raasi.equals("వృశ్చిక రాశి")) {
+            rasi = "Vruschikam";
+        } else if (raasi.equals("ధనూరాశి")) {
+            rasi = "Dhanussu";
+        } else if (raasi.equals("మకరరాశి")) {
+            rasi = "Makaram";
+        } else if (raasi.equals("కుంభరాశి")) {
+            rasi = "Kumbham";
+        } else if (raasi.equals("మీనరాశి")) {
+            rasi = "Meenam";
+        }
+
 
         tvRaasi = findViewById(R.id.tvRaasi);
         tvDescription = findViewById(R.id.tvDescription);
-        tvDate = findViewById(R.id.tvDate);
         tvTitle = findViewById(R.id.tvTitle);
         tvtext1 = findViewById(R.id.tvtext1);
         tvtext2 = findViewById(R.id.tvtext2);
@@ -77,13 +109,10 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
 
 
-
-
+        tvRaasi.setText(year + " - " + raasi);
 
         horoscope();
         horoscopeVarient();
-
-
 
 
     }
@@ -91,25 +120,24 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
     private void horoscopeVarient() {
 
 
-
-        HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.TYPE,"Yearly");
-        params.put(Constant.RASI,raasi);
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.TYPE, "Yearly");
+        params.put(Constant.RASI, rasi);
         ApiConfig.RequestToVolley((result, response) -> {
-            if(result) {
+            if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Yearlyhoroscope",response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        Log.d("Yearlyhoroscope", response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
+                        JSONObject jsonarray2 = jsonArray.getJSONObject(0);
                         JSONArray files = jsonarray2.getJSONArray(Constant.YEARLY_HOROSCOPE_VARIANT);
                         Gson g = new Gson();
                         ArrayList<YearlyHoroscope> yearlyHoroscopes = new ArrayList<>();
                         for (int i = 0; i < files.length(); i++) {
                             JSONObject jsonObject1 = files.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                Log.d("Varine",jsonObject1.toString());
+                                Log.d("Varine", jsonObject1.toString());
                                 YearlyHoroscope group = g.fromJson(jsonObject1.toString(), YearlyHoroscope.class);
                                 yearlyHoroscopes.add(group);
                             } else {
@@ -120,19 +148,16 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
 
 
-
-
-                    }else {
+                    } else {
 
 
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.HOROSCOPE_LIST,params,true);
-
+        }, activity, Constant.HOROSCOPE_LIST, params, true);
 
 
     }
@@ -141,24 +166,23 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
     private void horoscope() {
 
 
-
-        HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.TYPE,"Yearly");
-        params.put(Constant.RASI,raasi);
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.TYPE, "Yearly");
+        params.put(Constant.RASI, rasi);
         ApiConfig.RequestToVolley((result, response) -> {
-            if(result) {
+            if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Yearlyhoroscope",response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        Log.d("Yearlyhoroscope", response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
+                        JSONObject jsonarray2 = jsonArray.getJSONObject(0);
                         JSONArray files = jsonarray2.getJSONArray(Constant.YEARLY_HOROSCOPE_VARIANT);
 
                         Gson g = new Gson();
 
 
-                        tvRaasi.setText(year+" - "+jsonArray.getJSONObject(0).getString("rasi"));
+
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
                         tvTitle.setText(jsonArray.getJSONObject(0).getString("title"));
                         tvtext1.setText(jsonArray.getJSONObject(0).getString("adhayam"));
@@ -167,19 +191,16 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
                         tvtext4.setText(jsonArray.getJSONObject(0).getString("aavamanam"));
 
 
-
-
-                    }else {
+                    } else {
 
 
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.HOROSCOPE_LIST,params,true);
-
+        }, activity, Constant.HOROSCOPE_LIST, params, true);
 
 
     }

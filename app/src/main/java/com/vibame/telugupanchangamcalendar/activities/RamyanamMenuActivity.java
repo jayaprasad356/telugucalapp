@@ -51,6 +51,10 @@ public class RamyanamMenuActivity extends AppCompatActivity {
         tvHead.setText(Tittle);
 
 
+
+
+
+
         imgBack = findViewById(R.id.imgBack);
         imgBack.setOnClickListener(view -> onBackPressed());
 

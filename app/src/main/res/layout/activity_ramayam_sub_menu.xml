@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RamayamSubMenuActivity">
+    tools:context=".activities.RamayamSubMenuActivity"
+    android:background="#D7EDFF"
+    >
 
 
 
@@ -30,9 +32,10 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:text="Ramayanam"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/black"
+            android:fontFamily="@font/sree"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+         />
 
     </LinearLayout>
 
@@ -44,7 +47,9 @@
         android:layout_marginHorizontal="6dp"
         android:layout_marginVertical="15dp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="@color/colorWhite">
+        android:backgroundTint="@color/white">
+
+
 
 
 
@@ -52,7 +57,6 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="25dp"
             android:layout_marginTop="20dp" />
 
     </RelativeLayout>

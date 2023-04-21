@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/teluguyear_bg"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/white"
         android:weightSum="2"
         >
 
@@ -25,10 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text=" pushpalu 1"
-            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
             android:textColor="@color/colorBlack"
             android:background="@drawable/teluguyear_bg"
             android:backgroundTint="@color/colorHead"
+            android:fontFamily="@font/ramabhadra"
+            android:gravity="center"
             android:padding="@dimen/_10sdp"
             />
         <TextView
@@ -38,9 +40,10 @@
             android:layout_height="match_parent"
             android:text="pushpalu 2"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_10sdp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+           android:fontFamily="@font/mallanna"
             android:background="@drawable/teluguyear_bg"
+            android:backgroundTint="@color/white"
             android:gravity="center"
             />
 

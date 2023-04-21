@@ -37,6 +37,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
     String raasi;
     int year;
     Calendar calendar;
+    String rasi;
 
 
     @SuppressLint("MissingInflatedId")
@@ -52,6 +53,33 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         tvHoroscopeTitle.setText(getIntent().getStringExtra(Constant.TITLE)+" - "+getIntent().getStringExtra("Name"));
         raasi = getIntent().getStringExtra("Name");
 
+
+        if (raasi.equals("మేషరాశి")) {
+            rasi = "Mesham";
+        } else if (raasi.equals("వృషభరాశి")) {
+            rasi = "Vrushabham";
+        } else if (raasi.equals("మిథునరాశి")) {
+            rasi = "Midhunam";
+        } else if (raasi.equals("కర్కాటకరాశి")) {
+            rasi = "Karkatakam";
+        } else if (raasi.equals("సింహరాశి")) {
+            rasi = "Simham";
+        } else if (raasi.equals("కన్యారాశి")) {
+            rasi = "Kanya";
+        } else if (raasi.equals("తులారాశి")) {
+            rasi = "Thula";
+        } else if (raasi.equals("వృశ్చిక రాశి")) {
+            rasi = "Vruschikam";
+        } else if (raasi.equals("ధనూరాశి")) {
+            rasi = "Dhanussu";
+        } else if (raasi.equals("మకరరాశి")) {
+            rasi = "Makaram";
+        } else if (raasi.equals("కుంభరాశి")) {
+            rasi = "Kumbham";
+        } else if (raasi.equals("మీనరాశి")) {
+            rasi = "Meenam";
+        }
+
         tvRaasi = findViewById(R.id.tvRaasi);
         tvDescription = findViewById(R.id.tvDescription);
         tvDate = findViewById(R.id.tvDate);
@@ -59,6 +87,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         // get corrent year
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
+        tvRaasi.setText(year+" - "+ raasi);
 
 
 
@@ -74,7 +103,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
 
         HashMap<String,String> params = new HashMap<>();
         params.put(Constant.TYPE,"Daily");
-        params.put(Constant.RASI,raasi);
+        params.put(Constant.RASI,rasi);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
@@ -85,7 +114,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
                         Gson g = new Gson();
 
 
-                        tvRaasi.setText(year+" - "+jsonArray.getJSONObject(0).getString("rasi"));
+
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
                         tvDate.setText("("+jsonArray.getJSONObject(0).getString("date")+")");
 

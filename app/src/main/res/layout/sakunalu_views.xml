@@ -14,10 +14,11 @@
         android:backgroundTint="#E0F1FF"
         android:padding="@dimen/_8sdp"
         android:text="Title"
+        android:fontFamily="@font/ramabhadra"
         android:gravity="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/_14sdp"
+         />
 
     <TextView
         android:id="@+id/tv_desc"
@@ -25,8 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/sree"
+        android:fontFamily="@font/mallanna"
+        android:textSize="@dimen/_16sdp"
         android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
         android:text="dkjlfakjl;asjkl;fajkl;afsjklafsjklafjklafjkla
         fjkladfsjkladfsjkladfsjkladfsjkladfsjklafsjklafsjkl;afsjklaf
         jkl;afsljk;afklj;afjkl;fajklasjkljklafsjkl;afkljafjklf

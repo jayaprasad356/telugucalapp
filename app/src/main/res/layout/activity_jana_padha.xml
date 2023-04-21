@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E7F0F4"
     >
 
     <LinearLayout
@@ -28,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="64 Kaalu"
+            android:text="64 కళలు"
+            android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />
@@ -51,7 +53,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/corner_bg"
-            android:backgroundTint="#E0F1FF"
+            android:backgroundTint="@color/white"
             android:gravity="center"
             android:paddingHorizontal="@dimen/_20sdp"
             android:paddingVertical="@dimen/_10sdp"
@@ -61,6 +63,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/tv_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

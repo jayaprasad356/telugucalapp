@@ -33,7 +33,7 @@ import java.util.Locale;
 
 public class DailyPanchangamActivity extends AppCompatActivity   implements SwipeableScrollView.SwipeListener {
 
-    TextView tvDate,tvtext1,tvtext2,tvtext3,tvtext4,tvtext5,tvtext6,tvSunrise,tvSunset,tvMoonRise,tvMoonset,tvFestival;
+    TextView tvDate,tvDate1,tvtext1,tvtext2,tvtext3,tvtext4,tvtext5,tvtext6,tvSunrise,tvSunset,tvMoonRise,tvMoonset,tvFestival;
     TextView tvThithi,TVNakshathram,tvYogam,tvKaranam,tvAbhijithMuhurtham,tvBhramaMuhurtham,tvAmruthaKalam,tvRahukalam,tvYamagandam,tvDhurmuhurtham,tvVarjyam,tvGulika;
     TextView tvhc1,tvhc2,tvhc3,tvhc4,tvhc5,tvhc6,tvhc7,tvhc8,tvhc9,tvhc10,tvhc11,tvhc12;
     CardView arrowright, arrowleft;
@@ -41,7 +41,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     Activity activity;
     Session session;
     Calendar calendar;
-    Calendar targetCalendar;
+    Calendar targetCalendar,startCalendar;
     String dateString;
 
     private RelativeLayout relativeLayout;
@@ -75,6 +75,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         activity = this;
         session = new Session(activity);
         tvDate = findViewById(R.id.tvDate);
+        tvDate1 = findViewById(R.id.tvDate1);
         arrowright = findViewById(R.id.arrowright);
         arrowleft = findViewById(R.id.arrowleft);
         ivArrowRight = findViewById(R.id.ivArrowRight);
@@ -132,6 +133,12 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         targetCalendar.set(Calendar.DAY_OF_MONTH, 9);
         calendar = Calendar.getInstance();
         updateUI(calendar.getTime());
+
+
+        startCalendar = Calendar.getInstance();
+        startCalendar.set(Calendar.MONTH,Calendar.MARCH);
+        startCalendar.set(Calendar.YEAR, 2023);
+        startCalendar.set(Calendar.DAY_OF_MONTH , 22);
 
 
 
@@ -264,27 +271,25 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     private void backward() {
 
 
+        if (calendar.after(startCalendar)){
 
-        // Move the calendar one day backward
-        // Get the current date
-        Calendar nowCalendar = Calendar.getInstance();
-        nowCalendar.set(Calendar.HOUR_OF_DAY, 0);
-        nowCalendar.set(Calendar.MINUTE, 0);
-        nowCalendar.set(Calendar.SECOND, 0);
-        nowCalendar.set(Calendar.MILLISECOND, 0);
-
-        if (calendar.after(nowCalendar)) {
             relativeLayout.startAnimation(AnimationUtils.loadAnimation(activity, R.xml.slide_out_left));
             // Move the calendar one day backward
             calendar.add(Calendar.DAY_OF_YEAR, -1);
             // Update your UI with the new date
             updateUI(calendar.getTime());
+
         }
 
-        if (calendar.equals(nowCalendar)) {
-            arrowleft.setEnabled(false);
-            ivArrowLeft.setEnabled(false);
-        }
+
+
+
+
+
+//
+//            arrowleft.setEnabled(false);
+//            ivArrowLeft.setEnabled(false);
+
 
     }
 
@@ -310,6 +315,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         // Update your UI elements with the new date
         // For example, if you have a TextView to display the date:
         tvDate.setText(dateString.toString());
+        tvDate1.setText(dateString.toString());
 
         String Date = dateFormat.format(date);
         panchangamlist(Date);

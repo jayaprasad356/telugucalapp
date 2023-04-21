@@ -431,18 +431,13 @@
                     android:weightSum="2"
                     >
 
-
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
-
-
-
 
 
                         <RelativeLayout
@@ -466,38 +461,44 @@
                         </RelativeLayout>
 
 
+
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
                         <ImageView
                             android:layout_width="@dimen/_26sdp"
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/moon"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
 
+                            <TextView
+                                android:id="@+id/tvPournami"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/black" />
 
-                        <TextView
-                            android:id="@+id/tvPournami"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:padding="@dimen/_2sdp"
-                            android:text=""
-                            android:textColor="@color/black" />
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
                     <Space
                         android:layout_width="@dimen/_5sdp"
                         android:layout_height="match_parent"
                         />
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
 
 
@@ -527,6 +528,10 @@
 
 
 
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
 
 
@@ -536,24 +541,23 @@
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/darkmoon"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
-
-
 
                         <TextView
                             android:id="@+id/tvAmavasya"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="@dimen/_2sdp"
+                            android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
 
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -566,18 +570,13 @@
                     android:weightSum="2"
                     >
 
-
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
-
-
-
 
 
                         <RelativeLayout
@@ -601,38 +600,44 @@
                         </RelativeLayout>
 
 
+
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
                         <ImageView
                             android:layout_width="@dimen/_26sdp"
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/vengata"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
 
+                            <TextView
+                                android:id="@+id/tvAkadashi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/black" />
 
-                        <TextView
-                            android:id="@+id/tvAkadashi"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:padding="@dimen/_2sdp"
-                            android:text=""
-                            android:textColor="@color/black" />
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
                     <Space
                         android:layout_width="@dimen/_5sdp"
                         android:layout_height="match_parent"
                         />
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
 
 
@@ -662,6 +667,10 @@
 
 
 
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
 
 
@@ -671,24 +680,23 @@
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/nandhi"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
-
-
 
                         <TextView
                             android:id="@+id/tvPradosha"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:padding="@dimen/_2sdp"
+                            android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
 
+                        </RelativeLayout>
 
-                    </RelativeLayout>
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -701,18 +709,13 @@
                     android:weightSum="2"
                     >
 
-
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
-
-
-
 
 
                         <RelativeLayout
@@ -736,38 +739,44 @@
                         </RelativeLayout>
 
 
+
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
                         <ImageView
                             android:layout_width="@dimen/_26sdp"
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/muruga"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
 
+                            <TextView
+                                android:id="@+id/tvShashti"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/black" />
 
-                        <TextView
-                            android:id="@+id/tvShashti"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:padding="@dimen/_2sdp"
-                            android:text=""
-                            android:textColor="@color/black" />
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
                     <Space
                         android:layout_width="@dimen/_5sdp"
                         android:layout_height="match_parent"
                         />
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
 
 
@@ -797,6 +806,10 @@
 
 
 
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
 
 
@@ -806,22 +819,23 @@
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/vinayaga"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
-
 
                         <TextView
                             android:id="@+id/tvChavithi"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:padding="@dimen/_2sdp"
+                            android:padding="@dimen/_5sdp"
                             android:text=""
-                            android:textColor="@color/black" />
+                            android:gravity="center"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/black"
+                            />
+
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -834,18 +848,13 @@
                     android:weightSum="2"
                     >
 
-
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
-
-
-
 
 
                         <RelativeLayout
@@ -869,37 +878,44 @@
                         </RelativeLayout>
 
 
+
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
                         <ImageView
                             android:layout_width="@dimen/_26sdp"
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/sivaa"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
 
+                            <TextView
+                                android:id="@+id/tvMasaShivaratri"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center"
+                                android:padding="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/black" />
 
-                        <TextView
-                            android:id="@+id/tvMasaShivaratri"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
-                            android:gravity="center"
-                            android:padding="@dimen/_2sdp"
-                            android:text="Text"
-                            android:textColor="@color/black" />
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
                     <Space
                         android:layout_width="@dimen/_5sdp"
                         android:layout_height="match_parent"
                         />
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_weight="1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_68sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_card_daily"
-                        android:padding="@dimen/_1sdp"
+                        android:orientation="vertical"
                         >
 
 
@@ -929,6 +945,10 @@
 
 
 
+                        <RelativeLayout
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
 
 
@@ -938,26 +958,26 @@
                             android:layout_height="@dimen/_26sdp"
                             android:background="@drawable/vinayaga_2"
                             android:layout_centerVertical="true"
-                            android:layout_margin="@dimen/_10sdp"
                             />
-
 
                         <TextView
                             android:id="@+id/tvSankatacharathi"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center_vertical"
+                            android:padding="@dimen/_5sdp"
+                            android:text=""
                             android:gravity="center"
-                            android:padding="@dimen/_2sdp"
-                            android:text="Text"
-                            android:textColor="@color/black" />
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/black"
+                            />
+
+                        </RelativeLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
 
                 </LinearLayout>
-
 
 
 

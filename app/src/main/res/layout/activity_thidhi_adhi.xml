@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E7F0F4"
     tools:context=".activities.ThidhiAdhiActivity">
 
 
@@ -29,30 +30,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Thidhi Adhi"
+            android:text="తిథులు అధిదేవతలు"
+            android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+            />
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fr_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/llout"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginVertical="15dp"
-        android:background="@drawable/corner_bg">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/llout"
             android:id="@+id/Telugu_rcView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="4dp"
-            android:background="@drawable/corner_bg"
-            android:backgroundTint="@color/colorWhite"
             />
-    </FrameLayout>
 
 </RelativeLayout>

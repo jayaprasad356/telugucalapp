@@ -37,8 +37,7 @@ public class BalliSasthramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_balli_sasthram);
         recyclerView = findViewById(R.id.balli_rcView);
         imgBack = findViewById(R.id.back_opt);
-        title = findViewById(R.id.tvHead);
-        title.setText(R.string.balli_sasthram);
+
 
         activity = BalliSasthramActivity.this;
         imgBack.setOnClickListener(view -> onBackPressed());

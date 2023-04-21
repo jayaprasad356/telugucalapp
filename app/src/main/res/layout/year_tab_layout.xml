@@ -12,11 +12,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:fontFamily="@font/sree"
+            android:fontFamily="@font/ramabhadra"
             android:text="Today Info Festival"/>
         <TextView
             android:id="@+id/tvDescription"
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_16sdp"
             android:textAlignment="center"
-            android:fontFamily="@font/sree"
+            android:fontFamily="@font/mallanna"
             android:textColor="@color/colorBlack"
             android:text="Diwali Function in that day"/>
 

@@ -7,11 +7,12 @@
     android:layout_marginHorizontal="10dp">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        app:cardBackgroundColor="#E0F1FF"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="30dp"
         >
 
@@ -24,15 +25,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:fontFamily="@font/mallanna"
                 android:gravity="center"
+                android:paddingTop="@dimen/_5sdp"
                 android:text="starts from x to x"
                 android:textColor="@color/colorBlack"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp" />
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="0dp"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
@@ -48,9 +51,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Somex"
+            android:fontFamily="@font/ramabhadra"
             android:textColor="@color/colorBlack"
-            android:textSize="17sp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_14sdp"
             android:typeface="monospace" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

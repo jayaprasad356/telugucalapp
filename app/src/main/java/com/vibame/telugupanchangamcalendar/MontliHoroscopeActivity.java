@@ -31,6 +31,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
     String raasi;
     int year;
     Calendar calendar;
+    String rasi;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -57,6 +58,33 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
 
 
+        if (raasi.equals("మేషరాశి")) {
+            rasi = "Mesham";
+        } else if (raasi.equals("వృషభరాశి")) {
+            rasi = "Vrushabham";
+        } else if (raasi.equals("మిథునరాశి")) {
+            rasi = "Midhunam";
+        } else if (raasi.equals("కర్కాటకరాశి")) {
+            rasi = "Karkatakam";
+        } else if (raasi.equals("సింహరాశి")) {
+            rasi = "Simham";
+        } else if (raasi.equals("కన్యారాశి")) {
+            rasi = "Kanya";
+        } else if (raasi.equals("తులారాశి")) {
+            rasi = "Thula";
+        } else if (raasi.equals("వృశ్చిక రాశి")) {
+            rasi = "Vruschikam";
+        } else if (raasi.equals("ధనూరాశి")) {
+            rasi = "Dhanussu";
+        } else if (raasi.equals("మకరరాశి")) {
+            rasi = "Makaram";
+        } else if (raasi.equals("కుంభరాశి")) {
+            rasi = "Kumbham";
+        } else if (raasi.equals("మీనరాశి")) {
+            rasi = "Meenam";
+        }
+
+        tvRaasi.setText(year+" - "+ raasi);
 
 
         horoscope();
@@ -70,7 +98,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
 
         HashMap<String,String> params = new HashMap<>();
         params.put(Constant.TYPE,"Monthly");
-        params.put(Constant.RASI,raasi);
+        params.put(Constant.RASI,rasi);
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
@@ -81,7 +109,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
                         Gson g = new Gson();
 
 
-                        tvRaasi.setText(year+" - "+jsonArray.getJSONObject(0).getString("rasi"));
+
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
                         tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
 

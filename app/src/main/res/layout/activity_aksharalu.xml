@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Aksharalu"
+            android:text="అక్షరాలు"
+            android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
             android:textStyle="bold" />

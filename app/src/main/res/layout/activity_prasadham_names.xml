@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E7F0F4"
     tools:context=".activities.PrasadhamNamesActivity">
 
 
@@ -28,10 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Prasadham Names"
+            android:text="ప్రసాదం"
+            android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+             />
 
     </LinearLayout>
 
@@ -54,10 +56,11 @@
 
 
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
+            android:elevation="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#E7F0F4"
+            app:cardBackgroundColor="@color/white"
             android:layout_marginBottom="@dimen/_10sdp"
             app:cardCornerRadius="60dp">
             <LinearLayout
@@ -72,29 +75,27 @@
                     android:layout_weight="1"
                     android:text="తెలుగు పేర్లు"
                     android:gravity="center"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_16sdp"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold"/>
+                    android:fontFamily="@font/ramabhadra"
+                    />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="ఆదివారము"
                     android:gravity="center"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/_16sdp"
                     android:textColor="@color/colorBlack"
-                    android:textStyle="bold"/>
+                    android:fontFamily="@font/ramabhadra"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Telugu_rcView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="4dp"
-            android:background="@drawable/corner_bg"
-            android:backgroundTint="@color/colorWhite"
             />
 
 

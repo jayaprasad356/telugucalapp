@@ -13,13 +13,14 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/corner_bg"
         android:backgroundTint="#E0F1FF"
+        android:fontFamily="@font/ramabhadra"
         android:gravity="center"
         android:paddingHorizontal="@dimen/_20sdp"
-        android:paddingVertical="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_5sdp"
         android:text="Title"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/_14sdp"
+         />
 
     <TextView
         android:id="@+id/tv_desc"
@@ -27,12 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_title"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/sree"
-        android:paddingHorizontal="20dp"
+        android:fontFamily="@font/mallanna"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sdp"
         android:text="dkjlfakjl;asjkl;fajkl;afsjklafsjklafjklafjkla
         fjkladfsjkladfsjkladfsjkladfsjkladfsjklafsjklafsjkl;afsjklaf
         jkl;afsljk;afklj;afjkl;fajklasjkljklafsjkl;afkljafjklf
         adjklafkjladsfjklafjkladsfjkladfjkl;"
-        android:textAlignment="center" />
+        />
 
 </RelativeLayout>

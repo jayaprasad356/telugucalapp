@@ -2,6 +2,7 @@ package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
             public void onClick(View v) {
                 session.setData(Constant.MENU_ID,ramayanamMenu.getId());
                 Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
+                Log.d("RamayanamMenuAdapter", "onClick: "+ramayanamMenu.getTitle());
                 intent.putExtra(Constant.RAMAYAM_MENU, ramayanamMenu.getTitle());
                 activity.startActivity(intent);
             }

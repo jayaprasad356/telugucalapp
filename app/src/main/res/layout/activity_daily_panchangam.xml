@@ -1325,13 +1325,26 @@
 
 
                         <TextView
+                            android:id="@+id/tvhc12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true" />
+
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="@dimen/_65sdp"
+                        android:layout_height="@dimen/_55sdp"
+                        android:background="@drawable/bg_stroke"
+                        >
+
+
+                        <TextView
                             android:id="@+id/tvhc1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
-
-
+                            android:layout_centerInParent="true" />
 
                     </RelativeLayout>
                     <RelativeLayout
@@ -1345,23 +1358,7 @@
                             android:id="@+id/tvhc2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
-
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
-                        android:background="@drawable/bg_stroke"
-                        >
-
-
-                        <TextView
-                            android:id="@+id/tvhc3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
+                            android:layout_centerInParent="true" />
 
                     </RelativeLayout>
                     <RelativeLayout
@@ -1371,7 +1368,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc4"
+                            android:id="@+id/tvhc3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -1400,7 +1397,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc5"
+                            android:id="@+id/tvhc11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -1416,11 +1413,10 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc7"
+                            android:id="@+id/tvhc10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
+                            android:layout_centerInParent="true" />
 
 
                     </RelativeLayout>
@@ -1434,10 +1430,11 @@
                         android:background="@drawable/bg_stroke_center">
 
                         <TextView
+                            android:id="@+id/tvDate1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="12 - 02 - 2023"
+                            android:text=""
                             android:textColor="@color/calHeaderT"
                             android:textSize="@dimen/_12sdp"
                             android:textStyle="bold" />
@@ -1459,12 +1456,12 @@
                         android:layout_height="@dimen/_55sdp"
                         android:background="@drawable/bg_stroke_bottom_left"
                         >
+
                         <TextView
-                            android:id="@+id/tvhc6"
+                            android:id="@+id/tvhc4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
+                            android:layout_centerInParent="true" />
 
 
 
@@ -1476,7 +1473,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc8"
+                            android:id="@+id/tvhc5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -1519,7 +1516,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc10"
+                            android:id="@+id/tvhc8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -1533,11 +1530,10 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc11"
+                            android:id="@+id/tvhc7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
+                            android:layout_centerInParent="true" />
 
 
                     </RelativeLayout>
@@ -1548,11 +1544,10 @@
                         >
 
                         <TextView
-                            android:id="@+id/tvhc12"
+                            android:id="@+id/tvhc6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            />
+                            android:layout_centerInParent="true" />
 
 
 

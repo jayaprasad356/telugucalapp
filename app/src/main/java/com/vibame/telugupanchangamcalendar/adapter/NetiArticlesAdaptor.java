@@ -53,6 +53,7 @@ public class NetiArticlesAdaptor extends RecyclerView.Adapter<NetiArticlesAdapto
                 Intent intent = new Intent(activity, ArticleViewActivity.class);
                 intent.putExtra(Constant.ID,netiDatas.getId());
                 intent.putExtra(Constant.TITLE,netiDatas.getTitle());
+                intent.putExtra(Constant.NAME,"పుణ్యక్షేత్రాలు");
                 intent.putExtra(Constant.DESCRIPTION,netiDatas.getDescription());
                 intent.putExtra(Constant.IMAGE,netiDatas.getImage());
                 activity.startActivity(intent);

@@ -25,12 +25,12 @@
                 android:id="@+id/tvdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_centerInParent="true"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="14dp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/ramabhadra"
+                 />
 
             <ImageButton
                 android:id="@+id/dialogDismiss_button"
@@ -56,9 +56,10 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/_16sdp"
             android:textColor="@color/black"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/mallanna"
             android:text=""/>
 
 

@@ -175,7 +175,7 @@ public class AbdhikamActivity extends AppCompatActivity {
             }
         });
 
-        tvMonthYear.setText(setTeluguMonth(month_year) + year);
+        tvMonthYear.setText(setTeluguMonth(month_year)+"- " + year);
         String month = String.valueOf(calendar.get(Calendar.MONTH));
         Abdhikam(month);
 
@@ -201,7 +201,7 @@ public class AbdhikamActivity extends AppCompatActivity {
             c.add(Calendar.MONTH, 1);
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year)+"- "  + year);
 
             String month = String.valueOf(c.get(Calendar.MONTH));
             Abdhikam(month);
@@ -233,7 +233,7 @@ public class AbdhikamActivity extends AppCompatActivity {
 
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year)+"- "  + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Abdhikam(month);
         }

@@ -38,6 +38,10 @@ public class SplashScreen extends AppCompatActivity {
         session = new Session(activity);
 
 
+//        Intent i = new Intent(activity, CalendarNewActivity.class);
+//        startActivity(i);
+//        finish();
+
         if (ApiConfig.isConnected(activity)){
             getDatalist();
 

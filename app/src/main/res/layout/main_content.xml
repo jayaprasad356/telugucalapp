@@ -23,15 +23,15 @@
             <ImageView
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_4sdp"
-                android:background="@drawable/line"
                 android:layout_gravity="center"
                 android:layout_marginVertical="@dimen/_10sdp"
-                />
+                android:background="@drawable/line" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="visible"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -47,7 +47,8 @@
                         android:gravity="center"
                         android:text="శ్రీ శోభకృత్ నామ సంవత్సరం"
                         android:textColor="@color/colorBlack"
-                        android:textSize="25sp"/>
+                        android:textSize="25sp" />
+
                     <TextView
                         android:id="@+id/subTxt"
                         android:layout_width="match_parent"
@@ -55,33 +56,32 @@
                         android:gravity="center"
                         android:text="(2023 మార్చి 22 - 2024 ఏప్రిల్ 8)"
                         android:textColor="@color/colorBlack"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
+
                     <LinearLayout
-
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/card1"
-                            android:layout_width="175dp"
+                            android:layout_width="170dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_1"
-                                />
+                                android:src="@drawable/img_1" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                         <Space
                             android:layout_width="0dp"
@@ -90,198 +90,207 @@
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card2"
-                            android:layout_width="175dp"
+                            android:layout_width="170dp"
                             android:layout_height="100dp"
                             android:layout_marginRight="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_2"
-                                />
+                                android:src="@drawable/img_2" />
 
                         </androidx.cardview.widget.CardView>
 
                     </LinearLayout>
-                    <LinearLayout
 
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardFestival"
-                            android:layout_width="115dp"
+                            android:layout_width="110dp"
                             android:layout_height="90dp"
                             android:layout_marginLeft="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_3"
-                                />
+                                android:src="@drawable/img_3" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                         <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardHoliday"
-                            android:layout_width="115dp"
+                            android:layout_width="110dp"
                             android:layout_height="90dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_4"
-                                />
+                                android:src="@drawable/img_4" />
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
+
                         <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardImportant"
-                            android:layout_width="115dp"
+                            android:layout_width="110dp"
                             android:layout_height="90dp"
                             android:layout_marginRight="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_5"
-                                />
+                                android:src="@drawable/img_5" />
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
                     <LinearLayout
-
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardHoroscope"
-                            android:layout_width="230dp"
+                            android:layout_width="220dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_6"
-                                />
+                                android:src="@drawable/img_6" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                         <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardSissujanma"
-                            android:layout_width="120dp"
+                            android:layout_width="110dp"
                             android:layout_height="100dp"
                             android:layout_marginRight="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_7"
-                                />
+                                android:src="@drawable/img_7" />
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
-                    <LinearLayout
 
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+
+
+                        android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardShasti"
-                            android:layout_width="120dp"
+                            android:layout_width="110dp"
                             android:layout_height="100dp"
                             android:layout_marginLeft="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp">
 
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_8"
-                                />
+                                android:src="@drawable/img_8" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                         <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardMuhurtham"
-                            android:layout_width="230dp"
+                            android:layout_width="220dp"
                             android:layout_height="100dp"
                             android:layout_marginRight="10dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="7dp">
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+
+                            >
 
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/img_9"
-                                />
+                                android:src="@drawable/img_9" />
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
                         <LinearLayout
                             android:id="@+id/llGowri1"
@@ -290,20 +299,22 @@
                             android:layout_marginLeft="5dp"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_10"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_10" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -326,20 +337,22 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_11"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_11" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -362,20 +375,22 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_12"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_12" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -399,20 +414,22 @@
                             android:layout_marginRight="5dp"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_13"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_13" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -425,11 +442,13 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/_5sdp">
 
                         <LinearLayout
                             android:id="@+id/llMoudyaDinamulu"
@@ -438,20 +457,22 @@
                             android:layout_marginLeft="5dp"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_14"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_14" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -474,20 +495,22 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_15"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_15" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -510,20 +533,22 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_16"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_16" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -547,20 +572,22 @@
                             android:layout_marginRight="5dp"
                             android:orientation="vertical">
 
-                            <androidx.cardview.widget.CardView
+                            <com.google.android.material.card.MaterialCardView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:cardCornerRadius="7dp"
-                                android:layout_gravity="center">
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
 
                                 <ImageView
                                     android:layout_width="70dp"
                                     android:layout_height="70dp"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/img_17"
-                                    android:scaleType="fitXY"/>
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_17" />
 
-                            </androidx.cardview.widget.CardView>
+                            </com.google.android.material.card.MaterialCardView>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -577,10 +604,12 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="visible"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -602,7 +631,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvPoojaluNomulu"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
 
                 </LinearLayout>
@@ -613,6 +642,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="visible"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -644,48 +674,49 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
-                android:background="@color/bgcard1"
                 android:layout_marginTop="5dp"
-                android:orientation="vertical">
+                android:background="@color/bgcard1"
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BhakthiGeethalu-LiveDharsanam"
                     android:gravity="center"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
+                    android:text="BhakthiGeethalu-LiveDharsanam"
                     android:textColor="@color/black"
-                    />
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:orientation="vertical"
-                    android:weightSum="2"
-                    >
+                    android:weightSum="2">
 
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="horizontal">
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/l1"
-                            />
+                            android:layout_below="@+id/l1" />
 
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        >
+                        android:layout_weight="1">
+
                         <androidx.cardview.widget.CardView
                             android:id="@+id/cardVideolive"
                             android:layout_width="match_parent"
@@ -700,8 +731,7 @@
                                 android:id="@+id/liveimage"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -710,24 +740,26 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="5dp"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="12dp"
                         android:layout_height="12dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/active_dot"/>
+                        android:background="@drawable/active_dot" />
+
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:layout_marginLeft="3dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/non_active_dot"/>
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/non_active_dot" />
 
                 </LinearLayout>
 
@@ -735,8 +767,10 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="visible"
                 app:cardBackgroundColor="@color/cyellow"
                 app:cardCornerRadius="20dp">
 
@@ -776,8 +810,7 @@
                                 android:id="@+id/imagetab"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -799,8 +832,7 @@
                                 android:id="@+id/videotab"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -814,6 +846,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -854,13 +887,12 @@
                                 android:orientation="vertical">
 
 
-
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -870,11 +902,9 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
-
 
 
                                 <TextView
@@ -902,9 +932,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -914,8 +944,7 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
 
@@ -944,9 +973,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -956,8 +985,7 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
 
@@ -988,9 +1016,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -1000,8 +1028,7 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
 
@@ -1029,12 +1056,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:orientation="vertical">
+
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -1044,8 +1072,7 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
 
@@ -1074,9 +1101,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
                                     android:background="@drawable/roundicon"
                                     app:cardCornerRadius="@dimen/_20sdp"
-                                    android:layout_gravity="center"
 
                                     >
 
@@ -1086,10 +1113,10 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -1144,6 +1171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="visible"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -1184,9 +1212,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp"
 
                                     >
 
@@ -1196,8 +1224,7 @@
                                         android:layout_width="60dp"
                                         android:layout_height="60dp"
                                         android:layout_gravity="center"
-                                        android:scaleType="fitXY"
-                                        />
+                                        android:scaleType="fitXY" />
 
                                 </androidx.cardview.widget.CardView>
 
@@ -1207,7 +1234,7 @@
                                     android:layout_gravity="center"
                                     android:maxLines="2"
 
-                                    android:text="Shakunalu Nammakalu"
+                                    android:text="శకునాలు నమ్మకాలు"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
@@ -1228,10 +1255,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
-                                    >
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp">
 
 
                                     <ImageView
@@ -1251,7 +1277,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:maxLines="2"
-                                    android:text="Balli Shasthram"
+                                    android:text="బల్లి శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
@@ -1271,9 +1297,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp"
 
                                     >
 
@@ -1296,7 +1322,7 @@
                                     android:layout_gravity="center"
                                     android:maxLines="2"
 
-                                    android:text="Kaki Shasthram"
+                                    android:text="కాకి శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
@@ -1317,9 +1343,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp"
 
                                     >
 
@@ -1334,13 +1360,13 @@
                                         />
 
                                 </androidx.cardview.widget.CardView>
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:maxLines="2"
-
-                                    android:text="Kukkuta Shasthram"
+                                    android:text="కుక్కుట శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
@@ -1362,9 +1388,9 @@
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp"
 
                                     >
 
@@ -1386,7 +1412,7 @@
                                     android:layout_gravity="center"
                                     android:maxLines="2"
 
-                                    android:text="Pilli Shasthram"
+                                    android:text="పిల్లి శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
@@ -1445,32 +1471,32 @@
 
 
                     <LinearLayout
-                        android:layout_below="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/ramabhadra"
                             android:gravity="center"
-                            android:text="Telugu Sanskrit"
+                            android:text="తెలుగు సంస్కృతం"
                             android:textColor="@color/black"
                             android:textSize="18dp"
-                            android:textStyle="bold" />
+                             />
 
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
                             android:orientation="horizontal"
-                            android:weightSum="4"
-                            android:layout_marginBottom="@dimen/_20sdp"
-                            >
+                            android:weightSum="4">
 
                             <LinearLayout
                                 android:id="@+id/llTeluguYear"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -1485,9 +1511,9 @@
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/roundicon"
-                                        app:cardCornerRadius="@dimen/_20sdp"
                                         android:layout_gravity="center"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
 
@@ -1497,11 +1523,9 @@
                                             android:layout_width="60dp"
                                             android:layout_height="60dp"
                                             android:layout_gravity="center"
-                                            android:scaleType="fitXY"
-                                            />
+                                            android:scaleType="fitXY" />
 
                                     </androidx.cardview.widget.CardView>
-
 
 
                                 </RelativeLayout>
@@ -1510,20 +1534,22 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
-                                    android:text="@string/sawanchralu"
+                                    android:text="సంవత్సరాలు"
+
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_10sdp"
-                                    />
+                                     />
+
 
                             </LinearLayout>
 
 
-
                             <LinearLayout
                                 android:id="@+id/llMonth"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -1541,9 +1567,9 @@
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/roundicon"
-                                        app:cardCornerRadius="@dimen/_20sdp"
                                         android:layout_gravity="center"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
 
@@ -1553,11 +1579,9 @@
                                             android:layout_width="60dp"
                                             android:layout_height="60dp"
                                             android:layout_gravity="center"
-                                            android:scaleType="fitXY"
-                                            />
+                                            android:scaleType="fitXY" />
 
                                     </androidx.cardview.widget.CardView>
-
 
 
                                 </RelativeLayout>
@@ -1566,17 +1590,23 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
-                                    android:text="Telugu Nelalu"
+                                    android:text="నెలలు"
+
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_10sdp"
+
+
+
                                     />
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:id="@+id/llAnkelu"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
@@ -1593,9 +1623,9 @@
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/roundicon"
-                                        app:cardCornerRadius="@dimen/_20sdp"
                                         android:layout_gravity="center"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
 
@@ -1605,11 +1635,9 @@
                                             android:layout_width="60dp"
                                             android:layout_height="60dp"
                                             android:layout_gravity="center"
-                                            android:scaleType="fitXY"
-                                            />
+                                            android:scaleType="fitXY" />
 
                                     </androidx.cardview.widget.CardView>
-
 
 
                                 </RelativeLayout>
@@ -1618,28 +1646,34 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
-                                    android:text="Ankelu"
+                                    android:text="అంకెలు"
+
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_10sdp"
+
+
+
                                     />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/more"
-                                android:layout_width="80dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="5dp"
+                                android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <androidx.cardview.widget.CardView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_20sdp"
                                     android:layout_gravity="center"
+                                    android:background="@drawable/roundicon"
+                                    app:cardCornerRadius="@dimen/_60sdp"
 
                                     >
 
@@ -1652,25 +1686,27 @@
                                 </androidx.cardview.widget.CardView>
 
 
-
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:maxLines="2"
                                     android:text="More"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp" />
+                                    android:textSize="15sp"
+                                  />
                             </LinearLayout>
+
                             <LinearLayout
-                                android:visibility="gone"
                                 android:id="@+id/llAksharalu"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:orientation="vertical"
-                                android:padding="@dimen/_5sdp">
+                                android:padding="@dimen/_5sdp"
+                                android:visibility="gone">
 
                                 <RelativeLayout
                                     android:layout_width="@dimen/_45sdp"
@@ -1681,9 +1717,9 @@
                                     <androidx.cardview.widget.CardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:background="@drawable/roundicon"
-                                        app:cardCornerRadius="@dimen/_20sdp"
                                         android:layout_gravity="center"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
 
@@ -1693,11 +1729,9 @@
                                             android:layout_width="60dp"
                                             android:layout_height="60dp"
                                             android:layout_gravity="center"
-                                            android:scaleType="fitXY"
-                                            />
+                                            android:scaleType="fitXY" />
 
                                     </androidx.cardview.widget.CardView>
-
 
 
                                 </RelativeLayout>
@@ -1706,32 +1740,36 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
-                                    android:text="Aksharalu"
+                                    android:text="అక్షరాలు"
+
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_10sdp"
+
+
+
                                     />
 
                             </LinearLayout>
-
 
 
                         </LinearLayout>
 
 
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/lltelungusanskritmore"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -1741,7 +1779,7 @@
 
                                 <LinearLayout
                                     android:id="@+id/llGuninthalu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -1759,7 +1797,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -1780,17 +1818,22 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Guninthalu"
+                                        android:text="గుణింతలు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llRashulu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -1808,7 +1851,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -1829,19 +1872,20 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Rashulu"
+                                        android:text="రాశులు"
+
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_10sdp"
-
-                                        />
+                                         />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llJanapadha"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -1858,7 +1902,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -1879,17 +1923,22 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="64 Kalalu"
+                                        android:text="64 కళలు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llKulavruthulu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -1906,7 +1955,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -1927,11 +1976,15 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Kula Vruthulu"
+                                        android:text="వృత్తులు"
+
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_10sdp"
+
+
 
                                         />
 
@@ -1944,7 +1997,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -1952,10 +2005,11 @@
 
                                 <LinearLayout
                                     android:id="@+id/llNavagrahalu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -1968,7 +2022,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -1989,19 +2043,25 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
-                                        android:text="Nava Grahalu"
+                                        android:text="నవ గ్రహాలు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llRuthuvulu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -2014,7 +2074,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2035,20 +2095,26 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Ruthuvulu"
+                                        android:text="ఋతువులు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llKolathalu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -2061,7 +2127,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2082,20 +2148,26 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Kolathalu"
+                                        android:text="కొలతలు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llPakshamulu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:orientation="vertical">
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp">
 
 
                                     <RelativeLayout
@@ -2111,7 +2183,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2119,7 +2191,7 @@
                                             <ImageView
                                                 android:id="@+id/Pakshamulu"
                                                 android:layout_width="60dp"
-                                                android:layout_height="60dp"
+                                                android:layout_height="59dp"
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
@@ -2132,11 +2204,16 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Pakshamulu"
+                                        android:text="పక్షములు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
@@ -2147,16 +2224,15 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:orientation="horizontal"
-                                android:padding="@dimen/_5sdp"
                                 android:weightSum="4"
 
                                 >
 
                                 <LinearLayout
                                     android:id="@+id/llLagnalu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -2175,7 +2251,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2196,17 +2272,22 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Lagnalu"
+                                        android:text="లగ్నాలు"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llThidhiadhi"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -2226,7 +2307,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2247,17 +2328,21 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Thidhi Adhi"
+                                        android:text="అధిదేవతలు"
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:id="@+id/llWeeknames"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -2274,7 +2359,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2295,11 +2380,14 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="Week Names"
+                                        android:text="తెలుగు వారములు"
+
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_10sdp"
+
 
 
                                         />
@@ -2308,7 +2396,7 @@
 
                                 <LinearLayout
                                     android:id="@+id/llFruitnames"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
@@ -2325,7 +2413,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2346,10 +2434,13 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
-                                        android:text="Fruit Names"
+                                        android:text="పండ్లు"
+
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_10sdp"
+
 
 
                                         />
@@ -2359,19 +2450,25 @@
 
                             </LinearLayout>
 
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:orientation="horizontal"
-                                android:weightSum="4">
+                                android:weightSum="4"
+
+                                >
 
                                 <LinearLayout
                                     android:id="@+id/llPrasadhamnames"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:orientation="vertical"
-                                    android:padding="@dimen/_10sdp">
+                                    android:padding="@dimen/_5sdp"
+
+                                    >
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -2384,7 +2481,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2399,27 +2496,32 @@
                                         </androidx.cardview.widget.CardView>
 
 
-
                                     </RelativeLayout>
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
-                                        android:text="Prasadham \n Names"
+                                        android:text="ప్రసాదం"
+
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_10sdp"
+
+
+                                        />
 
                                 </LinearLayout>
 
 
                                 <LinearLayout
                                     android:id="@+id/llPushapalu"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_weight="1"
                                     android:orientation="vertical"
-                                    android:padding="@dimen/_10sdp">
+                                    android:padding="@dimen/_5sdp">
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -2432,7 +2534,7 @@
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:background="@drawable/roundicon"
-                                            app:cardCornerRadius="@dimen/_20sdp"
+                                            app:cardCornerRadius="@dimen/_60sdp"
 
                                             >
 
@@ -2447,6 +2549,55 @@
                                         </androidx.cardview.widget.CardView>
 
 
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/ramabhadra"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="పుష్పాలు"
+
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_10sdp"
+                                         />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp"
+                                    android:visibility="invisible">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_60sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
 
                                     </RelativeLayout>
 
@@ -2458,7 +2609,56 @@
                                         android:padding="@dimen/_2sdp"
                                         android:text="Pushapalu"
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp" />
+                                        android:textSize="@dimen/_8sdp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/_5sdp"
+                                    android:visibility="invisible">
+
+                                    <RelativeLayout
+                                        android:layout_width="@dimen/_45sdp"
+                                        android:layout_height="@dimen/_45sdp"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/rounded_bar">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/roundicon"
+                                            app:cardCornerRadius="@dimen/_60sdp"
+
+                                            >
+
+
+                                            <ImageView
+                                                android:layout_width="60dp"
+                                                android:layout_height="60dp"
+                                                android:layout_gravity="center"
+                                                android:scaleType="fitXY" />
+
+                                        </androidx.cardview.widget.CardView>
+
+
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:padding="@dimen/_2sdp"
+                                        android:text="Pushapalu"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_8sdp"
+
+                                        />
 
                                 </LinearLayout>
 
@@ -2496,8 +2696,7 @@
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"
-                    >
+                    android:scrollbars="none">
 
 
                     <LinearLayout
@@ -2520,12 +2719,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/mahabharat"
-                                android:scaleType="fitXY"
-                                />
-
-
-
-
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2544,13 +2738,11 @@
                             app:cardCornerRadius="15dp">
 
 
-
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/ramayana"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2574,8 +2766,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/bhavathgita"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2598,8 +2789,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/bhagavatham"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2620,8 +2810,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/sethakamulu"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2631,7 +2820,8 @@
                             android:layout_weight="1" />
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/shiva_puranam"                        android:layout_width="110dp"
+                            android:id="@+id/shiva_puranam"
+                            android:layout_width="110dp"
                             android:layout_height="120dp"
                             android:layout_marginRight="10dp"
                             app:cardBackgroundColor="@color/white"
@@ -2641,8 +2831,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/shivapuranam"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2699,7 +2888,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Bhakti News / Articals"
+                        android:text="పుణ్యక్షేత్రాలు / పండుగలు విశిష్టత"
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -2723,8 +2912,7 @@
                                 android:id="@+id/imageneti"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2747,13 +2935,10 @@
                                 android:id="@+id/imageold"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                />
+                                android:scaleType="fitXY" />
                         </androidx.cardview.widget.CardView>
 
                     </LinearLayout>
-
-
 
 
                 </LinearLayout>
@@ -2761,10 +2946,10 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp">
 
@@ -2905,13 +3090,13 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:visibility="gone"
-
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@color/bgcard1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"

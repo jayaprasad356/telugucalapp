@@ -40,8 +40,7 @@ public class PilliSasthramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pilli_sasthram);
         recyclerView = findViewById(R.id.pilli_rcView);
         imgBack = findViewById(R.id.back_opt);
-        title = findViewById(R.id.tvHead);
-        title.setText(R.string.pilli_sasthram);
+
         activity = PilliSasthramActivity.this;
         imgBack.setOnClickListener(view -> onBackPressed());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);

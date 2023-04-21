@@ -233,7 +233,6 @@ class CalendarNewActivity : AppCompatActivity() {
             startActivity(intent)
         });
 
-
         cardHolidays.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, HolidaysActivity::class.java)
             startActivity(intent)
@@ -424,7 +423,7 @@ class CalendarNewActivity : AppCompatActivity() {
         Glide.with(activity as CalendarNewActivity).load(session!!.getData(Constant.OLD_ARTI_IMAGES)).placeholder(R.drawable.logo).into(imageold)
 
 
-        val mButton = findViewById<Button>(R.id.sidemenu)
+        val mButton = findViewById<RelativeLayout>(R.id.sidemenu)
         drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout,  R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
@@ -559,6 +558,37 @@ class CalendarNewActivity : AppCompatActivity() {
         pilli = findViewById(R.id.pilli_sasthram)
         balli = findViewById(R.id.balli)
         kukuta = findViewById(R.id.kukuta_sasthram)
+
+
+        sakunalu!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, SakunaluActivity::class.java)
+            startActivity(intent)
+        })
+
+        kaki!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, KakiActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        pilli!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, PilliSasthramActivity::class.java)
+            startActivity(intent)
+        })
+
+
+        balli!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, BalliSasthramActivity::class.java)
+            startActivity(intent)
+        })
+
+        kukuta!!.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, KukutaSaathramActivity::class.java)
+            startActivity(intent)
+        })
+
+
+
 
         sakunaActivity = SakunaluActivity()
         kakiActivity = KakiActivity()

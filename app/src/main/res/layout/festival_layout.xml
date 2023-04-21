@@ -15,8 +15,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bordercurve2"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_14sdp"
-            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+            android:fontFamily="@font/ramabhadra"
             android:textAlignment="center"
             android:text="Today Info Festival"/>
         <TextView
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_16sdp"
             android:textAlignment="center"
-            android:fontFamily="@font/sree"
+            android:fontFamily="@font/mallanna"
             android:textColor="@color/colorBlack"
             android:text="Diwali Function in that day"/>
 

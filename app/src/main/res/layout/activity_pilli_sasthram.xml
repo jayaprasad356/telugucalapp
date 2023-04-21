@@ -26,9 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
+            android:text="పిల్లి శాస్త్రం"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/sree"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+           />
 
     </LinearLayout>
 

@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ఆబ్దికం"
+            android:fontFamily="@font/sree"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
@@ -64,8 +65,8 @@
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_gravity="center_vertical"
                 android:id="@+id/arrowleft"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
                 app:cardCornerRadius="@dimen/_60sdp"
                 android:backgroundTint="@color/white"
                 >
@@ -91,8 +92,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="November 2022"
+                android:paddingHorizontal="@dimen/_4sdp"
+                android:fontFamily="@font/sree"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_22sdp"
                 android:textStyle="bold" />
 
             <TextView
@@ -101,17 +105,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:text="November 2022"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
                 />
 
             <androidx.cardview.widget.CardView
                 android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/arrowright"
                 android:layout_gravity="center_vertical|right"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
                 app:cardCornerRadius="@dimen/_60sdp"
                 android:backgroundTint="@color/white"
                 >
