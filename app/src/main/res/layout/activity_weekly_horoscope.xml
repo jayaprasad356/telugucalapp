@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Horoscope"
+            android:fontFamily="@font/sree"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
@@ -93,9 +94,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
+                        android:fontFamily="@font/sree"
                         android:layout_gravity="center"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
+
                         />
 
                     <TextView
@@ -107,6 +109,7 @@
                         android:text=""
                         android:layout_gravity="center|bottom"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/ramabhadra"
                         />
 
                 </LinearLayout>
@@ -145,7 +148,9 @@
                 android:layout_centerInParent="true"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                />
 
             </ScrollView>
 

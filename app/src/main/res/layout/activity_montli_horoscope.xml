@@ -29,6 +29,7 @@
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
+            android:fontFamily="@font/sree"
             />
 
     </LinearLayout>
@@ -94,7 +95,7 @@
                         android:text=""
                         android:layout_gravity="center"
                         android:textColor="@color/white"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/sree"
                         />
 
                     <TextView
@@ -106,6 +107,7 @@
                         android:text=""
                         android:layout_gravity="center|bottom"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/ramabhadra"
                         />
 
                 </LinearLayout>
@@ -146,7 +148,9 @@
                 android:layout_centerInParent="true"
                 android:text=""
                 android:textColor="@color/black"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                />
 
             </ScrollView>
 

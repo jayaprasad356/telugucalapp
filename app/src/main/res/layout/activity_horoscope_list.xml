@@ -27,6 +27,7 @@
             android:text="Horoscope"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
+            android:fontFamily="@font/sree"
             android:textSize="@dimen/_18sdp"
             />
 
@@ -77,8 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="మేషరాశి"
-                android:textStyle="bold"
                 android:textColor="@color/black"
+                android:fontFamily="@font/ramabhadra"
                 android:textSize="@dimen/_12sdp"
                 />
 
@@ -120,9 +121,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="వృషభరాశి"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/ramabhadra"
+
                 />
 
 
@@ -163,9 +165,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="మిథునరాశి"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
+                android:fontFamily="@font/ramabhadra"
+
                 />
 
 
@@ -208,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="కర్కాటకరాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -251,7 +254,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="సింహరాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -294,7 +297,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="కన్యారాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -338,7 +341,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="తులారాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -381,7 +384,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="వృశ్చిక రాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -424,7 +427,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ధనూరాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -470,7 +473,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="మకరరాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
+
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />
@@ -515,7 +519,8 @@
                 android:text="కుంభరాశి"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/ramabhadra"
+                />
 
 
         </LinearLayout>
@@ -555,7 +560,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="మీనరాశి"
-                android:textStyle="bold"
+                android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"
                 />

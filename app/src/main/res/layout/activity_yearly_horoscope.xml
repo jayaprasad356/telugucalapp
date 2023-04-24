@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Horoscope"
+            android:fontFamily="@font/sree"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
@@ -94,10 +95,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="@dimen/_4sdp"
+                            android:fontFamily="@font/sree"
                             android:text=""
                             android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp"
-                            android:textStyle="bold" />
+                            />
 
 
 
@@ -159,8 +161,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ఆదాయం : "
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_9sdp"
+                        android:fontFamily="@font/ramabhadra"
+                        android:textSize="@dimen/_12sdp"
                         android:textColor="@color/black"
                     />
 
@@ -169,7 +171,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_12sdp"
+
+                        android:fontFamily="@font/mallanna"
 
                         android:textColor="@color/black"
                         />
@@ -187,8 +191,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ఆదాయం : "
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_9sdp"
+                        android:fontFamily="@font/ramabhadra"
+                        android:textSize="@dimen/_12sdp"
+
 
                         android:textColor="@color/black"
                     />
@@ -198,7 +203,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_12sdp"
+
+                        android:fontFamily="@font/mallanna"
 
                         android:textColor="@color/black"
                         />
@@ -216,8 +223,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ఆదాయం : "
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_9sdp"
+                        android:fontFamily="@font/ramabhadra"
+                        android:textSize="@dimen/_12sdp"
+
 
                         android:textColor="@color/black"
                     />
@@ -227,7 +235,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_12sdp"
+
+                        android:fontFamily="@font/mallanna"
 
                         android:textColor="@color/black"
                         />
@@ -245,8 +255,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ఆదాయం : "
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_9sdp"
+                        android:fontFamily="@font/ramabhadra"
+                        android:textSize="@dimen/_12sdp"
+
                         android:textColor="@color/black"
                     />
 
@@ -255,7 +266,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:fontFamily="@font/mallanna"
 
                         android:textColor="@color/black"
                         />
@@ -277,8 +289,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bordercurve2"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_14sdp"
-                    android:textStyle="bold"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/ramabhadra"
                     android:textAlignment="center"
                     android:text=""/>
                 <TextView
@@ -287,7 +299,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/_16sdp"
                     android:textAlignment="center"
-                    android:fontFamily="@font/sree"
+                    android:fontFamily="@font/mallanna"
                     android:textColor="@color/colorBlack"
                     android:text=""/>
 

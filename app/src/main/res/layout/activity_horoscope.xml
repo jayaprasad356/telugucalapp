@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="రాశిఫలాలు"
+            android:fontFamily="@font/sree"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
@@ -73,10 +74,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ధిన ఫలాలు"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/sree"
                     />
 
 
@@ -109,11 +110,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="వార ఫలాలు"
-                    android:textStyle="bold"
-
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/sree"
                     />
 
 
@@ -156,10 +156,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="మాస ఫలాలు"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/sree"
                     />
 
 
@@ -192,10 +192,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="వార్షిక  ఫలాలు"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/sree"
                     />
 
 
