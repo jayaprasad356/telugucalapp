@@ -193,8 +193,8 @@
                             android:text=""
                             android:textColor="@color/calHeaderT"
                             android:gravity="center"
+                            android:textStyle="bold"
                             android:textSize="@dimen/_18sdp"
-                            android:fontFamily="@font/ramabhadra"
 
                             />
 
@@ -673,8 +673,7 @@ android:textSize="@dimen/_16sdp"
                                 android:fontFamily="@font/ramabhadra"
                                 android:text="ప్రదోష"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_16sdp"
-                              />
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
