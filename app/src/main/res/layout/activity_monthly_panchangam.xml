@@ -99,10 +99,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/sree"
                         android:text="విభమి క్యాలెండర్"
                         android:textColor="@color/calHeaderT"
-                        android:textSize="@dimen/_20sdp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_20sdp" />
 
 
                 </RelativeLayout>
@@ -194,7 +194,8 @@
                             android:textColor="@color/calHeaderT"
                             android:gravity="center"
                             android:textSize="@dimen/_18sdp"
-                            android:textStyle="bold"
+                            android:fontFamily="@font/ramabhadra"
+
                             />
 
 
@@ -203,6 +204,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="-"
+                            android:fontFamily="@font/ramabhadra"
                             android:gravity="center"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_20sdp" />
@@ -414,6 +416,7 @@
                         android:padding="@dimen/_10sdp"
                         android:text="ఉపవాసం రోజులు"
                         android:gravity="center"
+                        android:fontFamily="@font/ramabhadra"
                         android:textSize="@dimen/_12sdp"
                         android:textColor="@color/white"
                         />
@@ -453,10 +456,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="పౌర్ణమి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -480,9 +483,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/mallanna"
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
                                 android:text=""
+                                android:textSize="@dimen/_16sdp"
+
                                 android:textColor="@color/black" />
 
                         </RelativeLayout>
@@ -517,11 +523,12 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="అమావాస్య"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -550,6 +557,8 @@
                             android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
+                            android:fontFamily="@font/mallanna"
+android:textSize="@dimen/_16sdp"
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
@@ -592,10 +601,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="ఏకాదశి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                               />
 
                         </RelativeLayout>
 
@@ -619,7 +629,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/mallanna"
                                 android:gravity="center"
+                                android:textSize="@dimen/_16sdp"
+
                                 android:padding="@dimen/_5sdp"
                                 android:text=""
                                 android:textColor="@color/black" />
@@ -657,10 +670,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="ప్రదోష"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                              />
 
                         </RelativeLayout>
 
@@ -689,6 +703,9 @@
                             android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
+                            android:fontFamily="@font/mallanna"
+                            android:textSize="@dimen/_16sdp"
+
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
@@ -731,10 +748,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="షష్టి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                           />
 
                         </RelativeLayout>
 
@@ -758,8 +776,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/mallanna"
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_16sdp"
+
                                 android:text=""
                                 android:textColor="@color/black" />
 
@@ -796,10 +817,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="చవితి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                                />
 
                         </RelativeLayout>
 
@@ -828,6 +850,9 @@
                             android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
+                            android:fontFamily="@font/mallanna"
+                            android:textSize="@dimen/_16sdp"
+
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
@@ -870,10 +895,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="మాస శివరాత్రి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                              />
 
                         </RelativeLayout>
 
@@ -897,8 +923,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/mallanna"
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
+                                android:textSize="@dimen/_16sdp"
+
                                 android:text=""
                                 android:textColor="@color/black" />
 
@@ -935,10 +964,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
                                 android:text="సంకటహర చతుర్థి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
+                                android:textSize="@dimen/_16sdp"
+                                />
 
                         </RelativeLayout>
 
@@ -967,6 +997,9 @@
                             android:padding="@dimen/_5sdp"
                             android:text=""
                             android:gravity="center"
+                            android:fontFamily="@font/mallanna"
+                            android:textSize="@dimen/_16sdp"
+
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/black"
                             />
@@ -1009,10 +1042,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:fontFamily="@font/ramabhadra"
                             android:text="పండుగలు"
-                            android:textStyle="bold"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp" />
+                            android:textSize="@dimen/_16sdp"
+                           />
 
                     </RelativeLayout>
 
@@ -1034,6 +1068,9 @@
                         android:padding="@dimen/_10sdp"
                         android:text="Text"
                         android:gravity="center"
+                        android:fontFamily="@font/mallanna"
+                        android:textSize="@dimen/_16sdp"
+
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/black"
                         />
@@ -1067,10 +1104,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:fontFamily="@font/ramabhadra"
                             android:text="ప్రభుత్వ -  బ్యాంకు సెలవులు"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/_10sdp"
-                            android:textStyle="bold" />
+                            android:textSize="@dimen/_16sdp"
+                         />
 
                     </RelativeLayout>
 
@@ -1092,6 +1130,9 @@
                         android:padding="@dimen/_10sdp"
                         android:text="Text"
                         android:gravity="center"
+                        android:fontFamily="@font/mallanna"
+                        android:textSize="@dimen/_16sdp"
+
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/black"
                         />
