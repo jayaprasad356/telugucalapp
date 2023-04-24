@@ -216,7 +216,7 @@
                         android:textColor="@color/black"
                         android:gravity="center"
                         android:fontFamily="@font/ramabhadra"
-                        android:textSize="@dimen/_14sdp"
+                        android:textSize="@dimen/_16sdp"
                         />
 
                     <TextView
@@ -228,6 +228,7 @@
                         android:gravity="center"
                         android:textSize="@dimen/_18sdp"
                         android:textStyle="bold"
+                        android:fontFamily="@font/ramabhadra"
                         />
 
 
@@ -237,11 +238,9 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text=""
-
                             android:fontFamily="@font/ramabhadra"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp"
-                            android:lineSpacingMultiplier="0"
+                            android:textSize="@dimen/_16sdp"
                             />
 
                         <TextView
@@ -249,14 +248,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-
                             android:text=""
-                            android:lineSpacingExtra="-15dp"
-
                             android:fontFamily="@font/ramabhadra"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp"
-                            android:lineSpacingMultiplier="0"
+                            android:textSize="@dimen/_16sdp"
                             />
                         <TextView
                             android:id="@+id/tvtext4"
@@ -264,9 +259,9 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text=""
-                            android:lineSpacingMultiplier="0"                            android:fontFamily="@font/ramabhadra"
+                            android:fontFamily="@font/ramabhadra"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_14sdp"
+                            android:textSize="@dimen/_16sdp"
                             />
                         <TextView
                             android:id="@+id/tvtext5"
@@ -274,13 +269,9 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text=""
-                            android:padding="0dp"
-
                             android:fontFamily="@font/ramabhadra"
                             android:textColor="@color/black"
-                            android:lineSpacingExtra="-15dp"
-
-                            android:textSize="@dimen/_14sdp"
+                            android:textSize="@dimen/_16sdp"
                             />
 
                         <TextView
@@ -289,13 +280,9 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text=""
-                            android:padding="0dp"
-
                             android:fontFamily="@font/ramabhadra"
                             android:textColor="@color/black"
-                            android:lineSpacingExtra="-15dp"
-
-                            android:textSize="@dimen/_14sdp"
+                            android:textSize="@dimen/_16sdp"
                             />
 
 
@@ -393,10 +380,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/ramabhadra"
                         android:text="చంద్రోదయం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/ramabhadra" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </RelativeLayout>
 
@@ -442,10 +429,10 @@
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:layout_centerInParent="true"
+                          android:fontFamily="@font/ramabhadra"
                           android:text="చంద్రాస్తమయం"
                           android:textColor="@color/white"
-                          android:textSize="@dimen/_10sdp"
-                          android:fontFamily="@font/ramabhadra" />
+                          android:textSize="@dimen/_10sdp" />
 
                   </RelativeLayout>
 
@@ -565,10 +552,10 @@
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:layout_centerInParent="true"
-                          android:fontFamily="@font/ramabhadra"
                           android:text="చంద్రాస్తమయం"
                           android:textColor="@color/white"
-                          android:textSize="@dimen/_10sdp" />
+                          android:textSize="@dimen/_10sdp"
+                          android:fontFamily="@font/ramabhadra"  />
 
                   </RelativeLayout>
 
@@ -636,7 +623,7 @@
                         android:fontFamily="@font/ramabhadra"
                         android:text="తిథి"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
 
 
@@ -652,7 +639,7 @@
                     android:padding="@dimen/_5sdp"
                     android:text=""
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     android:textColor="@color/black" />
 
 
@@ -690,7 +677,7 @@
                         android:fontFamily="@font/ramabhadra"
                         android:text="నక్షత్రం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </RelativeLayout>
 
@@ -715,7 +702,7 @@
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -758,10 +745,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="యోగం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -777,7 +764,7 @@
                     android:text=""
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -811,10 +798,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="కరణం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -839,7 +826,7 @@
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -882,10 +869,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="అభిజిత్ ముహుర్తాలు"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -901,7 +888,7 @@
                     android:text=""
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -936,10 +923,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="బ్రహ్మ ముహూర్తం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -964,7 +951,7 @@
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -999,10 +986,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/ramabhadra"
                     android:text="అమృతకాలము"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/ramabhadra" />
 
             </RelativeLayout>
 
@@ -1027,7 +1014,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
                 android:fontFamily="@font/mallanna"
-                android:textSize="@dimen/_16sdp"
+                 android:textSize="@dimen/_14sdp"
                 />
 
 
@@ -1069,10 +1056,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="రాహుకాలం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -1088,7 +1075,7 @@
                     android:text=""
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"/>
+                     android:textSize="@dimen/_14sdp"/>
 
 
             </LinearLayout>
@@ -1121,10 +1108,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/ramabhadra"
                         android:text="యమగండం"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra" />
 
                 </RelativeLayout>
 
@@ -1149,7 +1136,7 @@
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/black"
                     android:fontFamily="@font/mallanna"
-                    android:textSize="@dimen/_16sdp"
+                     android:textSize="@dimen/_14sdp"
                     />
 
 
@@ -1185,10 +1172,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/ramabhadra"
                     android:text="దుర్ముహూర్తం"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/ramabhadra" />
 
             </RelativeLayout>
 
@@ -1213,7 +1200,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
                 android:fontFamily="@font/mallanna"
-                android:textSize="@dimen/_16sdp"
+                 android:textSize="@dimen/_14sdp"
                 />
 
 
@@ -1244,10 +1231,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/ramabhadra"
                     android:text="వర్జ్యం"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/ramabhadra" />
 
             </RelativeLayout>
 
@@ -1272,7 +1259,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/black"
                 android:fontFamily="@font/mallanna"
-                android:textSize="@dimen/_16sdp"
+                 android:textSize="@dimen/_14sdp"
                 />
 
 
@@ -1302,10 +1289,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/ramabhadra"
                     android:text="గుళికా"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/ramabhadra" />
 
             </RelativeLayout>
 
@@ -1321,7 +1308,7 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/mallanna"
-                android:textSize="@dimen/_16sdp"/>
+                 android:textSize="@dimen/_14sdp"/>
 
 
         </LinearLayout>
@@ -1351,10 +1338,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/ramabhadra"
                     android:text="రాశి చక్రం"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_16sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:fontFamily="@font/ramabhadra"/>
 
             </RelativeLayout>
 

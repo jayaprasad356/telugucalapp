@@ -46,6 +46,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="శ్రీ శోభకృత్ నామ సంవత్సరం"
+                        android:fontFamily="@font/sree"
                         android:textColor="@color/colorBlack"
                         android:textSize="25sp" />
 
@@ -54,6 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:fontFamily="@font/ramabhadra"
                         android:text="(2023 మార్చి 22 - 2024 ఏప్రిల్ 8)"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
