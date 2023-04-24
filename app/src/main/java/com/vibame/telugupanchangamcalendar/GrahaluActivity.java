@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ public class GrahaluActivity extends AppCompatActivity {
 
     LinearLayout llRahu, llGuru, llBudha, llSukra, llShani, llRah, llKetu, llMangal, lllast;
     Activity activity;
+    ImageView imgBack;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,6 +38,16 @@ public class GrahaluActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grahalu);
 
         activity = this;
+
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
 
 
         llRahu = findViewById(R.id.llRahu);

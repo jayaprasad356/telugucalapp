@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/slider"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#E7F0F4"
     tools:context=".fragments.FestivalFragment">
 
     <androidx.cardview.widget.CardView

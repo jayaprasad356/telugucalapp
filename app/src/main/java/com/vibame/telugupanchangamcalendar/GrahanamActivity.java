@@ -10,6 +10,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,7 @@ public class GrahanamActivity extends AppCompatActivity {
     Activity activity;
     MoudyaDinamuluAdapter adapter;
     RecyclerView recyclerView;
+    ImageView imgBack;
 
 
     @SuppressLint("MissingInflatedId")
@@ -46,6 +49,14 @@ public class GrahanamActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
 apicall();

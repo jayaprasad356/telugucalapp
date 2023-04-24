@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".HolidaysActivity"
     android:id="@+id/slider"
+    android:background="#E7F0F4"
+
     >
 
     <androidx.cardview.widget.CardView
@@ -52,8 +54,9 @@
             android:layout_gravity="center"
             android:text="November 2022"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/sree" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -62,7 +65,8 @@
             android:layout_gravity="center|bottom"
             android:text="November 2022"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/ramabhadra"
             android:layout_marginBottom="@dimen/_5sdp"
             />
 

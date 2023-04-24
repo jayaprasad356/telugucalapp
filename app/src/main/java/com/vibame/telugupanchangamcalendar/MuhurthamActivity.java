@@ -40,7 +40,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class MuhurthamActivity extends AppCompatActivity {
+public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableScrollView.SwipeListener{
 
 
     CardView imgLeft, imgRight;
@@ -100,6 +100,8 @@ public class MuhurthamActivity extends AppCompatActivity {
 
 
         tvTitle = findViewById(R.id.tvtext1);
+        scrollView = findViewById(R.id.scroll_view);
+        scrollView.setSwipeListener(this);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override

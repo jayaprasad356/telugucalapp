@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class MoudyaDinamuluActivity extends AppCompatActivity {
     Activity activity;
     MoudyaDinamuluAdapter adapter;
     RecyclerView recyclerView;
+    ImageView imgBack;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,6 +56,15 @@ public class MoudyaDinamuluActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+
+        imgBack = findViewById(R.id.imgBack);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
 

@@ -20,10 +20,11 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bordercurve2"
             android:text="Today Info Festival"
+            android:fontFamily="@font/ramabhadra"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_14sdp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_16sdp"
+             />
 
         <LinearLayout
             android:gravity="center"
@@ -43,7 +44,9 @@
                 android:layout_marginLeft="@dimen/_5sdp"
                 android:text="Diwali Function in that day"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                />
 
         </LinearLayout>
 

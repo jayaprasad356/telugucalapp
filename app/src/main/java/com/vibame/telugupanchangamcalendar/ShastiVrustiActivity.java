@@ -40,7 +40,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class ShastiVrustiActivity extends AppCompatActivity {
+public class ShastiVrustiActivity extends AppCompatActivity implements  SwipeableScrollView.SwipeListener {
 
     CardView imgLeft, imgRight;
     ImageButton ivArrowRight, ivArrowLeft;
@@ -63,6 +63,7 @@ public class ShastiVrustiActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     KarthiVrustiAdapter adapter;
     TextView tvTitle;
+
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -94,6 +95,9 @@ public class ShastiVrustiActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
 
         tvTitle = findViewById(R.id.tvtext1);
+
+        scrollView = findViewById(R.id.scroll_view);
+        scrollView.setSwipeListener(this);
 
 
 
