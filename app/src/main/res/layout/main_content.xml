@@ -44,18 +44,18 @@
                         android:id="@+id/titleTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/sree"
                         android:gravity="center"
                         android:text="శ్రీ శోభకృత్ నామ సంవత్సరం"
-                        android:fontFamily="@font/sree"
                         android:textColor="@color/colorBlack"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <TextView
                         android:id="@+id/subTxt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:fontFamily="@font/ramabhadra"
+                        android:gravity="center"
                         android:text="(2023 మార్చి 22 - 2024 ఏప్రిల్ 8)"
                         android:textColor="@color/colorBlack"
                         android:textSize="18sp" />
@@ -321,6 +321,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="గౌరీ పంచాంగం"
                                 android:textAlignment="center"
@@ -359,9 +360,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="హౌరాలు"
                                 android:textAlignment="center"
+
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -397,9 +400,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="భార్గవ పంచాంగం"
                                 android:textAlignment="center"
+
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -436,9 +441,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="ఆబ్దికం"
                                 android:textAlignment="center"
+
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -479,10 +486,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="మౌడ్య దినములు"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
+
                                 android:textSize="15sp" />
                         </LinearLayout>
 
@@ -517,8 +526,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="గ్రహణం"
+
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
@@ -555,8 +566,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="నవగ్రహ ప్రవేశం"
+
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
@@ -594,9 +607,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/ramabhadra"
                                 android:maxLines="2"
                                 android:text="రాహుకాలం యమగండం"
                                 android:textAlignment="center"
+
                                 android:textColor="@color/black"
                                 android:textSize="15sp" />
                         </LinearLayout>
@@ -1187,7 +1202,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Shakuna Shasthram"
+                        android:text="శకున శాస్త్రం"
+                        android:fontFamily="@font/sree"
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -1206,7 +1222,7 @@
 
                             <LinearLayout
                                 android:id="@+id/sakunalu"
-                                android:layout_width="80dp"
+                                android:layout_width="90dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:orientation="vertical">
@@ -1232,14 +1248,14 @@
 
                                 <TextView
                                     android:layout_width="wrap_content"
-                                    android:layout_height="39dp"
+                                    android:layout_height="60dp"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
-
                                     android:text="శకునాలు నమ్మకాలు"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp" />
+                                    android:textSize="@dimen/_10sdp" />
                             </LinearLayout>
 
                             <Space
@@ -1278,6 +1294,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
                                     android:text="బల్లి శాస్త్రం"
                                     android:textAlignment="center"
@@ -1322,8 +1339,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
-
                                     android:text="కాకి శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
@@ -1367,6 +1384,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
                                     android:text="కుక్కుట శాస్త్రం"
                                     android:textAlignment="center"
@@ -1412,8 +1430,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
-
                                     android:text="పిల్లి శాస్త్రం"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
@@ -1481,12 +1499,11 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/ramabhadra"
+                            android:fontFamily="@font/sree"
                             android:gravity="center"
                             android:text="తెలుగు సంస్కృతం"
                             android:textColor="@color/black"
-                            android:textSize="18dp"
-                             />
+                            android:textSize="18dp" />
 
 
                         <LinearLayout
@@ -1542,8 +1559,7 @@
                                     android:text="సంవత్సరాలు"
 
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/_10sdp"
-                                     />
+                                    android:textSize="@dimen/_10sdp" />
 
 
                             </LinearLayout>
@@ -1598,8 +1614,7 @@
                                     android:text="నెలలు"
 
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/_10sdp"
-
+                                    android:textSize="@dimen/_14sdp"
 
 
                                     />
@@ -1654,8 +1669,7 @@
                                     android:text="అంకెలు"
 
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/_10sdp"
-
+                                    android:textSize="@dimen/_14sdp"
 
 
                                     />
@@ -1692,13 +1706,12 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:maxLines="2"
                                     android:text="More"
-                                    android:fontFamily="@font/ramabhadra"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                  />
+                                    android:textSize="@dimen/_14sdp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -1748,8 +1761,7 @@
                                     android:text="అక్షరాలు"
 
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/_10sdp"
-
+                                    android:textSize="@dimen/_14sdp"
 
 
                                     />
@@ -1826,7 +1838,7 @@
                                         android:text="గుణింతలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -1880,8 +1892,7 @@
                                         android:text="రాశులు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
-                                         />
+                                        android:textSize="@dimen/_14sdp" />
 
                                 </LinearLayout>
 
@@ -1931,7 +1942,7 @@
                                         android:text="64 కళలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -1984,8 +1995,7 @@
                                         android:text="వృత్తులు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
-
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2050,7 +2060,7 @@
                                         android:text="నవ గ్రహాలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2103,7 +2113,7 @@
                                         android:text="ఋతువులు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2156,7 +2166,7 @@
                                         android:text="కొలతలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2212,7 +2222,7 @@
                                         android:text="పక్షములు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2280,7 +2290,7 @@
                                         android:text="లగ్నాలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2335,7 +2345,7 @@
                                         android:padding="@dimen/_2sdp"
                                         android:text="అధిదేవతలు"
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2388,8 +2398,7 @@
                                         android:text="తెలుగు వారములు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
-
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2441,8 +2450,7 @@
                                         android:text="పండ్లు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
-
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2509,7 +2517,7 @@
                                         android:text="ప్రసాదం"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -2563,8 +2571,7 @@
                                         android:text="పుష్పాలు"
 
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_10sdp"
-                                         />
+                                        android:textSize="@dimen/_14sdp" />
 
                                 </LinearLayout>
 
