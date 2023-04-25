@@ -3,30 +3,31 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="@dimen/_10sdp"
-    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_1sdp"
+    android:layout_marginVertical="@dimen/_1sdp"
     >
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="left"
         >
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_2sdp"
             >
 
             <ImageView
                 android:id="@+id/imgGod"
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_120sdp"
-                android:background="@drawable/god_pik"
-                android:scaleType="fitXY"
-               />
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:src="@drawable/god_pik"
+                android:scaleType="centerCrop"/>               />
 
         </androidx.cardview.widget.CardView>
         <TextView
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_16sdp"
+            android:visibility="gone"
             android:fontFamily="@font/sree"
             android:text="Good Morning"
             />
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
+            android:visibility="gone"
             android:padding="@dimen/_2sdp"
             >
 

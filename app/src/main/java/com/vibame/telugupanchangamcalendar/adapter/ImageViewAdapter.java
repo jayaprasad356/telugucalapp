@@ -20,7 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.artjimlop.altex.AltexImageDownloader;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.ImagesActivity;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.activities.ImageViewActivity;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImageTab;
@@ -59,6 +61,15 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         Glide.with(activity).load(imagesView.getImage()).into(holder.imgGod);
+        holder.imgGod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, ImageViewActivity.class);
+                intent.putExtra(Constant.IMAGE,imagesView.getImage());
+                intent.putExtra(Constant.ID,imagesView.getId());
+                activity.startActivity(intent);
+            }
+        });
 
         holder.tvDownload.setOnClickListener(new View.OnClickListener() {
             @Override
