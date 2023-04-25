@@ -75,6 +75,7 @@
                 android:background="@drawable/god_pik"
                 />
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/tvLyrics"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_150sdp"
