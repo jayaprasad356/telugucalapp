@@ -64,9 +64,15 @@ public class ImageViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.imgGod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ArrayList<String> imagesList = new ArrayList<>();
+                for (ImagesView imageView : imagesViews) {
+                    imagesList.add(imageView.getImage());
+                }
+
                 Intent intent = new Intent(activity, ImageViewActivity.class);
                 intent.putExtra(Constant.IMAGE,imagesView.getImage());
-                intent.putExtra(Constant.ID,imagesView.getId());
+                intent.putExtra(Constant.IMAGE_URL,imagesList);
+                intent.putExtra(Constant.ID,position);
                 activity.startActivity(intent);
             }
         });
