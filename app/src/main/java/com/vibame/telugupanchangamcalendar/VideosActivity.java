@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.VideoViewAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.VideosAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImagesView;
@@ -37,7 +39,7 @@ import java.util.HashMap;
 
 public class VideosActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    //RecyclerView recyclerView;
     Activity activity;
     ImageView imgBack;
     VideoViewAdapter videoViewAdapter;
@@ -45,7 +47,7 @@ public class VideosActivity extends AppCompatActivity {
     EditText etSearch;
     TextView tvTitle;
     String Title;
-
+     ViewPager2 videosViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +55,13 @@ public class VideosActivity extends AppCompatActivity {
 
         activity = VideosActivity.this;
         VideoCategoryId = getIntent().getStringExtra(Constant.VIDEO_CATEGORY_ID);
-        recyclerView = findViewById(R.id.recyclerView);
+       // recyclerView = findViewById(R.id.recyclerView);
         imgBack = findViewById(R.id.imgBack);
         etSearch = findViewById(R.id.etSearch);
         tvTitle = findViewById(R.id.tvTitle);
         Title = getIntent().getStringExtra(Constant.NAME);
         tvTitle.setText(Title);
-
+       videosViewPager = findViewById(R.id.viewPagerVideos);
 
 
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +74,7 @@ public class VideosActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        //recyclerView.setLayoutManager(gridLayoutManager);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -120,11 +122,11 @@ public class VideosActivity extends AppCompatActivity {
                             }
                         }
                         videoViewAdapter = new VideoViewAdapter(activity,videosViews);
-                        recyclerView.setAdapter(videoViewAdapter);
+                      //  recyclerView.setAdapter(videoViewAdapter);
                     }else {
                         ArrayList<VideosView> videosViews = new ArrayList<>();
                         videoViewAdapter = new VideoViewAdapter(activity,videosViews);
-                        recyclerView.setAdapter(videoViewAdapter);
+                      //  recyclerView.setAdapter(videoViewAdapter);
 
 
                     }
@@ -159,8 +161,9 @@ public class VideosActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        videoViewAdapter = new VideoViewAdapter(activity,videosViews);
-                        recyclerView.setAdapter(videoViewAdapter);
+                       // videoViewAdapter = new VideoViewAdapter(activity,videosViews);
+                        videosViewPager.setAdapter(new VideosAdapter(videosViews));
+                       // recyclerView.setAdapter(videoViewAdapter);
                     }
                 }catch (Exception e) {
                     e.printStackTrace();
