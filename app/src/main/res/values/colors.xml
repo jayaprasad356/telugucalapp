@@ -17,6 +17,7 @@
     <color name="calScrolltext">#0D232A</color>
     <color name="horoBg">#003b46</color>
     <color name="splachScreen">#ffec1a</color>
+    <color name="bg_blue">#E7F0F4</color>
 
     <color name="calHeaderT">#F97F02</color>
     <color name="calMonth">#006D98</color>
