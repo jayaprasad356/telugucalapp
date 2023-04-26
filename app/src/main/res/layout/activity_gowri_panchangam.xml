@@ -20,7 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorHead"
+            android:background="@color/calHeaderT"
             android:padding="@dimen/_8sdp"
             android:orientation="horizontal">
             <ImageView
@@ -28,8 +28,9 @@
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:background="@drawable/ic_baseline_keyboard_arrow_left_24"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/white"
                 />
             <TextView
                 android:id="@+id/tvHoroscopeTitle"
@@ -39,7 +40,7 @@
                 android:text="గౌరీ పంచాంగం"
                 android:fontFamily="@font/sree"
                 android:layout_marginStart="@dimen/_10sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_18sdp"
                 />
 

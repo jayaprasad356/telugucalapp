@@ -37,7 +37,7 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.ramayanam_view, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.ramayanam_view2, parent, false);
         return new ExploreItemHolder(view);
     }
 

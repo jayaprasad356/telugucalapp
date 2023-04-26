@@ -2,16 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
     <com.google.android.material.card.MaterialCardView
-        app:cardElevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:cardElevation="0dp"
         >
 
 
@@ -23,6 +25,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:visibility="gone"
                 android:id="@+id/cardPoojalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,7 +33,7 @@
                 app:cardCornerRadius="@dimen/_2sdp">
 
                 <ImageView
-                    android:id="@+id/imgGrahalu"
+                    android:id="@+id/imgPoojalu"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_gravity="center"
@@ -42,13 +45,13 @@
 
             <TextView
                 android:layout_toRightOf="@+id/cardPoojalu"
-                android:id="@+id/tvName"
+                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:fontFamily="@font/sree"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:textColor="#673AB7"
+                android:fontFamily="@font/sree"
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_14sdp" />
 
@@ -56,5 +59,8 @@
 
 
     </com.google.android.material.card.MaterialCardView>
+
+
+
 
 </RelativeLayout>
