@@ -13,6 +13,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="0dp"
+        android:scaleX="4"
+        android:scaleY="10"
         android:layout_height="0dp"/>
     <ProgressBar
         android:id="@+id/progressBar"
