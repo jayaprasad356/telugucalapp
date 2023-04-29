@@ -105,7 +105,6 @@ public class VideoTabActivity extends AppCompatActivity {
 
 
     private void videos() {
-
         HashMap<String,String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {

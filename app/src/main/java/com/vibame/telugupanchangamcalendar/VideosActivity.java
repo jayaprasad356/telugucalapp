@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.adapter.ImageViewAdapter;
@@ -148,6 +149,7 @@ public class VideosActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if(jsonObject.getBoolean(SUCCESS)){
+                        Log.d("Video",response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ArrayList<VideosView> videosViews = new ArrayList<>();

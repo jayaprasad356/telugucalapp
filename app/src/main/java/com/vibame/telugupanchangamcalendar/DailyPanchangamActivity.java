@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -36,7 +37,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     TextView tvDate,tvDate1,tvtext1,tvtext2,tvtext3,tvtext4,tvtext5,tvtext6,tvSunrise,tvSunset,tvMoonRise,tvMoonset,tvFestival;
     TextView tvThithi,TVNakshathram,tvYogam,tvKaranam,tvAbhijithMuhurtham,tvBhramaMuhurtham,tvAmruthaKalam,tvRahukalam,tvYamagandam,tvDhurmuhurtham,tvVarjyam,tvGulika;
     TextView tvhc1,tvhc2,tvhc3,tvhc4,tvhc5,tvhc6,tvhc7,tvhc8,tvhc9,tvhc10,tvhc11,tvhc12;
-    CardView arrowright, arrowleft;
+    CardView arrowright, arrowleft,cal_card;
     ImageButton ivArrowRight, ivArrowLeft;
     Activity activity;
     Session session;
@@ -116,6 +117,14 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         tvhc10  = findViewById(R.id.tvhc10);
         tvhc11  = findViewById(R.id.tvhc11);
         tvhc12  = findViewById(R.id.tvhc12);
+        cal_card = findViewById(R.id.cal_card);
+
+
+
+        cal_card.setOnClickListener(v -> {
+            Intent intent = new Intent(activity, MonthlyPanchangam.class);
+            startActivity(intent);
+        });
 
 
 

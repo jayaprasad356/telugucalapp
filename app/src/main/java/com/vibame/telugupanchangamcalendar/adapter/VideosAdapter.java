@@ -60,14 +60,14 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
                     mProgressBar.setVisibility(View.GONE);
                     mp.start();
 
-                    float videoRatio = mp.getVideoWidth() / (float)mp.getVideoHeight();
-                    float screenRatio = mVideoView.getWidth() / (float)mVideoView.getHeight();
-                    float scale  = videoRatio / screenRatio;
-                    if (scale >= 1f){
-                        mVideoView.setScaleX(scale);
-                    }else {
-                        mVideoView.setScaleY(1f / scale);
-                    }
+//                    float videoRatio = mp.getVideoWidth() / (float)mp.getVideoHeight();
+//                    float screenRatio = mVideoView.getWidth() / (float)mVideoView.getHeight();
+//                    float scale  = videoRatio / screenRatio;
+//                    if (scale >= 1f){
+//                        mVideoView.setScaleX(scale);
+//                    }else {
+//                        mVideoView.setScaleY(1f / scale);
+//                    }
                 }
             });
             mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
