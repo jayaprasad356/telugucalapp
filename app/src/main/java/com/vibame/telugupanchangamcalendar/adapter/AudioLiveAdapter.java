@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.AudioPlayActivity;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.activities.ImageViewActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.Audio;
+import com.vibame.telugupanchangamcalendar.model.ImagesView;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
 import java.util.ArrayList;
@@ -51,10 +53,18 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                ArrayList<String> audioList = new ArrayList<>();
+                for (Audio audios : audio) {
+                    audioList.add(audios.getAudio());
+                }
+
                 Intent intent = new Intent(activity, AudioPlayActivity.class);
                 intent.putExtra(Constant.AUDIO_TITLE,audio1.getTitle());
                 intent.putExtra(Constant.AUDIO,audio1.getAudio());
                 intent.putExtra(Constant.LYRICS,audio1.getLyrics());
+                intent.putExtra(Constant.ID,position);
+                intent.putExtra(Constant.AUDIO_LIST,audioList);
                 activity.startActivity(intent);
             }
         });

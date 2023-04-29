@@ -28,23 +28,25 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class AudioPlayActivity extends AppCompatActivity {
 
     public static MediaPlayer hfmPlayer;
-    MediaPlayer  bellPlayer, shankPlayer;
-    private ImageButton playIcon, forward, backward, shankhBtn;
+    MediaPlayer bellPlayer, shankPlayer;
+    private ImageButton playIcon, forward, backward, shankhBtn, nextSong, previewSong;
     ImageView imgLoop;
     private SeekBar mSeekBar;
     private ViewPager2 viewPager2;
-    private TextView totTime, curTime,tvTitle,tvTitle1;
+    private TextView totTime, curTime, tvTitle, tvTitle1;
     private int count = 1;
     private int setcount = 0;
     private int seekForwardTime = 10 * 1000; // default 5 second
@@ -56,32 +58,42 @@ public class AudioPlayActivity extends AppCompatActivity {
     Boolean jsonload = false;
     private JSONObject obj;
     private JSONObject splandata;
-    private String lyricsData,Audio,Lyrics;
+    private String lyricsData, Audio, Lyrics;
     MediaPlayer mediaPlayer;
     ImageView imgBack;
     SharedPreferences sharedpreferences;
     TextView tvLyrics;
     boolean loop = false;
-    String[] chalisatime = {"0:00","0:23","0:55","1:17","1:44","2:06","2:30","2:53","3:18","3:40","4:06","4:28","4:54","5:16",
-            "5:42","6:04","6:29","6:52","7:17","7:39","8:04","8:26","9:00"};
+    String[] chalisatime = {"0:00", "0:23", "0:55", "1:17", "1:44", "2:06", "2:30", "2:53", "3:18", "3:40", "4:06", "4:28", "4:54", "5:16",
+            "5:42", "6:04", "6:29", "6:52", "7:17", "7:39", "8:04", "8:26", "9:00"};
+    ArrayList<String> audioList = new ArrayList<>();
+    int audioID;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_play);
         curTime = findViewById(R.id.currentState);
-        totTime =  findViewById(R.id.totalValue);
-        mSeekBar =  findViewById(R.id.mySeekbar);
-        playIcon =  findViewById(R.id.playBtn);
-        imgLoop =  findViewById(R.id.imgLoop);
-        forward =  findViewById(R.id.forward);
-        backward =  findViewById(R.id.backward);
-        tvTitle =  findViewById(R.id.tvTitle);
-        tvTitle1 =  findViewById(R.id.tvTitle1);
-        imgBack =  findViewById(R.id.imgBack);
-        tvLyrics =  findViewById(R.id.tvLyrics);
+        totTime = findViewById(R.id.totalValue);
+        mSeekBar = findViewById(R.id.mySeekbar);
+        playIcon = findViewById(R.id.playBtn);
+        imgLoop = findViewById(R.id.imgLoop);
+        forward = findViewById(R.id.forward);
+        backward = findViewById(R.id.backward);
+        tvTitle = findViewById(R.id.tvTitle);
+        tvTitle1 = findViewById(R.id.tvTitle1);
+        imgBack = findViewById(R.id.imgBack);
+        tvLyrics = findViewById(R.id.tvLyrics);
+        nextSong = findViewById(R.id.nextSong);
+        previewSong = findViewById(R.id.previewSong);
+        session = new Session(this);
+        session.setData(Constant.CURRENT_A_ID, "");
+
+        audioList = getIntent().getStringArrayListExtra(Constant.AUDIO_LIST);
+        audioID = getIntent().getIntExtra(Constant.ID, 0);
         Title = getIntent().getStringExtra(Constant.AUDIO_TITLE);
-        Audio = getIntent().getStringExtra(Constant.AUDIO);
+        Audio = audioList.get(audioID);
         Lyrics = getIntent().getStringExtra(Constant.LYRICS);
         tvTitle.setText(Title);
         tvTitle1.setText(Title);
@@ -93,6 +105,52 @@ public class AudioPlayActivity extends AppCompatActivity {
         bellPlayer = new MediaPlayer();
         shankPlayer = new MediaPlayer();
         initPlayer();
+        nextSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String current_a_id = session.getData(Constant.CURRENT_A_ID);
+                if (current_a_id.isEmpty()) {
+                    int temp = audioID + 1;
+                    Audio = audioList.get(temp);
+                    session.setData(Constant.CURRENT_A_ID, String.valueOf(temp));
+
+                } else {
+                    int updated_id = Integer.parseInt(current_a_id) + 1;
+                    session.setData(Constant.CURRENT_A_ID, String.valueOf(updated_id));
+                    Audio = audioList.get(updated_id);
+
+                }
+                curTime.setText("00:00");
+                playIcon.setBackgroundResource(R.drawable.b_play);
+                initPlayer();
+
+            }
+        });
+        previewSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String current_a_id = session.getData(Constant.CURRENT_A_ID);
+                if (current_a_id.isEmpty()) {
+                    int temp = audioID - 1;
+                    if (audioID == 0) {
+                        Audio = audioList.get(0);
+                        session.setData(Constant.CURRENT_A_ID,"");
+
+                    } else {
+                        Audio = audioList.get(temp);
+                        session.setData(Constant.CURRENT_A_ID, String.valueOf(temp));
+                    }
+                } else {
+                    int updated_id = Integer.parseInt(current_a_id) - 1; // subtract 1 to go to previous audio
+                    session.setData(Constant.CURRENT_A_ID, String.valueOf(updated_id));
+                    Audio = audioList.get(updated_id);
+
+                }
+                curTime.setText("00:00");
+                playIcon.setBackgroundResource(R.drawable.b_play);
+                initPlayer();
+            }
+        });
 
         curTime.setText("00:00");
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -104,43 +162,37 @@ public class AudioPlayActivity extends AppCompatActivity {
 
 
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new MyTimerTask(),2000,4000);
+        timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
 
-        playIcon.setOnClickListener(new View.OnClickListener()
-        {
+        playIcon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 play();
             }
         });
 
 
-        forward.setOnClickListener(new View.OnClickListener()
-        {
+        forward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 forwardSong();
             }
         });
 
 
-        backward.setOnClickListener(new View.OnClickListener()
-        {
+        backward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 rewindSong();
             }
         });
         imgLoop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (loop){
+                if (loop) {
                     imgLoop.setImageResource(R.drawable.ic_baseline_loop_24);
                     loop = false;
-                }else {
+                } else {
                     imgLoop.setImageResource(R.drawable.ic_baseline_loop_select);
                     loop = true;
                 }
@@ -149,12 +201,9 @@ public class AudioPlayActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
         //playAudio();
     }
+
     private void playAudio() {
 
         String audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
@@ -205,6 +254,7 @@ public class AudioPlayActivity extends AppCompatActivity {
         hfmPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
+            hfmPlayer.reset();
             hfmPlayer.setDataSource(Audio);
             hfmPlayer.prepareAsync();
             // below line is use to prepare
@@ -227,8 +277,7 @@ public class AudioPlayActivity extends AppCompatActivity {
 
         hfmPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp)
-            {
+            public void onCompletion(MediaPlayer mp) {
                 mSeekBar.setProgress(0);
                 playIcon.setBackgroundResource(R.drawable.b_play);
                 curTime.setText("00:00");
@@ -243,11 +292,10 @@ public class AudioPlayActivity extends AppCompatActivity {
                     hfmPlayer.start();
                     playIcon.setBackgroundResource(R.drawable.b_pause);
                     count++;
-                }
-                else {
+                } else {
                     //Log.d("TAG", "The interstitial ad wasn't ready yet.");
                 }
-                if (loop){
+                if (loop) {
                     play();
                 }
             }
@@ -270,10 +318,8 @@ public class AudioPlayActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar)
-            {
-                if(!hfmPlayer.isPlaying())
-                {
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                if (!hfmPlayer.isPlaying()) {
                     hfmPlayer.seekTo(0);
                     mSeekBar.setProgress(0);
                 }
@@ -312,8 +358,7 @@ public class AudioPlayActivity extends AppCompatActivity {
             int current_position = msg.what;
             mSeekBar.setProgress(current_position);
             String cTime = createTimeLabel(current_position);
-            for (int i = 0; i < chalisatime.length; i++)
-            {
+            for (int i = 0; i < chalisatime.length; i++) {
 
             }
             curTime.setText(cTime);
@@ -355,13 +400,12 @@ public class AudioPlayActivity extends AppCompatActivity {
     }
 
 
-
     public class MyTimerTask extends TimerTask {
 
         @Override
         public void run() {
 
-            if(AudioPlayActivity.this == null)
+            if (AudioPlayActivity.this == null)
                 return;
 
         }
@@ -390,8 +434,6 @@ public class AudioPlayActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
 
 }

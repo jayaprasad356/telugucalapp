@@ -133,9 +133,11 @@
             android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
-            <Space
+            <ImageButton
+                android:id="@+id/previewSong"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@drawable/baseline_skip_previous_24"
                 android:layout_height="match_parent" />
             <ImageButton
                 android:id="@+id/backward"
@@ -166,9 +168,11 @@
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_baseline_fast_forward_24"/>
-            <Space
+            <ImageButton
+                android:id="@+id/nextSong"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@drawable/baseline_skip_next_24"
                 android:layout_height="match_parent" />
 
 

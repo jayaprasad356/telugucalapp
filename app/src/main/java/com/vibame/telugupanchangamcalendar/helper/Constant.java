@@ -40,7 +40,9 @@ public class Constant {
     public static final String IMPORTANT_DAYS = BaseUrl + "important_days.php";
 
     public static final String ID = "id";
-    public static final String MENU_ID = "menu_id";
+   public static final String CURRENT_A_ID = "current_a_id";
+
+   public static final String MENU_ID = "menu_id";
     public static final String PANCHANGAM_ID = "panchangam_id";
     public static final String IMAGE_ID = "image_id";
     public static final String IMAGE_CATEGORY_ID = "image_category_id";
