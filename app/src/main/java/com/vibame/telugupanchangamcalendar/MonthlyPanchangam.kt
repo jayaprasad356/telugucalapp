@@ -236,8 +236,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                 GregorianCalendar.YEAR
             ) == 2023 && currentMonth > 2
         ) {
-            dateFormat =
-                calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
+           // dateFormat = calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
         }
 
 
