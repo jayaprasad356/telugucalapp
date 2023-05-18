@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.vibame.telugupanchangamcalendar.activities.CalendarNewActivity;
+import com.vibame.telugupanchangamcalendar.activities.PanchangamActivity;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.Session;
@@ -27,28 +29,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.DateFormatSymbols;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class DailyPanchangamActivity extends AppCompatActivity   implements SwipeableScrollView.SwipeListener {
+public class DailyActivity extends AppCompatActivity implements SwipeableScrollView.SwipeListener{
 
-    TextView tvDate,tvDate1,tvtext1,tvtext2,tvtext3,tvtext4,tvtext5,tvtext6,tvSunrise,tvSunset,tvMoonRise,tvMoonset,tvFestival;
-    TextView tvThithi,TVNakshathram,tvYogam,tvKaranam,tvAbhijithMuhurtham,tvBhramaMuhurtham,tvAmruthaKalam,tvRahukalam,tvYamagandam,tvDhurmuhurtham,tvVarjyam,tvGulika;
-    TextView tvhc1,tvhc2,tvhc3,tvhc4,tvhc5,tvhc6,tvhc7,tvhc8,tvhc9,tvhc10,tvhc11,tvhc12;
-    CardView arrowright, arrowleft,cal_card;
+
+    TextView tvDate, tvDate1, tvtext1, tvtext2, tvtext3, tvtext4, tvtext5, tvtext6, tvSunrise, tvSunset, tvMoonRise, tvMoonset, tvFestival;
+    TextView tvThithi, TVNakshathram, tvYogam, tvKaranam, tvAbhijithMuhurtham, tvBhramaMuhurtham, tvAmruthaKalam, tvRahukalam, tvYamagandam, tvDhurmuhurtham, tvVarjyam, tvGulika;
+    TextView tvhc1, tvhc2, tvhc3, tvhc4, tvhc5, tvhc6, tvhc7, tvhc8, tvhc9, tvhc10, tvhc11, tvhc12;
+    CardView arrowright, arrowleft, cal_card;
     ImageButton ivArrowRight, ivArrowLeft;
     Activity activity;
     Session session;
     Calendar calendar;
-    Calendar targetCalendar,startCalendar;
+    Calendar targetCalendar, startCalendar;
     String dateString;
+    Date clickedDate = null;
     String currentMonth;
     String[] monthNames;
     int monthIndex;
-
 
     private RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -70,13 +74,11 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         }
     });
 
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_panchangam);
+        setContentView(R.layout.activity_daily);
 
         activity = this;
         session = new Session(activity);
@@ -87,16 +89,16 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         ivArrowRight = findViewById(R.id.ivArrowRight);
         ivArrowLeft = findViewById(R.id.ivArrowLeft);
         relativeLayout = findViewById(R.id.slider);
-        tvtext1 =  findViewById(R.id.tvtext1);
-        tvtext2 =  findViewById(R.id.tvtext2);
-        tvtext3 =  findViewById(R.id.tvtext3);
-        tvtext4 =  findViewById(R.id.tvtext4);
-        tvtext5 =  findViewById(R.id.tvtext5);
-        tvtext6 =  findViewById(R.id.tvtext6);
-        tvSunrise =  findViewById(R.id.tvSunrise);
-        tvSunset =  findViewById(R.id.tvSunset);
-        tvMoonRise =  findViewById(R.id.tvMoonrise);
-        tvMoonset =  findViewById(R.id.tvMoonset);
+        tvtext1 = findViewById(R.id.tvtext1);
+        tvtext2 = findViewById(R.id.tvtext2);
+        tvtext3 = findViewById(R.id.tvtext3);
+        tvtext4 = findViewById(R.id.tvtext4);
+        tvtext5 = findViewById(R.id.tvtext5);
+        tvtext6 = findViewById(R.id.tvtext6);
+        tvSunrise = findViewById(R.id.tvSunrise);
+        tvSunset = findViewById(R.id.tvSunset);
+        tvMoonRise = findViewById(R.id.tvMoonrise);
+        tvMoonset = findViewById(R.id.tvMoonset);
         tvFestival = findViewById(R.id.tvFestival);
         tvThithi = findViewById(R.id.tvTithi);
         TVNakshathram = findViewById(R.id.tvNakshatra);
@@ -110,23 +112,19 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         tvDhurmuhurtham = findViewById(R.id.tvDurMuhurtham);
         tvVarjyam = findViewById(R.id.tvVarjyam);
         tvGulika = findViewById(R.id.tvGulikaKalam);
-        tvhc1  = findViewById(R.id.tvhc1);
-        tvhc2  = findViewById(R.id.tvhc2);
-        tvhc3  = findViewById(R.id.tvhc3);
-        tvhc4  = findViewById(R.id.tvhc4);
-        tvhc5  = findViewById(R.id.tvhc5);
-        tvhc6  = findViewById(R.id.tvhc6);
-        tvhc7  = findViewById(R.id.tvhc7);
-        tvhc8  = findViewById(R.id.tvhc8);
-        tvhc9  = findViewById(R.id.tvhc9);
-        tvhc10  = findViewById(R.id.tvhc10);
-        tvhc11  = findViewById(R.id.tvhc11);
-        tvhc12  = findViewById(R.id.tvhc12);
+        tvhc1 = findViewById(R.id.tvhc1);
+        tvhc2 = findViewById(R.id.tvhc2);
+        tvhc3 = findViewById(R.id.tvhc3);
+        tvhc4 = findViewById(R.id.tvhc4);
+        tvhc5 = findViewById(R.id.tvhc5);
+        tvhc6 = findViewById(R.id.tvhc6);
+        tvhc7 = findViewById(R.id.tvhc7);
+        tvhc8 = findViewById(R.id.tvhc8);
+        tvhc9 = findViewById(R.id.tvhc9);
+        tvhc10 = findViewById(R.id.tvhc10);
+        tvhc11 = findViewById(R.id.tvhc11);
+        tvhc12 = findViewById(R.id.tvhc12);
         cal_card = findViewById(R.id.cal_card);
-
-
-
-
 
 
 
@@ -137,15 +135,33 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
 
 
 
+        String date = getIntent().getStringExtra("clickedDate");
+
+
+// Convert the date string to a Date object
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+
+        try {
+            clickedDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        calendar = Calendar.getInstance();
+        calendar.setTime(clickedDate);
+
+        updateUI(clickedDate);
+
+
         targetCalendar = Calendar.getInstance();
         targetCalendar.set(Calendar.YEAR, 2024);
         targetCalendar.set(Calendar.MONTH, Calendar.APRIL);
         targetCalendar.set(Calendar.DAY_OF_MONTH, 9);
-        calendar = Calendar.getInstance();
-        updateUI(calendar.getTime());
+
+
 
         int year = calendar.get(Calendar.YEAR);
-        monthIndex = calendar.get(Calendar.MONTH);
+         monthIndex = calendar.get(Calendar.MONTH);
         monthNames = new DateFormatSymbols().getMonths();
         currentMonth = monthNames[monthIndex];
 
@@ -161,14 +177,15 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             Intent intent = new Intent(activity, MontlyActivity.class);
             intent.putExtra("year",year);
             intent.putExtra("month",monthIndex);
+
+
             startActivity(intent);
         });
 
 
-
         arrowright.setOnClickListener(v -> {
 
-           forward();
+            forward();
 
         });
         arrowleft.setOnClickListener(v -> {
@@ -185,18 +202,17 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         });
 
 
-
     }
 
     private void panchangamlist(String date) {
-        HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.DATE,date);
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.DATE, date);
         ApiConfig.RequestToVolley((result, response) -> {
-            if(result) {
+            if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("panchangamlist",response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        Log.d("panchangamlist", response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
 
@@ -235,57 +251,51 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
                         tvhc10.setText(jsonArray.getJSONObject(0).getString("hc10"));
                         tvhc11.setText(jsonArray.getJSONObject(0).getString("hc11"));
                         tvhc12.setText(jsonArray.getJSONObject(0).getString("hc12"));
-                    }else {
+                    } else {
                         tvtext1.setText("");
-                        tvtext2 .setText("");
-                        tvtext3 .setText("");
-                        tvtext4 .setText("");
-                        tvtext5 .setText("");
-                        tvtext6 .setText("");
-                        tvSunrise .setText("");
-                        tvSunset .setText("");
-                        tvMoonRise .setText("");
-                        tvMoonset .setText("");
-                        tvFestival .setText("");
-                        tvThithi .setText("");
-                        TVNakshathram .setText("");
-                        tvYogam .setText("");
-                        tvKaranam .setText("");
-                        tvAbhijithMuhurtham .setText("");
-                        tvBhramaMuhurtham .setText("");
-                        tvAmruthaKalam .setText("");
-                        tvRahukalam .setText("");
-                        tvYamagandam .setText("");
-                        tvDhurmuhurtham .setText("");
-                        tvVarjyam .setText("");
-                        tvGulika .setText("");
-                        tvhc1 .setText("");
-                        tvhc2 .setText("");
-                        tvhc3 .setText("");
-                        tvhc4 .setText("");
-                        tvhc5 .setText("");
-                        tvhc6 .setText("");
-                        tvhc7 .setText("");
-                        tvhc8 .setText("");
-                        tvhc9 .setText("");
-                        tvhc10 .setText("");
-                        tvhc11 .setText("");
-                        tvhc12 .setText("");
-
-
-
-
+                        tvtext2.setText("");
+                        tvtext3.setText("");
+                        tvtext4.setText("");
+                        tvtext5.setText("");
+                        tvtext6.setText("");
+                        tvSunrise.setText("");
+                        tvSunset.setText("");
+                        tvMoonRise.setText("");
+                        tvMoonset.setText("");
+                        tvFestival.setText("");
+                        tvThithi.setText("");
+                        TVNakshathram.setText("");
+                        tvYogam.setText("");
+                        tvKaranam.setText("");
+                        tvAbhijithMuhurtham.setText("");
+                        tvBhramaMuhurtham.setText("");
+                        tvAmruthaKalam.setText("");
+                        tvRahukalam.setText("");
+                        tvYamagandam.setText("");
+                        tvDhurmuhurtham.setText("");
+                        tvVarjyam.setText("");
+                        tvGulika.setText("");
+                        tvhc1.setText("");
+                        tvhc2.setText("");
+                        tvhc3.setText("");
+                        tvhc4.setText("");
+                        tvhc5.setText("");
+                        tvhc6.setText("");
+                        tvhc7.setText("");
+                        tvhc8.setText("");
+                        tvhc9.setText("");
+                        tvhc10.setText("");
+                        tvhc11.setText("");
+                        tvhc12.setText("");
 
 
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.PANCHANGAMLIST_BYDATE,params,true);
-
-
+        }, activity, Constant.PANCHANGAMLIST_BYDATE, params, true);
 
 
     }
@@ -300,7 +310,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
 
 
             int year = calendar.get(Calendar.YEAR);
-             monthIndex = calendar.get(Calendar.MONTH);
+            monthIndex = calendar.get(Calendar.MONTH);
             monthNames = new DateFormatSymbols().getMonths();
             currentMonth = monthNames[monthIndex];
             // move the calendar one day back the date
@@ -343,9 +353,14 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
 
 
     private void updateUI(Date date) {
+
+
+
         // Format the date as a string
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         dateString = dateFormat.format(date);
+
+
 
         // Update your UI elements with the new date
         // For example, if you have a TextView to display the date:
@@ -367,13 +382,13 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         return super.onTouchEvent(event);
     }
 
-    public  void onSwipeLeft() {
+    public void onSwipeLeft() {
         // Handle swipe left
 
         forward();
     }
 
-    public  void onSwipeRight() {
+    public void onSwipeRight() {
         // Handle swipe right
         backward();
     }
@@ -383,8 +398,9 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     public void onBackPressed() {
         // Add your desired behavior here
 
-        // Call super.onBackPressed() to allow the default back button behavior (finishing the activity)
-        super.onBackPressed();
+        Intent intent = new Intent(DailyActivity.this, CalendarNewActivity.class);
+        startActivity(intent);
+
     }
 
 }
