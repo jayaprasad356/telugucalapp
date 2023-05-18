@@ -24,7 +24,7 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_14sdp"
             android:fontFamily="@font/ramabhadra"
-            android:textStyle="bold" />
+             />
 
         <LinearLayout
             android:gravity="center"
@@ -41,8 +41,8 @@
                 android:text="నక్షత్రం :"
                 android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_16sdp"
+               />
 
             <TextView
                 android:id="@+id/sub_title"
@@ -52,7 +52,7 @@
                 android:text="Diwali Function in that day"
                 android:textColor="@color/colorBlack"
                 android:fontFamily="@font/mallanna"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
 
@@ -70,9 +70,9 @@
                 android:layout_height="wrap_content"
                 android:text="రాశి : "
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_16sdp"
                 android:fontFamily="@font/ramabhadra"
-                android:textStyle="bold" />
+            />
 
             <TextView
                 android:id="@+id/sub_description"
@@ -82,7 +82,7 @@
                 android:fontFamily="@font/mallanna"
                 android:text="Diwali Function in that day"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
     </LinearLayout>

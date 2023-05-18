@@ -159,9 +159,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:text="గురువారం"
                         android:textColor="@color/colorBlack"
-                        android:fontFamily="@font/ramabhadra"
                         android:textSize="@dimen/_16sdp"
 
                         />
@@ -171,9 +171,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:text="శుక్రవారం"
                         android:textColor="@color/colorBlack"
-                        android:fontFamily="@font/ramabhadra"
                         android:textSize="@dimen/_16sdp"
 
                         />
@@ -183,11 +183,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:fontFamily="@font/ramabhadra"
                         android:text="శనివారం"
                         android:textColor="@color/colorBlack"
-                        android:fontFamily="@font/ramabhadra"
-                        android:textSize="@dimen/_16sdp"
-                        />
+                        android:textSize="@dimen/_16sdp" />
 
 
                 </LinearLayout>

@@ -39,33 +39,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@drawable/bordercurve3"
         android:text=""
         android:layout_margin="@dimen/_5sdp"
         android:padding="@dimen/_3sdp"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_12sdp"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="@font/ramabhadra"
+        android:textSize="@dimen/_16sdp"
         />
 
+
+    <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
+        android:gravity="center"
+        android:fontFamily="@font/mallanna"
         android:layout_margin="@dimen/_5sdp"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp" />
+        android:textSize="@dimen/_16sdp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/l1"
-        android:background="@drawable/bg_rasi"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        tools:listitem="@layout/poojalu_tab_layout" />
+  />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

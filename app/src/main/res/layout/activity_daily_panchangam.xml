@@ -1314,13 +1314,14 @@
 
 
         </LinearLayout>
-        <RelativeLayout
+        <LinearLayout
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_280sdp"
+            android:layout_height="wrap_content"
             android:background="@drawable/bg_card_daily"
             android:padding="@dimen/_1sdp"
+            android:orientation="vertical"
             >
 
 
@@ -1351,6 +1352,9 @@
 
 
             <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_gravity="center"
                 android:orientation="vertical"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
@@ -1360,61 +1364,66 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_55sdp"
                     android:orientation="horizontal"
                     >
 
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke"
                         >
 
 
                         <TextView
                             android:id="@+id/tvhc12"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
-
-                            />
+                            android:fontFamily="@font/ramabhadra"
+                            android:gravity="center"
+                            
+                            android:lines="2"
+                            android:textColor="@color/colorBlack" />
 
 
 
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke"
                         >
 
 
                         <TextView
                             android:id="@+id/tvhc1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_28sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
-
-                            />
+                            android:fontFamily="@font/ramabhadra"
+                            android:gravity="center"
+                            
+                            android:lines="2"
+                            android:textColor="@color/colorBlack" />
 
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke"
                         >
 
 
                         <TextView
                             android:id="@+id/tvhc2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
                             />
@@ -1422,16 +1431,19 @@
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke_left"
                         >
 
                         <TextView
                             android:id="@+id/tvhc3"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
 
@@ -1448,49 +1460,58 @@
 
                     <LinearLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_110sdp"
                         android:orientation="vertical"
+                        android:weightSum="2"
                         >
 
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
-                        android:background="@drawable/bg_stroke_bottom"
-                        >
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/_65sdp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stroke_bottom"
+                            >
 
-                        <TextView
-                            android:id="@+id/tvhc11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
-
-
-                            />
-
-
-
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
-                        android:background="@drawable/bg_stroke_bottom"
-                        >
-
-                        <TextView
-                            android:id="@+id/tvhc10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
-
-                            />
+                            <TextView
+                                android:id="@+id/tvhc11"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
+                                android:lines="2"
+                                 android:gravity="center"
+                            
+                                android:textColor="@color/colorBlack"
 
 
-                    </RelativeLayout>
+                                />
+
+
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/_65sdp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stroke_bottom"
+                            >
+
+                            <TextView
+                                android:id="@+id/tvhc10"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
+                                android:lines="2"
+                                 android:gravity="center"
+                            
+                                android:textColor="@color/colorBlack"
+
+                                />
+
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -1505,10 +1526,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:fontFamily="@font/ramabhadra"
                             android:text=""
                             android:textColor="@color/calHeaderT"
                             android:textSize="@dimen/_12sdp"
-                            android:fontFamily="@font/ramabhadra"
 
                             />
 
@@ -1519,50 +1540,58 @@
                     <LinearLayout
                         android:layout_alignParentRight="true"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_110sdp"
                         android:orientation="vertical"
+                        android:weightSum="2"
                         >
 
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
-                        android:background="@drawable/bg_stroke_bottom_left"
-                        >
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/_65sdp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stroke_bottom_left"
+                            >
 
-                        <TextView
-                            android:id="@+id/tvhc4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
-
-
-                            />
-
-
-
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
-                        android:background="@drawable/bg_stroke_bottom_left"
-                        >
-
-                        <TextView
-                            android:id="@+id/tvhc5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
-                            android:textColor="@color/colorBlack"
+                            <TextView
+                                android:id="@+id/tvhc4"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
+                                android:lines="2"
+                                 android:gravity="center"
+                            
+                                android:textColor="@color/colorBlack"
 
 
-                            />
+                                />
 
 
-                    </RelativeLayout>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/_65sdp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stroke_bottom_left"
+                            >
+
+                            <TextView
+                                android:id="@+id/tvhc5"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/ramabhadra"
+                                 android:gravity="center"
+                            
+                                android:lines="2"
+
+
+                                android:textColor="@color/colorBlack" />
+
+
+                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -1572,22 +1601,25 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_55sdp"
                     android:orientation="horizontal"
                     >
 
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke_beloew"
                         >
 
                         <TextView
                             android:id="@+id/tvhc9"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
                             />
@@ -1597,16 +1629,19 @@
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke_beloew"
                         >
 
                         <TextView
                             android:id="@+id/tvhc8"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
 
@@ -1615,16 +1650,19 @@
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke_beloew"
                         >
 
                         <TextView
                             android:id="@+id/tvhc7"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
                             />
@@ -1633,16 +1671,19 @@
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="@dimen/_65sdp"
-                        android:layout_height="@dimen/_55sdp"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_stroke_bottom_left"
                         >
 
                         <TextView
                             android:id="@+id/tvhc6"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_30sdp"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/mallanna"
+                            android:fontFamily="@font/ramabhadra"
+                            android:lines="2"
+                             android:gravity="center"
+                            
                             android:textColor="@color/colorBlack"
 
                             />
@@ -1667,7 +1708,7 @@
 
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
 

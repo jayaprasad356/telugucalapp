@@ -6,16 +6,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
-import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.animation.AnimationUtils
 import android.widget.*
-import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.google.gson.Gson
-import com.vibame.telugupanchangamcalendar.Panchang_Frag.cutmonth
 import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
+import com.vibame.telugupanchangamcalendar.activities.CalendarNewActivity
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig
 import com.vibame.telugupanchangamcalendar.helper.Constant
 import com.vibame.telugupanchangamcalendar.helper.Session
@@ -29,7 +27,8 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener {
+class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
+
 
     lateinit var tvDate: TextView
     lateinit var arrowright: CardView
@@ -76,26 +75,27 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     private var relativeLayout: RelativeLayout? = null
     private lateinit var scrollView: SwipeableScrollView
 
-    private val gestureDetector = GestureDetector(activity, object : SimpleOnGestureListener() {
-        override fun onFling(
-            e1: MotionEvent,
-            e2: MotionEvent,
-            velocityX: Float,
-            velocityY: Float
-        ): Boolean {
-            if (Math.abs(velocityX) > Math.abs(velocityY)) {
-                if (e1.x < e2.x) {
-                    // Swipe right
-                    onSwipeRight()
-                } else {
-                    // Swipe left
-                    onSwipeLeft()
+    private val gestureDetector =
+        GestureDetector(activity, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onFling(
+                e1: MotionEvent,
+                e2: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
+                if (Math.abs(velocityX) > Math.abs(velocityY)) {
+                    if (e1.x < e2.x) {
+                        // Swipe right
+                        onSwipeRight()
+                    } else {
+                        // Swipe left
+                        onSwipeLeft()
+                    }
+                    return true
                 }
-                return true
+                return false
             }
-            return false
-        }
-    })
+        })
 
 
     private lateinit var cal_month: GregorianCalendar
@@ -144,14 +144,9 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     )
 
 
-
-
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_monthly_panchangam)
-
-
+        setContentView(R.layout.activity_montly)
         activity = this
         session = Session(activity)
 
@@ -159,13 +154,24 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
 
 
+
+
+
         HomeCollection.date_collection_arr = ArrayList()
 
 
-
-
-
         cal_month = GregorianCalendar.getInstance() as GregorianCalendar
+
+
+        val Month = intent.getIntExtra("month", 0)
+
+
+        cal_month.set(
+            GregorianCalendar.MONTH,
+            Month
+        )
+
+
         cal_month_copy = cal_month.clone() as GregorianCalendar
         hwAdapter = HwAdapter(
             activity,
@@ -177,7 +183,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                 GregorianCalendar.MONTH
             )
 
-        cutmonth =
+        Panchang_Frag.cutmonth =
             cal_month.get(
                 GregorianCalendar.MONTH
             )
@@ -233,12 +239,12 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                 GregorianCalendar.YEAR
             ) == 2023 && currentMonth > 2
         ) {
-           // dateFormat = calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
+            // dateFormat = calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
         }
 
 
         clickedDate = calendar[Calendar.DATE] - 1
-        selectedGridDate = ""
+        Panchang_Frag.selectedGridDate = ""
 
 
 
@@ -322,77 +328,44 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
         var Months = ""
 
-        if(month == "జనవరి"){
+        if (month == "జనవరి") {
 
             Months = "January"
 
-        }
-        else if (month =="ఫిబ్రవరి")
-        {
+        } else if (month == "ఫిబ్రవరి") {
             Months = "February"
 
-        }
-
-        else if (month =="మార్చి")
-        {
+        } else if (month == "మార్చి") {
             Months = "March"
 
-        }
-
-        else if (month =="ఏప్రిల్")
-        {
+        } else if (month == "ఏప్రిల్") {
             Months = "April"
 
-        }
-
-        else if (month =="మే")
-        {
+        } else if (month == "మే") {
             Months = "May"
 
-        }
-
-        else if (month =="జూన్")
-        {
+        } else if (month == "జూన్") {
             Months = "June"
 
-        }
-
-        else if (month =="జూలై")
-        {
+        } else if (month == "జూలై") {
             Months = "July"
 
-        }
-
-        else if (month =="ఆగస్టు")
-        {
+        } else if (month == "ఆగస్టు") {
             Months = "August"
 
-        }
-
-        else if (month =="సెప్టెంబర్")
-        {
+        } else if (month == "సెప్టెంబర్") {
             Months = "September"
 
-        }
-
-        else if (month =="అక్టోబర్")
-        {
+        } else if (month == "అక్టోబర్") {
             Months = "October"
 
-        }
-
-        else if (month =="నవంబర్")
-        {
+        } else if (month == "నవంబర్") {
             Months = "November"
 
-        }
-
-        else if (month =="డిసెంబర్")
-        {
+        } else if (month == "డిసెంబర్") {
             Months = "December"
 
         }
-
 
 
         val params = HashMap<String, String>()
@@ -622,7 +595,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         )
 
 
-
         var year =
             cal_month.get(
                 GregorianCalendar.YEAR
@@ -631,7 +603,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
 
         montlyPanchangam(year, month)
-
 
 
     }
@@ -680,7 +651,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         refreshCalendar()
         gridViewSet()
         clickedDate = 0
-        selectedGridDate =
+        Panchang_Frag.selectedGridDate =
             HwAdapter.day_string[HwAdapter.firstDay - 1]
         if (cal_month!!.get(
                 GregorianCalendar.YEAR
@@ -734,7 +705,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     private fun gridViewSet() {
         gridview!!.adapter = hwAdapter
         gridview!!.onItemClickListener =
-            OnItemClickListener { parent, v, position, id ->
+            AdapterView.OnItemClickListener { parent, v, position, id ->
                 selectedGridDate =
                     HwAdapter.day_string[position]
                 val separatedTime: List<String> = HwAdapter.day_string[position].split("-")
@@ -790,7 +761,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                         val cadate = format.format(newDate)
 
 
-                       val  Intent = Intent(activity, DailyActivity::class.java)
+                        val Intent = Intent(activity, DailyActivity::class.java)
                         Intent.putExtra("clickedDate", cadate)
                         startActivity(Intent)
 
@@ -980,12 +951,14 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         }
     }
 
+
     override fun onBackPressed() {
         // Add your desired behavior here
 
-        // Call super.onBackPressed() to allow the default back button behavior (finishing the activity)
-        super.onBackPressed()
-    }
+        // Add your desired behavior here
+        val intent = Intent(this@MontlyActivity, CalendarNewActivity::class.java)
+        startActivity(intent)
 
+    }
 
 }

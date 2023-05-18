@@ -24,7 +24,8 @@
             >
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:elevation="0dp"
                 android:id="@+id/cardPoojalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/kanya" />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
             <TextView
@@ -49,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:textColor="#673AB7"
+                android:textColor="@color/black"
                 android:fontFamily="@font/sree"
                 android:layout_centerVertical="true"
                 android:textSize="@dimen/_14sdp" />

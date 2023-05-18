@@ -8,7 +8,8 @@
     >
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:elevation="0dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:cardBackgroundColor="@color/white"
@@ -36,6 +37,6 @@
 
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

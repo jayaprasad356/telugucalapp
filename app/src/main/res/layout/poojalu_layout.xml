@@ -4,11 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:elevation="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
@@ -22,7 +22,8 @@
             >
 
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
+            app:cardElevation="0dp"
             android:id="@+id/cardPoojalu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,7 +38,7 @@
             android:scaleType="fitCenter"
             android:src="@drawable/kanya" />
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
 
         <TextView
@@ -48,13 +49,13 @@
             android:text=""
             android:fontFamily="@font/sree"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:textColor="#673AB7"
+            android:textColor="@color/black"
             android:layout_centerVertical="true"
             android:textSize="@dimen/_14sdp" />
 
         </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

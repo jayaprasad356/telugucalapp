@@ -6,4 +6,7 @@
         android:width="4dp"
         android:color="@color/calHeaderT"/>
 
+    <solid
+        android:color="@color/white"    />
+
 </shape>

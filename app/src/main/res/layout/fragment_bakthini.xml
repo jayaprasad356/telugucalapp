@@ -50,7 +50,8 @@
 
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:elevation="0dp"
                 android:id="@+id/cardImageTab"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
@@ -70,8 +71,9 @@
                     android:textSize="@dimen/_14sdp"
                     />
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:elevation="0dp"
                 android:id="@+id/cardVideoTab"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
@@ -92,7 +94,7 @@
                     android:textSize="@dimen/_14sdp"
                     />
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
 

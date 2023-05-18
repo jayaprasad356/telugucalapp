@@ -59,7 +59,8 @@
                 >
 
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
+                    android:elevation="0dp"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_120sdp"
                     app:cardCornerRadius="@dimen/_10sdp"
@@ -70,7 +71,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/horoscope"
                         />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,7 +96,8 @@
                 >
 
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
+                    android:elevation="0dp"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_120sdp"
                     app:cardCornerRadius="@dimen/_10sdp"
@@ -106,7 +108,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/horoscope"
                         />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,7 +143,9 @@
                 >
 
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
+                    android:elevation="0dp"
+
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_120sdp"
                     app:cardCornerRadius="@dimen/_10sdp"
@@ -152,7 +156,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/horoscope"
                         />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -177,7 +181,9 @@
                 >
 
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
+                    android:elevation="0dp"
+
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_120sdp"
                     app:cardCornerRadius="@dimen/_10sdp"
@@ -188,7 +194,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/horoscope"
                         />
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
