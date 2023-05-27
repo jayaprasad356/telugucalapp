@@ -14,7 +14,6 @@ import android.widget.AdapterView.OnItemClickListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import com.google.gson.Gson
-import com.vibame.telugupanchangamcalendar.Panchang_Frag.cutmonth
 import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig
 import com.vibame.telugupanchangamcalendar.helper.Constant
@@ -72,6 +71,8 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     var monthcount = 0
     var cal = Calendar.getInstance()
     var exampleFragment = Panchang_Frag()
+    var cutmonth = 0
+
 
     private var relativeLayout: RelativeLayout? = null
     private lateinit var scrollView: SwipeableScrollView
@@ -790,7 +791,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                         val cadate = format.format(newDate)
 
 
-                       val  Intent = Intent(activity, DailyActivity::class.java)
+                       val  Intent = Intent(activity, Dailypanchangam2Activity::class.java)
                         Intent.putExtra("clickedDate", cadate)
                         startActivity(Intent)
 

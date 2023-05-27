@@ -23,7 +23,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
 import java.util.Map;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 
 public class ApiConfig extends Application {
     static ApiConfig mInstance;
@@ -185,5 +191,7 @@ public class ApiConfig extends Application {
     }
 
 
+    public static void RequestToVolley(@NotNull Function2<? super Boolean, ? super String, Unit> function, @NotNull Context mContext, @NotNull String monthlyPanchangamlist, @NotNull HashMap<String, String> params, boolean b) {
 
+    }
 }

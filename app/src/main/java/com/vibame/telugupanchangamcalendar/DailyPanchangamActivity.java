@@ -199,7 +199,6 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
                         Log.d("panchangamlist",response);
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-
                         tvtext1.setText(jsonArray.getJSONObject(0).getString("text1"));
                         tvtext2.setText(jsonArray.getJSONObject(0).getString("text2"));
                         tvtext3.setText(jsonArray.getJSONObject(0).getString("text3"));
@@ -235,7 +234,8 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
                         tvhc10.setText(jsonArray.getJSONObject(0).getString("hc10"));
                         tvhc11.setText(jsonArray.getJSONObject(0).getString("hc11"));
                         tvhc12.setText(jsonArray.getJSONObject(0).getString("hc12"));
-                    }else {
+                    }
+                    else {
                         tvtext1.setText("");
                         tvtext2 .setText("");
                         tvtext3 .setText("");
