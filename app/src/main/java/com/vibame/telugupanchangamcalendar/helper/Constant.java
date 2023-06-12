@@ -102,6 +102,49 @@ public class Constant {
     public static final String NETI_ARTICLES = "neti_articles";
     public static final String old_ARTICLES = "old_articles";
 
+    public static final String TEXT1 = "text1";
+public static final String TEXT2 = "text2";
+public static final String TEXT3 = "text3";
+public static final String TEXT4 = "text4";
+public static final String TEXT5 = "text5";
+public static final String TEXT6 = "text6";
+public static final String FESTIVALS = "festivals";
+public static final String NAKSHATRAM = "nakshatram";
+public static final String ABHIJITH_MUHURTHAM = "abhijith_muhurtham";
+public static final String BHRAMA_MUHURTHAM = "bhrama_muhurtham";
+public static final String AMRUTHA_KALAM = "amrutha_kalam";
+public static final String YAMAKANDAM = "yamakandam";
+public static final String DHURMUHURTHAM = "dhurmuhurtham";
+public static final String VARJYAM = "varjyam";
+public static final String GULIKA = "gulika";
+public static final String HC1 = "hc1";
+public static final String HC2 = "hc2";
+public static final String HC3 = "hc3";
+public static final String HC4 = "hc4";
+public static final String HC5 = "hc5";
+public static final String HC6 = "hc6";
+public static final String HC7 = "hc7";
+public static final String HC8 = "hc8";
+public static final String HC9 = "hc9";
+public static final String HC10 = "hc10";
+public static final String HC11 = "hc11";
+public static final String HC12 = "hc12";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public static final String YOGAM = "yogam";
     public static final String DAY = "day";

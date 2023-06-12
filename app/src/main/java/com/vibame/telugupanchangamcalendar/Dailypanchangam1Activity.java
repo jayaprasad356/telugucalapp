@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import com.vibame.telugupanchangamcalendar.adapter.Slider.Dailypanchangam1Adapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.DailyModel;
 
@@ -43,12 +44,19 @@ public class Dailypanchangam1Activity extends AppCompatActivity {
     int monthIndex;
     int year;
 
+    DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dailypanchangam1);
 
         activity = Dailypanchangam1Activity.this;
+
+        databaseHelper = new DatabaseHelper(activity);
+        databaseHelper.getdailyPanchangamList().size();
+
+        Log.d("dailyPanchangamList", String.valueOf(databaseHelper.getdailyPanchangamList().size()));
 
         mViewPager = findViewById(R.id.viewPager);
 

@@ -731,32 +731,32 @@ public class PanchangamActivity extends AppCompatActivity {
 
     private void panchangamList(String cadate)
     {
-        if (databaseHelper.getmodelPanchangamList(cadate).size() !=0){
-            recyclerView.setVisibility(View.VISIBLE);
-            sunrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunrise());
-            sunset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunset());
-            moonrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonrise());
-            moonset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonset());
-
-            if (databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()).size() !=0){
-                panchangamTabAdapter = new PanchangamTabAdapter(activity, databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()));
-                recyclerView.setAdapter(panchangamTabAdapter);
-
-            }
-            else {
-                recyclerView.setVisibility(View.GONE);
-            }
-
-
-        }
-        else {
-            recyclerView.setVisibility(View.GONE);
-            sunrise.setText("-");
-            sunset.setText("-");
-            moonrise.setText("-");
-            moonset.setText("-");
-
-        }
+//        if (databaseHelper.getmodelPanchangamList(cadate).size() !=0){
+//            recyclerView.setVisibility(View.VISIBLE);
+//            sunrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunrise());
+//            sunset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getSunset());
+//            moonrise.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonrise());
+//            moonset.setText(databaseHelper.getmodelPanchangamList(cadate).get(0).getMoonset());
+//
+//            if (databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()).size() !=0){
+//                panchangamTabAdapter = new PanchangamTabAdapter(activity, databaseHelper.getmodelPanchangamTabList(databaseHelper.getmodelPanchangamList(cadate).get(0).getId()));
+//                recyclerView.setAdapter(panchangamTabAdapter);
+//
+//            }
+//            else {
+//                recyclerView.setVisibility(View.GONE);
+//            }
+//
+//
+//        }
+//        else {
+//            recyclerView.setVisibility(View.GONE);
+//            sunrise.setText("-");
+//            sunset.setText("-");
+//            moonrise.setText("-");
+//            moonset.setText("-");
+//
+//        }
 
 
     }

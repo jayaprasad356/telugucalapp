@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.vibame.telugupanchangamcalendar.model.Audio;
+import com.vibame.telugupanchangamcalendar.model.DailyModel;
 import com.vibame.telugupanchangamcalendar.model.Festival;
 import com.vibame.telugupanchangamcalendar.model.Grahalu;
 import com.vibame.telugupanchangamcalendar.model.GrahaluSubMenu;
@@ -63,6 +64,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String MOONRISE = "moonrise";
     final String MOONSET = "moonset";
     final String FESTIVAL = "festival";
+    final String TEXT1 = "text1";
+    final String TEXT2 = "text2";
+    final String TEXT3 = "text3";
+    final String TEXT4 = "text4";
+    final String TEXT5 = "text5";
+    final String TEXT6 = "text6";
+    final String FESTIVALS = "festivals";
+    final String THIDHI = "thidhi";
+    final String NAKSHATRAM = "nakshatram";
+    final String YOGAM = "yogam";
+    final String KARANAM = "karanam";
+    final String ABHIJITH_MUHURTHAM = "abhijith_muhurtham";
+    final String BHRAMA_MUHURTHAM = "bhrama_muhurtham";
+    final String AMRUTHA_KALAM = "amrutha_kalam";
+    final String RAHUKALAM = "rahukalam";
+    final String YAMAKANDAM = "yamakandam";
+    final String DHURMUHURTHAM = "dhurmuhurtham";
+    final String VARJYAM = "varjyam";
+    final String GULIKA = "gulika";
+    final String HC1 = "hc1";
+    final String HC2 = "hc2";
+    final String HC3 = "hc3";
+    final String HC4 = "hc4";
+    final String HC5 = "hc5";
+    final String HC6 = "hc6";
+    final String HC7 = "hc7";
+    final String HC8 = "hc8";
+    final String HC9 = "hc9";
+    final String HC10 = "hc10";
+    final String HC11 = "hc11";
+    final String HC12 = "hc12";
     final String MUHURTHAM = "muhurtham";
 
     final String PTID = "ptid";
@@ -78,8 +110,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String LYRICS = "lyrics";
     final String AUDIO = "audio";
     final String IMAGE = "image";
+
     final String PanchangamTableInfo = TABLE_PANCHANGAM_NAME + "(" + PID + " TEXT ," + DATE + " TEXT ," + SUNRISE + " TEXT ," + SUNSET
-            + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT)";
+            + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT ," + TEXT1 + " TEXT ," + TEXT2 + " TEXT ," + TEXT3 + " TEXT ,"
+            + TEXT4 + " TEXT ," + TEXT5 + " TEXT ," + TEXT6 + " TEXT ," + FESTIVALS + " TEXT ," + THIDHI + " TEXT ," + NAKSHATRAM + " TEXT ,"
+            + YOGAM + " TEXT ," + KARANAM + " TEXT ," + ABHIJITH_MUHURTHAM + " TEXT ," + BHRAMA_MUHURTHAM + " TEXT ," + AMRUTHA_KALAM + " TEXT ,"
+            + RAHUKALAM + " TEXT ," + YAMAKANDAM + " TEXT ," + DHURMUHURTHAM + " TEXT ," + VARJYAM + " TEXT ," + GULIKA + " TEXT ,"
+            + HC1 + " TEXT ," + HC2 + " TEXT ," + HC3 + " TEXT ," + HC4 + " TEXT ," + HC5 + " TEXT ," + HC6 + " TEXT ,"
+            + HC7 + " TEXT ," + HC8 + " TEXT ," + HC9 + " TEXT ," + HC10 + " TEXT ," + HC11 + " TEXT ," + HC12 + " TEXT)";
+
     final String PanchangamTabTableInfo = TABLE_PANCHANGAMTAB_NAME + "(" + PTID + " TEXT ," + PID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String FestivalTableInfo = TABLE_FESTIVAL_NAME + "(" + FID + " TEXT ," + DATE + " REAL ," + FESTIVAL + " TEXT)";
     final String MuhurthamTableInfo = TABLE_MUHURTHAM_NAME + "(" + MID + " TEXT ," + MUHURTHAM + " TEXT)";
@@ -175,10 +214,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return buf.toString();
     }
-    public void AddToPanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset) {
+
+    public void AddToPanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset, String text1, String text2, String text3, String text4, String text5, String text6, String festivals, String thidhi, String nakshatram, String yogam, String karanam, String abhijith_muhurtham, String bhrama_muhurtham, String amrutha_kalam, String rahukalam, String yamakandam, String dhurmuhurtham, String varjyam, String gulika, String hc1, String hc2, String hc3, String hc4, String hc5, String hc6, String hc7, String hc8, String hc9, String hc10, String hc11, String hc12) {
         try {
             if (!CheckPanchangamItemExist(pid).equalsIgnoreCase("0")) {
-                UpdatePanchangam(pid,date,sunrise,sunset,moonrise,moonset);
+                UpdatePanchangam(pid, date, sunrise, sunset, moonrise, moonset,text1,text2,text3,text4,text5,text6,festivals,thidhi,nakshatram,yogam,karanam,abhijith_muhurtham,bhrama_muhurtham,amrutha_kalam,rahukalam,yamakandam,dhurmuhurtham,varjyam,gulika,hc1,hc2,hc3,hc4,hc5,hc6,hc7,hc8,hc9,hc10,hc11,hc12);
             } else {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
@@ -188,14 +228,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(SUNSET, sunset);
                 values.put(MOONRISE, moonrise);
                 values.put(MOONSET, moonset);
+                values.put(TEXT1, text1);
+                values.put(TEXT2, text2);
+                values.put(TEXT3, text3);
+                values.put(TEXT4, text4);
+                values.put(TEXT5, text5);
+                values.put(TEXT6, text6);
+                values.put(FESTIVALS, festivals);
+                values.put(THIDHI, thidhi);
+                values.put(NAKSHATRAM, nakshatram);
+                values.put(YOGAM, yogam);
+                values.put(KARANAM, karanam);
+                values.put(ABHIJITH_MUHURTHAM, abhijith_muhurtham);
+                values.put(BHRAMA_MUHURTHAM, bhrama_muhurtham);
+                values.put(AMRUTHA_KALAM, amrutha_kalam);
+                values.put(RAHUKALAM, rahukalam);
+                values.put(YAMAKANDAM, yamakandam);
+                values.put(DHURMUHURTHAM, dhurmuhurtham);
+                values.put(VARJYAM, varjyam);
+                values.put(GULIKA, gulika);
+                values.put(HC1, hc1);
+                values.put(HC2, hc2);
+                values.put(HC3, hc3);
+                values.put(HC4, hc4);
+                values.put(HC5, hc5);
+                values.put(HC6, hc6);
+                values.put(HC7, hc7);
+                values.put(HC8, hc8);
+                values.put(HC9, hc9);
+                values.put(HC10, hc10);
+                values.put(HC11, hc11);
+                values.put(HC12, hc12);
+
                 db.insert(TABLE_PANCHANGAM_NAME, null, values);
                 db.close();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void AddToPanchangamTab(String ptid,String pid, String title, String description){
         try {
             if (!CheckPanchangamTabItemExist(ptid).equalsIgnoreCase("0")) {
@@ -326,8 +398,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_MUHURTHAMTAB_NAME, values, MTID + " = ?", new String[]{mtid});
         db.close();
     }
-
-    public void UpdatePanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset) {
+    public void UpdatePanchangam(String pid, String date, String sunrise, String sunset, String moonrise, String moonset,String text1,String text2,String text3,String text4,String text5,String text6,String festivals,String thidhi,String nakshatram,String yogam,String karanam,String abhijith_muhurtham,String bhrama_muhurtham,String amrutha_kalam,String rahukalam,String yamakandam,String dhurmuhurtham,String varjyam,String gulika,String hc1,String hc2,String hc3,String hc4,String hc5,String hc6,String hc7,String hc8,String hc9,String hc10,String hc11,String hc12) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DATE, date);
@@ -335,6 +406,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(SUNSET, sunset);
         values.put(MOONRISE, moonrise);
         values.put(MOONSET, moonset);
+        values.put(TEXT1, text1);
+        values.put(TEXT2, text2);
+        values.put(TEXT3, text3);
+        values.put(TEXT4, text4);
+        values.put(TEXT5, text5);
+        values.put(TEXT6, text6);
+        values.put(FESTIVALS, festivals);
+        values.put(THIDHI, thidhi);
+        values.put(NAKSHATRAM, nakshatram);
+        values.put(YOGAM, yogam);
+        values.put(KARANAM,karanam);
+        values.put(ABHIJITH_MUHURTHAM, abhijith_muhurtham);
+        values.put(BHRAMA_MUHURTHAM, bhrama_muhurtham);
+        values.put(AMRUTHA_KALAM, amrutha_kalam);
+        values.put(RAHUKALAM, rahukalam);
+        values.put(YAMAKANDAM, yamakandam);
+        values.put(DHURMUHURTHAM, dhurmuhurtham);
+        values.put(VARJYAM, varjyam);
+        values.put(GULIKA, gulika);
+        values.put(HC1, hc1);
+        values.put(HC2, hc2);
+        values.put(HC3, hc3);
+        values.put(HC4, hc4);
+        values.put(HC5, hc5);
+        values.put(HC6, hc6);
+        values.put(HC7, hc7);
+        values.put(HC8, hc8);
+        values.put(HC9, hc9);
+        values.put(HC10, hc10);
+        values.put(HC11, hc11);
+        values.put(HC12, hc12);
         db.update(TABLE_PANCHANGAM_NAME, values, PID + " = ?", new String[]{pid});
         db.close();
     }
@@ -596,6 +698,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Panchangam panchangam1 = new Panchangam(cursor.getString(cursor.getColumnIndexOrThrow(PID)),cursor.getString(cursor.getColumnIndexOrThrow(DATE))
                         ,cursor.getString(cursor.getColumnIndexOrThrow(SUNRISE)),cursor.getString(cursor.getColumnIndexOrThrow(SUNSET)),
                         cursor.getString(cursor.getColumnIndexOrThrow(MOONRISE)),cursor.getString(cursor.getColumnIndexOrThrow(MOONSET)));
+
                 //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
                 panchangams.add(panchangam1);
             } while (cursor.moveToNext());
@@ -604,6 +707,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return panchangams;
+    }
+    public ArrayList<DailyModel> getdailyPanchangamList() {
+        final ArrayList<DailyModel> dailyModels = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_PANCHANGAM_NAME , new String[]{});
+        if (cursor.moveToFirst()) {
+            do {
+                DailyModel dailyModel = new DailyModel(cursor.getString(cursor.getColumnIndexOrThrow(PID)),cursor.getString(cursor.getColumnIndexOrThrow(DATE))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(SUNRISE)),cursor.getString(cursor.getColumnIndexOrThrow(SUNSET)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(MOONRISE)),cursor.getString(cursor.getColumnIndexOrThrow(MOONSET)));
+
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                dailyModels.add(dailyModel);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return dailyModels;
     }
 
     public ArrayList<PanchangamTab> getmodelPanchangamTabList(String pid) {
@@ -623,7 +745,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return panchangamTabs;
     }
-//    public ArrayList<Festival> getmodelFestivalList(String month,String year) {
+    //    public ArrayList<Festival> getmodelFestivalList(String month,String year) {
 //        final ArrayList<Festival> festivals = new ArrayList<>();
 //        SQLiteDatabase db = this.getWritableDatabase();
 //        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE STRFTIME('%m'," + DATE + ") = ? AND STRFTIME('%Y'," + DATE + ") = ? ORDER BY "+DATE, new String[]{month,year});
