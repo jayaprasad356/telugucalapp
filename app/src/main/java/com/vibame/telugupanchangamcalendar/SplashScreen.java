@@ -143,57 +143,7 @@ public class SplashScreen extends AppCompatActivity {
                         session.setData(Constant.PRASADHAMNAMES,PrasadhamNames);
                         //Toast.makeText(activity, ""+image, Toast.LENGTH_SHORT).show();
 
-                        JSONArray jsonArray = object.getJSONArray(Constant.PANCHANGAM_LIST);
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToPanchangam(
-                                        jsonObject1.getString(Constant.ID),
-                                        jsonObject1.getString(Constant.DATE),
-                                        jsonObject1.getString(Constant.SUNRISE),
-                                        jsonObject1.getString(Constant.SUNSET),
-                                        jsonObject1.getString(Constant.MOONRISE),
-                                        jsonObject1.getString(Constant.MOONSET),
-                                        jsonObject1.getString(Constant.TEXT1),
-                                        jsonObject1.getString(Constant.TEXT2),
-                                        jsonObject1.getString(Constant.TEXT3),
-                                        jsonObject1.getString(Constant.TEXT4),
-                                        jsonObject1.getString(Constant.TEXT5),
-                                        jsonObject1.getString(Constant.TEXT6),
-                                        jsonObject1.getString(Constant.FESTIVALS),
-                                        jsonObject1.getString(Constant.THIDHI),
-                                        jsonObject1.getString(Constant.NAKSHATRAM),
-                                        jsonObject1.getString(Constant.YOGAM),
-                                        jsonObject1.getString(Constant.KARANAM),
-                                        jsonObject1.getString(Constant.ABHIJITH_MUHURTHAM),
-                                        jsonObject1.getString(Constant.BHRAMA_MUHURTHAM),
-                                        jsonObject1.getString(Constant.AMRUTHA_KALAM),
-                                        jsonObject1.getString(Constant.RAHUKALAM),
-                                        jsonObject1.getString(Constant.YAMAKANDAM),
-                                        jsonObject1.getString(Constant.DHURMUHURTHAM),
-                                        jsonObject1.getString(Constant.VARJYAM),
-                                        jsonObject1.getString(Constant.GULIKA),
-                                        jsonObject1.getString(Constant.HC1),
-                                        jsonObject1.getString(Constant.HC2),
-                                        jsonObject1.getString(Constant.HC3),
-                                        jsonObject1.getString(Constant.HC4),
-                                        jsonObject1.getString(Constant.HC5),
-                                        jsonObject1.getString(Constant.HC6),
-                                        jsonObject1.getString(Constant.HC7),
-                                        jsonObject1.getString(Constant.HC8),
-                                        jsonObject1.getString(Constant.HC9),
-                                        jsonObject1.getString(Constant.HC10),
-                                        jsonObject1.getString(Constant.HC11),
-                                        jsonObject1.getString(Constant.HC12)
-                                );
 
-
-
-
-                            } else {
-                                break;
-                            }
-                        }
                         JSONArray jsonArray2 = object.getJSONArray(Constant.PANCHANGAM_TAB_LIST);
 
                         for (int i = 0; i < jsonArray2.length(); i++) {

@@ -21,6 +21,7 @@ public class Constant {
     public static final String SEARCH_VIDEO_URL = BaseUrl + "search-video.php";
     public static final String DOWNLOADIMAGECOUNT_URL = BaseUrl + "downloadimagecount.php";
     public static final String VIDEO_LIST_URL = BaseUrl + "video-post-list.php";
+    public static final String PANCHANGAM_LIST = BaseUrl + "panchangam-list.php";
     public static final String VIDEO_URL = BaseUrl + "video-category.php";
     public static final String PANCHANGAM_LIST_URL = BaseUrl + "panchangam-list.php";
     public static final String RAHU_YAMAGANDAM = BaseUrl + "rahu_yamagandam-list.php";
@@ -28,6 +29,7 @@ public class Constant {
     public static final String GRAHANAM = BaseUrl + "grahanam.php";
     public static final String BHAKTHI_ARTICLES_LIST = BaseUrl + "bhakthi_articles-list.php";
     public static final String PANCHANGAMLIST_BYDATE = BaseUrl + "panchangamlist_bydate.php";
+    public static final String PANCHANGAMLIST = BaseUrl + "panchangam-list.php";
     public static final String MONTH_FESTIVAL = BaseUrl + "month_festivals.php";
     public static final String MONTHLY_PANCHANGAMLIST = BaseUrl + "monthly_panchangamlist.php";
     public static final String HOLIDAYS = BaseUrl + "holidays.php";
@@ -158,7 +160,6 @@ public static final String HC12 = "hc12";
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
     public static final String DATA = "data";
-    public static final String PANCHANGAM_LIST = "panchangam_list";
     public static final String PANCHANGAM_TAB_LIST = "panchangam_tab_list";
     public static final String FESTIVALS_LIST = "festivals_list";
     public static final String MUHURTHAM_LIST = "muhurtham_list";
@@ -247,6 +248,7 @@ public static final String HC12 = "hc12";
     public static final String PRASADHAMNAMES = "PrasadhamNames";
     public static final String NETI_ARTI_IMAGE = "neti_arti_image";
     public static final String OLD_ARTI_IMAGES = "old_arti_images";;
+    public static final String ALL = "all";
     public static String THIDHI_IMAGE = "thidhi_image";
 
     public static int etLengthConversion(EditText editText) {
