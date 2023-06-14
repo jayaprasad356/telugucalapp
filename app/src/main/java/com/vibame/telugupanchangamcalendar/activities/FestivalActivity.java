@@ -61,6 +61,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     String[] montharray = {"జనవరి ", "ఫిబ్రవరి ", "మార్చి ", "ఏప్రిల్ ", "మే ", "జూన్ ", "జూలై ", "ఆగస్టు ", "సెప్టెంబర్ ", "అక్టోబర్ ", "నవంబర్ ", "డిసెంబర్ "};
     Calendar calendar;
     Calendar targetCalendar;
+
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
 
@@ -125,6 +126,8 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         month_year = dateFormat.format(cal.getTime());
         String month = String.valueOf(calendar.get(Calendar.MONTH));
 
+        monthfestivallist();
+
 
 
 
@@ -184,6 +187,41 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         tvMonthYear.setText(setTeluguMonth(month_year)+year);
 
         festivalList(month, getYearNum());
+
+    }
+
+    private void monthfestivallist() {
+
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) ->  {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        Log.d("Festivallise",response);
+                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+                            } else {
+                                break;
+                            }
+                        }
+
+
+
+                    }else {
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.MONTH_FESTIVALS_LIST,params,true);
 
     }
 
@@ -363,62 +401,64 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         }
 
 
-        
 
 
 
 
 
+        festivalAdapter = new FestivalAdapter(FestivalActivity.this,databaseHelper.getmonthFestivalList(Month,yearNum));
+        recyclerView.setAdapter(festivalAdapter);
 
 
 
 
 
-        HashMap<String,String> params = new HashMap<>();
-        params.put(Constant.MONTH,Month);
-        params.put(Constant.YEAR,yearNum);
-        ApiConfig.RequestToVolley((result, response) -> {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Festivallise",response);
-                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        Gson g = new Gson();
-
-
-                        recyclerView.setVisibility(View.VISIBLE);
-                        ArrayList<Festival> festivals = new ArrayList<>();
-
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
-                            if (jsonObject1 != null) {
-                                Festival group = g.fromJson(jsonObject1.toString(), Festival.class);
-                                festivals.add(group);
-                            } else {
-                                break;
-                            }
-                        }
-
-                        festivalAdapter = new FestivalAdapter(FestivalActivity.this,festivals);
-                        recyclerView.setAdapter(festivalAdapter);
-
-
-                    }else {
-
-                        recyclerView.setVisibility(View.GONE);
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        },activity, Constant.MONTH_FESTIVAL,params,true);
-
-
-
+//
+//
+//        HashMap<String,String> params = new HashMap<>();
+//        params.put(Constant.MONTH,Month);
+//        params.put(Constant.YEAR,yearNum);
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            if(result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if(jsonObject.getBoolean(SUCCESS)){
+//                        Log.d("Festivallise",response);
+//                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+//                        Gson g = new Gson();
+//
+//
+//                        recyclerView.setVisibility(View.VISIBLE);
+//                        ArrayList<Festival> festivals = new ArrayList<>();
+//
+//                        for (int i = 0; i < jsonArray.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+//
+//                            if (jsonObject1 != null) {
+//                                Festival group = g.fromJson(jsonObject1.toString(), Festival.class);
+//                                festivals.add(group);
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//
+//
+//
+//
+//                    }else {
+//
+//                        recyclerView.setVisibility(View.GONE);
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                }catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        },activity, Constant.MONTH_FESTIVAL,params,true);
+//
+//
+//
 
     }
 

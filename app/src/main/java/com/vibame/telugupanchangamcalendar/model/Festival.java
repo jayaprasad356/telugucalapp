@@ -1,13 +1,12 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class Festival {
-    String id,month,festival,year,title,description;
+    String id,month,year,title,description;
 
 
-    public Festival(String id, String month, String festival, String year, String title, String description) {
+    public Festival(String id, String month, String year, String title, String description) {
         this.id = id;
         this.month = month;
-        this.festival = festival;
         this.year = year;
         this.title = title;
         this.description = description;
@@ -27,14 +26,6 @@ public class Festival {
 
     public void setMonth(String month) {
         this.month = month;
-    }
-
-    public String getFestival() {
-        return festival;
-    }
-
-    public void setFestival(String festival) {
-        this.festival = festival;
     }
 
     public String getYear() {

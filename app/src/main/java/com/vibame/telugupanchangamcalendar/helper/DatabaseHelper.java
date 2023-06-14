@@ -53,6 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String ID = "id";
     final String PID = "pid";
     final String FID = "fid";
+    final String MONTH = "month";
+    final String YEAR = "year";
     final String MID = "mid";
     final String POOJALU_ID = "poojalu_id";
     final String GRAHULU_ID = "grahulu_id";
@@ -120,7 +122,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + HC7 + " TEXT ," + HC8 + " TEXT ," + HC9 + " TEXT ," + HC10 + " TEXT ," + HC11 + " TEXT ," + HC12 + " TEXT)";
 
     final String PanchangamTabTableInfo = TABLE_PANCHANGAMTAB_NAME + "(" + PTID + " TEXT ," + PID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
-    final String FestivalTableInfo = TABLE_FESTIVAL_NAME + "(" + FID + " TEXT ," + DATE + " REAL ," + FESTIVAL + " TEXT)";
+    final String FestivalTableInfo = TABLE_FESTIVAL_NAME + "(" + FID + " TEXT ," + MONTH + " TEXT ," + YEAR + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String MuhurthamTableInfo = TABLE_MUHURTHAM_NAME + "(" + MID + " TEXT ," + MUHURTHAM + " TEXT)";
     final String MuhurthamTabTableInfo = TABLE_MUHURTHAMTAB_NAME + "(" + MTID + " TEXT ," + MID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String PoojaluTableInfo = TABLE_POOJALU_NAME + "(" + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
@@ -287,16 +289,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-    public void AddToFestival(String fid, String date, String festival) {
+//    public void AddToFestival(String fid, String date, String festival) {
+//        try {
+//            if (!CheckFestivalItemExist(fid).equalsIgnoreCase("0")) {
+//                UpdateFestival(fid,date,festival);
+//            } else {
+//                SQLiteDatabase db = this.getWritableDatabase();
+//                ContentValues values = new ContentValues();
+//                values.put(FID, fid);
+//                values.put(DATE, date);
+//                values.put(FESTIVAL, festival);
+//                db.insert(TABLE_FESTIVAL_NAME, null, values);
+//                db.close();
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public void AddToMonthFestival(String fid, String month, String year, String title, String description) {
         try {
             if (!CheckFestivalItemExist(fid).equalsIgnoreCase("0")) {
-                UpdateFestival(fid,date,festival);
+                UpdateFestival(fid,month,year,title,description);
             } else {
                 SQLiteDatabase db = this.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(FID, fid);
-                values.put(DATE, date);
-                values.put(FESTIVAL, festival);
+                values.put(MONTH, month);
+                values.put(YEAR, year);
+                values.put(TITLE, title);
+                values.put(DESCRIPTION, description);
                 db.insert(TABLE_FESTIVAL_NAME, null, values);
                 db.close();
             }
@@ -440,12 +463,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_PANCHANGAM_NAME, values, PID + " = ?", new String[]{pid});
         db.close();
     }
-    public void UpdateFestival(String fid, String date, String festival) {
+    public void UpdateFestival(String fid, String month, String year, String title, String description) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DATE, date);
         values.put(FID, fid);
-        values.put(FESTIVAL, festival);
+        values.put(MONTH, month);
+        values.put(YEAR, year);
+        values.put(TITLE, title);
+        values.put(DESCRIPTION, description);
         db.update(TABLE_FESTIVAL_NAME, values, FID + " = ?", new String[]{fid});
         db.close();
     }
@@ -728,6 +753,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return dailyModels;
     }
 
+    public ArrayList<Festival> getmonthFestivalList(String month, String year) {
+        final ArrayList<Festival> festivals = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month,year});
+        if (cursor.moveToFirst()) {
+            do {
+                Festival festival = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(FID)),cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(YEAR)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                festivals.add(festival);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return festivals;
+    }
+
+
     public ArrayList<PanchangamTab> getmodelPanchangamTabList(String pid) {
         final ArrayList<PanchangamTab> panchangamTabs = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -745,23 +791,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return panchangamTabs;
     }
-    //    public ArrayList<Festival> getmodelFestivalList(String month,String year) {
-//        final ArrayList<Festival> festivals = new ArrayList<>();
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE STRFTIME('%m'," + DATE + ") = ? AND STRFTIME('%Y'," + DATE + ") = ? ORDER BY "+DATE, new String[]{month,year});
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Festival festival1 = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(FID)),cursor.getString(cursor.getColumnIndexOrThrow(DATE))
-//                        ,cursor.getString(cursor.getColumnIndexOrThrow(FESTIVAL)));
-//                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
-//                festivals.add(festival1);
-//            } while (cursor.moveToNext());
-//
-//        }
-//        cursor.close();
-//        db.close();
-//        return festivals;
-//    }
+        public ArrayList<Festival> getmodelFestivalList(String month,String year) {
+        final ArrayList<Festival> festivals = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE STRFTIME('%m'," + DATE + ") = ? AND STRFTIME('%Y'," + DATE + ") = ? ORDER BY "+DATE, new String[]{month,year});
+        if (cursor.moveToFirst()) {
+            do {
+                Festival festival1 = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(FID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(YEAR))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                festivals.add(festival1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return festivals;
+    }
     public ArrayList<Muhurtham> getMuhurthamList() {
         final ArrayList<Muhurtham> muhurthams = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();

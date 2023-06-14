@@ -5,7 +5,7 @@ import android.widget.EditText;
 public class Constant {
    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
  //public static final String MainBaseUrl = "https://telucalweb.graymatterworks.com/";
-  // public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
+    //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String PANCHANGAM_URL = BaseUrl + "panchangam.php";
     public static final String SAKUNA_SASTHRAM_URL = BaseUrl + "sakuna-sasthram-list.php";
@@ -31,6 +31,7 @@ public class Constant {
     public static final String PANCHANGAMLIST_BYDATE = BaseUrl + "panchangamlist_bydate.php";
     public static final String PANCHANGAMLIST = BaseUrl + "panchangam-list.php";
     public static final String MONTH_FESTIVAL = BaseUrl + "month_festivals.php";
+    public static final String MONTH_FESTIVALS_LIST = BaseUrl + "month_festivals_list.php";
     public static final String MONTHLY_PANCHANGAMLIST = BaseUrl + "monthly_panchangamlist.php";
     public static final String HOLIDAYS = BaseUrl + "holidays.php";
     public static final String HOROSCOPE_LIST = BaseUrl + "horoscope.php";

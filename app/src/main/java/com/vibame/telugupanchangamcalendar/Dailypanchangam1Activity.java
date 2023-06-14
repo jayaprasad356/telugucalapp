@@ -79,7 +79,7 @@ public class Dailypanchangam1Activity extends AppCompatActivity {
         startCalendar.set(Calendar.YEAR, 2023);
         startCalendar.set(Calendar.DAY_OF_MONTH , 22);
 
-        panchangam_list();
+        //panchangam_list();
 
 
 

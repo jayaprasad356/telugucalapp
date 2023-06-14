@@ -60,6 +60,7 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        Log.d("ALL_DATA",response);
                         databaseHelper.deleteDb(activity);
                         JSONObject object = new JSONObject(response);
                         JSONArray setArray = object.getJSONArray(Constant.SETTINGS_LIST);
@@ -156,16 +157,16 @@ public class SplashScreen extends AppCompatActivity {
                                 break;
                             }
                         }
-                        JSONArray jsonArray3 = object.getJSONArray(Constant.FESTIVALS_LIST);
-
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DATE),jsonObject1.getString(Constant.FESTIVAL));
-                            } else {
-                                break;
-                            }
-                        }
+//                        JSONArray jsonArray3 = object.getJSONArray(Constant.FESTIVALS_LIST);
+//
+//                        for (int i = 0; i < jsonArray3.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DATE),jsonObject1.getString(Constant.FESTIVAL));
+//                            } else {
+//                                break;
+//                            }
+//                        }
                         JSONArray jsonArray4 = object.getJSONArray(Constant.MUHURTHAM_LIST);
 
                         for (int i = 0; i < jsonArray4.length(); i++) {
