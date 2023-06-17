@@ -37,8 +37,8 @@ public class MuhurthamnewAdapter extends RecyclerView.Adapter<MuhurthamnewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        holder.tvDescription.setText(muhurthamnews.get(position).getDescription());
-      holder.tvDate.setText(muhurthamnews.get(position).getDate_month());
+        holder.tvDescription.setText(muhurthamnews.get(position).getId());
+      holder.tvDate.setText(muhurthamnews.get(position).getText1());
 
 
 

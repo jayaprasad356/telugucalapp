@@ -46,6 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_HORO_NAME = "tblhoro";
     public static final String TABLE_BHARGAVA_NAME = "tblbhargava";
     public static final String TABLE_MUHURTHAM_NAME = "tblmuhurtham";
+    public static final String TABLE_MUHURTHAM_NEW_NAME = "tblmuhurthamnew";
     public static final String TABLE_MUHURTHAMTAB_NAME = "tblmuhurthamtab";
     public static final String TABLE_POOJALU_NAME = "tblpoojalu";
     public static final String TABLE_POOJALU_SUBMENU_NAME = "tblpoojalusubmenu";
@@ -146,6 +147,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String GowrTableInfo = TABLE_GOWRI_NAME + "(" + GID + " TEXT ," + DAY + " TEXT ," + TIME + " TEXT ," + MORNING + " TEXT ," + NIGHT + " TEXT)";
     final String horoTableInfo = TABLE_HORO_NAME + "(" + HID + " TEXT ," + DAY + " TEXT ," + TIME + " TEXT ," + MORNING + " TEXT ," + NIGHT + " TEXT)";
     final String bhargavaTableInfo = TABLE_BHARGAVA_NAME + "(" + BID + " TEXT ," + DAY + " TEXT ," + TIME + " TEXT ," + DESCRIPTION + " TEXT )";
+    final String MuhurthamnewTableInfo = TABLE_MUHURTHAM_NEW_NAME + "(" + MNID + " TEXT ," + MONTH + " TEXT ," + YEAR + " TEXT ," + TEXT1 + " TEXT )";
     final String MuhurthamTableInfo = TABLE_MUHURTHAM_NAME + "(" + MID + " TEXT ," + MUHURTHAM + " TEXT)";
     final String MuhurthamTabTableInfo = TABLE_MUHURTHAMTAB_NAME + "(" + MTID + " TEXT ," + MID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT)";
     final String PoojaluTableInfo = TABLE_POOJALU_NAME + "(" + PJID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
@@ -174,6 +176,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + horoTableInfo);
         db.execSQL("CREATE TABLE " + bhargavaTableInfo);
         db.execSQL("CREATE TABLE " + MuhurthamTableInfo);
+        db.execSQL("CREATE TABLE " + MuhurthamnewTableInfo);
         db.execSQL("CREATE TABLE " + MuhurthamTabTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluTableInfo);
         db.execSQL("CREATE TABLE " + PoojaluSubMenuTableInfo);
@@ -357,26 +360,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
-    public void AddToMuhurtham(String mnid, String month, String year, String title, String description) {
-        try {
-            if (!CheckMuhurthamnewItemExist(mnid).equalsIgnoreCase("0")) {
-                UpdateMuhurtham(mnid,month,year,title,description);
-            } else {
-                SQLiteDatabase db = this.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put(MNID, mnid);
-                values.put(MONTH, month);
-                values.put(YEAR, year);
-                values.put(TITLE, title);
-                values.put(DESCRIPTION, description);
-                db.insert(TABLE_FESTIVAL_NAME, null, values);
-                db.close();
-            }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public void AddToImportantdays(String imid, String month, String year, String title, String description) {
         try {
             if (!CheckImporatantdaysItemExist(imid).equalsIgnoreCase("0")) {
@@ -472,6 +456,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void AddToMuhurugthamnew( String mnid, String month, String year, String text1) {
+        try {
+            if (!CheckMnItemExist(mnid).equalsIgnoreCase("0")) {
+                UpdateMn(mnid, month, year, text1);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(MNID, mnid);         // Assuming ID is the column name for the "id" field
+                values.put(MONTH, month);   // Assuming MONTH is the column name for the "month" field
+                values.put(YEAR, year);     // Assuming YEAR is the column name for the "year" field
+                values.put(TEXT1, text1);   // Assuming TEXT1 is the column name for the "text1" field
+                db.insert(TABLE_MUHURTHAM_NEW_NAME, null, values);
+                db.close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -688,6 +690,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_BHARGAVA_NAME, values, BID + " = ?", new String[]{bid});
         db.close();
     }
+    public void UpdateMn(String mnid, String month, String year, String text1) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(MNID, mnid);         // Assuming ID is the column name for the "id" field
+        values.put(MONTH, month);   // Assuming MONTH is the column name for the "month" field
+        values.put(YEAR, year);     // Assuming YEAR is the column name for the "year" field
+        values.put(TEXT1, text1);
+        db.update(TABLE_MUHURTHAM_NEW_NAME, values, MNID + " = ?", new String[]{mnid});
+        db.close();
+    }
     public void UpdatePoojalu(String pjid, String name, String image) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -854,6 +866,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             count = cursor.getString(cursor.getColumnIndex(BID));
             if (count.equals("0")) {
                 db.execSQL("DELETE FROM " + TABLE_BHARGAVA_NAME + " WHERE " + BID + " = ?", new String[]{bid});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }  @SuppressLint("Range")
+    public String CheckMnItemExist(String mnid) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MUHURTHAM_NEW_NAME + " WHERE " + MNID + " = ?", new String[]{mnid});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(MNID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_MUHURTHAM_NEW_NAME + " WHERE " + MNID + " = ?", new String[]{mnid});
 
             }
         }
@@ -1120,25 +1147,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return festivals;
     }
 
-    public ArrayList<Muhurthamnew> getMuhurtham(String month, String year) {
-        final ArrayList<Muhurthamnew> muhurthamnews = new ArrayList<>();
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_HOLIDAYS_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month,year});
-        if (cursor.moveToFirst()) {
-            do {
-//                Muhurthamnew muhurthamnew = new Muhurthamnew(cursor.getString(cursor.getColumnIndexOrThrow(HDID)),cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
-//                        ,cursor.getString(cursor.getColumnIndexOrThrow(YEAR)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
-//                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
-
-                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
-//                muhurthamnews.add(muhurthamnew);
-            } while (cursor.moveToNext());
-
-        }
-        cursor.close();
-        db.close();
-        return muhurthamnews;
-    }
+//    public ArrayList<Muhurthamnew> getMuhurtham(String month, String year) {
+//        final ArrayList<Muhurthamnew> muhurthamnews = new ArrayList<>();
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_HOLIDAYS_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month,year});
+//        if (cursor.moveToFirst()) {
+//            do {
+////                Muhurthamnew muhurthamnew = new Muhurthamnew(cursor.getString(cursor.getColumnIndexOrThrow(HDID)),cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
+////                        ,cursor.getString(cursor.getColumnIndexOrThrow(YEAR)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
+////                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+//
+//                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+////                muhurthamnews.add(muhurthamnew);
+//            } while (cursor.moveToNext());
+//
+//        }
+//        cursor.close();
+//        db.close();
+//        return muhurthamnews;
+//    }
 
 
 
@@ -1204,6 +1231,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return bharavas;
+    }
+    public ArrayList<Muhurthamnew> getMn(String month, String year) {
+        final ArrayList<Muhurthamnew> muhurthamnews = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MUHURTHAM_NEW_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month,year});
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Muhurthamnew muhurthamnew = new Muhurthamnew(cursor.getString(cursor.getColumnIndexOrThrow(MNID))
+                        ,cursor.getString(cursor.getColumnIndexOrThrow(MONTH)), cursor.getString(cursor.getColumnIndexOrThrow(YEAR)) ,cursor.getString(cursor.getColumnIndexOrThrow(TEXT1)));
+
+
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                muhurthamnews.add(muhurthamnew);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return muhurthamnews;
     }
 
 
@@ -1786,9 +1835,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         activity.deleteDatabase(DATABASE_NAME);
 
     }
-
-
-
 
 
 
