@@ -61,6 +61,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     String[] montharray = {"జనవరి ", "ఫిబ్రవరి ", "మార్చి ", "ఏప్రిల్ ", "మే ", "జూన్ ", "జూలై ", "ఆగస్టు ", "సెప్టెంబర్ ", "అక్టోబర్ ", "నవంబర్ ", "డిసెంబర్ "};
     Calendar calendar;
     Calendar targetCalendar;
+    String Month ,Year;
 
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -126,7 +127,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         month_year = dateFormat.format(cal.getTime());
         String month = String.valueOf(calendar.get(Calendar.MONTH));
 
-        monthfestivallist();
+//        monthfestivallist();
 
 
 
@@ -186,44 +187,50 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
         tvMonthYear.setText(setTeluguMonth(month_year)+year);
 
+        Year = getYearNum();
+
         festivalList(month, getYearNum());
 
     }
 
-    private void monthfestivallist() {
-
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Festivallise",response);
-                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
-
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
-                            } else {
-                                break;
-                            }
-                        }
-
-
-
-                    }else {
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        },activity, Constant.MONTH_FESTIVALS_LIST,params,true);
-
-    }
+//    private void monthfestivallist() {
+//        HashMap<String,String> params = new HashMap<>();
+//        ApiConfig.RequestToVolley((result, response) ->  {
+//            if(result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if(jsonObject.getBoolean(SUCCESS)){
+//                        Log.d("Festivallise",response);
+//                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+//
+//                        for (int i = 0; i < jsonArray3.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+//
+//
+//                                festivalAdapter = new FestivalAdapter(FestivalActivity.this,databaseHelper.getmonthFestivalList(Month,Year));
+//                                recyclerView.setAdapter(festivalAdapter);
+//
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//
+//
+//
+//                    }else {
+//
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                }catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        },activity, Constant.MONTH_FESTIVALS_LIST,params,true);
+//
+//    }
 
     @SuppressLint("ResourceType")
     private void right() {
@@ -337,8 +344,8 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
     private void festivalList(String monthNum, String yearNum) {
 
+         Month = monthNum;
 
-        String Month = monthNum;
 
         if (monthNum.equals("0")){
 

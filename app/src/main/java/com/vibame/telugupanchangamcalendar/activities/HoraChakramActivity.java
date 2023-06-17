@@ -26,8 +26,10 @@ import com.vibame.telugupanchangamcalendar.GowriPanchangamActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.SwipeableScrollView;
 import com.vibame.telugupanchangamcalendar.adapter.GowriAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.HoroAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Gowri;
 
 import org.json.JSONArray;
@@ -53,6 +55,9 @@ public class HoraChakramActivity extends AppCompatActivity {
     String dayOfWeekString = "";
     String dayName = "";
     int currentDay, clickedDay;
+    DatabaseHelper databaseHelper;
+    HoroAdapter horoAdapter;
+    String Day ;
 
     private RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -84,6 +89,8 @@ public class HoraChakramActivity extends AppCompatActivity {
 
         activity = HoraChakramActivity.this;
 
+        databaseHelper = new DatabaseHelper(activity);
+
         // get the current date
 
 
@@ -105,6 +112,7 @@ public class HoraChakramActivity extends AppCompatActivity {
         });
         relativeLayout = findViewById(R.id.slider);
 
+        Horolist();
 
         // Get the current day of the week
         calendar = Calendar.getInstance();
@@ -259,45 +267,92 @@ public class HoraChakramActivity extends AppCompatActivity {
 
     }
 
-    private void list(String day) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put(Constant.HORA_CHAKRAM, "1");
-        params.put(Constant.DAY, day);
-        ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("GOWRI_PAN", response);
-            if (result) {
+    private void Horolist() {
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) ->  {
+            if(result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(SUCCESS)) {
-                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        Gson g = new Gson();
-                        ArrayList<Gowri> gowris = new ArrayList<>();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                    if(jsonObject.getBoolean(SUCCESS)){
+
+                        Log.d("horo",response);
+
+                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                recyclerView.setVisibility(View.VISIBLE);
-                                Gowri group = g.fromJson(jsonObject1.toString(), Gowri.class);
-                                gowris.add(group);
+//                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+                                databaseHelper.AddToHoro(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.MORNING),jsonObject1.getString(Constant.NIGHT));
+
+                                horoAdapter = new HoroAdapter(HoraChakramActivity.this,databaseHelper.getHoroList(Day));
+                                recyclerView.setAdapter(horoAdapter);
+                            } else {
+                                break;
                             }
-
-                            else {
-
-                                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show();
-                            }
-
                         }
-                        gowriAdapter = new GowriAdapter(activity, gowris);
-                        recyclerView.setAdapter(gowriAdapter);
-                    } else {
 
-                        recyclerView.setVisibility(View.GONE);
+
+
+                    }else {
+
+
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
+                }catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        }, activity, Constant.PANCHANGAM_LIST_URL, params, true);
+        },activity, Constant.HORA_CHAKRAM_LIST,params,true);
+
+    }
+
+
+    private void list(String day) {
+//        HashMap<String, String> params = new HashMap<>();
+//        params.put(Constant.HORA_CHAKRAM, "1");
+//        params.put(Constant.DAY, day);
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            Log.d("GOWRI_PAN", response);
+//            if (result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getBoolean(SUCCESS)) {
+//                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+//                        Gson g = new Gson();
+//                        ArrayList<Gowri> gowris = new ArrayList<>();
+//                        for (int i = 0; i < jsonArray.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                recyclerView.setVisibility(View.VISIBLE);
+//                                Gowri group = g.fromJson(jsonObject1.toString(), Gowri.class);
+//                                gowris.add(group);
+//                            }
+//
+//                            else {
+//
+//                                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//                        gowriAdapter = new GowriAdapter(activity, gowris);
+//                        recyclerView.setAdapter(gowriAdapter);
+//                    } else {
+//
+//                        recyclerView.setVisibility(View.GONE);
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, activity, Constant.PANCHANGAM_LIST_URL, params, true);
+
+
+        Day = day;
+
+        horoAdapter = new HoroAdapter(HoraChakramActivity.this,databaseHelper.getHoroList(day));
+        recyclerView.setAdapter(horoAdapter);
 
 
     }

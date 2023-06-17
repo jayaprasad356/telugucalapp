@@ -24,9 +24,12 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.activities.HoraChakramActivity;
 import com.vibame.telugupanchangamcalendar.adapter.BharavaPanchangamAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.BhargavaAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.GowriAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.HoroAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Bharava;
 import com.vibame.telugupanchangamcalendar.model.Gowri;
 
@@ -54,9 +57,13 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
     String dayOfWeekString = "";
     String dayName = "";
     int currentDay, clickedDay;
+    BhargavaAdapter bhargavaAdapter;
+
+    String Day;
 
     private RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
+    DatabaseHelper databaseHelper;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -85,6 +92,9 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bhargava_panchangam);
         activity = BhargavaPanchangamActivity.this;
+        databaseHelper = new DatabaseHelper(activity);
+
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -104,6 +114,9 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
             }
         });
         relativeLayout = findViewById(R.id.slider);
+
+
+        Bharavalist();
 
 
         // Get the current day of the week
@@ -259,45 +272,96 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
 
     }
 
-    private void list(String day) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put(Constant.BHARGAVA_PANCHANGAM, "1");
-        params.put(Constant.DAY, day);
-        ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("GOWRI_PAN", response);
-            if (result) {
+
+    private void Bharavalist() {
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) ->  {
+            if(result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(SUCCESS)) {
-                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        Gson g = new Gson();
-                        ArrayList<Bharava> bharavas = new ArrayList<>();
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                    if(jsonObject.getBoolean(SUCCESS)){
+
+                        Log.d("horo",response);
+
+                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
                             if (jsonObject1 != null) {
-                                recyclerView.setVisibility(View.VISIBLE);
-                                Bharava group = g.fromJson(jsonObject1.toString(), Bharava.class);
-                                bharavas.add(group);
+//                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+//                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.MORNING),jsonObject1.getString(Constant.NIGHT));
+
+                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.DESCRIPTION));
+                                bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this,databaseHelper.getBharagava(Day));
+                                recyclerView.setAdapter(bharavaPanchangamAdapter);
+
+                            } else {
+                                break;
                             }
-
-                            else {
-
-                                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show();
-                            }
-
                         }
-                        bharavaPanchangamAdapter = new BharavaPanchangamAdapter(activity, bharavas);
-                        recyclerView.setAdapter(bharavaPanchangamAdapter);
-                    } else {
 
-                        recyclerView.setVisibility(View.GONE);
+
+
+                    }else {
+
+
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
+                }catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        }, activity, Constant.PANCHANGAM_LIST_URL, params, true);
+        },activity, Constant.BHARGAVA_PANCHANGAM_LIST,params,true);
+
+    }
+
+
+    private void list(String day) {
+
+        Day = day;
+
+//        HashMap<String, String> params = new HashMap<>();
+//        params.put(Constant.BHARGAVA_PANCHANGAM, "1");
+//        params.put(Constant.DAY, day);
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            Log.d("GOWRI_PAN", response);
+//            if (result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getBoolean(SUCCESS)) {
+//                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+//                        Gson g = new Gson();
+//                        ArrayList<Bharava> bharavas = new ArrayList<>();
+//                        for (int i = 0; i < jsonArray.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                recyclerView.setVisibility(View.VISIBLE);
+//                                Bharava group = g.fromJson(jsonObject1.toString(), Bharava.class);
+//                                bharavas.add(group);
+//                            }
+//
+//                            else {
+//
+//                                Toast.makeText(activity, "No data found", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//                        bharavaPanchangamAdapter = new BharavaPanchangamAdapter(activity, bharavas);
+//                        recyclerView.setAdapter(bharavaPanchangamAdapter);
+//                    } else {
+//
+//                        recyclerView.setVisibility(View.GONE);
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, activity, Constant.PANCHANGAM_LIST_URL, params, true);
+
+
+        bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this,databaseHelper.getBharagava(day));
+        recyclerView.setAdapter(bharavaPanchangamAdapter);
 
 
     }

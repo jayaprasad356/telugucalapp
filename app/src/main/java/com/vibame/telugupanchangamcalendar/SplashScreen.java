@@ -29,6 +29,7 @@ public class SplashScreen extends AppCompatActivity {
     Activity activity;
     DatabaseHelper databaseHelper;
     Session session;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,16 +39,42 @@ public class SplashScreen extends AppCompatActivity {
         session = new Session(activity);
 
 
+
+        GotoActivity();
+
 //        Intent i = new Intent(activity, CalendarNewActivity.class);
 //        startActivity(i);
 //        finish();
 
-        if (ApiConfig.isConnected(activity)){
-            getDatalist();
+//        if (ApiConfig.isConnected(activity)){
+//            getDatalist();
+//
+//        }
 
-        }
+
+    }
+
+    private void GotoActivity() {
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                if (session.getData(Constant.DATA_LOADING).equals("1")) {
+                    Intent intent = new Intent(activity, CalendarNewActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(activity,DataLoadingActivity .class);
+                    startActivity(intent);
+                    finish();
+                }
 
 
+
+
+            }
+        },2000);
     }
 
 

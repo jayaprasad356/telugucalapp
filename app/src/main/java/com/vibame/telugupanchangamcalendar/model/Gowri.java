@@ -11,6 +11,11 @@ public class Gowri {
     }
 
 
+
+    public Gowri(String string, String string1, String string2, String string3, String string4) {
+    }
+
+
     public String getId() {
         return id;
     }
