@@ -21,21 +21,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.vibame.telugupanchangamcalendar.adapter.BharavaPanchangamAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.MuhurthamnewAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
-import com.vibame.telugupanchangamcalendar.model.Muhurthamnew;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -102,7 +98,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
         activity = MuhurthamActivity.this;
         databaseHelper = new DatabaseHelper(activity);
 
-        Bharavalist();
+        subha_muhurtham();
 
 
         tvTitle = findViewById(R.id.tvtext1);
@@ -301,7 +297,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
         left();
     }
 
-    private void Bharavalist() {
+    private void subha_muhurtham() {
         HashMap<String,String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) ->  {
             if(result) {
@@ -318,12 +314,10 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
                             if (jsonObject1 != null) {
 //                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
 //
-                                databaseHelper.AddToMuhurugthamnew(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TEXT1));
+                                databaseHelper.AddToSubhaMuhurtha(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TEXT1));
 
 
-//                                String text = getString(Integer.parseInt(Constant.TEXT1),databaseHelper.getMn(Month,year));
-//
-//                                tvTitle.setText(text);
+
 
 
                             } else {
@@ -414,10 +408,9 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             Month = "December";
         }
 
-//       adapter = new MuhurthamnewAdapter(MuhurthamActivity.this,databaseHelper.getBharagava(Month,year));
+//       adapter = new MuhurthamnewAdapter(MuhurthamActivity.this,databaseHelper.getsubha_muhurtham(Month,year));
 //        recyclerView.setAdapter(adapter);
-//
-//       tvTitle.setText(getString(Integer.parseInt(Constant.TEXT1),databaseHelper.getBharagava("Sunday")));
+
 
 
 //        HashMap<String,String> params = new HashMap<>();
