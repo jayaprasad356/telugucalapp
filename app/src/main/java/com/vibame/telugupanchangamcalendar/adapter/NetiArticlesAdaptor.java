@@ -12,8 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import com.vibame.telugupanchangamcalendar.NewArticleActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.ArticleViewActivity;
+import com.vibame.telugupanchangamcalendar.activities.NetiArticlesActivity;
+
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.model.ImagesView;
 import com.vibame.telugupanchangamcalendar.model.NetiData;
@@ -43,14 +47,14 @@ public class NetiArticlesAdaptor extends RecyclerView.Adapter<NetiArticlesAdapto
 
 
         holder.tvTitle.setText(netiDatas.getTitle());
-        Glide.with(activity).load(netiDatas.getImage()).into(holder.imgGod);
+       // Glide.with(activity).load(netiDatas.getImage()).into(holder.imgGod);
 
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, ArticleViewActivity.class);
+                Intent intent = new Intent(activity, NewArticleActivity.class);
                 intent.putExtra(Constant.ID,netiDatas.getId());
                 intent.putExtra(Constant.TITLE,netiDatas.getTitle());
                 intent.putExtra(Constant.NAME,"పుణ్యక్షేత్రాలు");

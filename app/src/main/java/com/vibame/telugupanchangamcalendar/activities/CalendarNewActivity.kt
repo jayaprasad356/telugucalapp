@@ -227,7 +227,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         card1.setOnClickListener {
-            val intent = Intent(activity, Dailypanchangam1Activity::class.java)
+            val intent = Intent(activity, DailyPanchangamActivity::class.java)
             intent.putExtra("id", "1")
             startActivity(intent)
         }
@@ -464,6 +464,7 @@ class CalendarNewActivity : AppCompatActivity() {
         Glide.with(activity as CalendarNewActivity)
             .load(session!!.getData(Constant.OLD_ARTI_IMAGES)).placeholder(R.drawable.logo)
             .into(imageold)
+
 
 
         val mButton = findViewById<RelativeLayout>(R.id.sidemenu)

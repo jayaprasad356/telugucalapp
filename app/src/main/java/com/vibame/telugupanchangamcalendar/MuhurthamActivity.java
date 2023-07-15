@@ -1,6 +1,7 @@
 package com.vibame.telugupanchangamcalendar;
 
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
+import static com.vibame.telugupanchangamcalendar.helper.Constant.TAB;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -22,10 +23,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
+import com.vibame.telugupanchangamcalendar.adapter.MuhurthamLIstAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.MuhurthamnewAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
+import com.vibame.telugupanchangamcalendar.helper.VolleyCallback;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -60,8 +64,12 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
     ImageView imgBack;
     RecyclerView recyclerView;
     TextView tvTitle;
-    MuhurthamnewAdapter adapter;
     String Month;
+    MuhurthamLIstAdapter muhurthamLIstAdapter;
+    String id ;
+    Session session;
+
+
 
 
 
@@ -96,9 +104,15 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
 
 
         activity = MuhurthamActivity.this;
+        session = new Session(activity);
         databaseHelper = new DatabaseHelper(activity);
-
         subha_muhurtham();
+        subha_muhurthamList();
+
+        Log.d("subha_muhurtham", String.valueOf(databaseHelper.getsubha_muhurtham().size()));
+
+
+
 
 
         tvTitle = findViewById(R.id.tvtext1);
@@ -177,8 +191,13 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
         tvMonthYear.setText(setTeluguMonth(month_year) + year);
 
 
-        String month = String.valueOf(calendar.get(Calendar.MONTH));
-        Muhurtham(month);
+
+        if (session.getData(Constant.FIRST_TIME).equals("1")) {
+            String month = String.valueOf(calendar.get(Calendar.MONTH));
+            Muhurtham(month);
+            Muhurthamlist(id);
+        }
+
 
 
     }
@@ -205,6 +224,9 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Muhurtham(month);
+            Muhurthamlist(id);
+
+
 
 
 
@@ -238,6 +260,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             tvMonthYear.setText(setTeluguMonth(month_year) + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Muhurtham(month);
+            Muhurthamlist(id);
 
 
 
@@ -297,48 +320,8 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
         left();
     }
 
-    private void subha_muhurtham() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-
-                        Log.d("horo",response);
-
-                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
-
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-//                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
-//
-                                databaseHelper.AddToSubhaMuhurtha(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TEXT1));
 
 
-
-
-
-                            } else {
-                                break;
-                            }
-                        }
-
-
-
-                    }else {
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        },activity, Constant.SUBHA_MUHURTHAMULU_LIST,params,true);
-
-    }
 
 
 
@@ -346,7 +329,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
     private void Muhurtham(String month) {
 
 
-         Month = month;
+        Month = month;
 
         if (month.equals("0")){
 
@@ -408,61 +391,121 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             Month = "December";
         }
 
-//       adapter = new MuhurthamnewAdapter(MuhurthamActivity.this,databaseHelper.getsubha_muhurtham(Month,year));
-//        recyclerView.setAdapter(adapter);
+//
+
+  tvTitle.setText(databaseHelper.getsubha_muhurtham(Month,year).get(0).getText1());
+        id = databaseHelper.getsubha_muhurtham(Month,year).get(0).getId();
 
 
 
-//        HashMap<String,String> params = new HashMap<>();
-//        params.put(Constant.MONTH,Month);
-//        params.put(Constant.YEAR,year);
-//        ApiConfig.RequestToVolley((result, response) -> {
-//            if(result) {
-//                try {
-//                    JSONObject jsonObject = new JSONObject(response);
-//                    if(jsonObject.getBoolean(SUCCESS)){
-//
-//                        recyclerView.setVisibility(View.VISIBLE);
-//                        Log.e("suba",response);
-//                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-//                        JSONObject jsonarray2= jsonArray.getJSONObject(0);
-//                        JSONArray files = jsonarray2.getJSONArray(Constant.SUBHA_MUHURTHAM_VARIANT);
-//                        Gson g = new Gson();
-//                        ArrayList<Muhurthamnew> muhurthamnews = new ArrayList<>();
-//                        for (int i = 0; i < files.length(); i++) {
-//                            JSONObject jsonObject1 = files.getJSONObject(i);
-//                            if (jsonObject1 != null) {
-//                                Log.d("Varine",jsonObject1.toString());
-//                                Muhurthamnew group = g.fromJson(jsonObject1.toString(), Muhurthamnew.class);
-//                                muhurthamnews.add(group);
-//                            } else {
-//                                break;
-//                            }
-//                        }
-//                        adapter = new MuhurthamnewAdapter(activity,muhurthamnews);
-//                        recyclerView.setAdapter(adapter);
-//
-//
-//
-//                        tvTitle.setText(jsonArray.getJSONObject(0).getString("text1"));
-//
-//
-//
-//
-//                    }else {
-//
-//                        recyclerView.setVisibility(View.GONE);
-//
-//
-//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-//                    }
-//                }catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        },activity, Constant.SUBHA_MUHURTHAMULU_LIST,params,true);
 
 
+
+    }
+
+    private void Muhurthamlist(String id ) {
+
+        muhurthamLIstAdapter = new MuhurthamLIstAdapter(MuhurthamActivity.this,databaseHelper.getsubha_muhurtham_list(id));
+        recyclerView.setAdapter(muhurthamLIstAdapter);
+
+
+
+
+
+    }
+
+
+    private void subha_muhurtham() {
+        HashMap<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley(new VolleyCallback() {
+            @Override
+            public void onSuccess(boolean result, String response) {
+                if (result) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                            Log.d("horo", response);
+                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+                            for (int i = 0; i < jsonArray3.length(); i++) {
+                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                                if (jsonObject1 != null) {
+                                    // databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
+
+                                    databaseHelper.AddToSubhaMuhurtha(jsonObject1.getString(Constant.ID),
+                                            jsonObject1.getString(Constant.MONTH),
+                                            jsonObject1.getString(Constant.YEAR),
+                                            jsonObject1.getString(Constant.TEXT1));
+
+
+
+
+
+                                } else {
+                                    break;
+                                }
+
+                            }
+                        } else {
+                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, activity, Constant.SUBHA_MUHURTHAMULU_LIST, params, true);
+    }
+
+    private void subha_muhurthamList() {
+        HashMap<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley(new VolleyCallback() {
+            @Override
+            public void onSuccess(boolean result, String response) {
+                if (result) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                            Log.d("horo", response);
+                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+                            for (int i = 0; i < jsonArray3.length(); i++) {
+                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                                if (jsonObject1 != null) {
+                                    // databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
+
+                                    databaseHelper.AddToSubhaMuhurthaList(jsonObject1.getString(Constant.ID),
+                                            jsonObject1.getString(Constant.SUBHA_MUHURTHAM_ID),
+                                            jsonObject1.getString(Constant.DATE_MONTH),
+                                            jsonObject1.getString(Constant.DESCRIPTION));
+
+
+                                    session.setData(Constant.FIRST_TIME,"1");
+                                    String month = String.valueOf(calendar.get(Calendar.MONTH));
+                                    Muhurtham(month);
+                                    Muhurthamlist(id);
+
+
+                                } else {
+                                    break;
+                                }
+
+                            }
+                        } else {
+                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, activity, Constant.SUBHA_MUHURTHAM_VARIANT_LIST, params, true);
+    }
+
+    private void getdata() {
+
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        Muhurtham(month);
+        Muhurthamlist(id);
+        session.setData(Constant.FIRST_TIME,"1");
 
 
 

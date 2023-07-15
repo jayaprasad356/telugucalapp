@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/slider"
     tools:context=".activities.RamayamSubMenuActivity"
     android:background="#D7EDFF"
     >
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:text="Ramayanam"
+            android:text=""
             android:textColor="@color/colorWhite"
             android:fontFamily="@font/sree"
             android:textSize="@dimen/_18sdp"

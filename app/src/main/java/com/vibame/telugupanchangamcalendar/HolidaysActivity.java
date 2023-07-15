@@ -108,7 +108,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
 
 
-//        Holidayslist();
+      Holidayslist();
 
         relativeLayout = findViewById(R.id.slider);
         scrollView = findViewById(R.id.scroll_view);
@@ -299,43 +299,43 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         return date;
     }
 
-//    private void Holidayslist() {
-//        HashMap<String,String> params = new HashMap<>();
-//        ApiConfig.RequestToVolley((result, response) ->  {
-//            if(result) {
-//                try {
-//                    JSONObject jsonObject = new JSONObject(response);
-//                    if(jsonObject.getBoolean(SUCCESS)){
-//                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
-//
-//                        for (int i = 0; i < jsonArray3.length(); i++) {
-//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-//                            if (jsonObject1 != null) {
-//                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
-//
-//
-//                                holidaysAdapter = new HolidaysAdapter(HolidaysActivity.this,databaseHelper.getHoildaysdaysList(Month,Year));
-//                                recyclerView.setAdapter(holidaysAdapter);
-//
-//                            } else {
-//                                break;
-//                            }
-//                        }
-//
-//
-//
-//                    }else {
-//
-//
-//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-//                    }
-//                }catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        },activity, Constant.HOLIDAYS_LIST,params,true);
-//
-//    }
+    private void Holidayslist() {
+        HashMap<String,String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) ->  {
+            if(result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getBoolean(SUCCESS)){
+                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+
+
+                                holidaysAdapter = new HolidaysAdapter(HolidaysActivity.this,databaseHelper.getHoildaysdaysList(Month,Year));
+                                recyclerView.setAdapter(holidaysAdapter);
+
+                            } else {
+                                break;
+                            }
+                        }
+
+
+
+                    }else {
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        },activity, Constant.HOLIDAYS_LIST,params,true);
+
+    }
 
 
 

@@ -15,6 +15,8 @@ import com.vibame.telugupanchangamcalendar.Dailypanchangam1Activity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.model.DailyModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class Dailypanchangam1Adapter extends PagerAdapter {
@@ -55,6 +57,7 @@ public class Dailypanchangam1Adapter extends PagerAdapter {
         ImageButton ivArrowRight, ivArrowLeft;
 
 
+
         tvDate = slideLayout.findViewById(R.id.tvDate);
         tvDate1 = slideLayout.findViewById(R.id.tvDate1);
         tvtext1 = slideLayout.findViewById(R.id.tvtext1);
@@ -92,6 +95,16 @@ public class Dailypanchangam1Adapter extends PagerAdapter {
         tvhc10 = slideLayout.findViewById(R.id.tvhc10);
         tvhc11 = slideLayout.findViewById(R.id.tvhc11);
         tvhc12 = slideLayout.findViewById(R.id.tvhc12);
+
+
+
+        Date date = new Date();
+
+        // Create a SimpleDateFormat object with the desired format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        // Format the date using the SimpleDateFormat object
+        String formattedDate = dateFormat.format(date);
 
 
         tvDate.setText(dailyModel.getDate());
@@ -137,6 +150,10 @@ public class Dailypanchangam1Adapter extends PagerAdapter {
         ivArrowLeft = slideLayout.findViewById(R.id.ivArrowLeft);
         ivArrowRight = slideLayout.findViewById(R.id.ivArrowRight);
         cal_card = slideLayout.findViewById(R.id.cal_card);
+
+        // call the mViewPager in Dailypanchangam1Activity
+
+
 
 
         arrowleft.setOnClickListener(new View.OnClickListener() {

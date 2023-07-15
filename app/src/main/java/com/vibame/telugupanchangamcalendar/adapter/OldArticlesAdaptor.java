@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.vibame.telugupanchangamcalendar.NewArticleActivity;
+import com.vibame.telugupanchangamcalendar.NewOldArticleActivity;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.ArticleViewActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
@@ -43,14 +45,14 @@ public class OldArticlesAdaptor extends RecyclerView.Adapter<OldArticlesAdaptor.
 
 
         holder.tvTitle.setText(oldDatas.getTitle());
-        Glide.with(activity).load(oldDatas.getImage()).into(holder.imgGod);
+        //Glide.with(activity).load(oldDatas.getImage()).into(holder.imgGod);
 
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(activity, ArticleViewActivity.class);
+                Intent intent = new Intent(activity, NewOldArticleActivity.class);
                 intent.putExtra(Constant.ID,oldDatas.getId());
                 intent.putExtra(Constant.TITLE,oldDatas.getTitle());
                 intent.putExtra(Constant.NAME,"పండుగలు విశిష్టత");

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -57,36 +58,41 @@ public class KolathaluActivity extends AppCompatActivity {
     }
 
     private void loadApiData() {
-            HashMap<String, String> params = new HashMap<>();
-            params.put(Constant.KOLATHALU, "1");
-            ApiConfig.RequestToVolley((result, response) -> {
-                if (result) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        if (jsonObject.getBoolean(SUCCESS)) {
-                            JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                            Gson g = new Gson();
-                            ArrayList<Kolathalu> kolathalus = new ArrayList<>();
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                if (jsonObject1 != null) {
-                                    Kolathalu group = g.fromJson(jsonObject1.toString(), Kolathalu.class);
-                                    kolathalus.add(group);
-                                } else {
-                                    break;
-                                }
+        HashMap<String, String> params = new HashMap<>();
+        params.put(Constant.KOLATHALU, "1");
+
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+
+                        Gson g = new Gson();
+                        ArrayList<Kolathalu> kolathalus = new ArrayList<>();
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                            if (jsonObject1 != null) {
+                                Kolathalu group = g.fromJson(jsonObject1.toString(), Kolathalu.class);
+                                kolathalus.add(group);
+                            } else {
+                                break;
                             }
-                            KolathaluAdapter adapter = new KolathaluAdapter(activity, kolathalus);
-                            recyclerView.setAdapter(adapter);
-                        } else {
-                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+
+
+                        KolathaluAdapter adapter = new KolathaluAdapter(activity, kolathalus);
+                        recyclerView.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }, activity, Constant.TELUGU_SAMKRUTHAM_URL, params, true);
-
-
+            }
+        }, activity, Constant.TELUGU_SAMKRUTHAM_URL, params, true);
     }
 }

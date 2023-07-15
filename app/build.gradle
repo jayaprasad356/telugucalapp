@@ -13,7 +13,16 @@ android {
         versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Other configuration settings...
+        dexOptions {
+
+            javaMaxHeapSize "2g" // Set the desired heap size, e.g., 2 gigabytes
+
+        }
+
     }
+
     buildscript {
         repositories {
             google()

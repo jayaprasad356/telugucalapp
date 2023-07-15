@@ -6,11 +6,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.RamayamSubMenuActivity;
 import com.vibame.telugupanchangamcalendar.activities.RamyanamMenuActivity;
@@ -50,6 +52,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         holder.tvTitle.setText(ramayanam1.getTitle());
+        Glide.with(activity).load(ramayanam1.getImage()).into(holder.ivImg);
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +65,8 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
                     activity.startActivity(intent);
 
-                }else {
+                }
+                else {
                     Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
                     intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
                     activity.startActivity(intent);
@@ -81,10 +85,12 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
         final TextView tvTitle;
+        final ImageView ivImg;
 
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
+            ivImg = itemView.findViewById(R.id.ivImg);
 
 
         }

@@ -769,11 +769,11 @@
                         </LinearLayout>
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:visibility="gone"
                             android:id="@+id/recyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/l1" />
+                            android:layout_below="@+id/l1"
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
@@ -837,7 +837,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/cyellow"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -1250,9 +1249,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/sree"
                         android:gravity="center"
                         android:text="శకున శాస్త్రం"
-                        android:fontFamily="@font/sree"
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -1304,7 +1303,8 @@
                                     android:text="శకునాలు నమ్మకాలు"
                                     android:textAlignment="center"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10sdp" />
+                                    android:textSize="15sp" />
+
                             </LinearLayout>
 
                             <Space
@@ -1558,7 +1558,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
                             android:orientation="horizontal"
                             android:weightSum="4">
 
@@ -1576,11 +1576,12 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/rounded_bar">
 
-                                    <androidx.cardview.widget.CardView
+                                    <com.google.android.material.card.MaterialCardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:background="@drawable/roundicon"
+                                        android:elevation="0dp"
                                         app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
@@ -1593,7 +1594,7 @@
                                             android:layout_gravity="center"
                                             android:scaleType="fitXY" />
 
-                                    </androidx.cardview.widget.CardView>
+                                    </com.google.android.material.card.MaterialCardView>
 
 
                                 </RelativeLayout>
@@ -1606,9 +1607,9 @@
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
                                     android:text="సంవత్సరాలు"
-
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/_10sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    />
 
 
                             </LinearLayout>
@@ -1631,11 +1632,12 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/rounded_bar">
 
-                                    <androidx.cardview.widget.CardView
+                                    <com.google.android.material.card.MaterialCardView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:background="@drawable/roundicon"
+                                        android:elevation="0dp"
                                         app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
@@ -1648,7 +1650,7 @@
                                             android:layout_gravity="center"
                                             android:scaleType="fitXY" />
 
-                                    </androidx.cardview.widget.CardView>
+                                    </com.google.android.material.card.MaterialCardView>
 
 
                                 </RelativeLayout>
@@ -1661,7 +1663,6 @@
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
                                     android:text="నెలలు"
-
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_14sdp"
 
@@ -1686,7 +1687,8 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/rounded_bar">
 
-                                    <androidx.cardview.widget.CardView
+                                    <com.google.android.material.card.MaterialCardView
+                                        app:cardElevation="0dp"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -1703,7 +1705,7 @@
                                             android:layout_gravity="center"
                                             android:scaleType="fitXY" />
 
-                                    </androidx.cardview.widget.CardView>
+                                    </com.google.android.material.card.MaterialCardView>
 
 
                                 </RelativeLayout>
@@ -1716,7 +1718,60 @@
                                     android:gravity="center"
                                     android:padding="@dimen/_2sdp"
                                     android:text="అంకెలు"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/_14sdp"
 
+
+                                    />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/more"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/_5sdp"
+
+                                >
+
+                                <RelativeLayout
+                                    android:layout_width="@dimen/_45sdp"
+                                    android:layout_height="@dimen/_45sdp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/rounded_bar">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        app:cardElevation="0dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:background="@drawable/roundicon"
+                                        app:cardCornerRadius="@dimen/_60sdp"
+
+                                        >
+
+
+                                        <ImageView
+                                            android:background="@drawable/more"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:scaleType="fitXY" />
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/ramabhadra"
+                                    android:gravity="center"
+                                    android:padding="@dimen/_2sdp"
+                                    android:text="More"
                                     android:textColor="@color/colorBlack"
                                     android:textSize="@dimen/_14sdp"
 
@@ -1725,43 +1780,6 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:id="@+id/more"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/roundicon"
-                                    app:cardCornerRadius="@dimen/_60sdp"
-
-                                    >
-
-                                    <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-                                        android:layout_gravity="center"
-                                        android:background="@drawable/more" />
-
-                                </androidx.cardview.widget.CardView>
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="@font/ramabhadra"
-                                    android:maxLines="2"
-                                    android:text="More"
-                                    android:textAlignment="center"
-                                    android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
-                            </LinearLayout>
 
                             <LinearLayout
                                 android:id="@+id/llAksharalu"
@@ -1778,7 +1796,8 @@
                                     android:layout_gravity="center"
                                     android:background="@drawable/rounded_bar">
 
-                                    <androidx.cardview.widget.CardView
+                                    <com.google.android.material.card.MaterialCardView
+                                        app:cardElevation="0dp"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
@@ -1795,7 +1814,7 @@
                                             android:layout_gravity="center"
                                             android:scaleType="fitXY" />
 
-                                    </androidx.cardview.widget.CardView>
+                                    </com.google.android.material.card.MaterialCardView>
 
 
                                 </RelativeLayout>
@@ -1832,7 +1851,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -1855,7 +1874,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -1872,7 +1892,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -1909,7 +1929,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -1926,7 +1947,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -1959,7 +1980,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -1976,7 +1998,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2012,7 +2034,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2029,7 +2052,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2058,7 +2081,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -2078,7 +2101,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2095,7 +2119,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2130,7 +2154,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2147,7 +2172,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2183,7 +2208,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2200,7 +2226,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2239,7 +2265,8 @@
 
                                         >
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2256,7 +2283,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2285,7 +2312,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -2307,7 +2334,8 @@
 
                                         >
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2324,7 +2352,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2363,7 +2391,8 @@
 
                                         >
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2380,7 +2409,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2415,7 +2444,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2432,7 +2462,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2444,8 +2474,7 @@
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:padding="@dimen/_2sdp"
-                                        android:text="తెలుగు వారములు"
-
+                                        android:text="వారములు"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_14sdp"
 
@@ -2468,7 +2497,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2485,7 +2515,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2497,7 +2527,6 @@
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:text="పండ్లు"
-
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_14sdp"
 
@@ -2513,7 +2542,7 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
                                 android:orientation="horizontal"
                                 android:weightSum="4"
 
@@ -2535,7 +2564,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2552,7 +2582,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2588,7 +2618,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2605,7 +2636,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2638,7 +2669,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2654,7 +2686,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2685,7 +2717,8 @@
                                         android:layout_gravity="center"
                                         android:background="@drawable/rounded_bar">
 
-                                        <androidx.cardview.widget.CardView
+                                        <com.google.android.material.card.MaterialCardView
+                                            app:cardElevation="0dp"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -2701,7 +2734,7 @@
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
-                                        </androidx.cardview.widget.CardView>
+                                        </com.google.android.material.card.MaterialCardView>
 
 
                                     </RelativeLayout>
@@ -2744,11 +2777,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/sree"
                     android:gravity="center"
-                    android:text="Maha Puranas"
+                    android:text="మహాపురాణాలు"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textSize="18dp" />
 
 
                 <HorizontalScrollView
@@ -2777,7 +2810,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/mahabharat"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2800,7 +2833,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/ramayana"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2824,7 +2857,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/bhavathgita"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2847,7 +2880,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/bhagavatham"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2868,7 +2901,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/sethakamulu"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -2889,7 +2922,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/shivapuranam"
-                                android:scaleType="fitXY" />
+                                android:scaleType="centerCrop" />
 
 
                         </androidx.cardview.widget.CardView>
@@ -2933,7 +2966,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/cyellow"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
@@ -2945,11 +2977,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/sree"
                         android:gravity="center"
                         android:text="పుణ్యక్షేత్రాలు / పండుగలు విశిష్టత"
                         android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:textSize="18dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -2958,13 +2990,14 @@
                         android:layout_marginBottom="10dp"
                         android:orientation="horizontal">
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardNewArticles"
                             android:layout_width="150dp"
                             android:layout_height="120dp"
                             android:layout_marginLeft="20dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="20dp">
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp">
 
                             <ImageView
                                 android:id="@+id/imageneti"
@@ -2973,20 +3006,21 @@
                                 android:scaleType="fitXY" />
 
 
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                         <Space
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1" />
 
-                        <androidx.cardview.widget.CardView
+                        <com.google.android.material.card.MaterialCardView
                             android:id="@+id/cardOldArticles"
                             android:layout_width="150dp"
                             android:layout_height="120dp"
                             android:layout_marginRight="20dp"
                             app:cardBackgroundColor="@color/white"
-                            app:cardCornerRadius="20dp">
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp">
 
 
                             <ImageView
@@ -2994,7 +3028,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="fitXY" />
-                        </androidx.cardview.widget.CardView>
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 

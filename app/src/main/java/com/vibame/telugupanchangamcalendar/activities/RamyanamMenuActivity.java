@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,11 +32,12 @@ import java.util.Map;
 public class RamyanamMenuActivity extends AppCompatActivity {
 
     TextView tvHead;
-    String Tittle,ramayam_id;
+    String Tittle, ramayam_id;
     ImageView imgBack;
     Activity activity;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
     Session session;
+    int TotalSize,First_size ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +48,9 @@ public class RamyanamMenuActivity extends AppCompatActivity {
         tvHead = findViewById(R.id.tvHead);
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
-        ramayam_id=getIntent().getStringExtra(Constant.RAMAYANAM_ID);
+        ramayam_id = getIntent().getStringExtra(Constant.RAMAYANAM_ID);
 
         tvHead.setText(Tittle);
-
-
-
-
 
 
         imgBack = findViewById(R.id.imgBack);
@@ -63,13 +61,17 @@ public class RamyanamMenuActivity extends AppCompatActivity {
         RecyclerView.setLayoutManager(linearLayoutManager);
 
 
+
+
         loadApiData();
+        size();
 
 
     }
 
-    private void loadApiData() {
+    private void size() {
         Map<String, String> params = new HashMap<>();
+        Log.d("ramayam_id", session.getData(Constant.ID));
         params.put(session.getData(Constant.MENU), "1");
         params.put(Constant.ID, session.getData(Constant.ID));
         ApiConfig.RequestToVolley((result, response) -> {
@@ -77,9 +79,12 @@ public class RamyanamMenuActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(SUCCESS)) {
+
                         JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ArrayList<RamayanamMenu> ramayanamMenus = new ArrayList<>();
+
+
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
                             if (jsonObject1 != null) {
@@ -88,11 +93,77 @@ public class RamyanamMenuActivity extends AppCompatActivity {
                             } else {
                                 break;
                             }
+
+
                         }
+
+                        int size = ramayanamMenus.size();
+                        int final_size = size - 1;
+
+                        TotalSize  = Integer.parseInt(jsonArray.getJSONObject(final_size).getString("id"));
+                        session.setData(Constant.TOTAL_SIZE, String.valueOf(TotalSize));
+
+
+                 //       First_size = Integer.parseInt(jsonArray.getJSONObject(0).getString("id"));
+                     //   session.setData(Constant.FIRST_SIZE, String.valueOf(First_size));
+
+                 //    Toast.makeText(activity, ""+First_size, Toast.LENGTH_SHORT).show();
+
+                        //   Toast.makeText(activity, ""+final_size, Toast.LENGTH_SHORT).show();
+
+                        //  Toast.makeText(activity, ""+ jsonArray.getJSONObject(final_size).getString("id"), Toast.LENGTH_SHORT).show();
+
+
+                        // Toast.makeText(activity, ""+ramayanamMenus.size(), Toast.LENGTH_SHORT).show();
+
+
+                    } else {
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.MAHA_PURANALU_URL, params, true);
+    }
+
+    private void loadApiData() {
+        Map<String, String> params = new HashMap<>();
+        Log.d("ramayam_id", session.getData(Constant.ID));
+        params.put(session.getData(Constant.MENU), "1");
+        params.put(Constant.ID, session.getData(Constant.ID));
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<RamayanamMenu> ramayanamMenus = new ArrayList<>();
+
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                RamayanamMenu group = g.fromJson(jsonObject1.toString(), RamayanamMenu.class);
+                                ramayanamMenus.add(group);
+                            } else {
+                                break;
+                            }
+
+
+                        }
+
+
                         RamayanamMenuAdapter adapter = new RamayanamMenuAdapter(ramayanamMenus, activity);
                         RecyclerView.setAdapter(adapter);
                     } else {
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

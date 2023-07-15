@@ -81,8 +81,7 @@ public class DailyModel {
         this.hc12 = hc12;
     }
 
-    public DailyModel(String string, String string1, String string2, String string3, String string4, String string5) {
-    }
+
 
 
 

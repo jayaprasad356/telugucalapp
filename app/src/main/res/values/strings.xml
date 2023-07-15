@@ -48,6 +48,7 @@
     <string name="maha_sthanika_parvam">3. Maha Sthanika Parvam ( 19 )</string>
     <string name="maha_puranalu">12.Maha Puranalu</string>
     <string name="test_speed">Test Speed</string>
+    <string name="dummy_text" />
     <array name="unit_ages">
         <item>Select Age</item>
         <item>New Born Baby</item>

@@ -6,45 +6,58 @@
     android:layout_marginHorizontal="@dimen/_10sdp"
     android:layout_marginVertical="@dimen/_5sdp">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:backgroundTint="@color/colorHead">
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:cardElevation="0dp"
+        >
 
-        <androidx.cardview.widget.CardView
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_10sdp"
-            android:backgroundTint="@color/colorHead">
+            android:padding="@dimen/_10sdp"
+            >
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:id="@+id/cardPoojalu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="@dimen/_2sdp">
 
                 <ImageView
-                    android:id="@+id/imgGod"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_120sdp"
-                    android:background="@drawable/god_pik"
-                    android:scaleType="fitXY" />
+                    android:id="@+id/imgPoojalu"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/kanya" />
 
-                <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgGod"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="@font/sree"
-                    android:text="Good Morning"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/_16sdp" />
+            </androidx.cardview.widget.CardView>
 
-            </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_toRightOf="@+id/cardPoojalu"
+                android:id="@+id/tvTitle"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sree"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/_14sdp" />
 
-    </LinearLayout>
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

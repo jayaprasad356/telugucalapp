@@ -40,16 +40,27 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
-        GotoActivity();
+//        GotoActivity();
 
 //        Intent i = new Intent(activity, CalendarNewActivity.class);
 //        startActivity(i);
 //        finish();
 
-//        if (ApiConfig.isConnected(activity)){
-//            getDatalist();
-//
-//        }
+
+        if (session.getData(Constant.DATA_LOADING).equals("1")) {
+            Intent intent = new Intent(activity, CalendarNewActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+
+            if (ApiConfig.isConnected(activity)){
+                getDatalist();
+
+            }
+
+        }
+
+
 
 
     }
@@ -65,16 +76,15 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(activity,DataLoadingActivity .class);
-                    startActivity(intent);
-                    finish();
+
+                    getDatalist();
                 }
 
 
 
 
             }
-        },2000);
+        },1000);
     }
 
 
@@ -323,6 +333,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
 
                         Intent i = new Intent(activity, CalendarNewActivity.class);
+                        session.setData(Constant.DATA_LOADING,"1");
                         startActivity(i);
                         finish();
 

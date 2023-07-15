@@ -25,7 +25,7 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:elevation="0dp"
+                app:cardElevation="0dp"
                 android:id="@+id/cardPoojalu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 app:cardCornerRadius="@dimen/_2sdp">
 
                 <ImageView
-                    android:id="@+id/imgPoojalu"
+                    android:id="@+id/ivImg"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:layout_gravity="center"
