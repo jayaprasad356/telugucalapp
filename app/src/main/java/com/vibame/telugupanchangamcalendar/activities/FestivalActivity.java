@@ -31,6 +31,7 @@ import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Festival;
 
 import org.json.JSONArray;
@@ -62,6 +63,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     Calendar calendar;
     Calendar targetCalendar;
     String Month ,Year;
+    Session session;
 
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -105,6 +107,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
 
         activity = FestivalActivity.this;
+        session=new Session(activity);
 
         databaseHelper = new DatabaseHelper(activity);
        // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
@@ -127,7 +130,6 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         month_year = dateFormat.format(cal.getTime());
         String month = String.valueOf(calendar.get(Calendar.MONTH));
 
-        monthfestivallist();
 
 
 
@@ -190,46 +192,54 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         Year = getYearNum();
 
         festivalList(month, getYearNum());
+        monthfestivallist();
 
     }
 
     private void monthfestivallist() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        Log.d("Festivallise",response);
-                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
-
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
 
 
-                                festivalAdapter = new FestivalAdapter(FestivalActivity.this,databaseHelper.getmonthFestivalList(Month,Year));
-                                recyclerView.setAdapter(festivalAdapter);
 
-                            } else {
-                                break;
+        if (session.getBoolean(Constant.FESTIVAL_DATA)){
+            festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
+            recyclerView.setAdapter(festivalAdapter);
+        }else {
+            HashMap<String, String> params = new HashMap<>();
+            ApiConfig.RequestToVolley((result, response) -> {
+                if (result) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean(SUCCESS)) {
+                            Log.d("Festivallise", response);
+                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+
+                            for (int i = 0; i < jsonArray3.length(); i++) {
+                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                                if (jsonObject1 != null) {
+                                    databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
+
+
+                                    festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
+                                    recyclerView.setAdapter(festivalAdapter);
+                                    session.setBoolean(Constant.FESTIVAL_DATA, true);
+
+                                } else {
+                                    break;
+                                }
                             }
+
+
+                        } else {
+
+
+                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         }
-
-
-
-                    }else {
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                }catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        },activity, Constant.MONTH_FESTIVALS_LIST,params,true);
-
+            }, activity, Constant.MONTH_FESTIVALS_LIST, params, true);
+        }
     }
 
     @SuppressLint("ResourceType")

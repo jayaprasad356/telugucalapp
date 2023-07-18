@@ -1608,20 +1608,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_FESTIVAL_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month, year});
         if (cursor.moveToFirst()) {
-            do {
-                Festival festival = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(FID)), cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
-                        , cursor.getString(cursor.getColumnIndexOrThrow(YEAR)), cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+            int fidIndex = cursor.getColumnIndex(FID);
+            int monthIndex = cursor.getColumnIndex(MONTH);
+            int yearIndex = cursor.getColumnIndex(YEAR);
+            int titleIndex = cursor.getColumnIndex(TITLE);
+            int descriptionIndex = cursor.getColumnIndex(DESCRIPTION);
 
-                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+            do {
+                String fid = cursor.getString(fidIndex);
+                String festivalMonth = cursor.getString(monthIndex);
+                String festivalYear = cursor.getString(yearIndex);
+                String title = cursor.getString(titleIndex);
+                String description = cursor.getString(descriptionIndex);
+
+                Festival festival = new Festival(fid, festivalMonth, festivalYear, title, description);
                 festivals.add(festival);
             } while (cursor.moveToNext());
-
         }
         cursor.close();
         db.close();
         return festivals;
     }
+
 
 
     public ArrayList<Festival> getmonthImportantdaysList(String month, String year) {
