@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.activities.GrahaluSubMenuActivity;
+import com.vibame.telugupanchangamcalendar.activities.GrahaluTabActivity;
 import com.vibame.telugupanchangamcalendar.activities.NakshathraluActivity;
+import com.vibame.telugupanchangamcalendar.activities.PoojaluTabActivity;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
@@ -78,8 +80,10 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     notifyDataSetChanged();
                 } else {
                     session.setData(Constant.GRAHALU_ID, grahalu.getId());
-                    if (grahalu.getName().equals("Nakshatharalu")) {
-                        Intent intent = new Intent(activity, NakshathraluActivity.class);
+                    if (databaseHelper.getGrahaluTabList(grahalu.getId(), "0").size() != 0) {
+                        Intent intent = new Intent(activity, GrahaluTabActivity.class);
+                        intent.putExtra(Constant.SUBCATEGORY_ID, "0");
+                        intent.putExtra(Constant.TITLE, grahalu.getName());
                         activity.startActivity(intent);
 
                     } else {

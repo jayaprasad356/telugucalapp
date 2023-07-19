@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/teluguyear_bg"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/white"
         android:weightSum="2"
         >
 
@@ -40,6 +40,7 @@
             android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             android:background="@drawable/teluguyear_bg"
+            android:backgroundTint="@color/white"
             android:gravity="center"
             />
 

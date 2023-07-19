@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,6 +54,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         holder.tvTitle.setText(ramayanam1.getTitle());
         Glide.with(activity).load(ramayanam1.getImage()).into(holder.ivImg);
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

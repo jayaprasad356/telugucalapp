@@ -42,6 +42,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:padding="@dimen/_5sdp"
         android:id="@+id/fr_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,9 +54,45 @@
 
 
 
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/corner_bg"
+            android:backgroundTint="#E0F1FF"
+            android:gravity="center"
+            android:padding="@dimen/_8sdp"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/ramabhadra"
+            />
 
+
+        <ImageButton
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:id="@+id/ibArrowRight"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/ic_baseline_arrow_right_24"
+            android:backgroundTint="@color/black"
+            />
+
+        <ImageButton
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:id="@+id/ibArrowleft"
+            android:layout_width="@dimen/_34sdp"
+            android:layout_height="@dimen/_34sdp"
+            android:background="@drawable/ic_baseline_arrow_left_24"
+            android:backgroundTint="@color/black"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/tvTitle"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

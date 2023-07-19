@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D7EDFF"
     tools:context=".activities.TeluguYearActivity">
 
 
@@ -43,7 +44,7 @@
         android:layout_below="@id/llout"
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="15dp"
-        android:background="@drawable/corner_bg">
+       >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Telugu_rcView"
@@ -51,7 +52,6 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="4dp"
             android:background="@drawable/corner_bg"
-            android:backgroundTint="@color/colorWhite"
             />
     </FrameLayout>
 

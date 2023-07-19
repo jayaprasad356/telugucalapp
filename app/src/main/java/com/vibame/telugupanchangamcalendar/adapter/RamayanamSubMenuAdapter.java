@@ -54,29 +54,12 @@ public class RamayanamSubMenuAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
 
-        if (session.getData(Constant.SUBMENU).equals("shivapuranam_menu")) {
-           holder.ibArrow.setVisibility(View.GONE);
-            holder.ibArrowleft.setVisibility(View.GONE);
-        } else {
-            holder.ibArrow.setVisibility(View.VISIBLE);
-            holder.ibArrowleft.setVisibility(View.VISIBLE);
-        }
 
 
-        holder.ibArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                ((RamayamSubMenuActivity) activity).next();
-            }
-        });
-  holder.ibArrowleft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                ((RamayamSubMenuActivity) activity).previous();
-            }
-        });
+
+
 
 
 
@@ -100,14 +83,12 @@ public class RamayanamSubMenuAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
         final TextView tvTitle,tvDescription;
-        final ImageButton ibArrow,ibArrowleft;
 
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-            ibArrow = itemView.findViewById(R.id.ibArrow);
-            ibArrowleft = itemView.findViewById(R.id.ibArrowleft);
+
 
         }
     }

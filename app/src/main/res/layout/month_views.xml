@@ -6,6 +6,7 @@
 
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,27 +20,6 @@
         android:textSize="@dimen/_14sdp"
         android:fontFamily="@font/ramabhadra"
          />
-
-    <ImageButton
-        android:visibility="gone"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:id="@+id/ibArrow"
-        android:layout_alignParentRight="true"
-        android:layout_width="@dimen/_34sdp"
-        android:layout_height="@dimen/_34sdp"
-        android:background="@drawable/ic_baseline_arrow_right_24"
-        android:backgroundTint="@color/black"
-        />
-
-    <ImageButton
-        android:visibility="gone"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:id="@+id/ibArrowleft"
-        android:layout_width="@dimen/_34sdp"
-        android:layout_height="@dimen/_34sdp"
-        android:background="@drawable/ic_baseline_arrow_left_24"
-        android:backgroundTint="@color/black"
-        />
 
 
     <TextView
