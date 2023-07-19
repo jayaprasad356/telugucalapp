@@ -54,6 +54,8 @@ public class Constant {
     public static final String FESTIVAL_DATA = "festival_data";
 
     public static final String TOTAL_SIZE = "";
+    public static final String START_INDEX = "start_index";
+    public static final String END_INDEX = "end_index";
 
 
     public static final String MENU_ID = "menu_id";

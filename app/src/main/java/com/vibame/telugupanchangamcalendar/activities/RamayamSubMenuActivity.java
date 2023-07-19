@@ -41,7 +41,7 @@ import okhttp3.Response;
 public class RamayamSubMenuActivity extends AppCompatActivity {
 
 
-    TextView tvHead,tvTitle;
+    TextView tvHead, tvTitle;
     String Tittle;
     ImageView imgBack;
     private androidx.recyclerview.widget.RecyclerView RecyclerView;
@@ -52,7 +52,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     int TotalSize, FIRST_SIZE;
     ImageButton ibArrowRight, ibArrowLeft;
-    boolean right,left;
+    boolean right, left;
 
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
@@ -93,11 +93,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         TotalSize = Integer.parseInt(session.getData(Constant.TOTAL_SIZE));
 
 
-
-
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
-
-
 
 
         imgBack = findViewById(R.id.imgBack);
@@ -110,7 +106,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         menu = session.getData(Constant.MENU_ID);
 
 
-        Toast.makeText(activity, ""+FIRST_SIZE, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "" + FIRST_SIZE, Toast.LENGTH_SHORT).show();
 
 
         menu_list(menu);
@@ -122,77 +118,77 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
 //        view();
     }
 
-    private void view() {
+//    private void view() {
+//
+//        if (left){
+//
+//            ibArrowLeft.setVisibility(View.VISIBLE);
+//
+//        }
+//        else if (right){
+//
+//            ibArrowRight.setVisibility(View.VISIBLE);
+//
+//        }
+//        else {
+//
+//            ibArrowLeft.setVisibility(View.GONE);
+//            ibArrowRight.setVisibility(View.GONE);
+//
+//        }
+//
+//
+//    }
 
-        if (left){
-
-            ibArrowLeft.setVisibility(View.VISIBLE);
-
-        }
-        else if (right){
-
-            ibArrowRight.setVisibility(View.VISIBLE);
-
-        }
-        else {
-
-            ibArrowLeft.setVisibility(View.GONE);
-            ibArrowRight.setVisibility(View.GONE);
-
-        }
-
-
-    }
-
-    private void show_arrow_right() {
-
-        String menu_next = menu;
-
-
-
-
-        int menuValue = Integer.parseInt(menu_next);
-        menuValue++;
-        String menu_id = String.valueOf(menuValue);
-        menu = menu_id;
-
-
-
-        String total = String.valueOf(TotalSize);
-
-        if (menu_id.equals(total)) {
-
-            right = false;
-
-        } else {
-
-            right = true;
-
-
-        }
-
-
-
-    }
-
-    private void show_arrow_left() {
-
-
-        if (FIRST_SIZE == Integer.parseInt("0")){
-
-            left = false;
-
-
-
-        }
-
-        else {
-
-            left = true;
-
-        }
-
-    }
+//    private void show_arrow_right() {
+//
+//        String menu_next = menu;
+//
+//
+//
+//
+//        int menuValue = Integer.parseInt(menu_next);
+//        menuValue++;
+//        String menu_id = String.valueOf(menuValue);
+//        menu = menu_id;
+//
+//
+//
+//        String total = String.valueOf(TotalSize);
+//
+//        if (menu_id.equals(total)) {
+//
+//            right = false;
+//
+//        } else {
+//
+//            right = true;
+//
+//
+//        }
+//
+//
+//
+//    }
+//
+//    private void show_arrow_left() {
+//
+//
+//        if (FIRST_SIZE == Integer.parseInt("0")){
+//
+//            left = false;
+//
+//
+//
+//        }
+//
+//        else {
+//
+//            left = true;
+//
+//        }
+//
+//    }
 
     private void menu_list(String menu_id) {
         Map<String, String> params = new HashMap<>();
@@ -213,9 +209,15 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
                             if (jsonObject1 != null) {
 
 
-                                ibArrowRight.setVisibility(View.VISIBLE);
-                                ibArrowLeft.setVisibility(View.VISIBLE);
+                                if (menu.equals(session.getData(Constant.START_INDEX)))
+                                    ibArrowLeft.setVisibility(View.GONE);
+                                else
+                                    ibArrowLeft.setVisibility(View.VISIBLE);
 
+                                if (menu.equals(session.getData(Constant.END_INDEX)))
+                                    ibArrowRight.setVisibility(View.GONE);
+                                else
+                                    ibArrowRight.setVisibility(View.VISIBLE);
 
 
                                 ibArrowRight.setOnClickListener(view -> {
@@ -255,20 +257,20 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
                         }
 
                     } else {
-                        ibArrowLeft.setOnClickListener(view -> {
-
-                            ibArrowLeft.setVisibility(View.GONE);
-
-                        });
-
-                        ibArrowRight.setOnClickListener(view -> {
-
-                            ibArrowRight.setVisibility(View.GONE);
-
-                        });
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                        ibArrowLeft.setOnClickListener(view -> {
+//
+//                            ibArrowLeft.setVisibility(View.GONE);
+//
+//                        });
+//
+//                        ibArrowRight.setOnClickListener(view -> {
+//
+//                            ibArrowRight.setVisibility(View.GONE);
+//
+//                        });
+//
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -292,10 +294,8 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         menu = menu_id;
 
 
-
-       // String total = String.valueOf(TotalSize);
+        // String total = String.valueOf(TotalSize);
         menu_list(menu_id);
-
 
 
     }

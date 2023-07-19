@@ -52,6 +52,9 @@ public class RamayanamMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         holder.tvTitle.setText(ramayanamMenu.getTitle());
 
+        session.setData(Constant.START_INDEX,ramayanamMenus.get(0).getId());
+        session.setData(Constant.END_INDEX,ramayanamMenus.get(ramayanamMenus.size()-1).getId());
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
