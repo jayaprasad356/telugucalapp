@@ -1634,23 +1634,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<Festival> getmonthImportantdaysList(String month, String year) {
         final ArrayList<Festival> festivals = new ArrayList<>();
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_IMPORTANT_DAYS_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month, year});
-        if (cursor.moveToFirst()) {
-            do {
-                Festival festival = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(IMID)), cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
-                        , cursor.getString(cursor.getColumnIndexOrThrow(YEAR)), cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
 
-                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
-                festivals.add(festival);
-            } while (cursor.moveToNext());
-
+        // Validate input parameters to avoid null values causing exceptions
+        if (month == null || year == null) {
+            return festivals; // Return an empty list if either parameter is null
         }
-        cursor.close();
-        db.close();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = null;
+
+        try {
+            cursor = db.rawQuery("SELECT * FROM " + TABLE_IMPORTANT_DAYS_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month, year});
+            if (cursor.moveToFirst()) {
+                do {
+                    Festival festival = new Festival(cursor.getString(cursor.getColumnIndexOrThrow(IMID)),
+                            cursor.getString(cursor.getColumnIndexOrThrow(MONTH)),
+                            cursor.getString(cursor.getColumnIndexOrThrow(YEAR)),
+                            cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
+                            cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
+
+                    festivals.add(festival);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception if needed
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
         return festivals;
     }
+
 
     public ArrayList<Festival> getHoildaysdaysList(String month, String year) {
         final ArrayList<Festival> festivals = new ArrayList<>();

@@ -29,6 +29,7 @@ import com.vibame.telugupanchangamcalendar.adapter.ImportantdaysAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Festival;
 
 import org.json.JSONArray;
@@ -64,6 +65,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
     String Month , Year;
+    Session session;
 
 
 
@@ -103,12 +105,13 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
 
         activity = HolidaysActivity.this;
 
+        session = new Session(activity);
+
         databaseHelper = new DatabaseHelper(activity);
         // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
         recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
 
 
-      Holidayslist();
 
         relativeLayout = findViewById(R.id.slider);
         scrollView = findViewById(R.id.scroll_view);
@@ -187,6 +190,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         Year = getYearNum();
 
         festivalList(month, getYearNum());
+        Holidayslist();
 
 
     }
@@ -300,43 +304,51 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
     }
 
     private void Holidayslist() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+        if (session.getBoolean(Constant.HOLIDAY_DATA)) {
+            holidaysAdapter = new HolidaysAdapter(HolidaysActivity.this, databaseHelper.getHoildaysdaysList(Month, Year));
+            recyclerView.setAdapter(holidaysAdapter);
+
+        } else {
 
 
-                                holidaysAdapter = new HolidaysAdapter(HolidaysActivity.this,databaseHelper.getHoildaysdaysList(Month,Year));
-                                recyclerView.setAdapter(holidaysAdapter);
+            HashMap<String, String> params = new HashMap<>();
+            ApiConfig.RequestToVolley((result, response) -> {
+                if (result) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean(SUCCESS)) {
+                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
-                            } else {
-                                break;
+                            for (int i = 0; i < jsonArray3.length(); i++) {
+                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                                if (jsonObject1 != null) {
+                                    databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
+
+
+                                    holidaysAdapter = new HolidaysAdapter(HolidaysActivity.this, databaseHelper.getHoildaysdaysList(Month, Year));
+                                    recyclerView.setAdapter(holidaysAdapter);
+                                    session.setBoolean(Constant.HOLIDAY_DATA, true);
+
+                                } else {
+                                    break;
+                                }
                             }
+
+
+                        } else {
+
+
+                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         }
-
-
-
-                    }else {
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                }catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        },activity, Constant.HOLIDAYS_LIST,params,true);
+            }, activity, Constant.HOLIDAYS_LIST, params, true);
 
+        }
     }
-
 
 
     private void festivalList(String monthNum, String yearNum) {

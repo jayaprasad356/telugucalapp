@@ -52,6 +52,9 @@ public class Constant {
     public static final String ID = "id";
     public static final String CURRENT_A_ID = "current_a_id";
     public static final String FESTIVAL_DATA = "festival_data";
+    public static final String IMPORTENT_DATA = "importent_data";
+    public static final String HOLIDAY_DATA = "holiday_data";
+
 
     public static final String TOTAL_SIZE = "";
     public static final String START_INDEX = "start_index";

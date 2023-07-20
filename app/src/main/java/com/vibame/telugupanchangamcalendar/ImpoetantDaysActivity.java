@@ -27,6 +27,7 @@ import com.vibame.telugupanchangamcalendar.adapter.ImportantdaysAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Festival;
 
 import org.json.JSONArray;
@@ -62,6 +63,7 @@ public class ImpoetantDaysActivity extends AppCompatActivity implements  Swipeab
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
     String Month, Year;
+    Session session;
 
 
 
@@ -100,6 +102,7 @@ public class ImpoetantDaysActivity extends AppCompatActivity implements  Swipeab
 
 
         activity = ImpoetantDaysActivity.this;
+        session =new Session(activity);
 
         databaseHelper = new DatabaseHelper(activity);
         // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
@@ -122,7 +125,7 @@ public class ImpoetantDaysActivity extends AppCompatActivity implements  Swipeab
         month_year = dateFormat.format(cal.getTime());
 
 
-        Importantdayslist();
+
 
 
         ivArrowLeft.setOnClickListener(new View.OnClickListener() {
@@ -182,6 +185,7 @@ public class ImpoetantDaysActivity extends AppCompatActivity implements  Swipeab
         String month = String.valueOf(calendar.get(Calendar.MONTH));
 
         Year = getYearNum();
+        Importantdayslist();
 
         festivalList(month, getYearNum());
 
@@ -296,40 +300,44 @@ public class ImpoetantDaysActivity extends AppCompatActivity implements  Swipeab
     }
 
     private void Importantdayslist() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
-                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+        if (session.getBoolean(Constant.IMPORTENT_DATA)){
+            importantdaysAdapter = new ImportantdaysAdapter(ImpoetantDaysActivity.this, databaseHelper.getmonthImportantdaysList(Month, Year));
+            recyclerView.setAdapter(importantdaysAdapter);
+        }else {
+            HashMap<String, String> params = new HashMap<>();
+            ApiConfig.RequestToVolley((result, response) -> {
+                if (result) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.getBoolean(SUCCESS)) {
+                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
-                        for (int i = 0; i < jsonArray3.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToImportantdays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+                            for (int i = 0; i < jsonArray3.length(); i++) {
+                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                                if (jsonObject1 != null) {
+                                    databaseHelper.AddToImportantdays(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
 
 
-                                importantdaysAdapter = new ImportantdaysAdapter(ImpoetantDaysActivity.this,databaseHelper.getmonthImportantdaysList(Month,Year  ));
-                                recyclerView.setAdapter(importantdaysAdapter);
-                            } else {
-                                break;
+                                    importantdaysAdapter = new ImportantdaysAdapter(ImpoetantDaysActivity.this, databaseHelper.getmonthImportantdaysList(Month, Year));
+                                    recyclerView.setAdapter(importantdaysAdapter);
+                                    session.setBoolean(Constant.IMPORTENT_DATA,true);
+                                } else {
+                                    break;
+                                }
                             }
+
+
+                        } else {
+
+
+                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         }
-
-
-
-                    }else {
-
-
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                }catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        },activity, Constant.IMPORTANT_DAYS_LIST,params,true);
-
+            }, activity, Constant.IMPORTANT_DAYS_LIST, params, true);
+        }
     }
 
 
