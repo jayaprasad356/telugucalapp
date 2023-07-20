@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluSubMenuAdapter;
@@ -50,7 +51,11 @@ public class GrahaluSubMenuActivity extends AppCompatActivity {
     }
 
     private void grahuluSubMenuList()
+
     {
+
+        Toast.makeText(activity, ""+Id, Toast.LENGTH_SHORT).show();
+
         if (databaseHelper.getGrahaluSubMenuList(Id).size() !=0){
             grahaluSubMenuAdapter = new GrahaluSubMenuAdapter(activity, databaseHelper.getGrahaluSubMenuList(Id));
             recyclerView.setAdapter(grahaluSubMenuAdapter);

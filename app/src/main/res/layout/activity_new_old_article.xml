@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D7EDFF"
+    android:background="@color/bgscroll"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -69,7 +69,9 @@
                     app:toolbarId="@id/toolbar">
 
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
+                        app:cardElevation="0dp"
+                        android:elevation="0dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="@dimen/_16sdp">
@@ -85,7 +87,7 @@
                             app:layout_collapseMode="parallax" />
 
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -94,7 +96,6 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:background="@drawable/bg_rasi"
                     android:padding="@dimen/_4sdp">

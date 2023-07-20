@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluTabAdapter;
@@ -60,6 +61,9 @@ public class GrahaluTabActivity extends AppCompatActivity {
 
     private void grahaluTabList()
     {
+
+        Toast.makeText(activity, ""+grahalu_id + subcategory_id, Toast.LENGTH_SHORT).show();
+
         if (databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).size() !=0){
             tvTitle.setText(databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).get(0).getTitle());
             tvDescription.setText(databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).get(0).getDescription());

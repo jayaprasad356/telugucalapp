@@ -3,7 +3,7 @@
 
 
     <solid
-        android:color="@color/callight"/>
+        android:color="@color/bgscroll"/>
 
     <corners
         android:radius="@dimen/_10sdp"/>

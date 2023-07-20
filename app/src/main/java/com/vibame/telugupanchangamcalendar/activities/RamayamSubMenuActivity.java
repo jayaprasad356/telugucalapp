@@ -106,7 +106,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         menu = session.getData(Constant.MENU_ID);
 
 
-        Toast.makeText(activity, "" + FIRST_SIZE, Toast.LENGTH_SHORT).show();
+
 
 
         menu_list(menu);
