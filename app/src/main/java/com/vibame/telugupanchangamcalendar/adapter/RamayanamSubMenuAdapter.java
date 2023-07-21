@@ -49,6 +49,8 @@ public class RamayanamSubMenuAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         session = new Session(activity);
 
+        holder.tvTitle.setVisibility(View.GONE);
+
         holder.tvTitle.setText(ramayanamSubMenu.getTitle());
         holder.tvDescription.setText(ramayanamSubMenu.getDescription());
 

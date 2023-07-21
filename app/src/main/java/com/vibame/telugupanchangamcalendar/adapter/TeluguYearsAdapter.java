@@ -34,6 +34,13 @@ public class TeluguYearsAdapter extends RecyclerView.Adapter<TeluguYearsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+
+
+        // holder.title  background tint white
+
+        holder.title.setBackgroundTintList(activity.getResources().getColorStateList(R.color.white));
+
         holder.title.setText(teluguYears.get(position).getTitle());
         holder.description.setText(teluguYears.get(position).getDescription());
 

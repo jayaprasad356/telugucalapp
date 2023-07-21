@@ -6,17 +6,13 @@
 
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="#E0F1FF"
         android:gravity="center"
-        android:padding="@dimen/_8sdp"
         android:text="Title"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorAccent"
         android:textSize="@dimen/_14sdp"
         android:fontFamily="@font/ramabhadra"
          />

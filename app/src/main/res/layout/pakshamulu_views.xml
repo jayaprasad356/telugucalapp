@@ -13,13 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/corner_bg"
-        android:backgroundTint="#F4F2F2"
         android:paddingBottom="@dimen/_5sdp"
         android:text="Title"
         android:textAlignment="center"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/_16sdp"
         android:fontFamily="@font/ramabhadra" />
 
     <TextView

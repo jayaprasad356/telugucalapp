@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgscroll"
     tools:context=".AnkeluActivity">
 
 
@@ -33,7 +34,7 @@
             android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/_18sdp"
-            android:textStyle="bold" />
+             />
 
     </LinearLayout>
 
@@ -53,7 +54,7 @@
             android:layout_marginHorizontal="4dp"
             android:background="@drawable/corner_bg"
             android:backgroundTint="@color/colorWhite"
-            tools:listitem="@layout/sakunalu_views" />
+            tools:listitem="@layout/ankelu_views" />
     </FrameLayout>
 
 

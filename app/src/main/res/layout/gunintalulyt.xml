@@ -3,15 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_desc"
-    android:backgroundTint="@color/white"
     android:layout_margin="@dimen/_5sdp">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        >
 
 
 
@@ -21,11 +14,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/mallanna"
         android:textAlignment="center"
-        android:maxLines="1"
         android:paddingHorizontal="@dimen/_10sdp"
         android:textColor="@color/black"
         android:textSize="@dimen/_16sdp" />
 
-    </HorizontalScrollView>
+
 
 </RelativeLayout>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_90sdp"
+    android:layout_height="@dimen/_80sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="5dp"
     android:layout_marginHorizontal="10dp">
 
 
     <com.google.android.material.card.MaterialCardView
         app:cardElevation="0dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="30dp"
@@ -40,7 +39,7 @@
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        app:cardBackgroundColor="@color/colorHead"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="40dp"
         android:layout_marginTop="@dimen/_5sdp"
         >
@@ -52,8 +51,8 @@
             android:layout_gravity="center"
             android:text="Somex"
             android:fontFamily="@font/ramabhadra"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_16sdp"
             android:typeface="monospace" />
     </com.google.android.material.card.MaterialCardView>
 </RelativeLayout>

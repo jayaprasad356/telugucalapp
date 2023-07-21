@@ -1552,7 +1552,8 @@
                             android:gravity="center"
                             android:text="తెలుగు సంస్కృతం"
                             android:textColor="@color/black"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:textStyle="bold"/>
 
 
                         <LinearLayout
@@ -1577,11 +1578,11 @@
                                     android:background="@drawable/rounded_bar">
 
                                     <com.google.android.material.card.MaterialCardView
+                                        app:cardElevation="0dp"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:background="@drawable/roundicon"
-                                        android:elevation="0dp"
                                         app:cardCornerRadius="@dimen/_60sdp"
 
                                         >
@@ -1621,12 +1622,10 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical"
                                 android:padding="@dimen/_5sdp"
-
                                 >
 
                                 <RelativeLayout
                                     android:layout_width="@dimen/_45sdp"
-
                                     android:layout_height="@dimen/_45sdp"
                                     android:layout_gravity="center"
                                     android:background="@drawable/rounded_bar">
@@ -1636,7 +1635,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:background="@drawable/roundicon"
-                                        android:elevation="0dp"
+                                        app:cardElevation="0dp"
                                         app:cardCornerRadius="@dimen/_60sdp"
 
                                         >

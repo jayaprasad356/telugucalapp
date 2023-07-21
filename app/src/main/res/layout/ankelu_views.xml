@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bgscroll"
     >
 
 
@@ -28,7 +29,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:background="@drawable/title"
-            android:backgroundTint="@color/colorHead"
+            android:backgroundTint="@color/white"
             android:padding="@dimen/_10sdp"
             />
         <TextView
@@ -44,7 +45,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
             android:background="@drawable/title"
-            android:backgroundTint="@color/colorHead"
+            android:backgroundTint="@color/white"
             android:padding="@dimen/_10sdp"
             />
 
