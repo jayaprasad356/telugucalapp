@@ -27,6 +27,7 @@ import com.vibame.telugupanchangamcalendar.adapter.HolidaysAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Gowri;
 
 import org.json.JSONArray;
@@ -55,6 +56,7 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     int currentDay, clickedDay;
     DatabaseHelper databaseHelper;
     String Day;
+    Session session;
 
 
     private RelativeLayout relativeLayout;
@@ -88,9 +90,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         activity = GowriPanchangamActivity.this;
 
         databaseHelper = new DatabaseHelper(activity);
+        session=new Session(activity);
 
 
-        Gowrilist();
 
         // get the current date
 
@@ -198,8 +200,6 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         });
 
 
-
-
         // Map the day of the week to a string
 
         switch (dayOfWeek) {
@@ -251,9 +251,9 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        Gowrilist();
 
     }
-
 
 
     private void unselecctallday() {
@@ -266,45 +266,52 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         tvSunday.setTextColor(ContextCompat.getColor(activity, R.color.colorBlack));
 
     }
+
     private void Gowrilist() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
+       if(session.getBoolean(Constant.GOWRI_DATA)){
+           gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this, databaseHelper.getGowriList(Day));
+           recyclerView.setAdapter(gowriAdapter);
+       }else {
+
+        HashMap<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
+                    if (jsonObject.getBoolean(SUCCESS)) {
                         JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
                         for (int i = 0; i < jsonArray3.length(); i++) {
                             JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
                             if (jsonObject1 != null) {
 //                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
-                                   databaseHelper.AddToGowri(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.MORNING),jsonObject1.getString(Constant.NIGHT));
+                                databaseHelper.AddToGowri(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.DAY), jsonObject1.getString(Constant.TIME), jsonObject1.getString(Constant.MORNING), jsonObject1.getString(Constant.NIGHT));
 
 
-                                gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this,databaseHelper.getGowriList(Day));
+                                gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this, databaseHelper.getGowriList(Day));
                                 recyclerView.setAdapter(gowriAdapter);
+                                session.setBoolean(Constant.GOWRI_DATA,true);
+
                             } else {
                                 break;
                             }
                         }
 
 
-
-                    }else {
+                    } else {
 
 
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.GOWRI_LIST,params,true);
+        }, activity, Constant.GOWRI_LIST, params, true);
 
     }
 
-
+}
     private void list(String day) {
 
          Day = day;

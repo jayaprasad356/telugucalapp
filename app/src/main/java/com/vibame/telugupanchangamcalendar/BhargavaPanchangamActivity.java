@@ -30,6 +30,7 @@ import com.vibame.telugupanchangamcalendar.adapter.HoroAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
+import com.vibame.telugupanchangamcalendar.helper.Session;
 import com.vibame.telugupanchangamcalendar.model.Bharava;
 import com.vibame.telugupanchangamcalendar.model.Gowri;
 
@@ -58,6 +59,7 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
     String dayName = "";
     int currentDay, clickedDay;
     BhargavaAdapter bhargavaAdapter;
+    Session session;
 
     String Day;
 
@@ -84,8 +86,6 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
     });
 
 
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +93,7 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bhargava_panchangam);
         activity = BhargavaPanchangamActivity.this;
         databaseHelper = new DatabaseHelper(activity);
-
-
+        session = new Session(activity);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -116,7 +115,6 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         relativeLayout = findViewById(R.id.slider);
 
 
-        Bharavalist();
 
 
         // Get the current day of the week
@@ -203,8 +201,6 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         });
 
 
-
-
         // Map the day of the week to a string
 
         switch (dayOfWeek) {
@@ -256,9 +252,9 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        Bharavalist();
 
     }
-
 
 
     private void unselecctallday() {
@@ -274,14 +270,18 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
 
 
     private void Bharavalist() {
-        HashMap<String,String> params = new HashMap<>();
-        ApiConfig.RequestToVolley((result, response) ->  {
-            if(result) {
+        if(session.getBoolean(Constant.BHARGAVA_DATA)) {
+            bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this, databaseHelper.getBharagava(Day));
+            recyclerView.setAdapter(bharavaPanchangamAdapter);
+        }else{
+            HashMap<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if(jsonObject.getBoolean(SUCCESS)){
+                    if (jsonObject.getBoolean(SUCCESS)) {
 
-                        Log.d("horo",response);
+                        Log.d("horo", response);
 
                         JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
@@ -291,9 +291,10 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
 //                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
 //                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.MORNING),jsonObject1.getString(Constant.NIGHT));
 
-                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.DESCRIPTION));
-                                bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this,databaseHelper.getBharagava(Day));
+                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.DAY), jsonObject1.getString(Constant.TIME), jsonObject1.getString(Constant.DESCRIPTION));
+                                bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this, databaseHelper.getBharagava(Day));
                                 recyclerView.setAdapter(bharavaPanchangamAdapter);
+                                session.setBoolean(Constant.BHARGAVA_DATA,true);
 
                             } else {
                                 break;
@@ -301,21 +302,20 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
                         }
 
 
-
-                    }else {
+                    } else {
 
 
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        },activity, Constant.BHARGAVA_PANCHANGAM_LIST,params,true);
+        }, activity, Constant.BHARGAVA_PANCHANGAM_LIST, params, true);
 
     }
 
-
+}
     private void list(String day) {
 
         Day = day;
