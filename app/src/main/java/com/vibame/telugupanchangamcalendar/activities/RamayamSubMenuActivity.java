@@ -52,25 +52,9 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     int TotalSize, FIRST_SIZE;
     ImageButton ibArrowRight, ibArrowLeft;
-    boolean right, left;
 
 
-    private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            if (Math.abs(velocityX) > Math.abs(velocityY)) {
-                if (e1.getX() < e2.getX()) {
-                    // Swipe right
-                    onSwipeRight();
-                } else {
-                    // Swipe left
 
-                }
-                return true;
-            }
-            return false;
-        }
-    });
 
 
     @SuppressLint("MissingInflatedId")
@@ -104,91 +88,22 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         RecyclerView.setLayoutManager(linearLayoutManager);
 
         menu = session.getData(Constant.MENU_ID);
-
-
-
-
-
         menu_list(menu);
 
+        if (session.getData(Constant.SUBMENU).equals("shivapuranam_menu")) {
 
-//        show_arrow_left();
-//        show_arrow_right();
-//
-//        view();
+            Toast.makeText(activity, "Yes", Toast.LENGTH_SHORT).show();
+
+        } else {
+
+Toast.makeText(activity, "No", Toast.LENGTH_SHORT).show();
+
+        }
+
+
     }
 
-//    private void view() {
-//
-//        if (left){
-//
-//            ibArrowLeft.setVisibility(View.VISIBLE);
-//
-//        }
-//        else if (right){
-//
-//            ibArrowRight.setVisibility(View.VISIBLE);
-//
-//        }
-//        else {
-//
-//            ibArrowLeft.setVisibility(View.GONE);
-//            ibArrowRight.setVisibility(View.GONE);
-//
-//        }
-//
-//
-//    }
 
-//    private void show_arrow_right() {
-//
-//        String menu_next = menu;
-//
-//
-//
-//
-//        int menuValue = Integer.parseInt(menu_next);
-//        menuValue++;
-//        String menu_id = String.valueOf(menuValue);
-//        menu = menu_id;
-//
-//
-//
-//        String total = String.valueOf(TotalSize);
-//
-//        if (menu_id.equals(total)) {
-//
-//            right = false;
-//
-//        } else {
-//
-//            right = true;
-//
-//
-//        }
-//
-//
-//
-//    }
-//
-//    private void show_arrow_left() {
-//
-//
-//        if (FIRST_SIZE == Integer.parseInt("0")){
-//
-//            left = false;
-//
-//
-//
-//        }
-//
-//        else {
-//
-//            left = true;
-//
-//        }
-//
-//    }
 
     private void menu_list(String menu_id) {
         Map<String, String> params = new HashMap<>();
@@ -257,20 +172,7 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
                         }
 
                     } else {
-//                        ibArrowLeft.setOnClickListener(view -> {
-//
-//                            ibArrowLeft.setVisibility(View.GONE);
-//
-//                        });
-//
-//                        ibArrowRight.setOnClickListener(view -> {
-//
-//                            ibArrowRight.setVisibility(View.GONE);
-//
-//                        });
-//
-//
-//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -293,8 +195,6 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         String menu_id = String.valueOf(menuValue);
         menu = menu_id;
 
-
-        // String total = String.valueOf(TotalSize);
         menu_list(menu_id);
 
 
@@ -320,10 +220,5 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
     }
 
 
-    private void onSwipeRight() {
-        next();
-
-
-    }
 
 }

@@ -55,6 +55,8 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.tvTitle.setText(ramayanam1.getTitle());
         Glide.with(activity).load(ramayanam1.getImage()).into(holder.ivImg);
 
+        session.setData(Constant.START_INDEX,ramayanam.get(0).getId());
+        session.setData(Constant.END_INDEX,ramayanam.get(ramayanam.size()-1).getId());
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +73,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 else {
                     Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
                     intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
+                    intent.putExtra(Constant.MENU_DIRECT, "1");
                     activity.startActivity(intent);
                 }
 

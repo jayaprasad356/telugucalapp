@@ -197,6 +197,7 @@ public class Constant {
     public static final String AUDIO_LIST = "audio_list";
     public static final String TAB = "tab";
     public static final String MENU = "menu";
+    public static final String MENU_DIRECT = "";
     public static final String SUBMENU = "submenu";
     public static final String TYPE = "type";
     public static final String SUNRISE = "sunrise";
