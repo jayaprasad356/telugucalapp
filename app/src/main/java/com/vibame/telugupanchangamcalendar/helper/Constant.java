@@ -54,6 +54,9 @@ public class Constant {
     public static final String FESTIVAL_DATA = "festival_data";
     public static final String IMPORTENT_DATA = "importent_data";
     public static final String HOLIDAY_DATA = "holiday_data";
+    public static final String GOWRI_DATA = "gowri_data";
+    public static final String HORACHAKRAM_DATA="horachakram_data";
+    public static final String BHARGAVA_DATA="bhargava_data";
 
 
     public static final String TOTAL_SIZE = "";
