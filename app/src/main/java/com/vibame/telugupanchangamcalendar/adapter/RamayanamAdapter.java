@@ -64,6 +64,7 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             public void onClick(View v) {
                 session.setData(Constant.ID,ramayanam1.getId());
                 if (!session.getData(Constant.MENU).equals("")){
+                    session.setBoolean(Constant.NORMAL_TYPE,false);
                     Intent intent = new Intent(activity, RamyanamMenuActivity.class);
                     Log.e("TAG", "onClick: "+ramayanam1.getTitle() );
                     intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
@@ -71,6 +72,8 @@ public class RamayanamAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
                 }
                 else {
+                    session.setBoolean(Constant.NORMAL_TYPE,true);
+                    session.setData(Constant.MENU_ID,ramayanam1.getId());
                     Intent intent = new Intent(activity, RamayamSubMenuActivity.class);
                     intent.putExtra(Constant.RAMAYAM_MENU, ramayanam1.getTitle());
                     intent.putExtra(Constant.MENU_DIRECT, "1");

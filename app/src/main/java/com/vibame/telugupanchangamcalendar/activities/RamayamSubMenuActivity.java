@@ -74,7 +74,6 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
         ibArrowLeft = findViewById(R.id.ibArrowleft);
 
 
-        TotalSize = Integer.parseInt(session.getData(Constant.TOTAL_SIZE));
 
 
         Tittle = getIntent().getStringExtra(Constant.RAMAYAM_MENU);
@@ -108,7 +107,11 @@ Toast.makeText(activity, "No", Toast.LENGTH_SHORT).show();
     private void menu_list(String menu_id) {
         Map<String, String> params = new HashMap<>();
         params.put(session.getData(Constant.SUBMENU), "1");
-        params.put(Constant.ID, session.getData(Constant.ID));
+        if (session.getBoolean(Constant.NORMAL_TYPE)){
+            params.put(Constant.ID, menu_id);
+        }else {
+            params.put(Constant.ID, session.getData(Constant.ID));
+        }
         params.put(Constant.MENU_ID, menu_id);
         ApiConfig.RequestToVolley((result, response) -> {
             Log.d("submeny", response);

@@ -58,6 +58,7 @@ public class Constant {
     public static final String HORACHAKRAM_DATA="horachakram_data";
     public static final String BHARGAVA_DATA="bhargava_data";
 
+    public static final String NORMAL_TYPE="normal_type";
 
     public static final String TOTAL_SIZE = "";
     public static final String START_INDEX = "start_index";
