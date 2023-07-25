@@ -73,6 +73,7 @@ public class Constant {
     public static final String ABDHIKAM_VARIANT = "abdhikam_variant";
     public static final String KARTHI_VRUSTI_VARIANT = "karthi_vrusti_variant";
     public static final String SUBHA_MUHURTHAM_VARIANT = "subha_muhurtham_variant";
+    public static final String DAILY_PANCHANG_DATA = "daily_panchang_data";
 
     public static final String VIDEO_CATEGORY_ID = "video_category_id";
     public static final String MUHURTHAM_ID = "muhurtham_id";

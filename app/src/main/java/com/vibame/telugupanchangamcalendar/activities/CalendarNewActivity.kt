@@ -19,8 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.navigation.NavigationView
@@ -28,9 +26,8 @@ import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
-import com.vibame.telugupanchangamcalendar.helper.Constant
-import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
-import com.vibame.telugupanchangamcalendar.helper.Session
+import com.vibame.telugupanchangamcalendar.helper.*
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -227,9 +224,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         card1.setOnClickListener {
-            val intent = Intent(activity, DailyPanchangamActivity::class.java)
-            intent.putExtra("id", "1")
-            startActivity(intent)
+            dailyPanchangam()
         }
         card2.setOnClickListener {
             val intent = Intent(activity, MonthlyPanchangam::class.java)
@@ -908,6 +903,103 @@ class CalendarNewActivity : AppCompatActivity() {
             recyclerView!!.adapter = audioLiveAdapter
         } else {
             recyclerView!!.visibility = View.GONE
+        }
+    }
+    private fun dailyPanchangam() {
+        if (session!!.getBoolean(Constant.DAILY_PANCHANG_DATA)){
+            val intent = Intent(activity, DailyPanchangamActivity::class.java)
+            intent.putExtra("id", "1")
+            startActivity(intent)
+        }else {
+            val params = HashMap<String, String>()
+            ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
+                if (result) {
+                    try {
+                        val jsonObject = JSONObject(response)
+                        if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                            Log.d("", response!!)
+                            val jsonArray3 =
+                                jsonObject.getJSONArray(Constant.DATA)
+                            for (i in 0 until jsonArray3.length()) {
+                                val jsonObject1 = jsonArray3.getJSONObject(i)
+                                if (jsonObject1 != null) {
+//                                databaseHelper.AddToDailyPanchangam(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+                                    databaseHelper!!.AddToDailyPanchangam(
+                                        jsonObject1.getString(Constant.ID),
+                                        jsonObject1.getString(Constant.DATE),
+                                        jsonObject1.getString(Constant.TEXT1),
+                                        jsonObject1.getString(Constant.TEXT2),
+                                        jsonObject1.getString(Constant.TEXT3),
+                                        jsonObject1.getString(Constant.TEXT4),
+                                        jsonObject1.getString(Constant.TEXT5),
+                                        jsonObject1.getString(Constant.TEXT6),
+                                        jsonObject1.getString(Constant.SUNRISE),
+                                        jsonObject1.getString(Constant.SUNSET),
+                                        jsonObject1.getString(Constant.MOONRISE),
+                                        jsonObject1.getString(Constant.MOONSET),
+                                        jsonObject1.getString(Constant.FESTIVALS),
+                                        jsonObject1.getString(Constant.THIDHI),
+                                        jsonObject1.getString(Constant.NAKSHATRAM),
+                                        jsonObject1.getString(Constant.YOGAM),
+                                        jsonObject1.getString(Constant.KARANAM),
+                                        jsonObject1.getString(Constant.ABHIJITH_MUHURTHAM),
+                                        jsonObject1.getString(Constant.BHRAMA_MUHURTHAM),
+                                        jsonObject1.getString(Constant.AMRUTHA_KALAM),
+                                        jsonObject1.getString(Constant.RAHUKALAM),
+                                        jsonObject1.getString(Constant.YAMAKANDAM),
+                                        jsonObject1.getString(Constant.DHURMUHURTHAM),
+                                        jsonObject1.getString(Constant.VARJYAM),
+                                        jsonObject1.getString(Constant.GULIKA),
+                                        jsonObject1.getString(Constant.HC1),
+                                        jsonObject1.getString(Constant.HC2),
+                                        jsonObject1.getString(Constant.HC3),
+                                        jsonObject1.getString(Constant.HC4),
+                                        jsonObject1.getString(Constant.HC5),
+                                        jsonObject1.getString(Constant.HC6),
+                                        jsonObject1.getString(Constant.HC7),
+                                        jsonObject1.getString(Constant.HC8),
+                                        jsonObject1.getString(Constant.HC9),
+                                        jsonObject1.getString(Constant.HC10),
+                                        jsonObject1.getString(Constant.HC11),
+                                        jsonObject1.getString(Constant.HC12)
+                                    )
+
+//                                Toast.makeText(activity, "Daily Panchangam Added Successfully", Toast.LENGTH_SHORT).show();
+//                                panchangamlist(Date);
+//
+//
+//                                databaseHelper.getDailyPanchangam().size();
+//                                Log.d("dailyPanchangamList", String.valueOf(databaseHelper.getDailyPanchangam().size()));
+                                    //   tvTitle.setText(databaseHelper.getsubha_muhurtham(Month,year).get(0).getText1());
+
+
+//                              Toast.makeText(activity, ""+Date, Toast.LENGTH_SHORT).show();
+//
+
+
+//                                festivalAdapter = new FestivalAdapter(FestivalActivity.this,databaseHelper.getmonthFestivalList(date));
+//                                recyclerView.setAdapter(festivalAdapter);
+                                } else {
+                                    break
+                                }
+                            }
+                            session?.setBoolean(Constant.DAILY_PANCHANG_DATA, true)
+                            val intent = Intent(activity, DailyPanchangamActivity::class.java)
+                            intent.putExtra("id", "1")
+                            startActivity(intent)
+
+                        } else {
+                            Toast.makeText(
+                                activity,
+                                jsonObject.getString(Constant.MESSAGE),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }, activity, Constant.DAILY_PANCHANGAM_LIST, params, true)
         }
     }
 
