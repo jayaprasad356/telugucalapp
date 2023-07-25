@@ -74,21 +74,21 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="తెలుగు పేర్లు"
-                    android:gravity="center"
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/colorBlack"
                     android:fontFamily="@font/ramabhadra"
-                    />
+                    android:gravity="center"
+                    android:text="ఆంగ్ల పేర్లు"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_16sdp" />
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="ఆదివారము"
+                    android:fontFamily="@font/ramabhadra"
                     android:gravity="center"
-                    android:textSize="@dimen/_16sdp"
+                    android:text=" తెలుగు పేర్లు"
                     android:textColor="@color/colorBlack"
-                    android:fontFamily="@font/ramabhadra"/>
+                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

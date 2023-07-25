@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/slider"
     tools:context=".activities.RamayamSubMenuActivity"
-    android:background="#D7EDFF"
+    android:background="@color/bgscroll"
     >
 
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/corner_bg"
-            android:backgroundTint="#E0F1FF"
+            android:backgroundTint="@color/bgscroll"
             android:gravity="center"
             android:padding="@dimen/_8sdp"
             android:text=""

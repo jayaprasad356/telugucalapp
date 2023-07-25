@@ -91,11 +91,9 @@ public class RamayamSubMenuActivity extends AppCompatActivity {
 
         if (session.getData(Constant.SUBMENU).equals("shivapuranam_menu")) {
 
-            Toast.makeText(activity, "Yes", Toast.LENGTH_SHORT).show();
 
         } else {
 
-Toast.makeText(activity, "No", Toast.LENGTH_SHORT).show();
 
         }
 

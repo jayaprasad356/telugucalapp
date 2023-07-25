@@ -65,29 +65,24 @@
 
 
             <TextView
-                android:id="@+id/tvTitle1"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="తెలుగు పేర్లు"
-                android:textSize="@dimen/_16sdp"
+                android:layout_weight="1"
                 android:fontFamily="@font/ramabhadra"
-                android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                />
+                android:text="ఆంగ్ల పేర్లు"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sdp" />
+
             <TextView
-                android:id="@+id/tvTitle2"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="సంస్కృతం పేర్లు"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_16sdp"
+                android:layout_weight="1"
                 android:fontFamily="@font/ramabhadra"
                 android:gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                />
+                android:text=" తెలుగు పేర్లు"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
 

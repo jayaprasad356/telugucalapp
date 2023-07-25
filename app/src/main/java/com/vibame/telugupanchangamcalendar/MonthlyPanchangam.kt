@@ -791,7 +791,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                         val cadate = format.format(newDate)
 
 
-                       val  Intent = Intent(activity, Dailypanchangam2Activity::class.java)
+                       val  Intent = Intent(activity, DailyActivity::class.java)
                         Intent.putExtra("clickedDate", cadate)
                         startActivity(Intent)
 
