@@ -17,7 +17,9 @@ import com.google.gson.Gson
 import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig
 import com.vibame.telugupanchangamcalendar.helper.Constant
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
 import com.vibame.telugupanchangamcalendar.helper.Session
+import com.vibame.telugupanchangamcalendar.model.MonthlyModel
 import org.json.JSONObject
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
@@ -113,7 +115,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     private var clickedDate = 0
     private var dateFormat: String? = null
     private val calendar = Calendar.getInstance(TimeZone.getDefault())
-
+    lateinit var databaseHelper: DatabaseHelper
     private lateinit var tv_month: TextView
     private val month = arrayOf(
         "జనవరి",
@@ -145,8 +147,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
     )
 
 
-
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,6 +155,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
         activity = this
         session = Session(activity)
+        databaseHelper = DatabaseHelper(activity)
 
         tv_month = findViewById(R.id.tvDate)
 
@@ -202,7 +203,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         var month = month[currentMonth].toString()
 
 
-        montlyPanchangam(year, month)
 
         loadXmlFile =
             monthE[currentMonth] + "_" + calendar[Calendar.YEAR]
@@ -234,7 +234,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                 GregorianCalendar.YEAR
             ) == 2023 && currentMonth > 2
         ) {
-           // dateFormat = calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
+            // dateFormat = calendar[Calendar.DATE].toString() + " - " + month[currentMonth] + " - " + calendar[Calendar.YEAR] + " -  శోభకృతు"
         }
 
 
@@ -285,6 +285,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
 
 
+        montlyPanchangam(year, month)
 
 
 
@@ -323,136 +324,67 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
         var Months = ""
 
-        if(month == "జనవరి"){
+        if (month == "జనవరి") {
 
             Months = "January"
 
-        }
-        else if (month =="ఫిబ్రవరి")
-        {
+        } else if (month == "ఫిబ్రవరి") {
             Months = "February"
 
-        }
-
-        else if (month =="మార్చి")
-        {
+        } else if (month == "మార్చి") {
             Months = "March"
 
-        }
-
-        else if (month =="ఏప్రిల్")
-        {
+        } else if (month == "ఏప్రిల్") {
             Months = "April"
 
-        }
-
-        else if (month =="మే")
-        {
+        } else if (month == "మే") {
             Months = "May"
 
-        }
-
-        else if (month =="జూన్")
-        {
+        } else if (month == "జూన్") {
             Months = "June"
 
-        }
-
-        else if (month =="జూలై")
-        {
+        } else if (month == "జూలై") {
             Months = "July"
 
-        }
-
-        else if (month =="ఆగస్టు")
-        {
+        } else if (month == "ఆగస్టు") {
             Months = "August"
 
-        }
-
-        else if (month =="సెప్టెంబర్")
-        {
+        } else if (month == "సెప్టెంబర్") {
             Months = "September"
 
-        }
-
-        else if (month =="అక్టోబర్")
-        {
+        } else if (month == "అక్టోబర్") {
             Months = "October"
 
-        }
-
-        else if (month =="నవంబర్")
-        {
+        } else if (month == "నవంబర్") {
             Months = "November"
 
-        }
-
-        else if (month =="డిసెంబర్")
-        {
+        } else if (month == "డిసెంబర్") {
             Months = "December"
 
         }
+        var panchangamList = ArrayList<MonthlyModel>()
+
+
+        panchangamList = databaseHelper.getMonthlyPanchangam(Months, year)
 
 
 
-        val params = HashMap<String, String>()
-        params[Constant.YEAR] = year.toString()
-        params[Constant.MONTH] = Months.toString()
-        ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
-            if (result) {
-                try {
-                    val jsonObject = JSONObject(response)
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                        Log.d("monthlypanchangamlist", response!!)
-                        val jsonArray =
-                            jsonObject.getJSONArray(Constant.DATA)
-                        val g = Gson()
 
-
-                        text1.setText(jsonArray.getJSONObject(0).getString("text1"))
-                        tvPournami.setText(jsonArray.getJSONObject(0).getString("pournami"))
-                        tvAmavasya.setText(jsonArray.getJSONObject(0).getString("amavasya"))
-                        tvAkadashi.setText(jsonArray.getJSONObject(0).getString("akadhashi"))
-                        tvPradosham.setText(jsonArray.getJSONObject(0).getString("pradhosha"))
-                        tvShashti.setText(jsonArray.getJSONObject(0).getString("shasti"))
-                        tvChavithi.setText(jsonArray.getJSONObject(0).getString("chavithi"))
-                        tvMasaShivaratri.setText(
-                            jsonArray.getJSONObject(0).getString("masa_shiva_Rathri")
-                        )
-                        tvSankatacharathi.setText(
-                            jsonArray.getJSONObject(0).getString("sankatahara_chathurdhi")
-                        )
-                        tvFestival.setText(jsonArray.getJSONObject(0).getString("festivals"))
-                        tvHolidays.setText(jsonArray.getJSONObject(0).getString("holiday"))
-
-
-                    } else {
-
-                        text1.setText("")
-                        tvPournami.setText("")
-                        tvAmavasya.setText("")
-                        tvAkadashi.setText("")
-                        tvPradosham.setText("")
-                        tvShashti.setText("")
-                        tvChavithi.setText("")
-                        tvMasaShivaratri.setText("")
-                        tvSankatacharathi.setText("")
-                        tvFestival.setText("")
-                        tvHolidays.setText("")
-
-
-                        Toast.makeText(
-                            activity,
-                            jsonObject.getString(Constant.MESSAGE),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
+        text1.text = panchangamList.get(0).text1
+        tvPournami.setText(panchangamList.get(0).pournami)
+        tvAmavasya.setText(panchangamList.get(0).amavasya)
+        tvAkadashi.setText(panchangamList.get(0).akadhashi)
+        tvPradosham.setText(panchangamList.get(0).pradhosha)
+        tvShashti.setText(panchangamList.get(0).shasti)
+        tvChavithi.setText(panchangamList.get(0).chavithi)
+        tvMasaShivaratri.setText(
+            panchangamList.get(0).masa_shiva_Rathri
+        )
+        tvSankatacharathi.setText(
+            panchangamList.get(0).sankatahara_chathurdhi
+        )
+        tvFestival.setText(panchangamList.get(0).festivals)
+        tvHolidays.setText(panchangamList.get(0).holiday)
 
 
     }
@@ -623,7 +555,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         )
 
 
-
         var year =
             cal_month.get(
                 GregorianCalendar.YEAR
@@ -632,7 +563,6 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
 
         montlyPanchangam(year, month)
-
 
 
     }
@@ -791,7 +721,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
                         val cadate = format.format(newDate)
 
 
-                       val  Intent = Intent(activity, DailyActivity::class.java)
+                        val Intent = Intent(activity, DailyActivity::class.java)
                         Intent.putExtra("clickedDate", cadate)
                         startActivity(Intent)
 

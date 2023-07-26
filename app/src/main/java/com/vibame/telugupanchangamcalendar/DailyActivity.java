@@ -23,7 +23,9 @@ import com.vibame.telugupanchangamcalendar.activities.CalendarNewActivity;
 import com.vibame.telugupanchangamcalendar.activities.PanchangamActivity;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
+import com.vibame.telugupanchangamcalendar.model.DailyModel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,6 +33,7 @@ import org.json.JSONObject;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -53,6 +56,10 @@ public class DailyActivity extends AppCompatActivity implements SwipeableScrollV
     String currentMonth;
     String[] monthNames;
     int monthIndex;
+    DatabaseHelper databaseHelper;
+
+
+
 
     private RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
@@ -82,6 +89,7 @@ public class DailyActivity extends AppCompatActivity implements SwipeableScrollV
 
         activity = this;
         session = new Session(activity);
+        databaseHelper = new DatabaseHelper(activity);
         tvDate = findViewById(R.id.tvDate);
         tvDate1 = findViewById(R.id.tvDate1);
         arrowright = findViewById(R.id.arrowright);
@@ -205,97 +213,48 @@ public class DailyActivity extends AppCompatActivity implements SwipeableScrollV
     }
 
     private void panchangamlist(String date) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put(Constant.DATE, date);
-        ApiConfig.RequestToVolley((result, response) -> {
-            if (result) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(SUCCESS)) {
-                        Log.d("panchangamlist", response);
-                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                        Gson g = new Gson();
 
-                        tvtext1.setText(jsonArray.getJSONObject(0).getString("text1"));
-                        tvtext2.setText(jsonArray.getJSONObject(0).getString("text2"));
-                        tvtext3.setText(jsonArray.getJSONObject(0).getString("text3"));
-                        tvtext4.setText(jsonArray.getJSONObject(0).getString("text4"));
-                        tvtext5.setText(jsonArray.getJSONObject(0).getString("text5"));
-                        tvtext6.setText(jsonArray.getJSONObject(0).getString("text6"));
-                        tvSunrise.setText(jsonArray.getJSONObject(0).getString("sunrise"));
-                        tvSunset.setText(jsonArray.getJSONObject(0).getString("sunset"));
-                        tvMoonRise.setText(jsonArray.getJSONObject(0).getString("moonrise"));
-                        tvMoonset.setText(jsonArray.getJSONObject(0).getString("moonset"));
-                        tvFestival.setText(jsonArray.getJSONObject(0).getString("festivals"));
-                        tvThithi.setText(jsonArray.getJSONObject(0).getString("thidhi"));
-                        TVNakshathram.setText(jsonArray.getJSONObject(0).getString("nakshatram"));
-                        tvYogam.setText(jsonArray.getJSONObject(0).getString("yogam"));
-                        tvKaranam.setText(jsonArray.getJSONObject(0).getString("karanam"));
-                        tvAbhijithMuhurtham.setText(jsonArray.getJSONObject(0).getString("abhijith_muhurtham"));
-                        tvBhramaMuhurtham.setText(jsonArray.getJSONObject(0).getString("bhrama_muhurtham"));
-                        tvAmruthaKalam.setText(jsonArray.getJSONObject(0).getString("amrutha_kalam"));
-                        tvRahukalam.setText(jsonArray.getJSONObject(0).getString("rahukalam"));
-                        tvYamagandam.setText(jsonArray.getJSONObject(0).getString("yamakandam"));
-                        tvDhurmuhurtham.setText(jsonArray.getJSONObject(0).getString("dhurmuhurtham"));
-                        tvVarjyam.setText(jsonArray.getJSONObject(0).getString("varjyam"));
-                        tvGulika.setText(jsonArray.getJSONObject(0).getString("gulika"));
-                        tvhc1.setText(jsonArray.getJSONObject(0).getString("hc1"));
-                        tvhc2.setText(jsonArray.getJSONObject(0).getString("hc2"));
-                        tvhc3.setText(jsonArray.getJSONObject(0).getString("hc3"));
-                        tvhc4.setText(jsonArray.getJSONObject(0).getString("hc4"));
-                        tvhc5.setText(jsonArray.getJSONObject(0).getString("hc5"));
-                        tvhc6.setText(jsonArray.getJSONObject(0).getString("hc6"));
-                        tvhc7.setText(jsonArray.getJSONObject(0).getString("hc7"));
-                        tvhc8.setText(jsonArray.getJSONObject(0).getString("hc8"));
-                        tvhc9.setText(jsonArray.getJSONObject(0).getString("hc9"));
-                        tvhc10.setText(jsonArray.getJSONObject(0).getString("hc10"));
-                        tvhc11.setText(jsonArray.getJSONObject(0).getString("hc11"));
-                        tvhc12.setText(jsonArray.getJSONObject(0).getString("hc12"));
-                    } else {
-                        tvtext1.setText("");
-                        tvtext2.setText("");
-                        tvtext3.setText("");
-                        tvtext4.setText("");
-                        tvtext5.setText("");
-                        tvtext6.setText("");
-                        tvSunrise.setText("");
-                        tvSunset.setText("");
-                        tvMoonRise.setText("");
-                        tvMoonset.setText("");
-                        tvFestival.setText("");
-                        tvThithi.setText("");
-                        TVNakshathram.setText("");
-                        tvYogam.setText("");
-                        tvKaranam.setText("");
-                        tvAbhijithMuhurtham.setText("");
-                        tvBhramaMuhurtham.setText("");
-                        tvAmruthaKalam.setText("");
-                        tvRahukalam.setText("");
-                        tvYamagandam.setText("");
-                        tvDhurmuhurtham.setText("");
-                        tvVarjyam.setText("");
-                        tvGulika.setText("");
-                        tvhc1.setText("");
-                        tvhc2.setText("");
-                        tvhc3.setText("");
-                        tvhc4.setText("");
-                        tvhc5.setText("");
-                        tvhc6.setText("");
-                        tvhc7.setText("");
-                        tvhc8.setText("");
-                        tvhc9.setText("");
-                        tvhc10.setText("");
-                        tvhc11.setText("");
-                        tvhc12.setText("");
+        ArrayList<DailyModel> dailyModels = databaseHelper.getDailyPanchangam(date);
+
+        DailyModel dailyModel = dailyModels.get(0);
+
+        tvtext1.setText(dailyModel.getText1());
+        tvtext2.setText(dailyModel.getText2());
+        tvtext3.setText(dailyModel.getText3());
+        tvtext4.setText(dailyModel.getText4());
+        tvtext5.setText(dailyModel.getText5());
+        tvtext6.setText(dailyModel.getText6());
+        tvSunrise.setText(dailyModel.getSunrise());
+        tvSunset.setText(dailyModel.getSunset());
+        tvMoonRise.setText(dailyModel.getMoonrise());
+        tvMoonset.setText(dailyModel.getMoonset());
+        tvFestival.setText(dailyModel.getFestivals());
+        tvThithi.setText(dailyModel.getThidhi());
+        TVNakshathram.setText(dailyModel.getNakshatram());
+        tvYogam.setText(dailyModel.getYogam());
+        tvKaranam.setText(dailyModel.getKaranam());
+        tvAbhijithMuhurtham.setText(dailyModel.getAbhijithMuhurtham());
+        tvBhramaMuhurtham.setText(dailyModel.getBhramaMuhurtham());
+        tvAmruthaKalam.setText(dailyModel.getAmruthaKalam());
+        tvRahukalam.setText(dailyModel.getRahukalam());
+        tvYamagandam.setText(dailyModel.getYamakandam());
+        tvDhurmuhurtham.setText(dailyModel.getDhurmuhurtham());
+        tvVarjyam.setText(dailyModel.getVarjyam());
+        tvGulika.setText(dailyModel.getGulika());
+        tvhc1.setText(dailyModel.getHc1());
+        tvhc2.setText(dailyModel.getHc2());
+        tvhc3.setText(dailyModel.getHc3());
+        tvhc4.setText(dailyModel.getHc4());
+        tvhc5.setText(dailyModel.getHc5());
+        tvhc6.setText(dailyModel.getHc6());
+        tvhc7.setText(dailyModel.getHc7());
+        tvhc8.setText(dailyModel.getHc8());
+        tvhc9.setText(dailyModel.getHc9());
+        tvhc10.setText(dailyModel.getHc10());
+        tvhc11.setText(dailyModel.getHc11());
+        tvhc12.setText(dailyModel.getHc12());
 
 
-                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }, activity, Constant.PANCHANGAMLIST_BYDATE, params, true);
 
 
     }
@@ -368,11 +327,24 @@ public class DailyActivity extends AppCompatActivity implements SwipeableScrollV
         tvDate1.setText(dateString.toString());
 
         String Date = dateFormat.format(date);
-        panchangamlist(Date);
+
+        panchangamlist(convertDateFormat(Date));
 
         arrowleft.setEnabled(true);
         ivArrowLeft.setEnabled(true);
 
+    }
+    public static String convertDateFormat(String inputDate) {
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            Date date = inputFormat.parse(inputDate);
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null; // Return null in case of any parsing errors
+        }
     }
 
 

@@ -22,6 +22,7 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.navigation.NavigationView
+import com.google.gson.Gson
 import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
@@ -49,6 +50,7 @@ class CalendarNewActivity : AppCompatActivity() {
     var c = Calendar.getInstance()
     var databaseHelper: DatabaseHelper? = null
     var activity: Activity? = null
+    lateinit var clicked: String
 
 
     var llNavaGrahalu: LinearLayout? = null
@@ -222,13 +224,18 @@ class CalendarNewActivity : AppCompatActivity() {
         var llRahuKaalam = findViewById<LinearLayout>(R.id.llRahuKaalam)
         var llGrahalu = findViewById<LinearLayout>(R.id.llGrahalu)
 
+        if (!session!!.getBoolean(Constant.MONTHLY_PANCH_DATA)){
+            montlyPanchangam()
 
+        }
         card1.setOnClickListener {
+            clicked="card1"
             dailyPanchangam()
         }
+        // pesarathiu keatutha
         card2.setOnClickListener {
-            val intent = Intent(activity, MonthlyPanchangam::class.java)
-            startActivity(intent)
+            clicked="card2"
+            dailyPanchangam()
         }
 
         cardFestival.setOnClickListener {
@@ -907,9 +914,14 @@ class CalendarNewActivity : AppCompatActivity() {
     }
     private fun dailyPanchangam() {
         if (session!!.getBoolean(Constant.DAILY_PANCHANG_DATA)){
-            val intent = Intent(activity, DailyPanchangamActivity::class.java)
-            intent.putExtra("id", "1")
-            startActivity(intent)
+            if (clicked.equals("card1")) {
+                val intent = Intent(activity, DailyPanchangamActivity::class.java)
+                intent.putExtra("id", "1")
+                startActivity(intent)
+            }else if (clicked.equals("card2")){
+                val intent = Intent(activity, MonthlyPanchangam::class.java)
+                startActivity(intent)
+            }
         }else {
             val params = HashMap<String, String>()
             ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
@@ -983,11 +995,16 @@ class CalendarNewActivity : AppCompatActivity() {
                                     break
                                 }
                             }
-                            session?.setBoolean(Constant.DAILY_PANCHANG_DATA, true)
-                            val intent = Intent(activity, DailyPanchangamActivity::class.java)
-                            intent.putExtra("id", "1")
-                            startActivity(intent)
-
+                            if (clicked.equals("card1")) {
+                                session?.setBoolean(Constant.DAILY_PANCHANG_DATA, true)
+                                val intent = Intent(activity, DailyPanchangamActivity::class.java)
+                                intent.putExtra("id", "1")
+                                startActivity(intent)
+                            }else if (clicked.equals("card2")){
+                                session?.setBoolean(Constant.DAILY_PANCHANG_DATA, true)
+                                val intent = Intent(activity, MonthlyPanchangam::class.java)
+                                startActivity(intent)
+                            }
                         } else {
                             Toast.makeText(
                                 activity,
@@ -1001,6 +1018,56 @@ class CalendarNewActivity : AppCompatActivity() {
                 }
             }, activity, Constant.DAILY_PANCHANGAM_LIST, params, true)
         }
+    }
+    private fun montlyPanchangam() {
+
+
+
+        val params = HashMap<String, String>()
+
+        ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
+            if (result) {
+                try {
+                    val jsonObject = JSONObject(response)
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        Log.d("monthlypanchangamlist", response!!)
+                        val jsonArray3 = jsonObject.getJSONArray(Constant.DATA)
+                        for (i in 0 until jsonArray3.length()) {
+                            val jsonObject1 = jsonArray3.getJSONObject(i)
+                            if (jsonObject1 != null) {
+                                databaseHelper!!.AddToMontlyPanchangam(
+                                    jsonObject1.getString(Constant.ID),
+                                    jsonObject1.getString(Constant.MONTH),
+                                    jsonObject1.getString(Constant.YEAR),
+                                    jsonObject1.getString(Constant.TEXT1),
+                                    jsonObject1.getString(Constant.POURNAMI),
+                                    jsonObject1.getString(Constant.AMAVASYA),
+                                    jsonObject1.getString(Constant.AKADHASHI),
+                                    jsonObject1.getString(Constant.PRADHOSHA),
+                                    jsonObject1.getString(Constant.SHASTI),
+                                    jsonObject1.getString(Constant.CHAVITHI),
+                                    jsonObject1.getString(Constant.MASASHIVARATRI),
+                                    jsonObject1.getString(Constant.SANKATAHARA_CHATHURDHI),
+                                    jsonObject1.getString(Constant.FESTIVALS),
+                                    jsonObject1.getString(Constant.HOLIDAY)
+                                )
+                            }
+                        }
+
+
+
+
+
+
+                        session?.setBoolean(Constant.MONTHLY_PANCH_DATA,true)
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
+
+
     }
 
 

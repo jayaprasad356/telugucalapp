@@ -63,6 +63,7 @@ public class Constant {
     public static final String TOTAL_SIZE = "";
     public static final String START_INDEX = "start_index";
     public static final String END_INDEX = "end_index";
+    public static final String MONTHLY_PANCH_DATA = "monthly_panch_data";
 
 
     public static final String MENU_ID = "menu_id";
@@ -140,6 +141,14 @@ public class Constant {
     public static final String SANKATACHARATHI = "sankatahara_chathurdhi";
     public static final String FESTIVALS = "festivals";
     public static final String HOLIDAY = "holiday";
+
+    //
+    public static final String POORNAMI = "poornami";
+    public static final String AKADHASHI = "akadhashi";
+    public static final String PRADHOSHA = "pradhosha";
+    public static final String SHASTI = "shasti";
+    public static final String MASA_SHIVA_RATHRI = "masa_shiva_rathri";
+    public static final String SANKATAHARA_CHATHURDHI = "sankatahara_chathurdhi";
 
 
     public static final String TEXT1 = "text1";
