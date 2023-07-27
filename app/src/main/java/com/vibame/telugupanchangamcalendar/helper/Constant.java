@@ -39,6 +39,7 @@ public class Constant {
     public static final String HOLIDAYS_LIST = BaseUrl + "holidays_list.php";
     public static final String GOWRI_LIST = BaseUrl + "gowri_list.php";
     public static final String MONTHLY_PANCHANGAMLIST = BaseUrl + "monthly_panchangamlist.php";
+    public static final String APPUPDATE = BaseUrl + "appupdate-list.php";
     public static final String HOLIDAYS = BaseUrl + "holidays.php";
     public static final String HOROSCOPE_LIST = BaseUrl + "horoscope.php";
     public static final String CHILD_BIRTHLIST = BaseUrl + "child_birthlist.php";
@@ -64,6 +65,8 @@ public class Constant {
     public static final String START_INDEX = "start_index";
     public static final String END_INDEX = "end_index";
     public static final String MONTHLY_PANCH_DATA = "monthly_panch_data";
+    public static final String VERSION = "version";
+
 
 
     public static final String MENU_ID = "menu_id";

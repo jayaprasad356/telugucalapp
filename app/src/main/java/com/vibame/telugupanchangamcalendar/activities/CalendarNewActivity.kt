@@ -3,6 +3,7 @@ package com.vibame.telugupanchangamcalendar.activities
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -21,13 +22,14 @@ import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
-import com.google.gson.Gson
 import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
 import com.vibame.telugupanchangamcalendar.helper.*
+import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -111,6 +113,7 @@ class CalendarNewActivity : AppCompatActivity() {
     lateinit var llPrivacypolicy: LinearLayout
     lateinit var llRateus: LinearLayout
     var nvDrawer: NavigationView? = null
+    var currentversion = ""
 
 
     @SuppressLint("MissingInflatedId")
@@ -122,6 +125,17 @@ class CalendarNewActivity : AppCompatActivity() {
         activity = this@CalendarNewActivity
         session = Session(activity)
         databaseHelper = DatabaseHelper(activity)
+
+
+
+        try {
+            val pInfo = (activity as CalendarNewActivity).getPackageManager().getPackageInfo((activity as CalendarNewActivity).getPackageName(), 0)
+            currentversion = pInfo.versionCode.toString() + ""
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        appupdate()
+
 
 
         var llAnkelu = findViewById<LinearLayout>(R.id.llAnkelu)
@@ -1068,6 +1082,69 @@ class CalendarNewActivity : AppCompatActivity() {
         }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
 
 
+    }
+
+    private fun appupdate() {
+        val params: Map<String, String> = HashMap()
+        ApiConfig.RequestToVolley({ result, response ->
+            Log.d("CAT_RES", response)
+            if (result) {
+                try {
+                    val jsonObject = JSONObject(response)
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        Log.d("CAT_RES", response)
+                        val `object` = JSONObject(response)
+                        val jsonArray = `object`.getJSONArray(Constant.DATA)
+                        val latestversion = jsonArray.getJSONObject(0).getString(Constant.VERSION)
+                        val link = jsonArray.getJSONObject(0).getString(Constant.LINK)
+                        if (currentversion.toInt() >= latestversion.toInt()) {
+                            Toast.makeText(
+                                this,
+                                "You are using Latest Version",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+
+                            val bottomSheetDialog = BottomSheetDialog(this)
+                            val view = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+                            bottomSheetDialog.setContentView(view)
+
+                            // Assuming there is an update button in the bottom_sheet_layout.xml
+                            val updateButton = view.findViewById<Button>(R.id.updateButton)
+                            updateButton.setOnClickListener {
+                                // Handle the update button click here
+                                // You can perform actions like initiating the download or redirecting to the app store.
+                                // For example:
+//                                redirectToPlayStore(link) // You need to implement this function.
+                            //    bottomSheetDialog.dismiss() // Dismiss the bottom sheet after clicking the button.
+
+
+                                // Redirect the user to the Google Play Store or your server's download page
+                                // to download the latest version of the app
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+                                startActivity(intent)
+
+
+                            }
+
+                            bottomSheetDialog.setCancelable(false)
+
+                            bottomSheetDialog.show()
+
+                        }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "Hi" + jsonObject.getString(Constant.MESSAGE).toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                    Toast.makeText(this, "hi$e", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }, this, Constant.APPUPDATE, params, true)
     }
 
 
