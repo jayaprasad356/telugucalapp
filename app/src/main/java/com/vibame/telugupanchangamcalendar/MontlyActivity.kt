@@ -16,7 +16,9 @@ import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
 import com.vibame.telugupanchangamcalendar.activities.CalendarNewActivity
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig
 import com.vibame.telugupanchangamcalendar.helper.Constant
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
 import com.vibame.telugupanchangamcalendar.helper.Session
+import com.vibame.telugupanchangamcalendar.model.MonthlyModel
 import org.json.JSONObject
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
@@ -48,6 +50,7 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
     lateinit var tvSankatacharathi: TextView
     lateinit var tvFestival: TextView
     lateinit var tvHolidays: TextView
+    lateinit var databaseHelper: DatabaseHelper
 
 
     var month_year = ""
@@ -149,6 +152,7 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
         setContentView(R.layout.activity_montly)
         activity = this
         session = Session(activity)
+        databaseHelper= DatabaseHelper(activity);
 
         tv_month = findViewById(R.id.tvDate)
 
@@ -207,7 +211,6 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
         var month = month[currentMonth].toString()
 
 
-        montlyPanchangam(year, month)
 
         loadXmlFile =
             monthE[currentMonth] + "_" + calendar[Calendar.YEAR]
@@ -320,6 +323,7 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
             rightarrow()
 
         })
+        montlyPanchangam(year, month)
 
 
     }
@@ -366,65 +370,29 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
             Months = "December"
 
         }
+        var panchangamList = ArrayList<MonthlyModel>()
 
 
-        val params = HashMap<String, String>()
-        params[Constant.YEAR] = year.toString()
-        params[Constant.MONTH] = Months.toString()
-        ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
-            if (result) {
-                try {
-                    val jsonObject = JSONObject(response)
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                        Log.d("monthlypanchangamlist", response!!)
-                        val jsonArray =
-                            jsonObject.getJSONArray(Constant.DATA)
-                        val g = Gson()
+        panchangamList = databaseHelper.getMonthlyPanchangam(Months, year)
 
 
-                        text1.setText(jsonArray.getJSONObject(0).getString("text1"))
-                        tvPournami.setText(jsonArray.getJSONObject(0).getString("pournami"))
-                        tvAmavasya.setText(jsonArray.getJSONObject(0).getString("amavasya"))
-                        tvAkadashi.setText(jsonArray.getJSONObject(0).getString("akadhashi"))
-                        tvPradosham.setText(jsonArray.getJSONObject(0).getString("pradhosha"))
-                        tvShashti.setText(jsonArray.getJSONObject(0).getString("shasti"))
-                        tvChavithi.setText(jsonArray.getJSONObject(0).getString("chavithi"))
-                        tvMasaShivaratri.setText(
-                            jsonArray.getJSONObject(0).getString("masa_shiva_Rathri")
-                        )
-                        tvSankatacharathi.setText(
-                            jsonArray.getJSONObject(0).getString("sankatahara_chathurdhi")
-                        )
-                        tvFestival.setText(jsonArray.getJSONObject(0).getString("festivals"))
-                        tvHolidays.setText(jsonArray.getJSONObject(0).getString("holiday"))
 
 
-                    } else {
-
-                        text1.setText("")
-                        tvPournami.setText("")
-                        tvAmavasya.setText("")
-                        tvAkadashi.setText("")
-                        tvPradosham.setText("")
-                        tvShashti.setText("")
-                        tvChavithi.setText("")
-                        tvMasaShivaratri.setText("")
-                        tvSankatacharathi.setText("")
-                        tvFestival.setText("")
-                        tvHolidays.setText("")
-
-
-                        Toast.makeText(
-                            activity,
-                            jsonObject.getString(Constant.MESSAGE),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
+        text1.text = panchangamList.get(0).text1
+        tvPournami.setText(panchangamList.get(0).pournami)
+        tvAmavasya.setText(panchangamList.get(0).amavasya)
+        tvAkadashi.setText(panchangamList.get(0).akadhashi)
+        tvPradosham.setText(panchangamList.get(0).pradhosha)
+        tvShashti.setText(panchangamList.get(0).shasti)
+        tvChavithi.setText(panchangamList.get(0).chavithi)
+        tvMasaShivaratri.setText(
+            panchangamList.get(0).masa_shiva_Rathri
+        )
+        tvSankatacharathi.setText(
+            panchangamList.get(0).sankatahara_chathurdhi
+        )
+        tvFestival.setText(panchangamList.get(0).festivals)
+        tvHolidays.setText(panchangamList.get(0).holiday)
 
 
     }
