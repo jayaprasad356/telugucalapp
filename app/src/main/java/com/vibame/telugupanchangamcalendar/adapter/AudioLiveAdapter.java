@@ -65,6 +65,7 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 intent.putExtra(Constant.LYRICS,audio1.getLyrics());
                 intent.putExtra(Constant.ID,position);
                 intent.putExtra(Constant.AUDIO_LIST,audioList);
+                intent.putExtra(Constant.IMAGE,audio1.getImage());
                 activity.startActivity(intent);
             }
         });

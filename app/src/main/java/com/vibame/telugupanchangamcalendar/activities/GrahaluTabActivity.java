@@ -62,7 +62,6 @@ public class GrahaluTabActivity extends AppCompatActivity {
     private void grahaluTabList()
     {
 
-        Toast.makeText(activity, ""+grahalu_id + subcategory_id, Toast.LENGTH_SHORT).show();
 
         if (databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).size() !=0){
             tvTitle.setText(databaseHelper.getGrahaluTabList(grahalu_id,subcategory_id).get(0).getTitle());

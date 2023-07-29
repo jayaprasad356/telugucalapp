@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.WeekNamesActivity"
-    android:background="#E7F0F4"
+    android:background="@color/bgscroll"
     >
 
 
@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/llout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/calHeaderT"
         android:orientation="horizontal"
         android:padding="@dimen/_8sdp">
@@ -23,19 +23,18 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_4sdp"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
 
         <TextView
             android:id="@+id/tvHead"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
             android:text="తెలుగు వారములు"
             android:fontFamily="@font/sree"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_18sdp"
+            android:textSize="@dimen/_16sdp"
             />
 
     </LinearLayout>
@@ -72,16 +71,12 @@
                 android:textSize="@dimen/_14sdp"
                 />
 
-            <com.google.android.material.card.MaterialCardView
-                android:elevation="0dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/white"
-                android:layout_marginBottom="@dimen/_10sdp"
-                app:cardCornerRadius="60dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/corner_bg"
+                    android:backgroundTint="@color/white"
                     android:weightSum="2"
                     android:padding="@dimen/_10sdp"
                     >
@@ -104,7 +99,7 @@
                         android:textColor="@color/colorBlack"
                         android:fontFamily="@font/ramabhadra"/>
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Telugu_rcView"

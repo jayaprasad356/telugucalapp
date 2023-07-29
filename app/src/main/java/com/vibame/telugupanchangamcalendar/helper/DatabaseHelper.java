@@ -62,6 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAKSHATRALU = "tblnakshatralu";
     public static final String TABLE_VIDEO = "tblvideo";
     public static final String TABLE_AUDIO = "tblaudio";
+    public static final String TABLE_OTHERMUSIC = "tblothermusic";
     public static final String KEY_ID = "pid";
     final String ID = "id";
     final String PID = "pid";
@@ -206,6 +207,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String NakshatraluTableInfo = TABLE_NAKSHATRALU + "(" + ID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String VideoTableInfo = TABLE_VIDEO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + LINK + " TEXT)";
     final String AudioTableInfo = TABLE_AUDIO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
+    final String OtherMusisTableInfo = TABLE_OTHERMUSIC + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
+
     final String NakTabTableInfo = TABLE_NAK_TAB + "(" + ID + " TEXT ," + NAK_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
@@ -238,6 +241,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE " + NakTabTableInfo);
         db.execSQL("CREATE TABLE " + VideoTableInfo);
         db.execSQL("CREATE TABLE " + AudioTableInfo);
+        db.execSQL("CREATE TABLE " + OtherMusisTableInfo);
 
     }
 
@@ -2143,6 +2147,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return audio;
     }
+    public ArrayList<Audio> getOtherMusicList() {
+        final ArrayList<Audio> audio = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_OTHERMUSIC, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Audio audio1 = new Audio(cursor.getString(cursor.getColumnIndexOrThrow(ID)), cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
+                        , cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)), cursor.getString(cursor.getColumnIndexOrThrow(LYRICS)), cursor.getString(cursor.getColumnIndexOrThrow(AUDIO)));
+                audio.add(audio1);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return audio;
+    }
 
     public void AddToPoojalu(String pjid, String name, String image) {
         try {
@@ -2358,6 +2378,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(LYRICS, lyrics);
                 values.put(AUDIO, audio);
                 db.insert(TABLE_AUDIO, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void AddToOtherMusic(String id, String title, String image, String lyrics, String audio) {
+        try {
+            if (!CheckAudiotemExist(id).equalsIgnoreCase("0")) {
+                UpdateAudio(id, title, image, lyrics, audio);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(ID, id);
+                values.put(TITLE, title);
+                values.put(IMAGE, image);
+                values.put(LYRICS, lyrics);
+                values.put(AUDIO, audio);
+                db.insert(TABLE_OTHERMUSIC, null, values);
                 db.close();
             }
 

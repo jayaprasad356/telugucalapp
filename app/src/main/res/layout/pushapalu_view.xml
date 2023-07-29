@@ -33,20 +33,34 @@
             android:fontFamily="@font/ramabhadra"
             android:gravity="center"
             />
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="pushpalu 2"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_16sdp"
+
+        <HorizontalScrollView
+            android:scrollbars="none"
             android:background="@drawable/teluguyear_bg"
             android:backgroundTint="@color/white"
-            android:gravity="center"
-            android:fontFamily="@font/mallanna"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            />
+
+
+            <TextView
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:paddingHorizontal="@dimen/_20sdp"
+                android:maxLines="1"
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="pushpalu 2"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/mallanna"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
+
+        </HorizontalScrollView>
 
     </LinearLayout>
 

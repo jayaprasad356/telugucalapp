@@ -212,6 +212,7 @@ public class Constant {
     public static final String NAKSHATRALU_LIST = "nakshatralu_list";
     public static final String VIDEO_LIST = "video_list";
     public static final String AUDIO_LIST = "audio_list";
+    public static final String OTHER_MUSIC = "other_music";
     public static final String TAB = "tab";
     public static final String MENU = "menu";
     public static final String MENU_DIRECT = "";

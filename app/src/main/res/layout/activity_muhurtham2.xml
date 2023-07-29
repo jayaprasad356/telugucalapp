@@ -15,7 +15,7 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@color/calHeaderT"
         android:padding="@dimen/_8sdp"
         android:orientation="horizontal">
@@ -23,7 +23,6 @@
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_4sdp"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
         <TextView
@@ -31,11 +30,11 @@
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:fontFamily="@font/sree"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="శుభముహుర్తములు"
             android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_18sdp"
+            android:textSize="@dimen/_16sdp"
             />
 
     </LinearLayout>

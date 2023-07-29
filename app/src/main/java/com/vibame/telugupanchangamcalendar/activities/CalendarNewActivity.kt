@@ -418,12 +418,17 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         var cvBhakthiGeethalu = findViewById<CardView>(R.id.cvBhakthiGeethalu)
+        var cvLiveDharsanam = findViewById<CardView>(R.id.cvLiveDharsanam)
 
         cvBhakthiGeethalu.setOnClickListener(View.OnClickListener {
             val intent = Intent(activity, NewBakthiMusicActivity::class.java)
             startActivity(intent)
         })
 
+        cvLiveDharsanam.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, LiveDharsanamActivity::class.java)
+            startActivity(intent)
+        })
 
         var imageold = findViewById<ImageView>(R.id.imageold);
         var imageneti = findViewById<ImageView>(R.id.imageneti);

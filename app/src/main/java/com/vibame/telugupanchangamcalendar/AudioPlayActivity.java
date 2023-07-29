@@ -21,6 +21,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -58,7 +59,7 @@ public class AudioPlayActivity extends AppCompatActivity {
     Boolean jsonload = false;
     private JSONObject obj;
     private JSONObject splandata;
-    private String lyricsData, Audio, Lyrics;
+    private String lyricsData, Audio, Lyrics,Image;
     MediaPlayer mediaPlayer;
     ImageView imgBack;
     SharedPreferences sharedpreferences;
@@ -69,6 +70,7 @@ public class AudioPlayActivity extends AppCompatActivity {
     ArrayList<String> audioList = new ArrayList<>();
     int audioID;
     Session session;
+    ImageView ivSongImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class AudioPlayActivity extends AppCompatActivity {
         tvLyrics = findViewById(R.id.tvLyrics);
         nextSong = findViewById(R.id.nextSong);
         previewSong = findViewById(R.id.previewSong);
+        ivSongImage     = findViewById(R.id.ivSongImage);
         session = new Session(this);
         session.setData(Constant.CURRENT_A_ID, "");
 
@@ -94,6 +97,8 @@ public class AudioPlayActivity extends AppCompatActivity {
         audioID = getIntent().getIntExtra(Constant.ID, 0);
         Title = getIntent().getStringExtra(Constant.AUDIO_TITLE);
         Audio = audioList.get(audioID);
+        Image = getIntent().getStringExtra(Constant.IMAGE);
+        Glide.with(this).load(Image).into(ivSongImage);
         Lyrics = getIntent().getStringExtra(Constant.LYRICS);
         tvTitle.setText(Title);
         tvTitle1.setText(Title);

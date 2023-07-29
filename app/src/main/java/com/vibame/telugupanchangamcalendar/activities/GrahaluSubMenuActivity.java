@@ -54,7 +54,6 @@ public class GrahaluSubMenuActivity extends AppCompatActivity {
 
     {
 
-        Toast.makeText(activity, ""+Id, Toast.LENGTH_SHORT).show();
 
         if (databaseHelper.getGrahaluSubMenuList(Id).size() !=0){
             grahaluSubMenuAdapter = new GrahaluSubMenuAdapter(activity, databaseHelper.getGrahaluSubMenuList(Id));

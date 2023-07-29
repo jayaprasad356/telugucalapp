@@ -2,9 +2,9 @@ package com.vibame.telugupanchangamcalendar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +15,7 @@ import com.vibame.telugupanchangamcalendar.R;
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 
-public class NewBakthiMusicActivity extends AppCompatActivity {
-
+public class LiveDharsanamActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Activity activity;
@@ -24,17 +23,16 @@ public class NewBakthiMusicActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper ;
     ImageView imgBack;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_bakthi_music);
-
+        setContentView(R.layout.activity_live_dharsanam);
         activity = this;
 
         databaseHelper = new DatabaseHelper(activity);
 
         imgBack = findViewById(R.id.imgBack);
-
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,9 +49,9 @@ public class NewBakthiMusicActivity extends AppCompatActivity {
     }
 
     private void audiolive() {
-        Log.d("AUDIO_COUNT", String.valueOf(databaseHelper.getAudiosCount()));
+        Log.d("AUDIO_COUNT", String.valueOf(databaseHelper.getOtherMusicList()));
         if (databaseHelper.getAudioList().size() != 0) {
-            audioLiveAdapter = new AudioLiveAdapter(activity, databaseHelper.getAudioList());
+            audioLiveAdapter = new AudioLiveAdapter(activity, databaseHelper.getOtherMusicList());
             recyclerView.setAdapter(audioLiveAdapter);
         } else {
             recyclerView.setVisibility(View.GONE);
