@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="#E0F1FF"
+        android:backgroundTint="@color/bgscroll"
         android:padding="@dimen/_8sdp"
         android:text="Title"
         android:fontFamily="@font/ramabhadra"
@@ -28,7 +28,6 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/mallanna"
         android:textSize="@dimen/_16sdp"
-        android:paddingHorizontal="20dp"
         android:textColor="@color/black"
         android:text="dkjlfakjl;asjkl;fajkl;afsjklafsjklafjklafjkla
         fjkladfsjkladfsjkladfsjkladfsjkladfsjklafsjklafsjkl;afsjklaf

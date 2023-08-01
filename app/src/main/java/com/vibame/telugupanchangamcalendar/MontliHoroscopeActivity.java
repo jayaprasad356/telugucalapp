@@ -84,7 +84,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
             rasi = "Meenam";
         }
 
-        tvRaasi.setText(year+" - "+ raasi);
+        tvDate.setText(year+" - "+ raasi);
 
 
         horoscope();
@@ -111,7 +111,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
 
 
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
-                        tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
+                       // tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
 
 
 

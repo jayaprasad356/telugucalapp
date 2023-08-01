@@ -50,7 +50,7 @@
         <RelativeLayout
             android:layout_marginBottom="@dimen/_20sdp"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_60sdp">
+            android:layout_height="@dimen/_70sdp">
 
 
 
@@ -85,22 +85,20 @@
                     android:orientation="vertical"
                     >
 
-
                     <TextView
                         android:padding="@dimen/_4sdp"
-                        android:textSize="@dimen/_18sdp"
+                        android:textSize="@dimen/_16sdp"
                         android:id="@+id/tvRaasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=""
+                        android:text="శ్రీ శోభకృత్‌ నామ సంవత్సర దిన ఫలా"
                         android:layout_gravity="center"
                         android:textColor="@color/white"
                         android:fontFamily="@font/sree"
                         />
 
                     <TextView
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_16sdp"
+                        android:textSize="@dimen/_14sdp"
                         android:id="@+id/tvDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

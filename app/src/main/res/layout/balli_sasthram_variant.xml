@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/subtitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        app:cardElevation="0dp"
+        android:id="@+id/card_view"
+        android:elevation="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        app:cardBackgroundColor="@color/bgscroll"
+        app:cardCornerRadius="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            >
+            <com.google.android.material.card.MaterialCardView
+                app:cardElevation="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/colorHead"
+                app:cardCornerRadius="@dimen/_30sdp">
+                <TextView
+                    android:id="@+id/sub_description1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="somex"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14sdp"
+                    android:fontFamily="@font/ramabhadra"/>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/_4sdp"
+                >
+
+
+
+                <HorizontalScrollView
+                    android:scrollbars="none"
+                    android:background="@drawable/teluguyear_bg"
+                    android:backgroundTint="@color/bgscroll"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <TextView
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:maxLines="1"
+                        android:id="@+id/sub_description2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="pushpalu 2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/mallanna"
+                        />
+
+
+                </HorizontalScrollView>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</RelativeLayout>

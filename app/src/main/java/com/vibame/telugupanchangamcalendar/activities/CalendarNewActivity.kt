@@ -1103,11 +1103,11 @@ class CalendarNewActivity : AppCompatActivity() {
                         val latestversion = jsonArray.getJSONObject(0).getString(Constant.VERSION)
                         val link = jsonArray.getJSONObject(0).getString(Constant.LINK)
                         if (currentversion.toInt() >= latestversion.toInt()) {
-                            Toast.makeText(
-                                this,
-                                "You are using Latest Version",
-                                Toast.LENGTH_SHORT
-                            ).show()
+//                            Toast.makeText(
+//                                this,
+//                                "You are using Latest Version",
+//                                Toast.LENGTH_SHORT
+//                            ).show()
                         } else {
 
                             val bottomSheetDialog = BottomSheetDialog(this)

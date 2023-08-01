@@ -188,7 +188,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             }
         });
 
-        tvMonthYear.setText(setTeluguMonth(month_year) + year);
+        tvMonthYear.setText(setTeluguMonth(month_year) +" - " + year);
 
 
 
@@ -221,7 +221,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
             c.add(Calendar.MONTH, 1);
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) +" - " + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Muhurtham(month);
             Muhurthamlist(id);
@@ -257,7 +257,7 @@ public class MuhurthamActivity extends AppCompatActivity  implements  SwipeableS
 
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) + " - " + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Muhurtham(month);
             Muhurthamlist(id);

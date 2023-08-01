@@ -63,10 +63,11 @@ public class BalliSasthramActivity extends AppCompatActivity {
                                 BalliData group = g.fromJson(jsonObject1.toString(), BalliData.class);
                                 balliData.add(group);
                             } else {
+
                                 break;
                             }
                         }
-                        BalliAdapter adapter = new BalliAdapter(balliData, activity);
+                        BalliAdapter adapter = new BalliAdapter(activity, balliData);
                         recyclerView.setAdapter(adapter);
                     } else {
                         Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();

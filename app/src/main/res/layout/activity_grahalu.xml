@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GrahaluActivity"
-    android:background="@color/bg_blue"
+    android:background="@color/bgscroll"
     >
 
 
@@ -81,12 +81,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/sree"
             android:text="శ్రీ శోభాకృత్ నామ సంవత్సరం "
             android:textColor="@color/calHeaderT"
-            android:fontFamily="@font/sree"
-            android:textSize="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            />
+            android:textSize="@dimen/_16sdp" />
         <TextView
             android:id="@+id/tvMonthYear"
             android:layout_width="wrap_content"
@@ -149,7 +148,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -185,7 +184,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -223,7 +222,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -268,7 +267,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -304,7 +303,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -340,7 +339,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -389,7 +388,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -425,7 +424,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">
@@ -461,7 +460,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
-                    android:elevation="0dp"
+                    app:cardElevation="0dp"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_80sdp"
                     app:cardCornerRadius="@dimen/_10sdp">

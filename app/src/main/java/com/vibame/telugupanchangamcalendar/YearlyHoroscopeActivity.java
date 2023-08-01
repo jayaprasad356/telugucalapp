@@ -33,7 +33,7 @@ import java.util.HashMap;
 public class YearlyHoroscopeActivity extends AppCompatActivity {
 
     TextView tvHoroscopeTitle, tvRaasi, tvDescription, tvTitle;
-    TextView tvtext1, tvtext2, tvtext3, tvtext4;
+    TextView tvtext1, tvtext2, tvtext3, tvtext4,tvDate;
     Activity activity;
     Session session;
     String raasi;
@@ -97,6 +97,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         tvtext2 = findViewById(R.id.tvtext2);
         tvtext3 = findViewById(R.id.tvtext3);
         tvtext4 = findViewById(R.id.tvtext4);
+        tvDate = findViewById(R.id.tvDate);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -109,7 +110,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
 
 
-        tvRaasi.setText(year + " - " + raasi);
+        tvDate.setText(year + " - " + raasi);
 
         horoscope();
         horoscopeVarient();

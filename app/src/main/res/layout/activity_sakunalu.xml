@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F2F2"
+    android:background="@color/white"
     tools:context=".SakunaluActivity">
 
     <LinearLayout
@@ -41,7 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/llout"
-        android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="15dp"
         android:background="@drawable/corner_bg">
 
@@ -49,10 +48,9 @@
             android:id="@+id/sakuna_rcView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="4dp"
-            android:background="@drawable/corner_bg"
-            android:backgroundTint="@color/colorWhite"
             tools:listitem="@layout/sakunalu_views" />
+
+
     </FrameLayout>
 
 </RelativeLayout>

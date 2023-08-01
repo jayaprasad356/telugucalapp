@@ -5,20 +5,20 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
         android:paddingHorizontal="5dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="#F4F2F2"
+        android:backgroundTint="@color/bgscroll"
         android:paddingVertical="5dp"
         android:paddingBottom="@dimen/_5sdp"
         android:text="Title"
         android:fontFamily="@font/ramabhadra"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_14sdp"
+        android:textSize="@dimen/_18sdp"
       />
 
     <TextView
@@ -47,14 +47,14 @@
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:background="@drawable/corner_bg"
-        android:backgroundTint="#F4F2F2"
+        android:backgroundTint="@color/bgscroll"
         android:orientation="horizontal"
         android:paddingVertical="5dp"
         android:weightSum="2">
 
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
@@ -65,14 +65,14 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/ramabhadra"
                 android:gravity="center_horizontal"
-                android:text="Female Body"
+                android:text=""
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_14sdp" />
 
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorWhite"
@@ -82,7 +82,7 @@
                 android:id="@+id/subtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Uses"
+                android:text=""
                 android:textAlignment="center"
                 android:fontFamily="@font/ramabhadra"
                 android:textColor="@color/colorBlack"
@@ -90,109 +90,16 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/sub_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="invisible"
         android:layout_below="@+id/subtitle"
-        android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/corner_bg"
-        android:backgroundTint="@color/colorHead"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/sub_description_1a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center_horizontal"
-                android:text="06:00 - 07.00"
-                android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/corner2_bg"
-            android:backgroundTint="#F4F2F2"
-            android:orientation="vertical"
-            android:paddingVertical="5dp">
-
-            <TextView
-                android:id="@+id/sub_description_2a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Desc"
-                android:fontFamily="@font/mallanna"
-                android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_16sdp"
-                 />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sub_description"
-        android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/corner_bg"
-        android:backgroundTint="@color/colorHead"
-        android:orientation="horizontal"
-        android:weightSum="2">
+        android:layout_height="match_parent"/>
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
-            <TextView
-                android:id="@+id/sub_description_1b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center_horizontal"
-                android:text="06:00 - 07.00"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/corner2_bg"
-            android:backgroundTint="#F4F2F2"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/sub_description_2b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="5dp"
-                android:text="Desc"
-                android:textAlignment="center"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_16sdp"
-                android:fontFamily="@font/mallanna"
-                 />
-        </LinearLayout>
-    </LinearLayout>
 
 
 </RelativeLayout>

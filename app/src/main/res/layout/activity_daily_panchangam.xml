@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:id="@+id/slider"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".DailyPanchangamActivity">
 
 
@@ -190,6 +191,7 @@
                         />
 
                     <ImageView
+                        android:id="@+id/shareWhatsapp"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/_130sdp"
                         android:layout_alignParentEnd="true"

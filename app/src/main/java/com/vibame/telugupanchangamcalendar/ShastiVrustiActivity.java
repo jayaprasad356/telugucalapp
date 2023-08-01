@@ -174,7 +174,7 @@ public class ShastiVrustiActivity extends AppCompatActivity implements  Swipeabl
             }
         });
 
-        tvMonthYear.setText(setTeluguMonth(month_year) + year);
+        tvMonthYear.setText(setTeluguMonth(month_year) + " - " +year);
 
         String month = String.valueOf(calendar.get(Calendar.MONTH));
         Karthi(month);
@@ -201,7 +201,7 @@ public class ShastiVrustiActivity extends AppCompatActivity implements  Swipeabl
             c.add(Calendar.MONTH, 1);
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) +" - " + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Karthi(month);
 
@@ -234,7 +234,7 @@ public class ShastiVrustiActivity extends AppCompatActivity implements  Swipeabl
 
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) + " - " +year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             Karthi(month);
 

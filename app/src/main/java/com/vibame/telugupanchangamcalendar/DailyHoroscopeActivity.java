@@ -87,7 +87,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         // get corrent year
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
-        tvRaasi.setText(year+" - "+ raasi);
+        tvDate.setText(year+" - "+ raasi);
 
 
 

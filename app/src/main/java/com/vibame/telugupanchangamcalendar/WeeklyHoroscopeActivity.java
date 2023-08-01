@@ -85,7 +85,7 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
-        tvRaasi.setText(year+" - "+ raasi);
+        tvDate.setText(year+" - "+ raasi);
 
 
 

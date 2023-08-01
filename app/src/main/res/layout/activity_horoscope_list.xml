@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgscroll"
     tools:context=".HoroscopeListActivity">
 
 
@@ -17,12 +18,14 @@
             android:id="@+id/imgBack"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-             android:elevation="0dp"
+                                 app:cardElevation="0dp"
+
                 android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
         <TextView
             android:id="@+id/tvHoroscopeTitle"
-             android:elevation="0dp"
+                                 app:cardElevation="0dp"
+
                 android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -55,7 +58,8 @@
             android:layout_column="0"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -98,7 +102,8 @@
             android:layout_column="1"
             >
             <com.google.android.material.card.MaterialCardView
-                android:elevation="0dp"
+                                    app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -143,7 +148,8 @@
             android:layout_column="2"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -191,7 +197,8 @@
             >
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvkarka"
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -234,7 +241,8 @@
             android:layout_column="1"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -278,7 +286,8 @@
             android:layout_column="2"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -324,7 +333,8 @@
             android:layout_column="0"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -367,7 +377,8 @@
             android:layout_column="1"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -411,7 +422,8 @@
             android:layout_column="2"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -459,7 +471,8 @@
             android:layout_column="0"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -503,7 +516,8 @@
             android:layout_column="1"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
@@ -547,7 +561,8 @@
             android:layout_column="2"
             >
             <com.google.android.material.card.MaterialCardView
-                 android:elevation="0dp"
+                                     app:cardElevation="0dp"
+
                 android:layout_gravity="center"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"

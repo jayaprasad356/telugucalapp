@@ -174,7 +174,7 @@ public class SissuJanmaActivity extends AppCompatActivity {
             }
         });
 
-        tvMonthYear.setText(setTeluguMonth(month_year) + year);
+        tvMonthYear.setText(setTeluguMonth(month_year) +" - " + year);
 
 
         String month = String.valueOf(calendar.get(Calendar.MONTH));
@@ -323,7 +323,7 @@ public class SissuJanmaActivity extends AppCompatActivity {
             c.add(Calendar.MONTH, 1);
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) + " - " + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             childbirthlist(month);
     
@@ -355,7 +355,7 @@ public class SissuJanmaActivity extends AppCompatActivity {
 
             year = String.valueOf(c.get(Calendar.YEAR));
             month_year = df.format(c.getTime());
-            tvMonthYear.setText(setTeluguMonth(month_year) + year);
+            tvMonthYear.setText(setTeluguMonth(month_year) +" - " + year);
             String month = String.valueOf(c.get(Calendar.MONTH));
             childbirthlist(month);
             

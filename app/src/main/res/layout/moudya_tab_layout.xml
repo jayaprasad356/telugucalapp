@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ramabhadra"
-            android:text=""
+            android:text="hi"
+            android:gravity="center"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/_16sdp"
             />
