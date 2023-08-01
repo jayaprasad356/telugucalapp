@@ -183,6 +183,7 @@
 
 
                     <ImageView
+                        android:id="@+id/share"
                         android:layout_marginTop="@dimen/_130sdp"
                         android:layout_below="@+id/arrowleft"
                         android:layout_width="@dimen/_22sdp"

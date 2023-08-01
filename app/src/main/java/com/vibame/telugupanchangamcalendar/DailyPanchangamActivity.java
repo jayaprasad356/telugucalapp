@@ -79,7 +79,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     private SwipeableScrollView scrollView;
 
 
-    ImageView shareWhatsapp;
+    ImageView shareWhatsapp,share;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -152,12 +152,20 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         tvhc12 = findViewById(R.id.tvhc12);
         cal_card = findViewById(R.id.cal_card);
         shareWhatsapp = findViewById(R.id.shareWhatsapp);
+        share=findViewById(R.id.share);
 
         shareWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 convertLayoutToPDFAndShare();
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                convertLayoutAndShare();
             }
         });
 
@@ -441,6 +449,77 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             shareIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdfFile));
             shareIntent.setPackage("com.whatsapp");
             startActivity(Intent.createChooser(shareIntent, "Share PDF via"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void convertLayoutAndShare() {
+        // Get the RelativeLayout and ScrollView from the XML layout
+        RelativeLayout relativeLayout = findViewById(R.id.toolbar);
+        SwipeableScrollView scrollView = findViewById(R.id.scroll_view);
+
+        // Measure the full content height of the ScrollView
+        int totalHeight = 0;
+        for (int i = 0; i < scrollView.getChildCount(); i++) {
+            totalHeight += scrollView.getChildAt(i).getHeight();
+        }
+
+        // Define the bitmap dimensions for higher resolution
+        int width = relativeLayout.getWidth() * 2; // This will double the width of the bitmap
+        int height = (relativeLayout.getHeight() + totalHeight) * 2; // This will double the height of the bitmap
+
+        // Create a bitmap with the desired dimensions and scale
+        Bitmap combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas combinedCanvas = new Canvas(combinedBitmap);
+        combinedCanvas.scale(2f, 2f); // This will scale the canvas by 2x
+
+        // Draw a white background
+        combinedCanvas.drawColor(Color.WHITE);
+
+        // Draw the RelativeLayout (toolbar)
+        relativeLayout.draw(combinedCanvas);
+
+        // Translate the canvas to the ScrollView position
+        combinedCanvas.translate(0, relativeLayout.getHeight());
+
+        // Draw the ScrollView content
+        scrollView.draw(combinedCanvas);
+
+        try {
+            // Save the Bitmap to a file
+            File imageFile = new File(getExternalCacheDir(), "image.png");
+            OutputStream outputStream = new FileOutputStream(imageFile);
+
+            // Use higher compression quality for better clarity
+            combinedBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+            outputStream.flush();
+            outputStream.close();
+
+            // Convert the bitmap to PDF
+            PdfDocument pdfDocument = new PdfDocument();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(combinedBitmap.getWidth(), combinedBitmap.getHeight(), 1).create();
+            PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+            Canvas pdfCanvas = page.getCanvas();
+            pdfCanvas.drawBitmap(combinedBitmap, 0, 0, null);
+            pdfDocument.finishPage(page);
+
+            // Save the PDF to a file
+            File pdfFile = new File(getExternalCacheDir(), "layout.pdf");
+            OutputStream pdfOutputStream = new FileOutputStream(pdfFile);
+            pdfDocument.writeTo(pdfOutputStream);
+            pdfDocument.close();
+
+
+
+            // Content you want to share
+
+            // Create a sharing Intent
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("application/pdf");
+            sharingIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdfFile));
+            // Start the sharing activity
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
         } catch (Exception e) {
             e.printStackTrace();
         }
