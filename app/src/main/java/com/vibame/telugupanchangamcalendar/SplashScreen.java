@@ -303,7 +303,7 @@ public class SplashScreen extends AppCompatActivity {
                             JSONObject jsonObject1 = jsonArray13.getJSONObject(i);
                             if (jsonObject1 != null) {
 
-                                databaseHelper.AddToVideo(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.LINK));
+                                databaseHelper.AddToVideo(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.LINK),jsonObject1.getString(Constant.IMAGE));
                             } else {
                                 break;
                             }
@@ -324,7 +324,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
                         JSONArray jsonArray16 = object.getJSONArray(Constant.OTHER_MUSIC);
-                        Log.d("AUDIO_LIST",jsonArray16.toString());
+                        Log.d("Other_AUDIO_LIST",jsonArray16.toString());
 
 
                         for (int i = 0; i < jsonArray16.length(); i++) {

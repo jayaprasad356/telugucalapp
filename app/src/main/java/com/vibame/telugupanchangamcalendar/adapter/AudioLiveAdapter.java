@@ -48,8 +48,10 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final Audio audio1 = audio.get(position);
 
 
+        Glide.with(activity).load(audio1.getImage()).into(holder.image);
+
+
         holder.tvName.setText(audio1.getTitle());
-        Glide.with(activity).load(audio1.getImage()).placeholder(R.drawable.logo).into(holder.image);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

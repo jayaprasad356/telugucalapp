@@ -3,6 +3,10 @@ package com.vibame.telugupanchangamcalendar
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.pdf.PdfDocument
 import android.os.Bundle
 import android.util.Log
 import android.view.GestureDetector
@@ -11,6 +15,7 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.FileProvider
 import com.google.gson.Gson
 import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
 import com.vibame.telugupanchangamcalendar.activities.CalendarNewActivity
@@ -23,8 +28,7 @@ import org.json.JSONObject
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParserFactory
-import java.io.IOException
-import java.io.InputStream
+import java.io.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -146,6 +150,10 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
         "December"
     )
 
+    private lateinit var ivShare: ImageView
+    private lateinit var ivWhatsapp: ImageView
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -163,6 +171,26 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
 
         HomeCollection.date_collection_arr = ArrayList()
 
+
+
+
+
+        ivShare = findViewById(R.id.ivShare)
+        ivWhatsapp = findViewById(R.id.ivWhatsapp)
+
+
+
+        ivShare.setOnClickListener {
+
+            convertLayoutAndShare()
+
+        }
+
+        ivWhatsapp.setOnClickListener {
+
+            convertLayoutToPDFAndShare()
+
+        }
 
         cal_month = GregorianCalendar.getInstance() as GregorianCalendar
 
@@ -927,6 +955,154 @@ class MontlyActivity : AppCompatActivity() , SwipeableScrollView.SwipeListener{
         val intent = Intent(this@MontlyActivity, CalendarNewActivity::class.java)
         startActivity(intent)
 
+    }
+
+
+    private fun convertLayoutToPDFAndShare() {
+        // Get the RelativeLayout and ScrollView from the XML layout
+        val relativeLayout = findViewById<RelativeLayout>(R.id.toolbar)
+        val scrollView = findViewById<SwipeableScrollView>(R.id.scroll_view)
+
+        // Measure the full content height of the ScrollView
+        var totalHeight = 0
+        for (i in 0 until scrollView.childCount) {
+            totalHeight += scrollView.getChildAt(i).height
+        }
+
+        // Define the bitmap dimensions for higher resolution
+        val width = relativeLayout.width * 2 // This will double the width of the bitmap
+        val height =
+            (relativeLayout.height + totalHeight) * 2 // This will double the height of the bitmap
+
+        // Create a bitmap with the desired dimensions and scale
+        val combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val combinedCanvas = Canvas(combinedBitmap)
+        combinedCanvas.scale(2f, 2f) // This will scale the canvas by 2x
+
+        // Draw a white background
+        combinedCanvas.drawColor(Color.WHITE)
+
+        // Draw the RelativeLayout (toolbar)
+        relativeLayout.draw(combinedCanvas)
+
+        // Translate the canvas to the ScrollView position
+        combinedCanvas.translate(0f, relativeLayout.height.toFloat())
+
+        // Draw the ScrollView content
+        scrollView.draw(combinedCanvas)
+        try {
+            // Save the Bitmap to a file
+            val imageFile = File(externalCacheDir, "image.png")
+            val outputStream: OutputStream = FileOutputStream(imageFile)
+
+            // Use higher compression quality for better clarity
+            combinedBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+
+            // Convert the bitmap to PDF
+            val pdfDocument = PdfDocument()
+            val pageInfo = PdfDocument.PageInfo.Builder(combinedBitmap.width, combinedBitmap.height, 1).create()
+            val page = pdfDocument.startPage(pageInfo)
+            val pdfCanvas = page.canvas
+            pdfCanvas.drawBitmap(combinedBitmap, 0f, 0f, null)
+            pdfDocument.finishPage(page)
+
+            // Save the PDF to a file
+            val pdfFile = File(externalCacheDir, "layout.pdf")
+            val pdfOutputStream: OutputStream = FileOutputStream(pdfFile)
+            pdfDocument.writeTo(pdfOutputStream)
+            pdfDocument.close()
+
+            // Share the PDF using WhatsApp
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "application/pdf"
+            shareIntent.putExtra(
+                Intent.EXTRA_STREAM, FileProvider.getUriForFile(
+                    this,
+                    "$packageName.fileprovider", pdfFile
+                )
+            )
+            shareIntent.setPackage("com.whatsapp")
+            startActivity(Intent.createChooser(shareIntent, "Share PDF via"))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun convertLayoutAndShare() {
+        // Get the RelativeLayout and ScrollView from the XML layout
+        val relativeLayout = findViewById<RelativeLayout>(R.id.toolbar)
+        val scrollView = findViewById<SwipeableScrollView>(R.id.scroll_view)
+
+        // Measure the full content height of the ScrollView
+        var totalHeight = 0
+        for (i in 0 until scrollView.childCount) {
+            totalHeight += scrollView.getChildAt(i).height
+        }
+
+        // Define the bitmap dimensions for higher resolution
+        val width = relativeLayout.width * 2 // This will double the width of the bitmap
+        val height =
+            (relativeLayout.height + totalHeight) * 2 // This will double the height of the bitmap
+
+        // Create a bitmap with the desired dimensions and scale
+        val combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val combinedCanvas = Canvas(combinedBitmap)
+        combinedCanvas.scale(2f, 2f) // This will scale the canvas by 2x
+
+        // Draw a white background
+        combinedCanvas.drawColor(Color.WHITE)
+
+        // Draw the RelativeLayout (toolbar)
+        relativeLayout.draw(combinedCanvas)
+
+        // Translate the canvas to the ScrollView position
+        combinedCanvas.translate(0f, relativeLayout.height.toFloat())
+
+        // Draw the ScrollView content
+        scrollView.draw(combinedCanvas)
+        try {
+            // Save the Bitmap to a file
+            val imageFile = File(externalCacheDir, "image.png")
+            val outputStream: OutputStream = FileOutputStream(imageFile)
+
+            // Use higher compression quality for better clarity
+            combinedBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+
+            // Convert the bitmap to PDF
+            val pdfDocument = PdfDocument()
+            val pageInfo = PdfDocument.PageInfo.Builder(combinedBitmap.width, combinedBitmap.height, 1).create()
+            val page = pdfDocument.startPage(pageInfo)
+            val pdfCanvas = page.canvas
+            pdfCanvas.drawBitmap(combinedBitmap, 0f, 0f, null)
+            pdfDocument.finishPage(page)
+
+            // Save the PDF to a file
+            val pdfFile = File(externalCacheDir, "layout.pdf")
+            val pdfOutputStream: OutputStream = FileOutputStream(pdfFile)
+            pdfDocument.writeTo(pdfOutputStream)
+            pdfDocument.close()
+
+
+            // Content you want to share
+
+            // Create a sharing Intent
+            val sharingIntent = Intent(Intent.ACTION_SEND)
+            sharingIntent.type = "application/pdf"
+            sharingIntent.putExtra(
+                Intent.EXTRA_STREAM, FileProvider.getUriForFile(
+                    this,
+                    "$packageName.fileprovider", pdfFile
+                )
+            )
+            // Start the sharing activity
+            startActivity(Intent.createChooser(sharingIntent, "Share via"))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 }

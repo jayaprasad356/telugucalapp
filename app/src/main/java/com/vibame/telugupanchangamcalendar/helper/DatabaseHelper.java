@@ -205,7 +205,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String GrahaluSubMenuTableInfo = TABLE_GRAHALU_SUBMENU_NAME + "(" + ID + " TEXT ," + GHID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
     final String GrahaluTabTableInfo = TABLE_GRAHALU_TAB + "(" + ID + " TEXT ," + GRAHULU_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
     final String NakshatraluTableInfo = TABLE_NAKSHATRALU + "(" + ID + " TEXT ," + NAME + " TEXT ," + IMAGE + " TEXT)";
-    final String VideoTableInfo = TABLE_VIDEO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + LINK + " TEXT)";
+    final String VideoTableInfo = TABLE_VIDEO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + LINK + " TEXT," + IMAGE + " TEXT)";
     final String AudioTableInfo = TABLE_AUDIO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
     final String OtherMusisTableInfo = TABLE_OTHERMUSIC + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
 
@@ -2102,7 +2102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 Video video = new Video(cursor.getString(cursor.getColumnIndexOrThrow(ID)), cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
-                        , cursor.getString(cursor.getColumnIndexOrThrow(LINK)));
+                        , cursor.getString(cursor.getColumnIndexOrThrow(LINK)), cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
                 //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
                 videos.add(video);
             } while (cursor.moveToNext());
@@ -2346,7 +2346,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void AddToVideo(String id, String title, String link) {
+    public void AddToVideo(String id, String title, String link, String image) {
         try {
             if (!CheckVideotemExist(id).equalsIgnoreCase("0")) {
                 UpdateVideo(id, title, link);
@@ -2356,6 +2356,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values.put(ID, id);
                 values.put(TITLE, title);
                 values.put(LINK, link);
+                values.put(IMAGE, image);
                 db.insert(TABLE_VIDEO, null, values);
                 db.close();
             }

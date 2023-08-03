@@ -14,21 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.model.Festival;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 
-public class VideoLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     final Activity activity;
     ArrayList<Video> videos;
 
-    public VideoLiveAdapter(Activity activity, ArrayList<Video> videos) {
+    public NotificationAdapter(Activity activity, ArrayList<Video> videos) {
         this.activity = activity;
         this.videos = videos;
     }

@@ -48,6 +48,7 @@
 
 
                         <ImageView
+                            android:id="@+id/ivShare"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_30sdp"
                             android:layout_gravity="center"
@@ -76,6 +77,7 @@
 
 
                             <ImageView
+                                android:id="@+id/ivWhatsapp"
                                 android:layout_gravity="center"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
