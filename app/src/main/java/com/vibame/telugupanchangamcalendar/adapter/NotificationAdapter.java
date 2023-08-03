@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.vibame.telugupanchangamcalendar.R;
+import com.vibame.telugupanchangamcalendar.model.Notification;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
 import java.util.ArrayList;
@@ -22,16 +23,16 @@ import java.util.ArrayList;
 public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     final Activity activity;
-    ArrayList<Video> videos;
+    ArrayList<Notification> notifications;
 
-    public NotificationAdapter(Activity activity, ArrayList<Video> videos) {
+    public NotificationAdapter(Activity activity, ArrayList<Notification> notifications) {
         this.activity = activity;
-        this.videos = videos;
+        this.notifications = notifications;
     }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.video_tab_layout, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.notification_layout, parent, false);
         return new ExploreItemHolder(view);
     }
 
@@ -39,37 +40,32 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final Video video = videos.get(position);
+        final Notification notification = notifications.get(position);
 
-
-        Glide.with(activity).load(video.getImage()).into(holder.ivImg);
-
-        holder.tvName.setText(video.getTitle());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url = video.getLink();
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                activity.startActivity(i);
-            }
-        });
+        holder.id.setText(notification.getId());
+        holder.discription.setText(notification.getDiscription());
+        holder.time.setText(notification.getTime());
+        holder.date.setText(notification.getDate());
 
     }
 
     @Override
     public int getItemCount()
     {
-        return videos.size();
+        return notifications.size();
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
-        final TextView tvName;
-        final ImageView ivImg;
+        final TextView id;
+        final TextView discription;
+        final TextView date;
+        final TextView time;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
-            ivImg = itemView.findViewById(R.id.ivImg);
+            id = itemView.findViewById(R.id.tv_id);
+            discription = itemView.findViewById(R.id.tv_discription);
+            date = itemView.findViewById(R.id.tv_date);
+            time = itemView.findViewById(R.id.tv_time);
 
         }
     }
