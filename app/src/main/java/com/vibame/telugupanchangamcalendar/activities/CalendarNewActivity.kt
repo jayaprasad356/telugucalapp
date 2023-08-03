@@ -243,12 +243,8 @@ class CalendarNewActivity : AppCompatActivity() {
 
         }
         card1.setOnClickListener {
-
-            val intent = Intent(activity, NotificationActivity::class.java)
-            startActivity(intent)
-
-           //clicked="card1"
-           //dailyPanchangam()
+            clicked="card1"
+            dailyPanchangam()
         }
         // pesarathiu keatutha
         card2.setOnClickListener {
