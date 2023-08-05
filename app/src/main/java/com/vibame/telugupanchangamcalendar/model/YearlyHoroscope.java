@@ -1,14 +1,13 @@
 package com.vibame.telugupanchangamcalendar.model;
 
 public class YearlyHoroscope {
-    String id,sub_title,sub_description;
+    String id,graha_dhashakalamu_title,graha_dhashakalamu_description;
 
-    public YearlyHoroscope(String id, String sub_title, String sub_description) {
+    public YearlyHoroscope(String id, String graha_dhashakalamu_title, String graha_dhashakalamu_description) {
         this.id = id;
-        this.sub_title = sub_title;
-        this.sub_description = sub_description;
+        this.graha_dhashakalamu_title = graha_dhashakalamu_title;
+        this.graha_dhashakalamu_description = graha_dhashakalamu_description;
     }
-
 
     public String getId() {
         return id;
@@ -18,20 +17,20 @@ public class YearlyHoroscope {
         this.id = id;
     }
 
-    public String getSub_title() {
-        return sub_title;
+    public String getGraha_dhashakalamu_title() {
+        return graha_dhashakalamu_title;
     }
 
-    public void setSub_title(String sub_title) {
-        this.sub_title = sub_title;
+    public void setGraha_dhashakalamu_title(String graha_dhashakalamu_title) {
+        this.graha_dhashakalamu_title = graha_dhashakalamu_title;
     }
 
-    public String getSub_description() {
-        return sub_description;
+    public String getGraha_dhashakalamu_description() {
+        return graha_dhashakalamu_description;
     }
 
-    public void setSub_description(String sub_description) {
-        this.sub_description = sub_description;
+    public void setGraha_dhashakalamu_description(String graha_dhashakalamu_description) {
+        this.graha_dhashakalamu_description = graha_dhashakalamu_description;
     }
 }
 

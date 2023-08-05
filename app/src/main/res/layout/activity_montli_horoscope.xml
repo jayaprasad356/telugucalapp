@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MontliHoroscopeActivity">
+    tools:context=".DailyHoroscopeActivity"
+    android:background="@color/white"
+
+    >
 
 
     <LinearLayout
@@ -20,17 +23,17 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
             android:src="@drawable/ic_baseline_keyboard_arrow_left_24"/>
+
         <TextView
             android:id="@+id/tvHoroscopeTitle"
-            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Horoscope"
+            android:layout_gravity="center"
             android:layout_marginStart="@dimen/_10sdp"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_16sdp"
+            android:text="Horoscope"
             android:fontFamily="@font/sree"
-            />
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_16sdp" />
 
     </LinearLayout>
 
@@ -48,18 +51,16 @@
 
 
         <RelativeLayout
-            android:layout_marginBottom="@dimen/_20sdp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp">
 
 
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                app:cardElevation="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/calHeaderT"
-                app:cardCornerRadius="@dimen/_10sdp"
                 >
 
                 <ImageView
@@ -85,15 +86,16 @@
                     android:orientation="vertical"
                     >
 
+
                     <TextView
                         android:padding="@dimen/_4sdp"
                         android:textSize="@dimen/_16sdp"
                         android:id="@+id/tvRaasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="శ్రీ శోభకృత్‌ నామ సంవత్సర దిన ఫలా"
+                        android:text=""
                         android:layout_gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorAccent"
                         android:fontFamily="@font/sree"
                         />
 
@@ -104,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:layout_gravity="center|bottom"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/ramabhadra"
                         />
 
@@ -115,7 +117,7 @@
 
 
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -128,30 +130,28 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_daily"
-            android:padding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
             >
 
-
             <ScrollView
+                android:scrollbars="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/mallanna"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp" />
 
-            <TextView
-                android:id="@+id/tvDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="@dimen/_16sdp"
-                android:fontFamily="@font/mallanna"
-                />
+
 
             </ScrollView>
-
 
         </RelativeLayout>
 

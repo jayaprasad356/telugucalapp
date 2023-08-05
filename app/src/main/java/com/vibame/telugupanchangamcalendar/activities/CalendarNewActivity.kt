@@ -489,6 +489,14 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         val mButton = findViewById<RelativeLayout>(R.id.sidemenu)
+        val mNotification = findViewById<RelativeLayout>(R.id.notification)
+
+
+        mNotification.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, NotificationActivity::class.java)
+            startActivity(intent)
+        })
+
         drawerLayout = findViewById(R.id.drawer_layout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this,

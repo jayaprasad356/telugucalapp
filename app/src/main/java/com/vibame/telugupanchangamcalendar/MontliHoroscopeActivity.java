@@ -99,6 +99,9 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
         HashMap<String,String> params = new HashMap<>();
         params.put(Constant.TYPE,"Monthly");
         params.put(Constant.RASI,rasi);
+
+
+
         ApiConfig.RequestToVolley((result, response) -> {
             if(result) {
                 try {
@@ -111,6 +114,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
 
 
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
+                        tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
                        // tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
 
 

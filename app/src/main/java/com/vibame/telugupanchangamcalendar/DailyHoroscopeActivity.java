@@ -116,7 +116,8 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
 
 
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
-                        tvDate.setText("("+jsonArray.getJSONObject(0).getString("date")+")");
+                        tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
+                        //tvDate.setText("("+jsonArray.getJSONObject(0).getString("date")+")");
 
 
 

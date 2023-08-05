@@ -42,10 +42,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Notification notification = notifications.get(position);
 
-        holder.id.setText(notification.getId());
-        holder.discription.setText(notification.getDiscription());
-        holder.time.setText(notification.getTime());
-        holder.date.setText(notification.getDate());
+
+        holder.discription.setText(notification.getDescription());
+
 
     }
 

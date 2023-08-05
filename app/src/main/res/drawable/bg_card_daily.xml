@@ -8,6 +8,6 @@
         android:width="@dimen/_2sdp"
         android:color="@color/calHeaderT" />
 
-    <corners android:radius="22dp" />
+    <corners android:radius="16dp" />
 
 </shape>

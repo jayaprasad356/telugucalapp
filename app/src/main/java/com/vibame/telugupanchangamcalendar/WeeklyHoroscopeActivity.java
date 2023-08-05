@@ -112,7 +112,8 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
 
 
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
-                        tvDate.setText("("+jsonArray.getJSONObject(0).getString("week")+")");
+                        tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
+                       // tvDate.setText("("+jsonArray.getJSONObject(0).getString("week")+")");
 
 
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DailyHoroscopeActivity"
-    android:background="#f5f8fd"
+    android:background="@color/white"
 
     >
 
@@ -51,18 +51,16 @@
 
 
         <RelativeLayout
-            android:layout_marginBottom="@dimen/_20sdp"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_70sdp">
 
 
 
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                app:cardElevation="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/calHeaderT"
-                app:cardCornerRadius="@dimen/_10sdp"
                 >
 
                 <ImageView
@@ -95,9 +93,9 @@
                         android:id="@+id/tvRaasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="శ్రీ శోభకృత్‌ నామ సంవత్సర దిన ఫలా"
+                        android:text=""
                         android:layout_gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorAccent"
                         android:fontFamily="@font/sree"
                         />
 
@@ -108,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:layout_gravity="center|bottom"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/ramabhadra"
                         />
 
@@ -119,7 +117,7 @@
 
 
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -132,9 +130,14 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card_daily"
-            android:padding="@dimen/_20sdp"
+            android:padding="@dimen/_10sdp"
             >
+
+            <ScrollView
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
 
             <TextView
                 android:id="@+id/tvDescription"
@@ -146,6 +149,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp" />
 
+
+
+            </ScrollView>
 
         </RelativeLayout>
 

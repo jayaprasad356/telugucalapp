@@ -17,12 +17,12 @@ class NotificationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_notification)
 
         // Creating sample notification objects
-        val notification1 = Notification("1", "Notification 1", "2023-08-03", "10:00 AM")
-        val notification2 = Notification("2", "Notification 2", "2023-08-04", "02:30 PM")
+//        val notification1 = Notification("1", "Notification 1", "2023-08-03", "10:00 AM")
+//        val notification2 = Notification("2", "Notification 2", "2023-08-04", "02:30 PM")
 
         // Adding them to the list
-        notificationList.add(notification1)
-        notificationList.add(notification2)
+//        notificationList.add(notification1)
+//        notificationList.add(notification2)
 
         // Get a reference to the RecyclerView
         val recyclerView: RecyclerView = findViewById(R.id.rv_notification)

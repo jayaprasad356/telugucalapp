@@ -48,6 +48,7 @@ public class Constant {
     public static final String KARTHI_VRUSTI_LIST = BaseUrl + "karthi_vrusti-list.php";
     public static final String SUBHA_MUHURTHAMULU_LIST = BaseUrl + "subha_muhurthamulu-list.php";
     public static final String SUBHA_MUHURTHAM_VARIANT_LIST = BaseUrl + "subha_muhurtham_variant_list.php";
+    public static final String NOTIFICATION_LIST = BaseUrl + "notifications.php";
     public static final String IMPORTANT_DAYS = BaseUrl + "important_days.php";
 
     public static final String ID = "id";
