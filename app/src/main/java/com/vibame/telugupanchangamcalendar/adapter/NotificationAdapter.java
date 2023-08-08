@@ -43,7 +43,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         final Notification notification = notifications.get(position);
 
 
-        holder.discription.setText(notification.getDescription());
+        holder.tvTitle.setText(notification.getTitle());
+        holder.tv_discription.setText(notification.getDescription());
+        holder.date.setText(notification.getDate());
+        holder.time.setText(notification.getTime());
 
 
     }
@@ -56,15 +59,17 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
         final TextView id;
-        final TextView discription;
+        final TextView tv_discription;
         final TextView date;
         final TextView time;
+        final TextView tvTitle;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.tv_id);
-            discription = itemView.findViewById(R.id.tv_discription);
+            tv_discription = itemView.findViewById(R.id.tv_discription);
             date = itemView.findViewById(R.id.tv_date);
             time = itemView.findViewById(R.id.tv_time);
+            tvTitle = itemView.findViewById(R.id.tv_title);
 
         }
     }

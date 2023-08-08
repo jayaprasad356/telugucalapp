@@ -57,7 +57,7 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".NotificationActivity"
+            android:name=".activities.NotificationActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -73,6 +73,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+
 
         <activity
             android:name=".activities.LiveDharsanamActivity"

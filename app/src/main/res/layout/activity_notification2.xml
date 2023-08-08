@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".activities.NotificationActivity">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
@@ -46,4 +47,5 @@
         android:id="@+id/rv_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

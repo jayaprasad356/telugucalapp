@@ -16,8 +16,7 @@
         android:background="@color/calHeaderT"
         android:paddingHorizontal="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        >
+        android:paddingBottom="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,12 +58,12 @@
                     </androidx.cardview.widget.CardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        app:cardElevation="0dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="10dp">
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="0dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -73,11 +72,11 @@
                             android:padding="@dimen/_10sdp">
 
                             <com.google.android.material.card.MaterialCardView
-                                app:cardElevation="0dp"
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:backgroundTint="@color/calMonth"
-                                app:cardCornerRadius="@dimen/_60sdp">
+                                app:cardCornerRadius="@dimen/_60sdp"
+                                app:cardElevation="0dp">
 
 
                                 <ImageView
@@ -165,21 +164,21 @@
 
 
                     <ImageView
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_below="@+id/arrowleft"
                         android:id="@+id/share"
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
+                        android:layout_below="@+id/arrowleft"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/ic_reload" />
 
                     <ImageView
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_below="@+id/arrowleft"
                         android:id="@+id/shareWhatsapp"
                         android:layout_width="@dimen/_22sdp"
                         android:layout_height="@dimen/_22sdp"
+                        android:layout_below="@+id/arrowleft"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/whatsapp_ic" />
 
 
@@ -223,6 +222,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/rlMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar">
@@ -241,11 +241,11 @@
 
 
                 <RelativeLayout
-                    android:paddingBottom="@dimen/_10sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:background="@color/calHeaderT"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@color/calHeaderT"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp">
 
 
                     <androidx.cardview.widget.CardView
@@ -260,9 +260,6 @@
                             android:padding="@dimen/_5sdp">
 
 
-
-
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -274,54 +271,55 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/mallanna"
-                                    android:textStyle="bold"
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/tvtext3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/mallanna"
-                                    android:textStyle="bold"
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/tvtext4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/mallanna"
-                                    android:textStyle="bold"
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/tvtext5"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/mallanna"
-                                    android:textStyle="bold"
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/tvtext6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/mallanna"
-                                    android:textStyle="bold"                                    android:gravity="center"
+                                    android:gravity="center"
                                     android:text=""
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
 
 
                             </LinearLayout>
@@ -339,8 +337,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="@dimen/_10sdp">
-
-
 
 
                     <androidx.cardview.widget.CardView
@@ -498,7 +494,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:fontFamily="@font/mallanna"
                                 android:gravity="center"
-                                android:paddingTop="@dimen/_12sdp"
+                                android:paddingTop="@dimen/_14sdp"
                                 android:text=""
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_14sdp" />
@@ -1213,11 +1209,11 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-                                        android:textColor="@color/colorBlack" />
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_14sdp" />
 
 
                                 </RelativeLayout>
@@ -1233,12 +1229,12 @@
                                         android:layout_width="@dimen/_28sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
-
                                         android:lines="2"
-                                        android:textColor="@color/colorBlack" />
+
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="@dimen/_14sdp" />
 
                                 </RelativeLayout>
 
@@ -1253,12 +1249,12 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
                                         />
 
@@ -1274,12 +1270,12 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -1312,11 +1308,11 @@
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
                                             android:fontFamily="@font/ramabhadra"
-                                            android:textSize="@dimen/_14sdp"
                                             android:gravity="center"
                                             android:lines="2"
-
                                             android:textColor="@color/colorBlack"
+
+                                            android:textSize="@dimen/_14sdp"
 
 
                                             />
@@ -1335,12 +1331,12 @@
                                             android:layout_width="@dimen/_30sdp"
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
-                                            android:textSize="@dimen/_14sdp"
                                             android:fontFamily="@font/ramabhadra"
                                             android:gravity="center"
                                             android:lines="2"
-
                                             android:textColor="@color/colorBlack"
+
+                                            android:textSize="@dimen/_14sdp"
 
                                             />
 
@@ -1356,43 +1352,38 @@
                                     android:background="@drawable/bg_stroke_center">
 
 
-
                                     <ImageView
-                                        android:layout_centerHorizontal="true"
-                                        android:backgroundTint="@color/calHeaderT"
                                         android:layout_width="@dimen/_20sdp"
                                         android:layout_height="@dimen/_20sdp"
+                                        android:layout_centerHorizontal="true"
                                         android:background="@drawable/ic_baseline_arrow_forward_24"
-                                        />
+                                        android:backgroundTint="@color/calHeaderT" />
 
                                     <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
                                         android:layout_alignParentRight="true"
                                         android:layout_centerVertical="true"
-                                        android:backgroundTint="@color/calHeaderT"
-                                        android:layout_width="@dimen/_20sdp"
-                                        android:layout_height="@dimen/_20sdp"
                                         android:background="@drawable/ic_baseline_arrow_downward_24"
-                                        />
+                                        android:backgroundTint="@color/calHeaderT" />
 
 
                                     <ImageView
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
                                         android:layout_alignParentBottom="true"
                                         android:layout_centerHorizontal="true"
-                                        android:backgroundTint="@color/calHeaderT"
-                                        android:layout_width="@dimen/_20sdp"
-                                        android:layout_height="@dimen/_20sdp"
                                         android:background="@drawable/ic_baseline_arrow_back_24"
-                                        />
+                                        android:backgroundTint="@color/calHeaderT" />
 
 
                                     <ImageView
-                                        android:layout_alignParentLeft="true"
-                                        android:layout_centerVertical="true"
-                                        android:backgroundTint="@color/calHeaderT"
                                         android:layout_width="@dimen/_20sdp"
                                         android:layout_height="@dimen/_20sdp"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_centerVertical="true"
                                         android:background="@drawable/ic_baseline_arrow_upward_24"
-                                        />
+                                        android:backgroundTint="@color/calHeaderT" />
 
                                     <TextView
                                         android:id="@+id/tvDate1"
@@ -1427,12 +1418,12 @@
                                             android:layout_width="@dimen/_30sdp"
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
-                                            android:textSize="@dimen/_14sdp"
                                             android:fontFamily="@font/ramabhadra"
                                             android:gravity="center"
                                             android:lines="2"
-
                                             android:textColor="@color/colorBlack"
+
+                                            android:textSize="@dimen/_14sdp"
 
 
                                             />
@@ -1451,14 +1442,14 @@
                                             android:layout_width="@dimen/_30sdp"
                                             android:layout_height="wrap_content"
                                             android:layout_centerInParent="true"
-                                            android:textSize="@dimen/_14sdp"
                                             android:fontFamily="@font/ramabhadra"
                                             android:gravity="center"
-
                                             android:lines="2"
 
+                                            android:textColor="@color/colorBlack"
 
-                                            android:textColor="@color/colorBlack" />
+
+                                            android:textSize="@dimen/_14sdp" />
 
 
                                     </RelativeLayout>
@@ -1483,12 +1474,12 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
                                         />
 
@@ -1506,11 +1497,11 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
                                         android:fontFamily="@font/ramabhadra"
-                                        android:textSize="@dimen/_14sdp"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
 
                                         />
@@ -1527,12 +1518,12 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
                                         />
 
@@ -1549,12 +1540,12 @@
                                         android:layout_width="@dimen/_30sdp"
                                         android:layout_height="wrap_content"
                                         android:layout_centerInParent="true"
-                                        android:textSize="@dimen/_14sdp"
                                         android:fontFamily="@font/ramabhadra"
                                         android:gravity="center"
                                         android:lines="2"
-
                                         android:textColor="@color/colorBlack"
+
+                                        android:textSize="@dimen/_14sdp"
 
                                         />
 
@@ -1563,6 +1554,131 @@
 
 
                             </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:paddingHorizontal="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="ర - సూర్యుడు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="బు - బుధుడు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="శ - శని"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                            <Space
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="match_parent"/>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="చం - చంద్రుడు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="గు - గురువు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="రా - రాహువు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                            <Space
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="match_parent"/>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="కు - కుజుడు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="కే - కేతువు"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/mallanna"
+                                    android:text="శ - శని"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+
 
 
                         </LinearLayout>
@@ -1580,5 +1696,6 @@
 
 
     </RelativeLayout>
+
 
 </RelativeLayout>

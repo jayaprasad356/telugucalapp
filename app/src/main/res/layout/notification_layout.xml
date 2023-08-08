@@ -37,12 +37,20 @@
 
 
             <LinearLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:orientation="vertical">
 
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_discription"
@@ -61,9 +69,11 @@
                     android:layout_marginTop="@dimen/_5sdp">
 
                     <ImageView
+                        android:layout_marginRight="@dimen/_4sdp"
+                        android:layout_centerVertical="true"
                         android:id="@+id/iv_callendar"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
                         android:src="@drawable/calendar" />
 
                     <TextView
@@ -75,9 +85,11 @@
                         android:text="03/08/2020" />
 
                     <ImageView
+                        android:layout_marginRight="@dimen/_4sdp"
+                        android:layout_centerVertical="true"
                         android:id="@+id/iv_time"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
                         android:layout_toLeftOf="@+id/tv_time"
 
                         android:src="@drawable/calendar" />
