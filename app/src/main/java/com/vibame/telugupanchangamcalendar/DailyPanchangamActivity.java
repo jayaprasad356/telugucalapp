@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -80,6 +81,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
 
 
     ImageView shareWhatsapp,share;
+    LinearLayout llRefresh;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -153,6 +155,17 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         cal_card = findViewById(R.id.cal_card);
         shareWhatsapp = findViewById(R.id.shareWhatsapp);
         share=findViewById(R.id.share);
+        llRefresh = findViewById(R.id.llRefresh);
+
+
+        llRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, DailyPanchangamActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_top_right, R.anim.slide_out_bottom_left);            finish();
+            }
+        });
 
         shareWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override

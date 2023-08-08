@@ -58,7 +58,8 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
+                        app:cardElevation="0dp"
                         android:layout_alignParentRight="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -94,7 +95,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
 
                     <TextView
@@ -129,8 +130,8 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/arrowleft"
                         android:layout_centerVertical="true"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         app:cardCornerRadius="@dimen/_60sdp"
                         android:backgroundTint="@color/calHeaderT"
                         >
@@ -151,8 +152,8 @@
                         android:id="@+id/arrowright"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         app:cardCornerRadius="@dimen/_60sdp"
                         android:backgroundTint="@color/calHeaderT"
                         >
@@ -302,6 +303,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="ఆది"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textAlignment="center"
                                     android:textSize="@dimen/_14sdp"
@@ -314,6 +316,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="సోమ"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
                                     />
@@ -325,6 +328,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:text="మంగ"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
                                     />
@@ -336,6 +340,7 @@
                                     android:layout_weight="1"
                                     android:gravity="center"
                                     android:layout_marginRight="5dp"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:text="బుధ"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
@@ -349,6 +354,7 @@
                                     android:gravity="center"
                                     android:layout_marginRight="5dp"
                                     android:text="గురు"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
                                     />
@@ -361,6 +367,7 @@
                                     android:gravity="center"
                                     android:layout_marginRight="5dp"
                                     android:text="శుక్ర"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
                                     />
@@ -373,6 +380,7 @@
                                     android:gravity="center"
                                     android:layout_marginRight="5dp"
                                     android:text="శని"
+                                    android:fontFamily="@font/ramabhadra"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp"
                                     />
@@ -382,7 +390,9 @@
                                 android:id="@+id/gv_calendar"
                                 android:layout_below="@+id/ll_calendar"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_200sdp"
+                                android:layout_height="210dp"
+                                android:nestedScrollingEnabled="true"
+                                android:scrollbars="none"
                                 android:gravity="center"
                                 android:listSelector="@android:color/transparent"
                                 android:numColumns="7">
@@ -415,11 +425,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
                         android:text="ఉపవాసం రోజులు"
                         android:gravity="center"
                         android:fontFamily="@font/ramabhadra"
-                        android:textSize="@dimen/_12sdp"
+                        android:textSize="@dimen/_20sdp"
                         android:textColor="@color/white"
                         />
 
@@ -445,7 +455,10 @@
                         >
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -453,6 +466,13 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/moon"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -463,7 +483,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_16sdp" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -472,12 +492,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/moon"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvPournami"
@@ -489,9 +504,9 @@
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
                                 android:text=""
-                                android:textSize="@dimen/_16sdp"
 
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -513,7 +528,10 @@
 
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -521,6 +539,13 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/darkmoon"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -531,7 +556,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_16sdp" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -544,12 +569,7 @@
 
 
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/darkmoon"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvAmavasya"
@@ -589,7 +609,10 @@
                         >
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -597,6 +620,13 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/vengata"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -608,7 +638,7 @@
                                 android:textSize="@dimen/_16sdp"
                                 />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -617,12 +647,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/vengata"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvAkadashi"
@@ -630,13 +655,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_vertical"
+
                                 android:fontFamily="@font/mallanna"
                                 android:gravity="center"
-                                android:textSize="@dimen/_16sdp"
-
                                 android:padding="@dimen/_5sdp"
                                 android:text=""
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -658,7 +683,10 @@
 
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -666,6 +694,14 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/nandhi"
+                                android:layout_centerVertical="true"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -676,7 +712,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_16sdp" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -689,12 +725,7 @@
 
 
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/nandhi"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvPradosha"
@@ -735,7 +766,10 @@
                         >
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -743,6 +777,13 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/muruga"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -754,7 +795,7 @@
                                 android:textSize="@dimen/_16sdp"
                                 />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -763,12 +804,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/muruga"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvShashti"
@@ -779,10 +815,10 @@
                                 android:fontFamily="@font/mallanna"
                                 android:gravity="center"
                                 android:padding="@dimen/_5sdp"
-                                android:textSize="@dimen/_16sdp"
 
                                 android:text=""
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -804,7 +840,10 @@
 
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -813,6 +852,14 @@
 
                             >
 
+
+                            <ImageView
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/vinayaga"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -820,10 +867,9 @@
                                 android:fontFamily="@font/ramabhadra"
                                 android:text="చవితి"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/_16sdp"
-                                />
+                                android:textSize="@dimen/_16sdp" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -836,12 +882,6 @@
 
 
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/vinayaga"
-                                android:layout_centerVertical="true"
-                                />
 
                             <TextView
                                 android:id="@+id/tvChavithi"
@@ -882,7 +922,10 @@
                         >
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -890,6 +933,12 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+                            <ImageView
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:background="@drawable/sivaa"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -901,7 +950,7 @@
                                 android:textSize="@dimen/_16sdp"
                                 />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -910,12 +959,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/sivaa"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvMasaShivaratri"
@@ -925,11 +969,11 @@
                                 android:layout_gravity="center_vertical"
                                 android:fontFamily="@font/mallanna"
                                 android:gravity="center"
-                                android:padding="@dimen/_5sdp"
-                                android:textSize="@dimen/_16sdp"
 
+                                android:padding="@dimen/_5sdp"
                                 android:text=""
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -951,7 +995,10 @@
 
 
 
-                        <RelativeLayout
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/bgcard_topradius"
@@ -959,6 +1006,13 @@
                             android:paddingVertical="@dimen/_3sdp"
 
                             >
+
+                            <ImageView
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:background="@drawable/vinayaga_2"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -970,7 +1024,7 @@
                                 android:textSize="@dimen/_16sdp"
                                 />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
 
 
@@ -983,12 +1037,7 @@
 
 
 
-                            <ImageView
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:background="@drawable/vinayaga_2"
-                                android:layout_centerVertical="true"
-                                />
+
 
                             <TextView
                                 android:id="@+id/tvSankatacharathi"
@@ -1011,7 +1060,6 @@
 
 
                 </LinearLayout>
-
 
 
 
