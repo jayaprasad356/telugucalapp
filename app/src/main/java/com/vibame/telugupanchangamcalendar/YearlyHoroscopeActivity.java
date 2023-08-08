@@ -3,16 +3,25 @@ package com.vibame.telugupanchangamcalendar;
 import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +37,9 @@ import com.vibame.telugupanchangamcalendar.model.YearlyHoroscope;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -56,6 +68,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
 
     RecyclerView recycler_view;
+    ImageView shareWhatsapp, share;
 
 
 
@@ -69,7 +82,8 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         session = new Session(activity);
 
 
-
+        share=findViewById(R.id.iv_share);
+        shareWhatsapp=findViewById(R.id.iv_share_whatsapp);
         tvMainTitle = findViewById(R.id.tvMainTitle);
         tvMainDescription = findViewById(R.id.tvMainDescription);
         tvjanma_nama_nakshathram = findViewById(R.id.tvjanma_nama_nakshathram);
@@ -143,7 +157,19 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         horoscope();
         horoscopeVarient();
 
+        shareWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                convertLayoutToPDFAndShareWhatsapp();
+            }
+        });
 
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                convertLayoutAndShare();
+            }
+        });
     }
 
     private void horoscopeVarient() {
@@ -263,5 +289,133 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
 
     }
+    private void convertLayoutToPDFAndShareWhatsapp() {
+        // Get the RelativeLayout and ScrollView from the XML layout
+        ScrollView scrollView = findViewById(R.id.scroll_view);
 
+        // Measure the full content height of the ScrollView
+        int totalHeight = 0;
+        for (int i = 0; i < scrollView.getChildCount(); i++) {
+            totalHeight += scrollView.getChildAt(i).getHeight();
+        }
+
+        // Define the bitmap dimensions for higher resolution
+        int width = scrollView.getWidth() * 2; // This will double the width of the bitmap
+        int height = ( totalHeight) * 2; // This will double the height of the bitmap
+
+        // Create a bitmap with the desired dimensions and scale
+        Bitmap combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas combinedCanvas = new Canvas(combinedBitmap);
+        combinedCanvas.scale(2f, 2f); // This will scale the canvas by 2x
+
+        // Draw a white background
+        combinedCanvas.drawColor(Color.WHITE);
+
+
+
+        // Draw the ScrollView content
+        scrollView.draw(combinedCanvas);
+
+        try {
+            // Save the Bitmap to a file
+            File imageFile = new File(getExternalCacheDir(), "image.png");
+            OutputStream outputStream = new FileOutputStream(imageFile);
+
+            // Use higher compression quality for better clarity
+            combinedBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+            outputStream.flush();
+            outputStream.close();
+
+            // Convert the bitmap to PDF
+            PdfDocument pdfDocument = new PdfDocument();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(combinedBitmap.getWidth(), combinedBitmap.getHeight(), 1).create();
+            PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+            Canvas pdfCanvas = page.getCanvas();
+            pdfCanvas.drawBitmap(combinedBitmap, 0, 0, null);
+            pdfDocument.finishPage(page);
+
+            // Save the PDF to a file
+            File pdfFile = new File(getExternalCacheDir(), "layout.pdf");
+            OutputStream pdfOutputStream = new FileOutputStream(pdfFile);
+            pdfDocument.writeTo(pdfOutputStream);
+            pdfDocument.close();
+
+            // Share the PDF using WhatsApp
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("application/pdf");
+            shareIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdfFile));
+            shareIntent.setPackage("com.whatsapp");
+            startActivity(Intent.createChooser(shareIntent, "Share PDF via"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void convertLayoutAndShare() {
+        // Get the RelativeLayout and ScrollView from the XML layout
+        ScrollView scrollView = findViewById(R.id.scroll_view);
+
+        // Measure the full content height of the ScrollView
+        int totalHeight = 0;
+        for (int i = 0; i < scrollView.getChildCount(); i++) {
+            totalHeight += scrollView.getChildAt(i).getHeight();
+        }
+
+        // Define the bitmap dimensions for higher resolution
+        int width = scrollView.getWidth() * 2; // This will double the width of the bitmap
+        int height = ( totalHeight) * 2; // This will double the height of the bitmap
+
+        // Create a bitmap with the desired dimensions and scale
+        Bitmap combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas combinedCanvas = new Canvas(combinedBitmap);
+        combinedCanvas.scale(2f, 2f); // This will scale the canvas by 2x
+
+        // Draw a white background
+        combinedCanvas.drawColor(Color.WHITE);
+
+
+
+        // Draw the ScrollView content
+        scrollView.draw(combinedCanvas);
+
+
+        try {
+            // Save the Bitmap to a file
+            File imageFile = new File(getExternalCacheDir(), "image.png");
+            OutputStream outputStream = new FileOutputStream(imageFile);
+
+            // Use higher compression quality for better clarity
+            combinedBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+            outputStream.flush();
+            outputStream.close();
+
+            // Convert the bitmap to PDF
+            PdfDocument pdfDocument = new PdfDocument();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(combinedBitmap.getWidth(), combinedBitmap.getHeight(), 1).create();
+            PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+            Canvas pdfCanvas = page.getCanvas();
+            pdfCanvas.drawBitmap(combinedBitmap, 0, 0, null);
+            pdfDocument.finishPage(page);
+
+            // Save the PDF to a file
+            File pdfFile = new File(getExternalCacheDir(), "layout.pdf");
+            OutputStream pdfOutputStream = new FileOutputStream(pdfFile);
+            pdfDocument.writeTo(pdfOutputStream);
+            pdfDocument.close();
+
+
+
+            // Content you want to share
+
+            // Create a sharing Intent
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+            sharingIntent.setType("application/pdf");
+            sharingIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdfFile));
+            // Start the sharing activity
+            startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

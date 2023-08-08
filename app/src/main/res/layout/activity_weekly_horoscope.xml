@@ -40,6 +40,7 @@
 
 
     <LinearLayout
+        android:id="@+id/ll_weekly_horse"
         android:layout_marginTop="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:layout_below="@id/toolbar"
@@ -64,6 +65,7 @@
                 >
 
                 <ImageView
+                    android:id="@+id/iv_share_whatsapp"
                     android:layout_margin="@dimen/_2sdp"
                     android:layout_gravity="right|bottom"
                     android:layout_width="@dimen/_22sdp"
@@ -72,6 +74,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/iv_share"
                     android:layout_margin="@dimen/_2sdp"
                     android:layout_gravity="left|bottom"
                     android:layout_width="@dimen/_22sdp"
