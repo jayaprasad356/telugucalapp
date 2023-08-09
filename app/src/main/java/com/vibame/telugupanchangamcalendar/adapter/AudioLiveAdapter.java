@@ -1,5 +1,6 @@
 package com.vibame.telugupanchangamcalendar.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -27,7 +28,6 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     final Activity activity;
     ArrayList<Audio> audio;
-    private final int limit = 4;
 
 
     public AudioLiveAdapter(Activity activity, ArrayList<Audio> audio) {
@@ -43,7 +43,7 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, @SuppressLint("RecyclerView") int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Audio audio1 = audio.get(position);
 
@@ -78,13 +78,14 @@ public class AudioLiveAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount()
     {
 
-        if(audio.size() > limit){
-            return limit;
-        }
-        else
-        {
-            return audio.size();
-        }
+        return audio.size();
+//        if(audio.size() > limit){
+//            return limit;
+//        }
+//        else
+//        {
+//
+//        }
 
     }
 

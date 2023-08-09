@@ -49,7 +49,7 @@ public class LiveDharsanamActivity extends AppCompatActivity {
     }
 
     private void audiolive() {
-        Log.d("AUDIO_COUNT", String.valueOf(databaseHelper.getOtherMusicList()));
+        Log.d("AUDIO_COUNT", String.valueOf(databaseHelper.getOtherAudiosCount()));
         if (databaseHelper.getAudioList().size() != 0) {
             audioLiveAdapter = new AudioLiveAdapter(activity, databaseHelper.getOtherMusicList());
             recyclerView.setAdapter(audioLiveAdapter);

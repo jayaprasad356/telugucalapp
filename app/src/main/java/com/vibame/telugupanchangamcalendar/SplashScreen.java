@@ -310,7 +310,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
 
                         JSONArray jsonArray14 = object.getJSONArray(Constant.AUDIO_LIST);
-                        Log.d("AUDIO_LIST",jsonArray14.toString());
+                        Log.d("hgcuytfyit",jsonArray14.toString());
 
 
                         for (int i = 0; i < jsonArray14.length(); i++) {

@@ -468,7 +468,7 @@
                             >
 
                             <ImageView
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/moon"
@@ -541,7 +541,7 @@
                             >
 
                             <ImageView
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/darkmoon"
@@ -625,7 +625,7 @@
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/vengata"
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 />
 
                             <TextView
@@ -696,7 +696,7 @@
                             >
 
                             <ImageView
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/nandhi"
@@ -782,7 +782,7 @@
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/muruga"
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 />
 
                             <TextView
@@ -857,7 +857,7 @@
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/vinayaga"
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 />
 
                             <TextView
@@ -937,7 +937,7 @@
                                 android:layout_width="@dimen/_30sdp"
                                 android:layout_height="@dimen/_30sdp"
                                 android:background="@drawable/sivaa"
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 />
 
                             <TextView
@@ -1011,7 +1011,7 @@
                                 android:layout_width="@dimen/_26sdp"
                                 android:layout_height="@dimen/_26sdp"
                                 android:background="@drawable/vinayaga_2"
-                                android:layout_marginTop="@dimen/_2sdp"
+                                android:visibility="gone"
                                 />
 
                             <TextView

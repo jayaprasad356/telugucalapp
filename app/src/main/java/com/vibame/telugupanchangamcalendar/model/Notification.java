@@ -2,15 +2,16 @@ package com.vibame.telugupanchangamcalendar.model;
 
 public class Notification {
 
-    String id,title, description, time, date;
+    String id,title, description, time, date,link;
 
 
-    public Notification(String id, String title, String description, String time, String date) {
+    public Notification(String id, String title, String description, String time, String date, String link) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.time = time;
         this.date = date;
+        this.link = link;
     }
 
     public String getId() {
@@ -51,5 +52,14 @@ public class Notification {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

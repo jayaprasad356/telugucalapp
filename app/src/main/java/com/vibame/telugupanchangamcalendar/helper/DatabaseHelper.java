@@ -2131,6 +2131,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+    public int getOtherAudiosCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_OTHERMUSIC;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
     public ArrayList<Audio> getAudioList() {
         final ArrayList<Audio> audio = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();

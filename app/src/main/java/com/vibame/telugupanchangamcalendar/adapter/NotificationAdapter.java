@@ -48,6 +48,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holder.date.setText(notification.getDate());
         holder.time.setText(notification.getTime());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(notification.getLink()!=null && !notification.getLink().isEmpty()){
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(notification.getLink()));
+                    activity.startActivity(browserIntent);
+                }
+            }
+        });
+
 
     }
 
