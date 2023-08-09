@@ -204,6 +204,19 @@ public class SplashScreen extends AppCompatActivity {
 //                                break;
 //                            }
 //                        }
+                        JSONArray jsonArray16 = object.getJSONArray(Constant.OTHER_MUSIC);
+                        Log.d("Other_AUDIO_LIST",jsonArray16.toString());
+
+
+                        for (int i = 0; i < jsonArray16.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray16.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToOtherMusic(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),
+                                        jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
+                            } else {
+                                break;
+                            }
+                        }
                         JSONArray jsonArray4 = object.getJSONArray(Constant.MUHURTHAM_LIST);
 
                         for (int i = 0; i < jsonArray4.length(); i++) {
@@ -323,18 +336,7 @@ public class SplashScreen extends AppCompatActivity {
                         }
 
 
-                        JSONArray jsonArray16 = object.getJSONArray(Constant.OTHER_MUSIC);
-                        Log.d("Other_AUDIO_LIST",jsonArray16.toString());
 
-
-                        for (int i = 0; i < jsonArray16.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray16.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToOtherMusic(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
-                            } else {
-                                break;
-                            }
-                        }
 
 
 

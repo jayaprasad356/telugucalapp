@@ -2157,21 +2157,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return audio;
     }
     public ArrayList<Audio> getOtherMusicList() {
-        final ArrayList<Audio> audio = new ArrayList<>();
+        final ArrayList<Audio> audioList = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_OTHERMUSIC, null);
-        if (cursor.moveToFirst()) {
-            do {
-                Audio audio1 = new Audio(cursor.getString(cursor.getColumnIndexOrThrow(ID)), cursor.getString(cursor.getColumnIndexOrThrow(TITLE))
-                        , cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)), cursor.getString(cursor.getColumnIndexOrThrow(LYRICS)), cursor.getString(cursor.getColumnIndexOrThrow(AUDIO)));
-                audio.add(audio1);
-            } while (cursor.moveToNext());
 
+        if (cursor.getCount() > 0) { // Check if cursor is not empty
+            while (cursor.moveToNext()) {
+                Audio audio = new Audio(
+                        cursor.getString(cursor.getColumnIndexOrThrow(ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(LYRICS)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(AUDIO))
+                );
+                audioList.add(audio);
+            }
         }
+
         cursor.close();
         db.close();
-        return audio;
+        return audioList;
     }
+
 
     public void AddToPoojalu(String pjid, String name, String image) {
         try {
@@ -2412,11 +2419,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.insert(TABLE_OTHERMUSIC, null, values);
                 db.close();
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     private void UpdateGrahaluTab(String id, String grahalu_id, String subcategory_id, String title, String description, String sub_title, String sub_description) {
         SQLiteDatabase db = this.getWritableDatabase();
