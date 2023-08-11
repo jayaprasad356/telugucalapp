@@ -4,6 +4,8 @@ import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
@@ -27,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -58,7 +61,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class DailyPanchangamActivity extends AppCompatActivity   implements SwipeableScrollView.SwipeListener {
+public class DailyPanchangamActivity extends AppCompatActivity implements SwipeableScrollView.SwipeListener {
 
     TextView tvDate, tvDate1, tvtext1, tvtext2, tvtext3, tvtext4, tvtext5, tvtext6, tvSunrise, tvSunset, tvMoonRise, tvMoonset, tvFestival;
     TextView tvThithi, TVNakshathram, tvYogam, tvKaranam, tvAbhijithMuhurtham, tvBhramaMuhurtham, tvAmruthaKalam, tvRahukalam, tvYamagandam, tvDhurmuhurtham, tvVarjyam, tvGulika;
@@ -76,11 +79,11 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
     DatabaseHelper databaseHelper;
 
 
-    private RelativeLayout relativeLayout;
+    private ConstraintLayout relativeLayout;
     private SwipeableScrollView scrollView;
 
 
-    ImageView shareWhatsapp,share;
+    ImageView shareWhatsapp, share;
     LinearLayout llRefresh;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
@@ -99,6 +102,15 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             return false;
         }
     });
+
+
+    FloatingActionButton mAddFab, mAddAlarmFab, mAddPersonFab;
+
+    // These are taken to make visible and invisible along with FABs
+    TextView addAlarmActionText, addPersonActionText;
+
+    // to check whether sub FAB buttons are visible or not.
+    Boolean isAllFabsVisible;
 
 
     @SuppressLint("MissingInflatedId")
@@ -154,7 +166,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         tvhc12 = findViewById(R.id.tvhc12);
         cal_card = findViewById(R.id.cal_card);
         shareWhatsapp = findViewById(R.id.shareWhatsapp);
-        share=findViewById(R.id.share);
+        share = findViewById(R.id.share);
         llRefresh = findViewById(R.id.llRefresh);
 
 
@@ -163,7 +175,8 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             public void onClick(View view) {
                 Intent intent = new Intent(activity, DailyPanchangamActivity.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_top_right, R.anim.slide_out_bottom_left);            finish();
+                overridePendingTransition(R.anim.slide_in_top_right, R.anim.slide_out_bottom_left);
+                finish();
             }
         });
 
@@ -181,6 +194,74 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
                 convertLayoutAndShare();
             }
         });
+
+
+        // Register all the FABs with their IDs This FAB button is the Parent
+        mAddFab = findViewById(R.id.add_fab);
+
+        // FAB button
+        mAddAlarmFab = findViewById(R.id.add_alarm_fab);
+        mAddPersonFab = findViewById(R.id.add_person_fab);
+
+        // Also register the action name text, of all the FABs.
+        addAlarmActionText = findViewById(R.id.add_alarm_action_text);
+        addPersonActionText = findViewById(R.id.add_person_action_text);
+
+        // Now set all the FABs and all the action name texts as GONE
+        mAddAlarmFab.setVisibility(View.GONE);
+        mAddPersonFab.setVisibility(View.GONE);
+        addAlarmActionText.setVisibility(View.GONE);
+        addPersonActionText.setVisibility(View.GONE);
+
+        // make the boolean variable as false, as all the
+        // action name texts and all the sub FABs are invisible
+        isAllFabsVisible = false;
+
+        // We will make all the FABs and action name texts
+        // visible only when Parent FAB button is clicked So
+        // we have to handle the Parent FAB button first, by
+        // using setOnClickListener you can see below
+        mAddFab.setOnClickListener(view -> {
+            if (!isAllFabsVisible) {
+                // when isAllFabsVisible becomes true make all
+                // the action name texts and FABs VISIBLE
+                mAddAlarmFab.show();
+                mAddPersonFab.show();
+                addAlarmActionText.setVisibility(View.VISIBLE);
+                addPersonActionText.setVisibility(View.VISIBLE);
+
+                // make the boolean variable true as we
+                // have set the sub FABs visibility to GONE
+                isAllFabsVisible = true;
+            } else {
+                // when isAllFabsVisible becomes true make
+                // all the action name texts and FABs GONE.
+                mAddAlarmFab.hide();
+                mAddPersonFab.hide();
+                addAlarmActionText.setVisibility(View.GONE);
+                addPersonActionText.setVisibility(View.GONE);
+
+                // make the boolean variable false as we
+                // have set the sub FABs visibility to GONE
+                isAllFabsVisible = false;
+            }
+        });
+        // below is the sample action to handle add person FAB. Here it shows simple Toast msg.
+        // The Toast will be shown only when they are visible and only when user clicks on them
+        mAddPersonFab.setOnClickListener(
+
+                view -> convertLayoutAndShare()
+
+        );
+
+        // below is the sample action to handle add alarm FAB. Here it shows simple Toast msg
+        // The Toast will be shown only when they are visible and only when user clicks on them
+        mAddAlarmFab.setOnClickListener(
+                view ->
+                        convertLayoutToPDFAndShare()
+
+
+        );
 
 
         scrollView = findViewById(R.id.scroll_view);
@@ -292,7 +373,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
 
 
             int year = calendar.get(Calendar.YEAR);
-             monthIndex = calendar.get(Calendar.MONTH);
+            monthIndex = calendar.get(Calendar.MONTH);
             monthNames = new DateFormatSymbols().getMonths();
             currentMonth = monthNames[monthIndex];
             // move the calendar one day back the date
@@ -321,13 +402,11 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             calendar.add(Calendar.DAY_OF_YEAR, 1);
 
             int year = calendar.get(Calendar.YEAR);
-             monthIndex = calendar.get(Calendar.MONTH);
+            monthIndex = calendar.get(Calendar.MONTH);
             monthNames = new DateFormatSymbols().getMonths();
             currentMonth = monthNames[monthIndex];
             // Update your UI with the new date
             updateUI(calendar.getTime());
-
-
 
 
         }
@@ -366,19 +445,20 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             return null; // Return null in case of any parsing errors
         }
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         gestureDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
 
-    public  void onSwipeLeft() {
+    public void onSwipeLeft() {
         // Handle swipe left
 
         forward();
     }
 
-    public  void onSwipeRight() {
+    public void onSwipeRight() {
         // Handle swipe right
         backward();
     }
@@ -391,12 +471,6 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
         // Call super.onBackPressed() to allow the default back button behavior (finishing the activity)
         super.onBackPressed();
     }
-
-
-
-
-
-
 
 
     private void convertLayoutToPDFAndShare() {
@@ -466,6 +540,7 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             e.printStackTrace();
         }
     }
+
     private void convertLayoutAndShare() {
         // Get the RelativeLayout and ScrollView from the XML layout
         RelativeLayout relativeLayout = findViewById(R.id.toolbar);
@@ -524,7 +599,6 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             pdfDocument.close();
 
 
-
             // Content you want to share
 
             // Create a sharing Intent
@@ -537,10 +611,6 @@ public class DailyPanchangamActivity extends AppCompatActivity   implements Swip
             e.printStackTrace();
         }
     }
-
-
-
-
 
 
 }
