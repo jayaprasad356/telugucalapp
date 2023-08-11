@@ -42,11 +42,10 @@
 
 
 
-    <ScrollView
+    <com.vibame.telugupanchangamcalendar.SwipeableScrollView
         android:id="@+id/scroll_view"
         android:scrollbars="none"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -494,7 +493,7 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </com.vibame.telugupanchangamcalendar.SwipeableScrollView>
 
 
     </RelativeLayout>
@@ -518,7 +517,7 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_alarm_fab"
+        android:id="@+id/fab_share_whatsapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -540,9 +539,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="@+id/add_alarm_fab"
-        app:layout_constraintEnd_toStartOf="@+id/add_alarm_fab"
-        app:layout_constraintTop_toTopOf="@+id/add_alarm_fab" />
+        app:layout_constraintBottom_toBottomOf="@+id/fab_share_whatsapp"
+        app:layout_constraintEnd_toStartOf="@+id/fab_share_whatsapp"
+        app:layout_constraintTop_toTopOf="@+id/fab_share_whatsapp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_person_fab"
@@ -550,9 +549,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/add_alarm_fab"
-        app:layout_constraintEnd_toEndOf="@+id/add_alarm_fab"
-        app:layout_constraintStart_toStartOf="@+id/add_alarm_fab"
+        app:layout_constraintBottom_toTopOf="@+id/fab_share_whatsapp"
+        app:layout_constraintEnd_toEndOf="@+id/fab_share_whatsapp"
+        app:layout_constraintStart_toStartOf="@+id/fab_share_whatsapp"
         app:srcCompat="@drawable/ic_baseline_share_24"
         app:tint="@color/white"
         android:backgroundTint="#FF6A4D"

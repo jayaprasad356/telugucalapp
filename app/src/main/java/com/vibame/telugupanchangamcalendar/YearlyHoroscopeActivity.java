@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,6 +71,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
     RecyclerView recycler_view;
     ImageView shareWhatsapp, share;
+    FloatingActionButton fabShareWhatsapp;
 
 
     FloatingActionButton mAddFab, mAddAlarmFab, mAddPersonFab;
@@ -91,12 +93,14 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         mAddFab = findViewById(R.id.add_fab);
 
         // FAB button
-        mAddAlarmFab = findViewById(R.id.add_alarm_fab);
+        mAddAlarmFab = findViewById(R.id.fab_share_whatsapp);
         mAddPersonFab = findViewById(R.id.add_person_fab);
 
         // Also register the action name text, of all the FABs.
         addAlarmActionText = findViewById(R.id.add_alarm_action_text);
         addPersonActionText = findViewById(R.id.add_person_action_text);
+
+        fabShareWhatsapp=findViewById(R.id.fab_share_whatsapp);
 
         // Now set all the FABs and all the action name texts as GONE
         mAddAlarmFab.setVisibility(View.GONE);
@@ -229,7 +233,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         horoscope();
         horoscopeVarient();
 
-        shareWhatsapp.setOnClickListener(new View.OnClickListener() {
+        fabShareWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 convertLayoutToPDFAndShareWhatsapp();
@@ -362,31 +366,37 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
     }
     private void convertLayoutToPDFAndShareWhatsapp() {
-        // Get the RelativeLayout and ScrollView from the XML layout
-        ScrollView scrollView = findViewById(R.id.scroll_view);
+        // Get the ScrollView from the XML layout
+        SwipeableScrollView scrollView = findViewById(R.id.scroll_view);
 
-        // Measure the full content height of the ScrollView
+// Measure the total content height of the ScrollView
         int totalHeight = 0;
         for (int i = 0; i < scrollView.getChildCount(); i++) {
             totalHeight += scrollView.getChildAt(i).getHeight();
         }
 
-        // Define the bitmap dimensions for higher resolution
-        int width = scrollView.getWidth() * 2; // This will double the width of the bitmap
-        int height = ( totalHeight) * 2; // This will double the height of the bitmap
-
-        // Create a bitmap with the desired dimensions and scale
-        Bitmap combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+// Create a bitmap with the desired dimensions
+        Bitmap combinedBitmap = Bitmap.createBitmap(scrollView.getWidth(), totalHeight, Bitmap.Config.ARGB_8888);
         Canvas combinedCanvas = new Canvas(combinedBitmap);
-        combinedCanvas.scale(2f, 2f); // This will scale the canvas by 2x
 
-        // Draw a white background
+// Draw a white background
         combinedCanvas.drawColor(Color.WHITE);
 
+// Define a rectangle to hold the area to be drawn
+        Rect rect = new Rect();
+        scrollView.getDrawingRect(rect);
 
+// Scroll the content and draw it to the canvas in segments
+        int currentHeight = 0;
+        while (currentHeight < totalHeight) {
+            scrollView.scrollTo(0, currentHeight);
+            scrollView.draw(combinedCanvas);
+            currentHeight += rect.height();
+        }
 
-        // Draw the ScrollView content
-        scrollView.draw(combinedCanvas);
+// Reset the scroll position
+        scrollView.scrollTo(0, 0);
+
 
         try {
             // Save the Bitmap to a file
@@ -424,31 +434,38 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
         }
     }
     private void convertLayoutAndShare() {
-        // Get the RelativeLayout and ScrollView from the XML layout
-        ScrollView scrollView = findViewById(R.id.scroll_view);
+        // Get the ScrollView from the XML layout
+        SwipeableScrollView scrollView = findViewById(R.id.scroll_view);
 
-        // Measure the full content height of the ScrollView
+// Measure the total content height of the ScrollView
         int totalHeight = 0;
         for (int i = 0; i < scrollView.getChildCount(); i++) {
             totalHeight += scrollView.getChildAt(i).getHeight();
         }
 
-        // Define the bitmap dimensions for higher resolution
-        int width = scrollView.getWidth() * 2; // This will double the width of the bitmap
-        int height = ( totalHeight) * 2; // This will double the height of the bitmap
-
-        // Create a bitmap with the desired dimensions and scale
-        Bitmap combinedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+// Create a bitmap with the desired dimensions
+        Bitmap combinedBitmap = Bitmap.createBitmap(scrollView.getWidth(), totalHeight, Bitmap.Config.ARGB_8888);
         Canvas combinedCanvas = new Canvas(combinedBitmap);
-        combinedCanvas.scale(2f, 2f); // This will scale the canvas by 2x
 
-        // Draw a white background
+// Draw a white background
         combinedCanvas.drawColor(Color.WHITE);
 
+// Define a rectangle to hold the area to be drawn
+        Rect rect = new Rect();
+        scrollView.getDrawingRect(rect);
+
+// Scroll the content and draw it to the canvas in segments
+        int currentHeight = 0;
+        while (currentHeight < totalHeight) {
+            scrollView.scrollTo(0, currentHeight);
+            scrollView.draw(combinedCanvas);
+            currentHeight += rect.height();
+        }
+
+// Reset the scroll position
+        scrollView.scrollTo(0, 0);
 
 
-        // Draw the ScrollView content
-        scrollView.draw(combinedCanvas);
 
 
         try {
