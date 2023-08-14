@@ -67,8 +67,14 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 Glide.with(activity).load(grahalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);
             }
         } else {
-            holder.tvName.setText(grahalu.getName());
-            Glide.with(activity).load(grahalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);
+            if (grahalu.getName().equals("Less")) {
+
+                holder.tvName.setText(grahalu.getName());
+                holder.imgGrahalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+            } else {
+                holder.tvName.setText(grahalu.getName());
+                Glide.with(activity).load(grahalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);
+            }
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -79,18 +85,25 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     type = "finish";
                     notifyDataSetChanged();
                 } else {
-                    session.setData(Constant.GRAHALU_ID, grahalu.getId());
-                    if (databaseHelper.getGrahaluTabList(grahalu.getId(), "0").size() != 0) {
-                        Intent intent = new Intent(activity, GrahaluTabActivity.class);
-                        intent.putExtra(Constant.SUBCATEGORY_ID, "0");
-                        intent.putExtra(Constant.TITLE, grahalu.getName());
-                        activity.startActivity(intent);
+                    if(grahalu.getName().equals("Less")){
 
-                    } else {
-                        Intent intent = new Intent(activity, GrahaluSubMenuActivity.class);
-                        intent.putExtra(Constant.TITLE, grahalu.getName());
-                        intent.putExtra(Constant.ID, grahalu.getId());
-                        activity.startActivity(intent);
+                        count=4;
+                        type="home";
+                        notifyDataSetChanged();
+                    }else {
+                        session.setData(Constant.GRAHALU_ID, grahalu.getId());
+                        if (databaseHelper.getGrahaluTabList(grahalu.getId(), "0").size() != 0) {
+                            Intent intent = new Intent(activity, GrahaluTabActivity.class);
+                            intent.putExtra(Constant.SUBCATEGORY_ID, "0");
+                            intent.putExtra(Constant.TITLE, grahalu.getName());
+                            activity.startActivity(intent);
+
+                        } else {
+                            Intent intent = new Intent(activity, GrahaluSubMenuActivity.class);
+                            intent.putExtra(Constant.TITLE, grahalu.getName());
+                            intent.putExtra(Constant.ID, grahalu.getId());
+                            activity.startActivity(intent);
+                        }
                     }
 
                 }

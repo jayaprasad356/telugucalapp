@@ -2643,12 +2643,13 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/ll_less"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
                                     android:padding="@dimen/_5sdp"
-                                    android:visibility="invisible">
+                                    android:visibility="visible">
 
                                     <RelativeLayout
                                         android:layout_width="@dimen/_45sdp"
@@ -2670,6 +2671,7 @@
                                             <ImageView
                                                 android:layout_width="60dp"
                                                 android:layout_height="60dp"
+                                                android:background="@drawable/more"
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
@@ -2683,7 +2685,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:gravity="center"
-                                        android:text="Pushapalu"
+                                        android:text="Less"
                                         android:textColor="@color/colorBlack"
                                         android:textSize="@dimen/_8sdp" />
 

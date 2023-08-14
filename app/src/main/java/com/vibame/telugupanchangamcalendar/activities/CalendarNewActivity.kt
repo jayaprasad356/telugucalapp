@@ -30,6 +30,8 @@ import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
 import com.vibame.telugupanchangamcalendar.helper.*
+import com.vibame.telugupanchangamcalendar.model.Grahalu
+import com.vibame.telugupanchangamcalendar.model.Poojalu
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -61,6 +63,8 @@ class CalendarNewActivity : AppCompatActivity() {
     var llRashulu: LinearLayout? = null
     var llMonth: LinearLayout? = null
     var more: LinearLayout? = null
+    var less: LinearLayout? = null
+
     var sakunaActivity: Activity? = null
     var kakiActivity: Activity? = null
     var pilliActivity: Activity? = null
@@ -686,6 +690,7 @@ class CalendarNewActivity : AppCompatActivity() {
         llRashulu = findViewById(R.id.llRashulu)
         llMonth = findViewById(R.id.llMonth)
         more = findViewById(R.id.more)
+        less=findViewById(R.id.ll_less)
 
 
 //        sliderView = findViewById(R.id.main_image)
@@ -756,6 +761,16 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         })
+
+        less!!.setOnClickListener {
+            var lltelungusanskritmore = findViewById<LinearLayout>(R.id.lltelungusanskritmore);
+
+            lltelungusanskritmore!!.visibility = View.GONE
+            llAksharalu!!.visibility = View.GONE
+            more!!.visibility = View.VISIBLE
+
+        }
+
 
 
 
@@ -902,20 +917,53 @@ class CalendarNewActivity : AppCompatActivity() {
     private fun setupDrawerContent(nvDrawer: NavigationView) {
 
     }
-
-
     private fun poojaluList() {
         if (databaseHelper!!.poojaluList.size != 0) {
-            poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList, 4, "home")
+            // Create a new array list to hold the data
+            val updatedPoojaluList = ArrayList<Poojalu>()
+
+            // Add data from the database helper to the array list
+            updatedPoojaluList.addAll(databaseHelper!!.poojaluList)
+
+            // Create a new Poojalu instance for the "Less" item
+            val lessItem = Poojalu("new_id", "Less", "local")
+
+            // Add the "Less" item to the array list
+            updatedPoojaluList.add(lessItem)
+
+            // Create the adapter with the updated array list
+            poojaluAdapter = PoojaluAdapter(activity, updatedPoojaluList, 4, "home")
             rvPoojaluNomulu!!.adapter = poojaluAdapter
         } else {
             rvPoojaluNomulu!!.visibility = View.GONE
         }
     }
 
+
+   // private fun poojaluList() {
+   //
+   //    if (databaseHelper!!.poojaluList.size != 0) {
+
+   //        poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList, 4, "home")
+   //        rvPoojaluNomulu!!.adapter = poojaluAdapter
+   //    } else {
+   //        rvPoojaluNomulu!!.visibility = View.GONE
+   //    }
+   //}
+
     private fun grahaluList() {
         if (databaseHelper!!.grahaluList.size != 0) {
-            grahaluAdapter = GrahaluAdapter(activity, databaseHelper!!.grahaluList, 4, "home")
+
+            val updatedgrahaluList = ArrayList<Grahalu>();
+
+            updatedgrahaluList.addAll(databaseHelper!!.grahaluList)
+
+            // Create a new Poojalu instance for the "Less" item
+            val lessItem = Grahalu("new_id", "Less", "local")
+
+            // Add the "Less" item to the array list
+            updatedgrahaluList.add(lessItem)
+            grahaluAdapter = GrahaluAdapter(activity, updatedgrahaluList, 4, "home")
             rvGrahaluStars!!.adapter = grahaluAdapter
         } else {
             rvGrahaluStars!!.visibility = View.GONE

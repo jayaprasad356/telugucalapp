@@ -61,13 +61,25 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 holder.tvName.setText("More");
                 holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
             }else {
+                if (poojalu.getName().equals("Less")){
+                    holder.tvName.setText(poojalu.getName());
+                    holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                }else {
+                    holder.tvName.setText(poojalu.getName());
+                    Glide.with(activity).load(poojalu.getImage()).placeholder(R.drawable.logo).into(holder.imgPoojalu);
+                }
+            }
+        }else {
+            if (poojalu.getName().equals("Less")){
+                holder.tvName.setText(poojalu.getName());
+                holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+            }else {
                 holder.tvName.setText(poojalu.getName());
                 Glide.with(activity).load(poojalu.getImage()).placeholder(R.drawable.logo).into(holder.imgPoojalu);
             }
-        }else {
-            holder.tvName.setText(poojalu.getName());
-            Glide.with(activity).load(poojalu.getImage()).placeholder(R.drawable.logo).into(holder.imgPoojalu);
         }
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,17 +88,24 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     type="finish";
                     notifyDataSetChanged();
                 } else {
-                    session.setData(Constant.POOJALU_ID, poojalu.getId());
-                    if (databaseHelper.getPoojaluTabList(poojalu.getId(), "0").size() != 0) {
-                        Intent intent = new Intent(activity, PoojaluTabActivity.class);
-                        intent.putExtra(Constant.SUBCATEGORY_ID, "0");
-                        intent.putExtra(Constant.TITLE, poojalu.getName());
-                        activity.startActivity(intent);
-                    } else {
-                        Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
-                        intent.putExtra(Constant.TITLE, poojalu.getName());
-                        intent.putExtra(Constant.ID, poojalu.getId());
-                        activity.startActivity(intent);
+                    if (poojalu.getName().equals("Less")){
+                        count=4;
+                        type="home";
+                        notifyDataSetChanged();
+
+                    }else {
+                        session.setData(Constant.POOJALU_ID, poojalu.getId());
+                        if (databaseHelper.getPoojaluTabList(poojalu.getId(), "0").size() != 0) {
+                            Intent intent = new Intent(activity, PoojaluTabActivity.class);
+                            intent.putExtra(Constant.SUBCATEGORY_ID, "0");
+                            intent.putExtra(Constant.TITLE, poojalu.getName());
+                            activity.startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
+                            intent.putExtra(Constant.TITLE, poojalu.getName());
+                            intent.putExtra(Constant.ID, poojalu.getId());
+                            activity.startActivity(intent);
+                        }
                     }
                 }
             }
