@@ -57,6 +57,13 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".Pachangam.DailyPage1Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.NotificationActivity"
             android:exported="false">
             <meta-data
@@ -73,8 +80,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-
 
         <activity
             android:name=".activities.LiveDharsanamActivity"
@@ -106,20 +111,6 @@
         </activity>
         <activity
             android:name=".Monthlypanchangam1Activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Dailypanchangam1Activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Dailypanchangam2Activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

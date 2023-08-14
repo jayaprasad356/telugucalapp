@@ -127,7 +127,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
                         android:padding="@dimen/_5sdp">
 
 
@@ -1730,9 +1730,6 @@
         android:backgroundTint="#316CFF"
         />
 
-    <!-- Floating action button for add alarm -->
-    <!-- Make sure that you are constraining this
-         button to the parent button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_alarm_fab"
         android:layout_width="wrap_content"

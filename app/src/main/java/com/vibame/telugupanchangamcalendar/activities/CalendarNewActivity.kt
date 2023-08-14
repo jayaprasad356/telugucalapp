@@ -25,6 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 import com.vibame.telugupanchangamcalendar.*
+import com.vibame.telugupanchangamcalendar.Pachangam.DailyPage1Activity
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
@@ -942,7 +943,7 @@ class CalendarNewActivity : AppCompatActivity() {
     private fun dailyPanchangam() {
         if (session!!.getBoolean(Constant.DAILY_PANCHANG_DATA)){
             if (clicked.equals("card1")) {
-                val intent = Intent(activity, DailyPanchangamActivity::class.java)
+                val intent = Intent(activity, DailyPage1Activity::class.java)
                 intent.putExtra("id", "1")
                 startActivity(intent)
             }else if (clicked.equals("card2")){

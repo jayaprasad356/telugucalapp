@@ -4,18 +4,13 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.vibame.telugupanchangamcalendar.Dailypanchangam1Activity;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.activities.RamayamSubMenuActivity;
-import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.Session;
-import com.vibame.telugupanchangamcalendar.model.RamayanamMenu;
 import com.vibame.telugupanchangamcalendar.model.RamayanamSubMenu;
 
 import java.util.ArrayList;
