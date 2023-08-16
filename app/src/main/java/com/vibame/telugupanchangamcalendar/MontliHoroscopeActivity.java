@@ -173,7 +173,7 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
             rasi = "Meenam";
         }
 
-        tvDate.setText(year+" - "+ raasi);
+
         shareWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -217,7 +217,84 @@ public class MontliHoroscopeActivity extends AppCompatActivity {
 
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
                         tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
-                       // tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
+                    //    tvDate.setText("("+jsonArray.getJSONObject(0).getString("month")+")");
+
+
+                        String apiMonth ;
+                        apiMonth = jsonArray.getJSONObject(0).getString("month")+" - "+ year ;
+                        String Month;
+
+
+                        if (apiMonth == "January") {
+
+                            Month = "జనవరి";
+
+                        }
+
+                        else if (apiMonth == "February") {
+
+                            Month = "ఫిబ్రవరి";
+
+                        }
+                        else if (apiMonth == "March") {
+
+                            Month = "మార్చి";
+
+                        }
+                        else if (apiMonth == "April") {
+
+                            Month = "ఏప్రిల్";
+
+                        }
+                        else if (apiMonth == "May") {
+
+                            Month = "మే";
+
+                        }
+                        else if (apiMonth == "June") {
+
+                            Month = "జూన్";
+
+                        }
+                        else if (apiMonth == "July") {
+
+                            Month = "జూలై";
+
+                        }
+                        else if (apiMonth == "August") {
+
+                            Month = "ఆగస్టు";
+
+                        }
+                        else if (apiMonth == "September") {
+
+                            Month = "సెప్టెంబర్";
+
+                        }
+                        else if (apiMonth == "October") {
+
+                            Month = "అక్టోబర్";
+
+                        }
+                        else if (apiMonth == "November") {
+
+                            Month = "నవంబర్";
+
+                        }
+                        else if (apiMonth == "December") {
+
+                            Month = "డిసెంబర్";
+
+                        }
+                        else {
+
+                            Month = "డిసెంబర్";
+
+                        }
+
+
+
+                        tvDate.setText( Month +" - "+ year);
 
 
 

@@ -57,6 +57,13 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".viewpager2_.DailyPage1Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Pachangam.DailyPage1Activity"
             android:exported="false">
             <meta-data

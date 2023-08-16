@@ -96,18 +96,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@drawable/bg_card_daily"
+                    android:backgroundTint="@color/calHeaderT"
                     >
 
 
                     <TextView
-                        android:padding="@dimen/_4sdp"
                         android:textSize="@dimen/_16sdp"
                         android:id="@+id/tvRaasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:layout_gravity="center"
-                        android:textColor="@color/colorAccent"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/sree"
                         />
 
@@ -118,7 +119,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:layout_gravity="center|bottom"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/ramabhadra"
                         />
 
@@ -139,10 +140,11 @@
 
 
         <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
             >
 
             <ScrollView

@@ -1757,7 +1757,7 @@
                                             android:layout_width="60dp"
                                             android:layout_height="60dp"
                                             android:layout_gravity="center"
-                                            android:background="@drawable/more"
+                                            android:background="@drawable/more_rightward"
                                             android:scaleType="fitXY" />
 
                                     </com.google.android.material.card.MaterialCardView>
@@ -2671,7 +2671,7 @@
                                             <ImageView
                                                 android:layout_width="60dp"
                                                 android:layout_height="60dp"
-                                                android:background="@drawable/more"
+                                                android:background="@drawable/upload"
                                                 android:layout_gravity="center"
                                                 android:scaleType="fitXY" />
 
@@ -2686,8 +2686,9 @@
                                         android:layout_gravity="center"
                                         android:gravity="center"
                                         android:text="Less"
+                                        android:fontFamily="@font/ramabhadra"
                                         android:textColor="@color/colorBlack"
-                                        android:textSize="@dimen/_8sdp" />
+                                        android:textSize="15sp" />
 
                                 </LinearLayout>
 

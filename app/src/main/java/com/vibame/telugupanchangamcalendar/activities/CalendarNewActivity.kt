@@ -25,13 +25,13 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
 import com.vibame.telugupanchangamcalendar.*
-import com.vibame.telugupanchangamcalendar.Pachangam.DailyPage1Activity
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
 import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
 import com.vibame.telugupanchangamcalendar.helper.*
 import com.vibame.telugupanchangamcalendar.model.Grahalu
 import com.vibame.telugupanchangamcalendar.model.Poojalu
+import com.vibame.telugupanchangamcalendar.viewpager2_.DailyPage1Activity
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat

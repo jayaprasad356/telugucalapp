@@ -61,7 +61,7 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (type.equals("home")) {
             if (position == 3) {
                 holder.tvName.setText("More");
-                holder.imgGrahalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                holder.imgGrahalu.setImageDrawable(activity.getDrawable(R.drawable.more_rightward));
             } else {
                 holder.tvName.setText(grahalu.getName());
                 Glide.with(activity).load(grahalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);
@@ -70,7 +70,7 @@ public class GrahaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             if (grahalu.getName().equals("Less")) {
 
                 holder.tvName.setText(grahalu.getName());
-                holder.imgGrahalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                holder.imgGrahalu.setImageDrawable(activity.getDrawable(R.drawable.upload));
             } else {
                 holder.tvName.setText(grahalu.getName());
                 Glide.with(activity).load(grahalu.getImage()).placeholder(R.drawable.logo).into(holder.imgGrahalu);

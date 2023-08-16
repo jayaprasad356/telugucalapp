@@ -59,11 +59,11 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (type.equals("home")) {
             if (position == 3) {
                 holder.tvName.setText("More");
-                holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more_rightward));
             }else {
                 if (poojalu.getName().equals("Less")){
                     holder.tvName.setText(poojalu.getName());
-                    holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                    holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more_rightward));
                 }else {
                     holder.tvName.setText(poojalu.getName());
                     Glide.with(activity).load(poojalu.getImage()).placeholder(R.drawable.logo).into(holder.imgPoojalu);
@@ -72,7 +72,7 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }else {
             if (poojalu.getName().equals("Less")){
                 holder.tvName.setText(poojalu.getName());
-                holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.more));
+                holder.imgPoojalu.setImageDrawable(activity.getDrawable(R.drawable.upload));
             }else {
                 holder.tvName.setText(poojalu.getName());
                 Glide.with(activity).load(poojalu.getImage()).placeholder(R.drawable.logo).into(holder.imgPoojalu);
