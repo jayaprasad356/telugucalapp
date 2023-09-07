@@ -41,11 +41,11 @@ public class ApiConfig extends Application {
         try {
             message = "";
             if (error instanceof NetworkError) {
-                message = "Cannot connect to Internet...Please check your connection!";
+                message = "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !";
             } else if (error instanceof ServerError) {
                 message = "The server could not be found. Please try again after some time!";
             } else if (error instanceof AuthFailureError) {
-                message = "Cannot connect to Internet...Please check your connection!";
+                message = "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !";
             } else if (error instanceof ParseError) {
                 message = "Parsing error! Please try again after some time!";
             } else if (error instanceof TimeoutError) {

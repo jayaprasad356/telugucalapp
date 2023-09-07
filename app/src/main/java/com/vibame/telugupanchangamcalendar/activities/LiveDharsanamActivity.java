@@ -2,6 +2,7 @@ package com.vibame.telugupanchangamcalendar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -41,7 +42,7 @@ public class LiveDharsanamActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity, 3);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(gridLayoutManager);
         audiolive();
 

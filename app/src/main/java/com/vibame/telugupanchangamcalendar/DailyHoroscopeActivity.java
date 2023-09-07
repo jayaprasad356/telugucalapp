@@ -177,7 +177,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         // get corrent year
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
-        tvDate.setText(year + " - " + raasi);
+
 
 
         shareWhatsapp.setOnClickListener(new View.OnClickListener() {
@@ -218,6 +218,9 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
                         tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
                         tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
                         //tvDate.setText("("+jsonArray.getJSONObject(0).getString("date")+")");
+
+                        tvDate.setText(jsonArray.getJSONObject(0).getString("title_description"));
+
 
 
                     } else {

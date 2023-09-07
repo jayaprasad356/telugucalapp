@@ -356,9 +356,9 @@ public class DailyActivity extends AppCompatActivity implements SwipeableScrollV
         TVNakshathram.setText(dailyModel.getNakshatram());
         tvYogam.setText(dailyModel.getYogam());
         tvKaranam.setText(dailyModel.getKaranam());
-        tvAbhijithMuhurtham.setText(dailyModel.getAbhijithMuhurtham());
-        tvBhramaMuhurtham.setText(dailyModel.getBhramaMuhurtham());
-        tvAmruthaKalam.setText(dailyModel.getAmruthaKalam());
+        tvAbhijithMuhurtham.setText(dailyModel.getAbhijith_muhurtham());
+        tvBhramaMuhurtham.setText(dailyModel.getBhrama_muhurtham());
+        tvAmruthaKalam.setText(dailyModel.getAmrutha_kalam());
         tvRahukalam.setText(dailyModel.getRahukalam());
         tvYamagandam.setText(dailyModel.getYamakandam());
         tvDhurmuhurtham.setText(dailyModel.getDhurmuhurtham());

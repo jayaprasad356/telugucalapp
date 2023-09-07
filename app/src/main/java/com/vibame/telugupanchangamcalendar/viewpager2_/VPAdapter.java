@@ -1,5 +1,6 @@
 package com.vibame.telugupanchangamcalendar.viewpager2_;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +16,15 @@ import java.util.ArrayList;
 
 public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
 
-    ArrayList<ViewPagerItem> viewPagerItemArrayList;
+    ArrayList<ViewPagerItem> dailyModels;
     int startPosition;
 
-    public VPAdapter(ArrayList<ViewPagerItem> viewPagerItemArrayList) {
-        this.viewPagerItemArrayList = viewPagerItemArrayList;
+    public VPAdapter(Activity activity, ArrayList<ViewPagerItem> dailyModels) {
+        this.dailyModels = dailyModels;
         this.startPosition = startPosition;
     }
+
+
 
     @NonNull
     @Override
@@ -34,12 +37,8 @@ public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int adjustedPosition = (position + startPosition) % viewPagerItemArrayList.size();
-        ViewPagerItem viewPagerItem = viewPagerItemArrayList.get(adjustedPosition);
-
-        holder.imageView.setImageResource(viewPagerItem.imageID);
-        holder.tcHeading.setText(viewPagerItem.heading);
-        holder.tvDesc.setText(viewPagerItem.description);
+        int adjustedPosition = (position + startPosition) % dailyModels.size();
+        ViewPagerItem viewPagerItem = dailyModels.get(adjustedPosition);
 
 
         holder.tvtext1.setText(viewPagerItem.getText1());

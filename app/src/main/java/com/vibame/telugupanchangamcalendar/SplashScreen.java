@@ -55,6 +55,7 @@ public class SplashScreen extends AppCompatActivity {
 
             if (ApiConfig.isConnected(activity)){
                 getDatalist();
+                adminversion();
 
             }
 
@@ -78,6 +79,9 @@ public class SplashScreen extends AppCompatActivity {
                 } else {
 
                     getDatalist();
+
+
+
                 }
 
 
@@ -87,6 +91,46 @@ public class SplashScreen extends AppCompatActivity {
         },1000);
     }
 
+    private void adminversion() {
+
+
+        Map<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+
+                        Log.d("appupdate",response);
+
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        String latestversion = jsonArray.getJSONObject(0).getString(Constant.VERSION);
+                        String description = jsonArray.getJSONObject(0).getString(Constant.DESCRIPTION);
+                        String link = jsonArray.getJSONObject(0).getString(Constant.LINK);
+
+
+
+                        session.setData(Constant.ADMIN_VERSION,description);
+
+
+
+
+                    }
+                    else {
+
+
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.APPUPDATE, params,true);
+
+
+
+
+    }
 
 
     private void getDatalist()

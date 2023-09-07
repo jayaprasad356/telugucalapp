@@ -20,9 +20,9 @@ public class DailyModel {
     private String nakshatram;
     private String yogam;
     private String karanam;
-    private String abhijithMuhurtham;
-    private String bhramaMuhurtham;
-    private String amruthaKalam;
+    private String abhijith_muhurtham;
+    private String bhrama_muhurtham;
+    private String amrutha_kalam;
     private String rahukalam;
     private String yamakandam;
     private String dhurmuhurtham;
@@ -41,7 +41,8 @@ public class DailyModel {
     private String hc11;
     private String hc12;
 
-    public DailyModel(String id, String date, String text1, String text2, String text3, String text4, String text5, String text6, String sunrise, String sunset, String moonrise, String moonset, String festivals, String thidhi, String nakshatram, String yogam, String karanam, String abhijithMuhurtham, String bhramaMuhurtham, String amruthaKalam, String rahukalam, String yamakandam, String dhurmuhurtham, String varjyam, String gulika, String hc1, String hc2, String hc3, String hc4, String hc5, String hc6, String hc7, String hc8, String hc9, String hc10, String hc11, String hc12) {
+
+    public DailyModel(String id, String date, String text1, String text2, String text3, String text4, String text5, String text6, String sunrise, String sunset, String moonrise, String moonset, String festivals, String thidhi, String nakshatram, String yogam, String karanam, String abhijith_muhurtham, String bhrama_muhurtham, String amrutha_kalam, String rahukalam, String yamakandam, String dhurmuhurtham, String varjyam, String gulika, String hc1, String hc2, String hc3, String hc4, String hc5, String hc6, String hc7, String hc8, String hc9, String hc10, String hc11, String hc12) {
         this.id = id;
         this.date = date;
         this.text1 = text1;
@@ -59,9 +60,9 @@ public class DailyModel {
         this.nakshatram = nakshatram;
         this.yogam = yogam;
         this.karanam = karanam;
-        this.abhijithMuhurtham = abhijithMuhurtham;
-        this.bhramaMuhurtham = bhramaMuhurtham;
-        this.amruthaKalam = amruthaKalam;
+        this.abhijith_muhurtham = abhijith_muhurtham;
+        this.bhrama_muhurtham = bhrama_muhurtham;
+        this.amrutha_kalam = amrutha_kalam;
         this.rahukalam = rahukalam;
         this.yamakandam = yamakandam;
         this.dhurmuhurtham = dhurmuhurtham;
@@ -80,11 +81,6 @@ public class DailyModel {
         this.hc11 = hc11;
         this.hc12 = hc12;
     }
-
-
-
-
-
 
     public String getId() {
         return id;
@@ -222,28 +218,28 @@ public class DailyModel {
         this.karanam = karanam;
     }
 
-    public String getAbhijithMuhurtham() {
-        return abhijithMuhurtham;
+    public String getAbhijith_muhurtham() {
+        return abhijith_muhurtham;
     }
 
-    public void setAbhijithMuhurtham(String abhijithMuhurtham) {
-        this.abhijithMuhurtham = abhijithMuhurtham;
+    public void setAbhijith_muhurtham(String abhijith_muhurtham) {
+        this.abhijith_muhurtham = abhijith_muhurtham;
     }
 
-    public String getBhramaMuhurtham() {
-        return bhramaMuhurtham;
+    public String getBhrama_muhurtham() {
+        return bhrama_muhurtham;
     }
 
-    public void setBhramaMuhurtham(String bhramaMuhurtham) {
-        this.bhramaMuhurtham = bhramaMuhurtham;
+    public void setBhrama_muhurtham(String bhrama_muhurtham) {
+        this.bhrama_muhurtham = bhrama_muhurtham;
     }
 
-    public String getAmruthaKalam() {
-        return amruthaKalam;
+    public String getAmrutha_kalam() {
+        return amrutha_kalam;
     }
 
-    public void setAmruthaKalam(String amruthaKalam) {
-        this.amruthaKalam = amruthaKalam;
+    public void setAmrutha_kalam(String amrutha_kalam) {
+        this.amrutha_kalam = amrutha_kalam;
     }
 
     public String getRahukalam() {

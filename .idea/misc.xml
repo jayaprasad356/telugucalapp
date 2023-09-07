@@ -17,9 +17,18 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/image_slider_layout_item.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/main_content.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/panchang_frag.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/rounded_button.xml" value="0.1495" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout-land/reminder.xml" value="0.30387736699729484" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout-land/reminder_layout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/abdhikam_layout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_calendar_new.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_reminder.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/custom_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/newappbar.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/reminder_layout.xml" value="0.14407866609662248" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
 </project>

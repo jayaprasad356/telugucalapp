@@ -43,7 +43,7 @@ public class NewBakthiMusicActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity, 3);
+        LinearLayoutManager gridLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(gridLayoutManager);
         audiolive();
 

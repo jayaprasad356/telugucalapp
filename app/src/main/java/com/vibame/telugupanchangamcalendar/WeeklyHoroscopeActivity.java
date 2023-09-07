@@ -173,7 +173,6 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
 
-        tvDate.setText(year+" - "+ raasi);
 
         shareWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,6 +214,7 @@ public class WeeklyHoroscopeActivity extends AppCompatActivity {
                         tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
                        // tvDate.setText("("+jsonArray.getJSONObject(0).getString("week")+")");
 
+                        tvDate.setText(jsonArray.getJSONObject(0).getString("title_description"));
 
 
 

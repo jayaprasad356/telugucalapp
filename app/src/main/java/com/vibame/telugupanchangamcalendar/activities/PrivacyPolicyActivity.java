@@ -21,7 +21,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
 
         // loading http://www.google.com url in the WebView.
-        webView.loadUrl("http://vibame.com/Privacy%20Policy.html");
+        webView.loadUrl("https://vibame.com/Privacy_Policy.html");
 
         // this will enable the javascript.
         webView.getSettings().setJavaScriptEnabled(true);

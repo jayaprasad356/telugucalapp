@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:layout_gravity="center"
+    app:cardCornerRadius="@dimen/_2sdp"
+    android:id="@+id/custom_progress_layout">
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+
+            >
+
+
+            <ProgressBar
+                android:id="@+id/customProgressBar"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:indeterminateDrawable="@drawable/custom_progress_dialog"/>
+
+            <TextView
+                android:id="@+id/loadingText"
+                android:text="లోడ్ అవుతోంది... కొద్దిసేపు వేచి \nఉండండి..."
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/customProgressBar"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
+
+        </RelativeLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>

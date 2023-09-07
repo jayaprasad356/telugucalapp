@@ -67,6 +67,8 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
     String Month , Year;
     Session session;
 
+    TextView tvTitle;
+
 
 
 
@@ -101,6 +103,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         ivArrowLeft = findViewById(R.id.ivArrowLeft);
         tvMonthYear = findViewById(R.id.tvMonthYear);
         recyclerView = findViewById(R.id.recyclerView);
+        tvTitle = findViewById(R.id.tvTitle);
 
 
         activity = HolidaysActivity.this;
@@ -192,6 +195,8 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         festivalList(month, getYearNum());
         Holidayslist();
 
+        tvtitle(month_year);
+
 
     }
 
@@ -221,6 +226,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
             String month = String.valueOf(c.get(Calendar.MONTH));
             festivalList(month, getYearNum());
 
+            tvtitle(month_year);
 
         }
 
@@ -262,6 +268,7 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
             festivalList(month, getYearNum());
 
 
+            tvtitle(month_year);
 
 
         }
@@ -442,6 +449,108 @@ public class HolidaysActivity extends AppCompatActivity implements SwipeableScro
         left();
     }
 
+
+
+    private void tvtitle(String month_year) {
+
+
+
+
+        if (month_year.equals("January 2023")){
+
+            tvTitle.setText("జనవరి 2023");
+
+        }
+        else if (month_year.equals("February 2023")){
+
+            tvTitle.setText("ఫిబ్రవరి 2023");
+
+        }
+        else if (month_year.equals("March 2023")){
+
+            tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+
+        }
+        else if (month_year.equals("April 2023")){
+
+            tvTitle.setText("చైత్రమాసం - వైశాఖమాసము");
+
+        }
+        else if (month_year.equals("May 2023")){
+
+            tvTitle.setText("వైశాఖమాసము - జ్యేష్ఠమాసము");
+
+        }
+        else if (month_year.equals("June 2023")){
+
+            tvTitle.setText("జ్యేష్ఠమాసము - ఆషాఢమాసం");
+
+        }
+        else if (month_year.equals("July 2023")){
+
+            tvTitle.setText("ఆషాఢమాసం - అధిక శ్రావణమాసం");
+
+        }
+        else if (month_year.equals("August 2023")){
+
+            tvTitle.setText(" అధిక శ్రావణమాసం - నిజ శ్రావణమాసం");
+
+        }
+        else if (month_year.equals("September 2023")){
+
+            tvTitle.setText(" నిజ శ్రావణమాసం - భాద్రపదమాసం");
+
+        }
+        else if (month_year.equals("October 2023")){
+
+            tvTitle.setText(" భాద్రపదమాసం - అశ్వియుజమాసం");
+
+        }
+        else if (month_year.equals("November 2023")){
+
+            tvTitle.setText(" అశ్వియుజమాసం - కార్తీకమాసం");
+
+        }
+        else if (month_year.equals("December 2023")){
+
+            tvTitle.setText("కార్తీకమాసం - మార్గశిరమాసం");
+
+        }
+
+
+        else if (month_year.equals("January 2024")){
+
+            tvTitle.setText("మార్గశిరమాసం - పుష్యమాసం");
+
+        }
+        else if (month_year.equals("February 2024")){
+
+            tvTitle.setText("పుష్యమాసం - మాఘమాసం");
+
+        }
+        else if (month_year.equals("March 2024")){
+
+            tvTitle.setText("మాఘమాసం - ఫాల్గుణమాసం");
+
+        }
+        else if (month_year.equals("April 2024")){
+
+            tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 
 
 

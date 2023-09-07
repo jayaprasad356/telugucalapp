@@ -2,9 +2,13 @@ package com.vibame.telugupanchangamcalendar.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -31,7 +35,6 @@ import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
 import com.vibame.telugupanchangamcalendar.helper.*
 import com.vibame.telugupanchangamcalendar.model.Grahalu
 import com.vibame.telugupanchangamcalendar.model.Poojalu
-import com.vibame.telugupanchangamcalendar.viewpager2_.DailyPage1Activity
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -119,6 +122,7 @@ class CalendarNewActivity : AppCompatActivity() {
     lateinit var llRateus: LinearLayout
     var nvDrawer: NavigationView? = null
     var currentversion = ""
+    var intenetcheck = ""
 
 
     @SuppressLint("MissingInflatedId")
@@ -130,6 +134,29 @@ class CalendarNewActivity : AppCompatActivity() {
         activity = this@CalendarNewActivity
         session = Session(activity)
         databaseHelper = DatabaseHelper(activity)
+
+
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork
+            val capabilities = connectivityManager.getNetworkCapabilities(network)
+            capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        } else {
+            val networkInfo = connectivityManager.activeNetworkInfo
+            networkInfo?.isConnectedOrConnecting == true
+        }
+
+        val status = if (isConnected) {
+
+            intenetcheck = "true"
+
+        } else {
+
+            intenetcheck = "false"
+
+        }
+
 
 
 
@@ -273,15 +300,64 @@ class CalendarNewActivity : AppCompatActivity() {
         });
 
         cardHoroscope.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, HoroscopeActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, HoroscopeActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
 
         })
 
 
         cardSissujanma.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, SissuJanmaActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, SissuJanmaActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         })
 
 
@@ -292,8 +368,34 @@ class CalendarNewActivity : AppCompatActivity() {
         })
 
         cardShasti.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, ShastiVrustiActivity::class.java)
-            startActivity(intent)
+
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, ShastiVrustiActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         })
 
 
@@ -309,31 +411,153 @@ class CalendarNewActivity : AppCompatActivity() {
         })
 
         llabdhikam.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, AbdhikamActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, AbdhikamActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         })
 
         llGrahanam.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, GrahanamActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, GrahanamActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         })
 
 
         llMoudyaDinamulu.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, MoudyaDinamuluActivity::class.java)
-            startActivity(intent)
+
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, MoudyaDinamuluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         })
 
 
         llRahuKaalam.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, RahukalamActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, RahukalamActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         })
 
 
         llGrahalu.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, GrahaluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, GrahaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
         })
 
 
@@ -341,77 +565,499 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         llAnkelu.setOnClickListener {
-            val intent = Intent(activity, AnkeluActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, AnkeluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llRashulu.setOnClickListener {
-            val intent = Intent(activity, RashuluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, RashuluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llTeluguYear.setOnClickListener {
-            val intent = Intent(activity, TeluguYearActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, TeluguYearActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llMonth.setOnClickListener {
-            val intent = Intent(activity, MonthActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, MonthActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llAksharalu.setOnClickListener {
-            val intent = Intent(activity, AksharaluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, AksharaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llGuninthalu.setOnClickListener {
-            val intent = Intent(activity, GunintaluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, GunintaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llJanapadha.setOnClickListener {
-            val intent = Intent(activity, JanaPadhaActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, JanaPadhaActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llKulavruthulu.setOnClickListener {
-            val intent = Intent(activity, KulaVurthaActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, KulaVurthaActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llNavagrahalu.setOnClickListener {
-            val intent = Intent(activity, NavaGrahaluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, NavaGrahaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llRuthuvulu.setOnClickListener {
-            val intent = Intent(activity, RuthuvuluActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, RuthuvuluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llKolathalu.setOnClickListener {
-            val intent = Intent(activity, KolathaluActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, KolathaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llPrasadhamnames.setOnClickListener {
-            val intent = Intent(activity, PrasadhamNamesActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, PrasadhamNamesActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llLagnalu.setOnClickListener {
-            val intent = Intent(activity, LagnaluActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, LagnaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llThidhiadhi.setOnClickListener {
-            val intent = Intent(activity, ThidhiAdhiActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, ThidhiAdhiActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
         }
         llWeeknames.setOnClickListener {
-            val intent = Intent(activity, WeekNamesActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, WeekNamesActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llFruitnames.setOnClickListener {
-            val intent = Intent(activity, FruitNamesActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, FruitNamesActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llPakshamulu.setOnClickListener {
-            val intent = Intent(activity, PakahamuluActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, PakahamuluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         }
         llPushapalu.setOnClickListener {
-            val intent = Intent(activity, PushapaluActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, PushapaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
+
         }
+
 
         llBhargava.setOnClickListener(
 
@@ -493,8 +1139,16 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
-        val mButton = findViewById<RelativeLayout>(R.id.sidemenu)
+//        val mButton = findViewById<RelativeLayout>(R.id.sidemenu)
         val mNotification = findViewById<RelativeLayout>(R.id.notification)
+        val reminder = findViewById<RelativeLayout>(R.id.reminder)
+
+
+        reminder.setOnClickListener(View.OnClickListener {
+            val intent = Intent(activity, ReminderActivity::class.java)
+            startActivity(intent)
+        })
+
 
 
         mNotification.setOnClickListener(View.OnClickListener {
@@ -509,9 +1163,12 @@ class CalendarNewActivity : AppCompatActivity() {
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
-        mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
-            drawerLayout!!.openDrawer(GravityCompat.START)
-        }
+
+        // side menu
+
+//        mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
+//            drawerLayout!!.openDrawer(GravityCompat.START)
+//        }
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -562,8 +1219,32 @@ class CalendarNewActivity : AppCompatActivity() {
         // Video Live
         cardVideolive = findViewById(R.id.cardVideolive)
         cardVideolive!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, VideoLiveActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, VideoLiveActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
         })
 
 
@@ -647,30 +1328,161 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         sakunalu!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, SakunaluActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, SakunaluActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
+
         })
 
         kaki!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, KakiActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, KakiActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
+
         })
 
 
         pilli!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, PilliSasthramActivity::class.java)
-            startActivity(intent)
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, KukutaSaathramActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
         })
 
 
         balli!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, BalliSasthramActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, BalliSasthramActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
+
+
+
         })
 
         kukuta!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, KukutaSaathramActivity::class.java)
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                val intent = Intent(activity, KukutaSaathramActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
         })
 
 
@@ -785,52 +1597,197 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         ramayanam!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "ramayanam")
-            session!!.setData(Constant.MENU, "ramayanam_menu")
-            session!!.setData(Constant.SUBMENU, "ramayanam_submenu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Ramayanam")
-            startActivity(intent)
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                session!!.setData(Constant.TAB, "ramayanam")
+                session!!.setData(Constant.MENU, "ramayanam_menu")
+                session!!.setData(Constant.SUBMENU, "ramayanam_submenu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Ramayanam")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
         })
         mahaBharatham!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "mahabharatham")
-            session!!.setData(Constant.MENU, "mahabharatham_menu")
-            session!!.setData(Constant.SUBMENU, "mahabharatham_submenu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Maha Bharatham")
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+
+                session!!.setData(Constant.TAB, "mahabharatham")
+                session!!.setData(Constant.MENU, "mahabharatham_menu")
+                session!!.setData(Constant.SUBMENU, "mahabharatham_submenu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Maha Bharatham")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
         })
         bhagvathGeetha!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "bhagawath_geetha")
-            session!!.setData(Constant.MENU, "bhagawath_geetha_menu")
-            session!!.setData(Constant.SUBMENU, "bhagawath_geetha_submenu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Bhagvath Geetha")
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                session!!.setData(Constant.TAB, "bhagawath_geetha")
+                session!!.setData(Constant.MENU, "bhagawath_geetha_menu")
+                session!!.setData(Constant.SUBMENU, "bhagawath_geetha_submenu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Bhagvath Geetha")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
         })
         bhagvatham!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "bhagawatham")
-            session!!.setData(Constant.MENU, "bhagawatham_menu")
-            session!!.setData(Constant.SUBMENU, "bhagawatham_submenu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Bhagvatham")
-            startActivity(intent)
+
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                session!!.setData(Constant.TAB, "bhagawatham")
+                session!!.setData(Constant.MENU, "bhagawatham_menu")
+                session!!.setData(Constant.SUBMENU, "bhagawatham_submenu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Bhagvatham")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
         })
         sethakamulu!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "telugu_sethakamulu")
-            session!!.setData(Constant.MENU, "telugu_sethakamulu_menu")
-            session!!.setData(Constant.SUBMENU, "telugu_sethakamulu_submenu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Sethakamulu")
-            startActivity(intent)
+
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+                session!!.setData(Constant.TAB, "telugu_sethakamulu")
+                session!!.setData(Constant.MENU, "telugu_sethakamulu_menu")
+                session!!.setData(Constant.SUBMENU, "telugu_sethakamulu_submenu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Sethakamulu")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
         })
         sivaPuranam!!.setOnClickListener(View.OnClickListener {
-            session!!.setData(Constant.TAB, "shivapuranam")
-            session!!.setData(Constant.MENU, "")
-            session!!.setData(Constant.SUBMENU, "shivapuranam_menu")
-            val intent = Intent(activity, RamayanamActivity::class.java)
-            intent.putExtra(Constant.TITLE, "Shiva Puranam")
-            startActivity(intent)
+
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                session!!.setData(Constant.TAB, "shivapuranam")
+                session!!.setData(Constant.MENU, "")
+                session!!.setData(Constant.SUBMENU, "shivapuranam_menu")
+                val intent = Intent(activity, RamayanamActivity::class.java)
+                intent.putExtra(Constant.TITLE, "Shiva Puranam")
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
         })
 
 
@@ -839,12 +1796,68 @@ class CalendarNewActivity : AppCompatActivity() {
         cardOldArticles = findViewById(R.id.cardOldArticles)
         cardNewArticles = findViewById(R.id.cardNewArticles)
         cardNewArticles!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, NetiArticlesActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                val intent = Intent(activity, NetiArticlesActivity::class.java)
+                startActivity(intent)
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+            }
+
+
+
+
+
         })
         cardOldArticles!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, OldArticlesActivity::class.java)
-            startActivity(intent)
+
+
+
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+            val isConnected = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                val network = connectivityManager.activeNetwork
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+            } else {
+                val networkInfo = connectivityManager.activeNetworkInfo
+                networkInfo?.isConnectedOrConnecting == true
+            }
+
+            val status = if (isConnected) {
+
+                val intent = Intent(activity, OldArticlesActivity::class.java)
+                startActivity(intent)
+
+            } else {
+
+                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show()
+
+
+            }
+
+
+
+
+
+
+
         })
 
 
@@ -991,7 +2004,7 @@ class CalendarNewActivity : AppCompatActivity() {
     private fun dailyPanchangam() {
         if (session!!.getBoolean(Constant.DAILY_PANCHANG_DATA)){
             if (clicked.equals("card1")) {
-                val intent = Intent(activity, DailyPage1Activity::class.java)
+                val intent = Intent(activity, DailyPanchangamActivity::class.java)
                 intent.putExtra("id", "1")
                 startActivity(intent)
             }else if (clicked.equals("card2")){
@@ -1146,6 +2159,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun appupdate() {
         val params: Map<String, String> = HashMap()
         ApiConfig.RequestToVolley({ result, response ->
@@ -1158,6 +2172,7 @@ class CalendarNewActivity : AppCompatActivity() {
                         val `object` = JSONObject(response)
                         val jsonArray = `object`.getJSONArray(Constant.DATA)
                         val latestversion = jsonArray.getJSONObject(0).getString(Constant.VERSION)
+                        val description = jsonArray.getJSONObject(0).getString(Constant.DESCRIPTION)
                         val link = jsonArray.getJSONObject(0).getString(Constant.LINK)
                         if (currentversion.toInt() >= latestversion.toInt()) {
 //                            Toast.makeText(
@@ -1165,35 +2180,74 @@ class CalendarNewActivity : AppCompatActivity() {
 //                                "You are using Latest Version",
 //                                Toast.LENGTH_SHORT
 //                            ).show()
-                        } else {
+                        }
+
+
+
+                        else {
 
                             val bottomSheetDialog = BottomSheetDialog(this)
                             val view = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
                             bottomSheetDialog.setContentView(view)
 
-                            // Assuming there is an update button in the bottom_sheet_layout.xml
                             val updateButton = view.findViewById<Button>(R.id.updateButton)
                             updateButton.setOnClickListener {
-                                // Handle the update button click here
-                                // You can perform actions like initiating the download or redirecting to the app store.
-                                // For example:
-//                                redirectToPlayStore(link) // You need to implement this function.
-                            //    bottomSheetDialog.dismiss() // Dismiss the bottom sheet after clicking the button.
 
-
-                                // Redirect the user to the Google Play Store or your server's download page
-                                // to download the latest version of the app
                                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
                                 startActivity(intent)
+                                session?.setBoolean(Constant.DAILY_PANCHANG_DATA, false)
+                                session?.setBoolean(Constant.MONTHLY_PANCH_DATA,false)
+
+
 
 
                             }
 
                             bottomSheetDialog.setCancelable(false)
-
                             bottomSheetDialog.show()
 
                         }
+
+
+
+                      val  admin_version  = description
+
+
+
+                        if (session!!.getData(Constant.ADMIN_VERSION).equals(admin_version)) {
+
+
+                        }
+
+                        else {
+
+
+                            val bottomSheetDialog = BottomSheetDialog(this)
+                            val view = layoutInflater.inflate(R.layout.bottom_sheet_layout, null)
+                            bottomSheetDialog.setContentView(view)
+
+                            val updateButton = view.findViewById<Button>(R.id.updateButton)
+                            updateButton.setOnClickListener {
+
+                                val intent = Intent(activity, SplashScreen::class.java)
+                                startActivity(intent)
+                                session!!.setData(Constant.DATA_LOADING,"0")
+                                session?.setBoolean(Constant.DAILY_PANCHANG_DATA, false)
+                                session?.setBoolean(Constant.MONTHLY_PANCH_DATA,false)
+
+
+
+
+
+                            }
+
+                            bottomSheetDialog.setCancelable(false)
+                            bottomSheetDialog.show()
+
+
+
+                        }
+
                     } else {
                         Toast.makeText(
                             this,

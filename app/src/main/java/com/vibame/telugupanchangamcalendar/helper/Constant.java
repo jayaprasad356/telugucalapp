@@ -2,8 +2,10 @@ package com.vibame.telugupanchangamcalendar.helper;
 
 import android.widget.EditText;
 
+import org.jetbrains.annotations.Nullable;
+
 public class Constant {
-    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.online/";
+    public static final String MainBaseUrl = "https://admin.vibametelugucalendar.in/";
     //public static final String MainBaseUrl = "https://telucalweb.graymatterworks.com/";
     //public static final String MainBaseUrl = "http://192.168.43.38/telugu_calendar/";
     public static final String BaseUrl = MainBaseUrl + "api/";
@@ -299,6 +301,8 @@ public class Constant {
     public static final String MENU_NAME = "menu_title";
     public static final String FIRST_SIZE = "";
     public static String THIDHI_IMAGE = "thidhi_image";
+    @Nullable
+    public static final String ADMIN_VERSION = "";
 
     public static int etLengthConversion(EditText editText) {
         return editText.getText().toString().length();

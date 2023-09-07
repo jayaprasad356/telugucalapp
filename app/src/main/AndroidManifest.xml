@@ -57,6 +57,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ReminderActivity"
+            android:exported="false" />
+        <activity
             android:name=".viewpager2_.DailyPage1Activity"
             android:exported="false">
             <meta-data

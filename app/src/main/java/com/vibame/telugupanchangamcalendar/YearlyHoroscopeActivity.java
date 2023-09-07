@@ -344,6 +344,7 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
 
 
+
 //                        tvDescription.setText(jsonArray.getJSONObject(0).getString("description"));
 //                        tvRaasi.setText(jsonArray.getJSONObject(0).getString("title"));
 //                        tvtext1.setText(jsonArray.getJSONObject(0).getString("adhayam"));

@@ -5,8 +5,6 @@ import static com.vibame.telugupanchangamcalendar.helper.Constant.SUCCESS;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -18,32 +16,28 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.vibame.telugupanchangamcalendar.R;
-import com.vibame.telugupanchangamcalendar.SwipeRecyclerView;
 import com.vibame.telugupanchangamcalendar.SwipeableScrollView;
 import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.helper.ApiConfig;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.helper.Session;
-import com.vibame.telugupanchangamcalendar.model.Festival;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class FestivalActivity extends AppCompatActivity   implements SwipeableScrollView.SwipeListener  {
     CardView imgLeft, imgRight;
@@ -68,8 +62,10 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
 
+    TextView tvTitle;
 
 
+    int currentYear;
 
 
 
@@ -104,6 +100,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         ivArrowLeft = findViewById(R.id.ivArrowLeft);
         tvMonthYear = findViewById(R.id.tvMonthYear);
         recyclerView = findViewById(R.id.recyclerView);
+        tvTitle = findViewById(R.id.tvTitle);
 
 
         activity = FestivalActivity.this;
@@ -129,6 +126,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         year = String.valueOf(calendar.get(Calendar.YEAR));
         month_year = dateFormat.format(cal.getTime());
         String month = String.valueOf(calendar.get(Calendar.MONTH));
+
 
 
 
@@ -189,10 +187,19 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
         tvMonthYear.setText(setTeluguMonth(month_year)+year);
 
+
+
+
+
+
+
+
         Year = getYearNum();
 
         festivalList(month, getYearNum());
         monthfestivallist();
+
+        tvtitle(month_year);
 
     }
 
@@ -266,10 +273,114 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
             month_year = df.format(c.getTime());
             year = String.valueOf(c.get(Calendar.YEAR));
             tvMonthYear.setText(setTeluguMonth(month_year)+year);
+
             festivalList(month, getYearNum());
+
+            tvtitle(month_year);
 
 
         }
+
+
+    }
+
+    private void tvtitle(String month_year) {
+
+
+
+
+            if (month_year.equals("January 2023")){
+
+                tvTitle.setText("జనవరి 2023");
+
+            }
+            else if (month_year.equals("February 2023")){
+
+                tvTitle.setText("ఫిబ్రవరి 2023");
+
+            }
+            else if (month_year.equals("March 2023")){
+
+                tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+
+            }
+            else if (month_year.equals("April 2023")){
+
+                tvTitle.setText("చైత్రమాసం - వైశాఖమాసము");
+
+            }
+            else if (month_year.equals("May 2023")){
+
+                tvTitle.setText("వైశాఖమాసము - జ్యేష్ఠమాసము");
+
+            }
+            else if (month_year.equals("June 2023")){
+
+                tvTitle.setText("జ్యేష్ఠమాసము - ఆషాఢమాసం");
+
+            }
+            else if (month_year.equals("July 2023")){
+
+                tvTitle.setText("ఆషాఢమాసం - అధిక శ్రావణమాసం");
+
+            }
+            else if (month_year.equals("August 2023")){
+
+                tvTitle.setText(" అధిక శ్రావణమాసం - నిజ శ్రావణమాసం");
+
+            }
+            else if (month_year.equals("September 2023")){
+
+                tvTitle.setText(" నిజ శ్రావణమాసం - భాద్రపదమాసం");
+
+            }
+            else if (month_year.equals("October 2023")){
+
+                tvTitle.setText(" భాద్రపదమాసం - అశ్వియుజమాసం");
+
+            }
+            else if (month_year.equals("November 2023")){
+
+                tvTitle.setText(" అశ్వియుజమాసం - కార్తీకమాసం");
+
+            }
+            else if (month_year.equals("December 2023")){
+
+                tvTitle.setText("కార్తీకమాసం - మార్గశిరమాసం");
+
+            }
+
+
+            else if (month_year.equals("January 2024")){
+
+                tvTitle.setText("మార్గశిరమాసం - పుష్యమాసం");
+
+            }
+            else if (month_year.equals("February 2024")){
+
+                tvTitle.setText("పుష్యమాసం - మాఘమాసం");
+
+            }
+            else if (month_year.equals("March 2024")){
+
+                tvTitle.setText("మాఘమాసం - ఫాల్గుణమాసం");
+
+            }
+            else if (month_year.equals("April 2024")){
+
+                tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+
+            }
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -307,7 +418,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
             String month = String.valueOf(c.get(Calendar.MONTH));
             tvMonthYear.setText(setTeluguMonth(month_year)+year);
             festivalList(month, getYearNum());
-
+            tvtitle(month_year);
 
 
 

@@ -14,7 +14,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/dateCard"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_80sdp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
