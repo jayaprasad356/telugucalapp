@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.vibame.telugupanchangamcalendar.model.Audio;
 import com.vibame.telugupanchangamcalendar.model.Bharava;
@@ -27,6 +28,7 @@ import com.vibame.telugupanchangamcalendar.model.PanchangamTab;
 import com.vibame.telugupanchangamcalendar.model.Poojalu;
 import com.vibame.telugupanchangamcalendar.model.PoojaluSubMenu;
 import com.vibame.telugupanchangamcalendar.model.PoojaluTab;
+import com.vibame.telugupanchangamcalendar.model.Reminder;
 import com.vibame.telugupanchangamcalendar.model.Video;
 
 import java.util.ArrayList;
@@ -63,6 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_VIDEO = "tblvideo";
     public static final String TABLE_AUDIO = "tblaudio";
     public static final String TABLE_OTHERMUSIC = "tblothermusic";
+    public static final String TABLE_REMINDER = "tblreminder";
     public static final String KEY_ID = "pid";
     final String ID = "id";
     final String PID = "pid";
@@ -74,6 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String GID = "gid";
     final String HID = "hid";
     final String BID = "bid";
+    final String RID = "rid";
     final String MONTH = "month";
     final String DAY = "day";
     final String TIME = "time";
@@ -168,6 +172,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + HC7 + " TEXT ," + HC8 + " TEXT ," + HC9 + " TEXT ," + HC10 + " TEXT ," + HC11 + " TEXT ," + HC12 + " TEXT)";
 
 
+
+
+
     final String DailyPanchangamTableInfo = TABLE_DAILY_PANCHANGAM_NAME + "(" + DPID + " TEXT ," + DATE + " TEXT ," + SUNRISE + " TEXT ," + SUNSET
             + " TEXT ," + MOONRISE + " TEXT ," + MOONSET + " TEXT ," + TEXT1 + " TEXT ," + TEXT2 + " TEXT ," + TEXT3 + " TEXT ,"
             + TEXT4 + " TEXT ," + TEXT5 + " TEXT ," + TEXT6 + " TEXT ," + FESTIVALS + " TEXT ," + THIDHI + " TEXT ," + NAKSHATRAM + " TEXT ,"
@@ -209,6 +216,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final String AudioTableInfo = TABLE_AUDIO + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
     final String OtherMusisTableInfo = TABLE_OTHERMUSIC + "(" + ID + " TEXT ," + TITLE + " TEXT ," + IMAGE + " TEXT," + LYRICS + " TEXT," + AUDIO + " TEXT)";
 
+
+
+    final String ReminderTableInfo =  TABLE_REMINDER + "(" + RID + " TEXT ,"+ TITLE + "TEXT ," + DATE + " TEXT ," + TIME + " TEXT )";
+
     final String NakTabTableInfo = TABLE_NAK_TAB + "(" + ID + " TEXT ," + NAK_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
 
     public DatabaseHelper(Activity activity) {
@@ -218,6 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + PanchangamTableInfo);
+        db.execSQL("CREATE TABLE " + ReminderTableInfo);
         db.execSQL("CREATE TABLE " + DailyPanchangamTableInfo);
         db.execSQL("CREATE TABLE " + MonthlyPanchangamTableInfo);
         db.execSQL("CREATE TABLE " + PanchangamTabTableInfo);
@@ -265,6 +277,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         replaceDataToNewTable(db, TABLE_NAK_TAB, NakTabTableInfo);
         replaceDataToNewTable(db, TABLE_VIDEO, VideoTableInfo);
         replaceDataToNewTable(db, TABLE_AUDIO, AudioTableInfo);
+        replaceDataToNewTable(db, TABLE_REMINDER, ReminderTableInfo);
         onCreate(db);
     }
 
@@ -377,6 +390,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
+
+    public void AddToReminderTab(Activity activity,String rid, String title, String date, String time) {
+        try {
+            if (!CheckReminderTabItemExist(rid).equalsIgnoreCase("0")) {
+                UpdateReminderTab(rid, title, date, time);
+            } else {
+                SQLiteDatabase db = this.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(RID, rid);
+                values.put(TITLE, title);
+                values.put(DATE, date);
+                values.put(TIME, time);
+                db.insert(TABLE_REMINDER, null, values);
+                db.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(activity, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 //    public void AddToFestival(String fid, String date, String festival) {
 //        try {
 //            if (!CheckFestivalItemExist(fid).equalsIgnoreCase("0")) {
@@ -699,6 +736,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
+    private String CheckReminderTabItemExist(String rid) {
+        String count = "0";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_REMINDER + " WHERE " + RID + " = ?", new String[]{rid});
+        if (cursor.moveToFirst()) {
+            count = cursor.getString(cursor.getColumnIndex(RID));
+            if (count.equals("0")) {
+                db.execSQL("DELETE FROM " + TABLE_REMINDER + " WHERE " + RID + " = ?", new String[]{rid});
+
+            }
+        }
+        cursor.close();
+        db.close();
+        return count;
+    }
+
+    @SuppressLint("Range")
     private String CheckMuharthamTabItemExist(String mtid) {
         String count = "0";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -723,6 +777,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TITLE, title);
         values.put(DESCRIPTION, description);
         db.update(TABLE_PANCHANGAMTAB_NAME, values, PTID + " = ?", new String[]{ptid});
+        db.close();
+    }
+    public void UpdateReminderTab(String rid,  String title, String date, String time) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(RID, rid);
+        values.put(TITLE, title);
+        values.put(DATE, date);
+        values.put(TIME, time);
+        db.update(TABLE_REMINDER, values, RID + " = ?", new String[]{rid});
         db.close();
     }
 
@@ -1636,6 +1700,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+
     public ArrayList<Festival> getmonthImportantdaysList(String month, String year) {
         final ArrayList<Festival> festivals = new ArrayList<>();
 
@@ -1694,25 +1759,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return festivals;
     }
 
-//    public ArrayList<Muhurthamnew> getMuhurtham(String month, String year) {
-//        final ArrayList<Muhurthamnew> muhurthamnews = new ArrayList<>();
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_HOLIDAYS_NAME + " WHERE " + MONTH + " = ? AND " + YEAR + " = ?", new String[]{month,year});
-//        if (cursor.moveToFirst()) {
-//            do {
-////                Muhurthamnew muhurthamnew = new Muhurthamnew(cursor.getString(cursor.getColumnIndexOrThrow(HDID)),cursor.getString(cursor.getColumnIndexOrThrow(MONTH))
-////                        ,cursor.getString(cursor.getColumnIndexOrThrow(YEAR)),cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
-////                        cursor.getString(cursor.getColumnIndexOrThrow(DESCRIPTION)));
-//
-//                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
-////                muhurthamnews.add(muhurthamnew);
-//            } while (cursor.moveToNext());
-//
-//        }
-//        cursor.close();
-//        db.close();
-//        return muhurthamnews;
-//    }
+
 
 
     public ArrayList<Gowri> getGowriList(String day) {
@@ -1912,6 +1959,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return festivals;
     }
+
+
+    public ArrayList<Reminder> getRemindersList() {
+        final ArrayList<Reminder> reminders = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_REMINDER, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+                Reminder reminder = new Reminder(cursor.getString(cursor.getColumnIndexOrThrow(RID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TITLE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(DATE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(TIME))
+
+                );
+
+                //@SuppressLint("Range") String count = cursor.getString(cursor.getColumnIndex(QTY));
+                reminders.add(reminder);
+            } while (cursor.moveToNext());
+
+        }
+        cursor.close();
+        db.close();
+        return reminders;
+    }
+
 
     public ArrayList<Muhurtham> getMuhurthamList() {
         final ArrayList<Muhurtham> muhurthams = new ArrayList<>();

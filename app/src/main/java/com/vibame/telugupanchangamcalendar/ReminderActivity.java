@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -20,9 +21,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.vibame.telugupanchangamcalendar.activities.FestivalActivity;
+import com.vibame.telugupanchangamcalendar.adapter.FestivalAdapter;
 import com.vibame.telugupanchangamcalendar.adapter.RemindAdapter;
+import com.vibame.telugupanchangamcalendar.helper.Constant;
+import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper;
 import com.vibame.telugupanchangamcalendar.model.Reminder;
 
 import java.text.SimpleDateFormat;
@@ -36,6 +42,8 @@ public class ReminderActivity extends AppCompatActivity {
     ImageView back;
     FloatingActionButton fab;
     RecyclerView recycler_view;
+    DatabaseHelper databaseHelper;
+
 
     EditText notesEditText;
     CheckBox remindMeCheckBox;
@@ -51,17 +59,21 @@ public class ReminderActivity extends AppCompatActivity {
     // Declare variables for date and time pickers
     Calendar calendar;
     int year, month, day, hour, minute;
+    Activity activity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder);
+        activity = ReminderActivity.this;
 
 
         fab = findViewById(R.id.fab);
         back = findViewById(R.id.back);
         recycler_view = findViewById(R.id.recycler_view);
+
+        databaseHelper = new DatabaseHelper(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recycler_view.setLayoutManager(linearLayoutManager);
@@ -78,30 +90,32 @@ public class ReminderActivity extends AppCompatActivity {
         });
 
         reminderlist();
+
+
     }
 
 
     private void reminderlist() {
 
-        ArrayList<Reminder> reminders = new ArrayList<>();
+//        ArrayList<Reminder> reminders = new ArrayList<>();
+//
+//
+//        Reminder rings1 = new Reminder("Hi","Hi","22-02-2023","08:23 pm");
+//
+//
+//
+//        reminders.add(rings1);
+//
+//        RemindAdapter remindAdapter = new RemindAdapter(this, reminders);
+//        recycler_view.setAdapter(remindAdapter);
 
 
-        Reminder rings1 = new Reminder("Hi","Hi","22-02-2023","08:23 pm");
 
-
-
-        reminders.add(rings1);
-
-        RemindAdapter remindAdapter = new RemindAdapter(this, reminders);
+        RemindAdapter remindAdapter = new RemindAdapter(this, databaseHelper.getRemindersList());
         recycler_view.setAdapter(remindAdapter);
 
 
-
-
-
     }
-
-
 
 
     private void showCustomDialog() {
@@ -160,13 +174,27 @@ public class ReminderActivity extends AppCompatActivity {
         okTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle OK button click in the custom dialog
-                // You can perform any actions you need here
-                // For example, you can get the text from the notesEditText and handle it
-                String notes = notesEditText.getText().toString();
+
+                String title = "Hi";
                 boolean remindMe = remindMeCheckBox.isChecked();
-                // Dismiss the custom dialog
+                String date = "22-02-2023";
+                String time = "08:23 pm";
+                String id = "1";
+
+
+                databaseHelper.AddToReminderTab(activity,id,title, date, time);
+
+                Toast.makeText(ReminderActivity.this, ""+databaseHelper.getRemindersList().size(), Toast.LENGTH_SHORT).show();
+
+
+                RemindAdapter remindAdapter = new RemindAdapter(ReminderActivity.this, databaseHelper.getRemindersList());
+                recycler_view.setAdapter(remindAdapter);
+
+
+
                 customDialog.dismiss();
+
+
             }
         });
 
@@ -183,9 +211,6 @@ public class ReminderActivity extends AppCompatActivity {
         // Show the custom dialog
         customDialog.show();
     }
-
-
-
 
 
     private void setDateButtonCurrentDate() {
@@ -207,7 +232,6 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
 
-
     private void showDatePicker() {
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -225,6 +249,8 @@ public class ReminderActivity extends AppCompatActivity {
                     }
                 }, year, month, day);
         datePickerDialog.show();
+
+
     }
 
     private void showTimePicker() {
@@ -245,8 +271,6 @@ public class ReminderActivity extends AppCompatActivity {
                 }, hour, minute, false); // Use 12-hour format
         timePickerDialog.show();
     }
-
-
 
 
 }
