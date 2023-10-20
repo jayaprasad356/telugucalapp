@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -17,18 +16,82 @@
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/image_slider_layout_item.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/main_content.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/Telugu Calender/app/src/main/res/layout/panchang_frag.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable-v24/circular.xml" value="0.1485" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable-v24/roundicon.xml" value="0.1485" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bg_card_daily.xml" value="0.1495" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bg_card_horoscope.xml" value="0.1005" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bg_rasi.xml" value="0.1005" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bgcard_topradius.xml" value="0.1495" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/black_stork.xml" value="0.1005" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bordercurve.xml" value="0.1545" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/bordercurve2.xml" value="0.1545" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/corner_bg.xml" value="0.1" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/file.xml" value="0.1005" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/ic_asto.xml" value="0.1005" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/drawable/rounded_button.xml" value="0.1495" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout-land/activity_daily_horoscope.xml" value="0.30387736699729484" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout-land/reminder.xml" value="0.30387736699729484" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout-land/reminder_layout.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/abdhikam_layout.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_calendar_new.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_coin_toss.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_compass.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_compound_interest.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_convert.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_counter.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_daily_horoscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_daily_panchangam.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_dateplus.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_emicalculator.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_festival.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_grahalu.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_grahalu_sub_menu.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_grahalu_tab.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_gst_calulator.xml" value="0.1422541156606163" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_height_weight_charts.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_home.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_horoscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_horoscope_list.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_ifsc.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_internet_speed_meter.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_mileage_calculator.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_montli_horoscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_more_telugu_samskrutham.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_muhurtham2.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_note_editor.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_notes.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_numberto_words.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_percentage_calculator.xml" value="0.1334569045412419" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_poojalu_tab.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_reminder.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_select_timezones.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_simple_interest.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_smart_tools.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_speechto_text.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_stop_watch.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_telugu_keyboard.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_text_to_speech.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_time_zone.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_tracker.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_unit_converted.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_weekly_horoscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_world_clock.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/activity_yearly_horoscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/aksharalulayout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/articles_view_layout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/audio_tab_layout.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/custom_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/custom_dialog_list.xml" value="0.14322359982898675" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/festival_layout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/main_content.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/newappbar.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/reminder_layout.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/share_print.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/year_tab_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/yearlyhoroscope.xml" value="0.14407866609662248" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
 </project>

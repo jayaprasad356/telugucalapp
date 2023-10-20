@@ -28,6 +28,8 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.navigation.NavigationView
+import com.onesignal.OneSignal
+import com.onesignal.debug.LogLevel
 import com.vibame.telugupanchangamcalendar.*
 import com.vibame.telugupanchangamcalendar.adapter.AudioLiveAdapter
 import com.vibame.telugupanchangamcalendar.adapter.GrahaluAdapter
@@ -35,6 +37,9 @@ import com.vibame.telugupanchangamcalendar.adapter.PoojaluAdapter
 import com.vibame.telugupanchangamcalendar.helper.*
 import com.vibame.telugupanchangamcalendar.model.Grahalu
 import com.vibame.telugupanchangamcalendar.model.Poojalu
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.json.JSONException
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -125,6 +130,9 @@ class CalendarNewActivity : AppCompatActivity() {
     var intenetcheck = ""
 
 
+    // NOTE: Replace the below with your own ONESIGNAL_APP_ID
+    val ONESIGNAL_APP_ID = "faad65ce-d444-4a86-8a8f-9e484dff5738"
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,6 +142,8 @@ class CalendarNewActivity : AppCompatActivity() {
         activity = this@CalendarNewActivity
         session = Session(activity)
         databaseHelper = DatabaseHelper(activity)
+
+        onesignal()
 
 
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -1927,6 +1937,20 @@ class CalendarNewActivity : AppCompatActivity() {
 
     }
 
+    private fun onesignal() {
+        // Verbose Logging set to help debug issues, remove before releasing your app.
+        OneSignal.Debug.logLevel = LogLevel.VERBOSE
+
+        // OneSignal Initialization
+        OneSignal.initWithContext(this, ONESIGNAL_APP_ID)
+
+        // requestPermission will show the native Android notification permission prompt.
+        // NOTE: It's recommended to use a OneSignal In-App Message to prompt instead.
+        CoroutineScope(Dispatchers.IO).launch {
+            OneSignal.Notifications.requestPermission(true)
+        }
+    }
+
     private fun setupDrawerContent(nvDrawer: NavigationView) {
 
     }
@@ -2228,16 +2252,12 @@ class CalendarNewActivity : AppCompatActivity() {
 
                             val updateButton = view.findViewById<Button>(R.id.updateButton)
                             updateButton.setOnClickListener {
-
                                 val intent = Intent(activity, SplashScreen::class.java)
                                 startActivity(intent)
+                                finish()
                                 session!!.setData(Constant.DATA_LOADING,"0")
                                 session?.setBoolean(Constant.DAILY_PANCHANG_DATA, false)
                                 session?.setBoolean(Constant.MONTHLY_PANCH_DATA,false)
-
-
-
-
 
                             }
 

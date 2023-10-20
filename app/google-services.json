@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1014720757406",
+    "project_id": "telugu-panchangam-calender",
+    "storage_bucket": "telugu-panchangam-calender.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014720757406:android:3aa25482864c5e976a458f",
+        "android_client_info": {
+          "package_name": "com.vibame.rashiphalalu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIkh9Mxsx2qFZEFMzNoSlBXe83GYZnCfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014720757406:android:560ba45b3150bf3e6a458f",
+        "android_client_info": {
+          "package_name": "com.vibame.telugupanchangamcalendar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIkh9Mxsx2qFZEFMzNoSlBXe83GYZnCfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -175,16 +175,16 @@ public class ReminderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String title = "Hi";
+                String title = notesEditText.getText().toString().trim();
                 boolean remindMe = remindMeCheckBox.isChecked();
-                String date = "22-02-2023";
-                String time = "08:23 pm";
-                String id = "1";
+                String date = dateButton.getText().toString().trim();
+                String time = timeButton.getText().toString().trim();
 
 
-                databaseHelper.AddToReminderTab(activity,id,title, date, time);
 
-                Toast.makeText(ReminderActivity.this, ""+databaseHelper.getRemindersList().size(), Toast.LENGTH_SHORT).show();
+                databaseHelper.AddToReminderTab(activity,title, date, time);
+
+            //    Toast.makeText(ReminderActivity.this, ""+databaseHelper.getRemindersList().size(), Toast.LENGTH_SHORT).show();
 
 
                 RemindAdapter remindAdapter = new RemindAdapter(ReminderActivity.this, databaseHelper.getRemindersList());
@@ -273,5 +273,10 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
 
+    public void loadReminder() {
+
+            RemindAdapter remindAdapter = new RemindAdapter(this, databaseHelper.getRemindersList());
+            recycler_view.setAdapter(remindAdapter);
+    }
 }
 

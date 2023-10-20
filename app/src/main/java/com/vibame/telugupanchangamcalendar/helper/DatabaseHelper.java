@@ -218,7 +218,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    final String ReminderTableInfo =  TABLE_REMINDER + "(" + RID + " TEXT ,"+ TITLE + "TEXT ," + DATE + " TEXT ," + TIME + " TEXT )";
+    final String ReminderTableInfo =  TABLE_REMINDER + "(" + RID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ TITLE + " TEXT ," + DATE + " TEXT ," + TIME + " TEXT )";
+
 
     final String NakTabTableInfo = TABLE_NAK_TAB + "(" + ID + " TEXT ," + NAK_ID + " TEXT ," + SUBCATEGORY_ID + " TEXT ," + TITLE + " TEXT ," + DESCRIPTION + " TEXT ," + SUB_TITLE + " TEXT ," + SUB_DESCRIPTION + " TEXT)";
 
@@ -392,20 +393,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void AddToReminderTab(Activity activity,String rid, String title, String date, String time) {
+    public void AddToReminderTab(Activity activity, String title, String date, String time) {
         try {
-            if (!CheckReminderTabItemExist(rid).equalsIgnoreCase("0")) {
-                UpdateReminderTab(rid, title, date, time);
-            } else {
-                SQLiteDatabase db = this.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put(RID, rid);
-                values.put(TITLE, title);
-                values.put(DATE, date);
-                values.put(TIME, time);
-                db.insert(TABLE_REMINDER, null, values);
-                db.close();
-            }
+
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(TITLE, title);
+            values.put(DATE, date);
+            values.put(TIME, time);
+            db.insert(TABLE_REMINDER, null, values);
+            db.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -1986,6 +1984,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return reminders;
     }
+    public void updateReminderTitle(String id, String newTitle) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(TITLE, newTitle);
+        db.update(TABLE_REMINDER, values, RID + "=?", new String[]{id});
+        db.close();
+    }
+
+    public void deleteReminder(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_REMINDER, RID + "=?", new String[]{id});
+        db.close();
+    }
+
+
 
 
     public ArrayList<Muhurtham> getMuhurthamList() {

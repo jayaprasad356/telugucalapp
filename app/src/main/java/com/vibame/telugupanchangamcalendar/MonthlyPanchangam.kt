@@ -573,7 +573,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
         } else if (month == "అక్టోబర్") {
             Months = "October"
-
+77
         } else if (month == "నవంబర్") {
             Months = "November"
 

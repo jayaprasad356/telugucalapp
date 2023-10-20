@@ -293,8 +293,6 @@ public class YearlyHoroscopeActivity extends AppCompatActivity {
 
 
     private void horoscope() {
-
-
         HashMap<String, String> params = new HashMap<>();
         params.put(Constant.TYPE, "Yearly");
         params.put(Constant.RASI, rasi);

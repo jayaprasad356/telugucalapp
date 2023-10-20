@@ -2,12 +2,19 @@ package com.vibame.telugupanchangamcalendar.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -96,15 +103,68 @@ public class PoojaluAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     }else {
                         session.setData(Constant.POOJALU_ID, poojalu.getId());
                         if (databaseHelper.getPoojaluTabList(poojalu.getId(), "0").size() != 0) {
-                            Intent intent = new Intent(activity, PoojaluTabActivity.class);
-                            intent.putExtra(Constant.SUBCATEGORY_ID, "0");
-                            intent.putExtra(Constant.TITLE, poojalu.getName());
-                            activity.startActivity(intent);
+
+
+                            ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            boolean isConnected = false;
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                Network network = connectivityManager.getActiveNetwork();
+                                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
+                                if (capabilities != null) {
+                                    isConnected = capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+                                }
+                            } else {
+                                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                                if (networkInfo != null) {
+                                    isConnected = networkInfo.isConnected() || networkInfo.isConnectedOrConnecting();
+                                }
+                            }
+
+                            if (isConnected) {
+                                Intent intent = new Intent(activity, PoojaluTabActivity.class);
+                                intent.putExtra(Constant.SUBCATEGORY_ID, "0");
+                                intent.putExtra(Constant.TITLE, poojalu.getName());
+                                activity.startActivity(intent);
+                            } else {
+
+                                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show();
+
+                            }
+
+
+
+
                         } else {
-                            Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
-                            intent.putExtra(Constant.TITLE, poojalu.getName());
-                            intent.putExtra(Constant.ID, poojalu.getId());
-                            activity.startActivity(intent);
+
+
+                            ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            boolean isConnected = false;
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                Network network = connectivityManager.getActiveNetwork();
+                                NetworkCapabilities capabilities = connectivityManager.getNetworkCapabilities(network);
+                                if (capabilities != null) {
+                                    isConnected = capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
+                                }
+                            } else {
+                                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                                if (networkInfo != null) {
+                                    isConnected = networkInfo.isConnected() || networkInfo.isConnectedOrConnecting();
+                                }
+                            }
+
+                            if (isConnected) {
+                                Intent intent = new Intent(activity, PoojaluSubMenuActivity.class);
+                                intent.putExtra(Constant.TITLE, poojalu.getName());
+                                intent.putExtra(Constant.ID, poojalu.getId());
+                                activity.startActivity(intent);
+                            } else {
+                                Toast.makeText(activity, "మీ ఇంటర్నెట్ ని ఒకసారి చెక్ చేయండి !", Toast.LENGTH_SHORT).show();
+                            }
+
+
+
                         }
                     }
                 }

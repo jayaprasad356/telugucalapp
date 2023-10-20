@@ -74,10 +74,15 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.android.gms:play-services-ads:21.0.0'
-    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
 
     implementation 'com.itextpdf:itextg:5.5.10'
+
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.2.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.2.0'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.onesignal:OneSignal:[5.0.0, 5.99.99]'
 
 
     // dependency for exoplayer

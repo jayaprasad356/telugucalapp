@@ -108,7 +108,6 @@
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_margin="@dimen/_5sdp"
-                android:background="@drawable/black_stork"
                 app:cardCornerRadius="@dimen/_10sdp"
 
                 >
