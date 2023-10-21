@@ -676,12 +676,12 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
     override fun onSwipeLeft() {
         // Handle swipe left
-        rightarrow()
+//        rightarrow()
     }
 
     override fun onSwipeRight() {
         // Handle swipe right
-        leftarrow()
+//        leftarrow()
 
     }
 

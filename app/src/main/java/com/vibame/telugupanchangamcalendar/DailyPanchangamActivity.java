@@ -86,22 +86,22 @@ public class DailyPanchangamActivity extends AppCompatActivity implements Swipea
     ImageView shareWhatsapp, share;
     LinearLayout llRefresh;
 
-    private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            if (Math.abs(velocityX) > Math.abs(velocityY)) {
-                if (e1.getX() < e2.getX()) {
-                    // Swipe right
-                    onSwipeRight();
-                } else {
-                    // Swipe left
-                    onSwipeLeft();
-                }
-                return true;
-            }
-            return false;
-        }
-    });
+//    private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
+//        @Override
+//        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+//            if (Math.abs(velocityX) > Math.abs(velocityY)) {
+//                if (e1.getX() < e2.getX()) {
+//                    // Swipe right
+//                    onSwipeRight();
+//                } else {
+//                    // Swipe left
+//                    onSwipeLeft();
+//                }
+//                return true;
+//            }
+//            return false;
+//        }
+//    });
 
 
     FloatingActionButton mAddFab, mAddAlarmFab, mAddPersonFab;
@@ -446,21 +446,21 @@ public class DailyPanchangamActivity extends AppCompatActivity implements Swipea
         }
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        gestureDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        gestureDetector.onTouchEvent(event);
+//        return super.onTouchEvent(event);
+//    }
 
     public void onSwipeLeft() {
         // Handle swipe left
-
-        forward();
+//
+//        forward();
     }
 
     public void onSwipeRight() {
         // Handle swipe right
-        backward();
+//        backward();
     }
 
 
