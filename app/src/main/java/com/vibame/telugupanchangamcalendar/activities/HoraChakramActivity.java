@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -62,7 +63,8 @@ public class HoraChakramActivity extends AppCompatActivity {
     Session session;
 
     private RelativeLayout relativeLayout;
-    private SwipeableScrollView scrollView;
+    private HorizontalScrollView scrollview;
+
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -96,7 +98,7 @@ public class HoraChakramActivity extends AppCompatActivity {
 
 
         // get the current date
-
+        scrollview =  findViewById(R.id.scrollview);
 
         recyclerView = findViewById(R.id.recyclerView);
         tvYear = findViewById(R.id.tvYear);
@@ -233,18 +235,21 @@ public class HoraChakramActivity extends AppCompatActivity {
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Thursday");
+                scrollRight();
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Friday");
+                scrollRight();
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Saturday");
+                scrollRight();
                 break;
         }
 
@@ -269,11 +274,8 @@ public class HoraChakramActivity extends AppCompatActivity {
     }
 
     private void Horolist() {
-        if(session.getBoolean(Constant.HORACHAKRAM_DATA)) {
-            horoAdapter = new HoroAdapter(HoraChakramActivity.this, databaseHelper.getHoroList(Day));
-            recyclerView.setAdapter(horoAdapter);
-        }else{
-            HashMap<String, String> params = new HashMap<>();
+
+        HashMap<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
@@ -310,7 +312,48 @@ public class HoraChakramActivity extends AppCompatActivity {
             }
         }, activity, Constant.HORA_CHAKRAM_LIST, params, true);
 
-    }
+//        if(session.getBoolean(Constant.HORACHAKRAM_DATA)) {
+//            horoAdapter = new HoroAdapter(HoraChakramActivity.this, databaseHelper.getHoroList(Day));
+//            recyclerView.setAdapter(horoAdapter);
+//        }else{
+//            HashMap<String, String> params = new HashMap<>();
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            if (result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getBoolean(SUCCESS)) {
+//
+//                        Log.d("horo", response);
+//
+//                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+//
+//                        for (int i = 0; i < jsonArray3.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+////                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+//                                databaseHelper.AddToHoro(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.DAY), jsonObject1.getString(Constant.TIME), jsonObject1.getString(Constant.MORNING), jsonObject1.getString(Constant.NIGHT));
+//
+//                                horoAdapter = new HoroAdapter(HoraChakramActivity.this, databaseHelper.getHoroList(Day));
+//                                recyclerView.setAdapter(horoAdapter);
+//                                session.setBoolean(Constant.HORACHAKRAM_DATA,true);
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//
+//
+//                    } else {
+//
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, activity, Constant.HORA_CHAKRAM_LIST, params, true);
+//
+//    }
 
 }
     private void list(String day) {
@@ -509,5 +552,13 @@ public class HoraChakramActivity extends AppCompatActivity {
 
     }
 
-
+    private void scrollRight() {
+        // Scroll the HorizontalScrollView to the right
+        scrollview.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollview.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+            }
+        });
+    }
 }

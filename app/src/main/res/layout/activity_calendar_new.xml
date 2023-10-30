@@ -9,6 +9,7 @@
 
 
     <RelativeLayout
+        android:background="#FA9520"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -31,16 +32,37 @@
                 android:scaleType="fitXY" />
 
 
+
+
+
+
             <FrameLayout
+
                 android:id="@+id/sheet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-                <include layout="@layout/main_content" />
+
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="@dimen/_14sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+
+                <include
+                    layout="@layout/main_content" />
+
+
+                </androidx.cardview.widget.CardView>
 
 
             </FrameLayout>
+
+
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -48,15 +70,15 @@
     </RelativeLayout>
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@color/colorWhite"
-        app:itemTextColor="@color/calHeader"
-        app:itemVerticalPadding="10dp"
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/nav_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:background="@color/colorWhite"-->
+<!--        app:itemTextColor="@color/calHeader"-->
+<!--        app:itemVerticalPadding="10dp"-->
 
-        />
+<!--        />-->
 
 </androidx.drawerlayout.widget.DrawerLayout>

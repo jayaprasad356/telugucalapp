@@ -77,7 +77,6 @@ public class MoudyaDinamuluActivity extends AppCompatActivity {
 
     private void apicall() {
 
-
         HashMap<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
 

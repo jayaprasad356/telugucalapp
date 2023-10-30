@@ -8,6 +8,8 @@ import androidx.core.content.FileProvider;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -38,6 +40,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class DailyHoroscopeActivity extends AppCompatActivity {
 
@@ -48,7 +51,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
     String raasi;
     int year;
     Calendar calendar;
-    String rasi;
+    String rasi,message;
 
     ImageView shareWhatsapp, share;
 
@@ -125,13 +128,13 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         mAddPersonFab.setOnClickListener(
                 view ->
 
-                        convertLayoutAndShare()
+                        shareTextMessage()
         );
 
         // below is the sample action to handle add alarm FAB. Here it shows simple Toast msg
         // The Toast will be shown only when they are visible and only when user clicks on them
         mAddAlarmFab.setOnClickListener(
-                view -> convertLayoutToPDFAndShareWhatsapp()
+                view -> shareOnWhatsApp()
 
         );
 
@@ -220,6 +223,7 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
                         //tvDate.setText("("+jsonArray.getJSONObject(0).getString("date")+")");
 
                         tvDate.setText(jsonArray.getJSONObject(0).getString("title_description"));
+                        message();
 
 
 
@@ -360,5 +364,53 @@ public class DailyHoroscopeActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void message() {
+        message = " విభమి రాశి ఫలాలు app  నుండి షేర్ చేయబడింది. ఈ రోజు రాశి ఫలాలు తెలుసుకొనేందుకు విభమి రాశి ఫలాలు app ని డౌన్లోడ్ చెయ్యండి.\n" +
+                "\n" +
+                "http://bit.ly/3RXxpgf\n" +
+                "\n" +
+                "            \n" +
+                "            \n" +
+                "\n" + tvRaasi.getText().toString() + "\n" +
+                "\n" +
+                "\n"  + tvDate.getText().toString() + "\n" +
+                "\n" +
+                " \n" + tvDescription.getText().toString() + "\n" +
+                "\n" +
+                "అన్ని రాశులు వారి దిన రాశి ఫలాలు, వార రాశి ఫలాలు, మాస రాశి ఫలాలు, సంవత్సర రాశి ఫలితాలు తెలుసుకోవడానికి ఈ విభమి రాశి ఫలాలు app ని డౌన్లోడ్ చేయండి.\n" +
+                "\n" +
+                "http://bit.ly/3RXxpgf";
+    }
+
+
+
+    private void shareOnWhatsApp() {
+        PackageManager packageManager = getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+
+        intent.setType("text/plain");
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        for (ResolveInfo resolveInfo : list) {
+            String packageName = resolveInfo.activityInfo.packageName;
+            if (packageName != null && packageName.startsWith("com.whatsapp")) {
+                intent.setPackage(packageName);
+                intent.putExtra(Intent.EXTRA_TEXT, message);
+                startActivity(intent);
+                break;
+            }
+        }
+    }
+
+    private void shareTextMessage() {
+        // Create a sharing Intent
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+        // Start the sharing activity
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 }

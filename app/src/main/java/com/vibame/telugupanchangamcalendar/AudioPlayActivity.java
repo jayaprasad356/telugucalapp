@@ -28,6 +28,7 @@ import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.vibame.telugupanchangamcalendar.helper.Constant;
 import com.vibame.telugupanchangamcalendar.helper.Session;
 
@@ -71,6 +72,7 @@ public class AudioPlayActivity extends AppCompatActivity {
     int audioID;
     Session session;
     ImageView ivSongImage;
+    CircularProgressIndicator loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,8 @@ public class AudioPlayActivity extends AppCompatActivity {
         nextSong = findViewById(R.id.nextSong);
         previewSong = findViewById(R.id.previewSong);
         ivSongImage     = findViewById(R.id.ivSongImage);
+        loading =  findViewById(R.id.loading);
+
         session = new Session(this);
         session.setData(Constant.CURRENT_A_ID, "");
 
@@ -276,6 +280,8 @@ public class AudioPlayActivity extends AppCompatActivity {
                 String totalTime = createTimeLabel(hfmPlayer.getDuration());
                 totTime.setText(totalTime);
                 mSeekBar.setMax(hfmPlayer.getDuration());
+                loading.setVisibility(View.GONE);
+                playIcon.setVisibility(View.VISIBLE);
                 //playIcon.setBackgroundResource(R.drawable.b_play);
             }
         });

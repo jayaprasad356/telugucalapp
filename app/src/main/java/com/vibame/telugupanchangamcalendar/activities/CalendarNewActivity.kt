@@ -176,7 +176,7 @@ class CalendarNewActivity : AppCompatActivity() {
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
-        appupdate()
+//        appupdate()
 
 
 
@@ -1166,64 +1166,64 @@ class CalendarNewActivity : AppCompatActivity() {
             startActivity(intent)
         })
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        actionBarDrawerToggle = ActionBarDrawerToggle(
-            this,
-            drawerLayout,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
+//        drawerLayout = findViewById(R.id.drawer_layout)
+//        actionBarDrawerToggle = ActionBarDrawerToggle(
+//            this,
+//            drawerLayout,
+//            R.string.navigation_drawer_open,
+//            R.string.navigation_drawer_close
+//        )
 
         // side menu
-
-//        mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
-//            drawerLayout!!.openDrawer(GravityCompat.START)
-//        }
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        nvDrawer = findViewById<View>(R.id.nav_view) as NavigationView
-        setupDrawerContent(nvDrawer!!)
-
-        val headerView: View = layoutInflater.inflate(R.layout.nav_header_main, nvDrawer, false)
-        nvDrawer!!.addHeaderView(headerView)
-
-        /* TODO get the IMAGE and make it clickable */
-
-
-        /* TODO get the IMAGE and make it clickable */
-        llShareapp = headerView.findViewById<View>(R.id.llShareapp) as LinearLayout
-        llFeedback = headerView.findViewById<View>(R.id.llFeedback) as LinearLayout
-        llPrivacypolicy = headerView.findViewById<View>(R.id.llPrivacypolicy) as LinearLayout
-        llRateus = headerView.findViewById<View>(R.id.llRateus) as LinearLayout
-
-
-
-        llShareapp!!.setOnClickListener(View.OnClickListener {
-            ShareCompat.IntentBuilder.from(activity!!)
-                .setType("text/plain")
-                .setChooserTitle("Chooser title")
-                .setText("http://play.google.com/store/apps/details?id=" + activity!!.packageName)
-                .startChooser()
-        })
-        llRateus!!.setOnClickListener(View.OnClickListener {
-            val url = "http://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
-        })
-        llFeedback!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, FeedBackActivity::class.java)
-            startActivity(intent)
-        })
-        llPrivacypolicy!!.setOnClickListener(View.OnClickListener {
-            val intent = Intent(activity, PrivacyPolicyActivity::class.java)
-            startActivity(intent)
-        })
-
-
-        // Video Live
+//
+////        mButton.setOnClickListener { //startActivity(new Intent(activity, AksharaluActivity.class));
+////            drawerLayout!!.openDrawer(GravityCompat.START)
+////        }
+//        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+////        actionBarDrawerToggle.syncState()
+////        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//
+//        nvDrawer = findViewById<View>(R.id.nav_view) as NavigationView
+////        setupDrawerContent(nvDrawer!!)
+//
+//        val headerView: View = layoutInflater.inflate(R.layout.nav_header_main, nvDrawer, false)
+//        nvDrawer!!.addHeaderView(headerView)
+//
+//        /* TODO get the IMAGE and make it clickable */
+//
+//
+//        /* TODO get the IMAGE and make it clickable */
+//        llShareapp = headerView.findViewById<View>(R.id.llShareapp) as LinearLayout
+//        llFeedback = headerView.findViewById<View>(R.id.llFeedback) as LinearLayout
+//        llPrivacypolicy = headerView.findViewById<View>(R.id.llPrivacypolicy) as LinearLayout
+//        llRateus = headerView.findViewById<View>(R.id.llRateus) as LinearLayout
+//
+//
+//
+//        llShareapp!!.setOnClickListener(View.OnClickListener {
+//            ShareCompat.IntentBuilder.from(activity!!)
+//                .setType("text/plain")
+//                .setChooserTitle("Chooser title")
+//                .setText("http://play.google.com/store/apps/details?id=" + activity!!.packageName)
+//                .startChooser()
+//        })
+//        llRateus!!.setOnClickListener(View.OnClickListener {
+//            val url = "http://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID
+//            val i = Intent(Intent.ACTION_VIEW)
+//            i.data = Uri.parse(url)
+//            startActivity(i)
+//        })
+//        llFeedback!!.setOnClickListener(View.OnClickListener {
+//            val intent = Intent(activity, FeedBackActivity::class.java)
+//            startActivity(intent)
+//        })
+//        llPrivacypolicy!!.setOnClickListener(View.OnClickListener {
+//            val intent = Intent(activity, PrivacyPolicyActivity::class.java)
+//            startActivity(intent)
+//        })
+//
+//
+//        // Video Live
 
 
         // Video Live
@@ -1977,16 +1977,16 @@ class CalendarNewActivity : AppCompatActivity() {
     }
 
 
-   // private fun poojaluList() {
-   //
-   //    if (databaseHelper!!.poojaluList.size != 0) {
+    // private fun poojaluList() {
+    //
+    //    if (databaseHelper!!.poojaluList.size != 0) {
 
-   //        poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList, 4, "home")
-   //        rvPoojaluNomulu!!.adapter = poojaluAdapter
-   //    } else {
-   //        rvPoojaluNomulu!!.visibility = View.GONE
-   //    }
-   //}
+    //        poojaluAdapter = PoojaluAdapter(activity, databaseHelper!!.poojaluList, 4, "home")
+    //        rvPoojaluNomulu!!.adapter = poojaluAdapter
+    //    } else {
+    //        rvPoojaluNomulu!!.visibility = View.GONE
+    //    }
+    //}
 
     private fun grahaluList() {
         if (databaseHelper!!.grahaluList.size != 0) {
@@ -2234,7 +2234,7 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
 
-                      val  admin_version  = description
+                        val  admin_version  = description
 
 
 

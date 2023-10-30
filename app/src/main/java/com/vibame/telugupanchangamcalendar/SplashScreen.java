@@ -366,18 +366,18 @@ public class SplashScreen extends AppCompatActivity {
                             }
                         }
 
-                        JSONArray jsonArray14 = object.getJSONArray(Constant.AUDIO_LIST);
-                        Log.d("hgcuytfyit",jsonArray14.toString());
-
-
-                        for (int i = 0; i < jsonArray14.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray14.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToAudio(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
-                            } else {
-                                break;
-                            }
-                        }
+//                        JSONArray jsonArray14 = object.getJSONArray(Constant.AUDIO_LIST);
+//                        Log.d("hgcuytfyit",jsonArray14.toString());
+//
+//
+//                        for (int i = 0; i < jsonArray14.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray14.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToAudio(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
+//                            } else {
+//                                break;
+//                            }
+//                        }
 
 
 

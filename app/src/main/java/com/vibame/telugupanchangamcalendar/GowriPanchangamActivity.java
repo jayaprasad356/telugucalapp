@@ -15,8 +15,10 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +59,7 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     String Day;
     Session session;
+    private HorizontalScrollView scrollview;
 
 
     private RelativeLayout relativeLayout;
@@ -95,6 +98,10 @@ public class GowriPanchangamActivity extends AppCompatActivity {
 
 
         // get the current date
+
+        scrollview =  findViewById(R.id.scrollview);
+
+
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -232,18 +239,21 @@ public class GowriPanchangamActivity extends AppCompatActivity {
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Thursday");
+                scrollRight();
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Friday");
+                scrollRight();
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Saturday");
+                scrollRight();
                 break;
         }
 
@@ -268,11 +278,6 @@ public class GowriPanchangamActivity extends AppCompatActivity {
     }
 
     private void Gowrilist() {
-       if(session.getBoolean(Constant.GOWRI_DATA)){
-           gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this, databaseHelper.getGowriList(Day));
-           recyclerView.setAdapter(gowriAdapter);
-       }else {
-
         HashMap<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
@@ -309,7 +314,48 @@ public class GowriPanchangamActivity extends AppCompatActivity {
             }
         }, activity, Constant.GOWRI_LIST, params, true);
 
-    }
+//       if(session.getBoolean(Constant.GOWRI_DATA)){
+//           gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this, databaseHelper.getGowriList(Day));
+//           recyclerView.setAdapter(gowriAdapter);
+//       }else {
+//
+//        HashMap<String, String> params = new HashMap<>();
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            if (result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getBoolean(SUCCESS)) {
+//                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+//
+//                        for (int i = 0; i < jsonArray3.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+////                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+//                                databaseHelper.AddToGowri(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.DAY), jsonObject1.getString(Constant.TIME), jsonObject1.getString(Constant.MORNING), jsonObject1.getString(Constant.NIGHT));
+//
+//
+//                                gowriAdapter = new GowriAdapter(GowriPanchangamActivity.this, databaseHelper.getGowriList(Day));
+//                                recyclerView.setAdapter(gowriAdapter);
+//                                session.setBoolean(Constant.GOWRI_DATA,true);
+//
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//
+//
+//                    } else {
+//
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, activity, Constant.GOWRI_LIST, params, true);
+
+//    }
 
 }
     private void list(String day) {
@@ -511,6 +557,16 @@ public class GowriPanchangamActivity extends AppCompatActivity {
         list(Date);
 
 
+    }
+
+    private void scrollRight() {
+        // Scroll the HorizontalScrollView to the right
+        scrollview.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollview.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+            }
+        });
     }
 
 

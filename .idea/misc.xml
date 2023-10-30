@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -89,9 +90,23 @@
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/share_print.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/year_tab_layout.xml" value="0.1" />
         <entry key="..\:/Users/Tamil/AndroidStudioProjects/telugucalapp/app/src/main/res/layout/yearlyhoroscope.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/drawable/corner_bg.xml" value="0.1615" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/drawable/corner_cut.xml" value="0.1615" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_audio_play.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_bhargava_panchangam.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_calendar_new.xml" value="0.25" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_daily_panchangam.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_festival.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_gowri_panchangam.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_hora_chakram.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_monthly_panchangam.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_new_bakthi_music.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/activity_smart_tools.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/main_content.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Tamil/StudioProjects/telugucalapp/app/src/main/res/layout/newappbar.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="jbr-17" project-jdk-type="JavaSDK" />
 </project>

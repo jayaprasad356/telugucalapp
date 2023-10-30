@@ -58,7 +58,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
     Calendar targetCalendar;
     String Month ,Year;
     Session session;
-
+    String month;
     RelativeLayout relativeLayout;
     private SwipeableScrollView scrollView;
 
@@ -107,7 +107,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         session=new Session(activity);
 
         databaseHelper = new DatabaseHelper(activity);
-       // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        // recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
         recyclerView.setLayoutManager(new GridLayoutManager(activity,1));
 
 
@@ -125,7 +125,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM yyyy");
         year = String.valueOf(calendar.get(Calendar.YEAR));
         month_year = dateFormat.format(cal.getTime());
-        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        month = String.valueOf(calendar.get(Calendar.MONTH));
 
 
 
@@ -205,48 +205,84 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
     private void monthfestivallist() {
 
+        HashMap<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(SUCCESS)) {
+                        Log.d("Festivallise", response);
+                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
 
+                        for (int i = 0; i < jsonArray3.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
 
-        if (session.getBoolean(Constant.FESTIVAL_DATA)){
-            festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
-            recyclerView.setAdapter(festivalAdapter);
-        }else {
-            HashMap<String, String> params = new HashMap<>();
-            ApiConfig.RequestToVolley((result, response) -> {
-                if (result) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        if (jsonObject.getBoolean(SUCCESS)) {
-                            Log.d("Festivallise", response);
-                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+                                festivalList(month, getYearNum());
+//                                festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
+//                                recyclerView.setAdapter(festivalAdapter);
+//                                session.setBoolean(Constant.FESTIVAL_DATA, true);
 
-                            for (int i = 0; i < jsonArray3.length(); i++) {
-                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
-                                if (jsonObject1 != null) {
-                                    databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
-
-
-                                    festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
-                                    recyclerView.setAdapter(festivalAdapter);
-                                    session.setBoolean(Constant.FESTIVAL_DATA, true);
-
-                                } else {
-                                    break;
-                                }
+                            } else {
+                                break;
                             }
-
-
-                        } else {
-
-
-                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+
+
+                    } else {
+
+
+                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            }, activity, Constant.MONTH_FESTIVALS_LIST, params, true);
-        }
+            }
+        }, activity, Constant.MONTH_FESTIVALS_LIST, params, true);
+
+
+
+//        if (session.getBoolean(Constant.FESTIVAL_DATA)){
+//            festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
+//            recyclerView.setAdapter(festivalAdapter);
+//        }else {
+//            HashMap<String, String> params = new HashMap<>();
+//            ApiConfig.RequestToVolley((result, response) -> {
+//                if (result) {
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(response);
+//                        if (jsonObject.getBoolean(SUCCESS)) {
+//                            Log.d("Festivallise", response);
+//                            JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+//
+//                            for (int i = 0; i < jsonArray3.length(); i++) {
+//                                JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                                if (jsonObject1 != null) {
+//                                    databaseHelper.AddToMonthFestival(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.MONTH), jsonObject1.getString(Constant.YEAR), jsonObject1.getString(Constant.TITLE), jsonObject1.getString(Constant.DESCRIPTION));
+//
+//
+//                                    festivalAdapter = new FestivalAdapter(FestivalActivity.this, databaseHelper.getmonthFestivalList(Month, Year));
+//                                    recyclerView.setAdapter(festivalAdapter);
+//                                    session.setBoolean(Constant.FESTIVAL_DATA, true);
+//
+//                                } else {
+//                                    break;
+//                                }
+//                            }
+//
+//
+//                        } else {
+//
+//
+//                            Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, activity, Constant.MONTH_FESTIVALS_LIST, params, true);
+//        }
     }
 
     @SuppressLint("ResourceType")
@@ -289,88 +325,88 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
 
 
-            if (month_year.equals("January 2023")){
+        if (month_year.equals("January 2023")){
 
-                tvTitle.setText("జనవరి 2023");
+            tvTitle.setText("జనవరి 2023");
 
-            }
-            else if (month_year.equals("February 2023")){
+        }
+        else if (month_year.equals("February 2023")){
 
-                tvTitle.setText("ఫిబ్రవరి 2023");
+            tvTitle.setText("ఫిబ్రవరి 2023");
 
-            }
-            else if (month_year.equals("March 2023")){
+        }
+        else if (month_year.equals("March 2023")){
 
-                tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+            tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
 
-            }
-            else if (month_year.equals("April 2023")){
+        }
+        else if (month_year.equals("April 2023")){
 
-                tvTitle.setText("చైత్రమాసం - వైశాఖమాసము");
+            tvTitle.setText("చైత్రమాసం - వైశాఖమాసము");
 
-            }
-            else if (month_year.equals("May 2023")){
+        }
+        else if (month_year.equals("May 2023")){
 
-                tvTitle.setText("వైశాఖమాసము - జ్యేష్ఠమాసము");
+            tvTitle.setText("వైశాఖమాసము - జ్యేష్ఠమాసము");
 
-            }
-            else if (month_year.equals("June 2023")){
+        }
+        else if (month_year.equals("June 2023")){
 
-                tvTitle.setText("జ్యేష్ఠమాసము - ఆషాఢమాసం");
+            tvTitle.setText("జ్యేష్ఠమాసము - ఆషాఢమాసం");
 
-            }
-            else if (month_year.equals("July 2023")){
+        }
+        else if (month_year.equals("July 2023")){
 
-                tvTitle.setText("ఆషాఢమాసం - అధిక శ్రావణమాసం");
+            tvTitle.setText("ఆషాఢమాసం - అధిక శ్రావణమాసం");
 
-            }
-            else if (month_year.equals("August 2023")){
+        }
+        else if (month_year.equals("August 2023")){
 
-                tvTitle.setText(" అధిక శ్రావణమాసం - నిజ శ్రావణమాసం");
+            tvTitle.setText(" అధిక శ్రావణమాసం - నిజ శ్రావణమాసం");
 
-            }
-            else if (month_year.equals("September 2023")){
+        }
+        else if (month_year.equals("September 2023")){
 
-                tvTitle.setText(" నిజ శ్రావణమాసం - భాద్రపదమాసం");
+            tvTitle.setText(" నిజ శ్రావణమాసం - భాద్రపదమాసం");
 
-            }
-            else if (month_year.equals("October 2023")){
+        }
+        else if (month_year.equals("October 2023")){
 
-                tvTitle.setText(" భాద్రపదమాసం - అశ్వియుజమాసం");
+            tvTitle.setText(" భాద్రపదమాసం - అశ్వియుజమాసం");
 
-            }
-            else if (month_year.equals("November 2023")){
+        }
+        else if (month_year.equals("November 2023")){
 
-                tvTitle.setText(" అశ్వియుజమాసం - కార్తీకమాసం");
+            tvTitle.setText(" అశ్వియుజమాసం - కార్తీకమాసం");
 
-            }
-            else if (month_year.equals("December 2023")){
+        }
+        else if (month_year.equals("December 2023")){
 
-                tvTitle.setText("కార్తీకమాసం - మార్గశిరమాసం");
+            tvTitle.setText("కార్తీకమాసం - మార్గశిరమాసం");
 
-            }
+        }
 
 
-            else if (month_year.equals("January 2024")){
+        else if (month_year.equals("January 2024")){
 
-                tvTitle.setText("మార్గశిరమాసం - పుష్యమాసం");
+            tvTitle.setText("మార్గశిరమాసం - పుష్యమాసం");
 
-            }
-            else if (month_year.equals("February 2024")){
+        }
+        else if (month_year.equals("February 2024")){
 
-                tvTitle.setText("పుష్యమాసం - మాఘమాసం");
+            tvTitle.setText("పుష్యమాసం - మాఘమాసం");
 
-            }
-            else if (month_year.equals("March 2024")){
+        }
+        else if (month_year.equals("March 2024")){
 
-                tvTitle.setText("మాఘమాసం - ఫాల్గుణమాసం");
+            tvTitle.setText("మాఘమాసం - ఫాల్గుణమాసం");
 
-            }
-            else if (month_year.equals("April 2024")){
+        }
+        else if (month_year.equals("April 2024")){
 
-                tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
+            tvTitle.setText("ఫాల్గుణమాసం - చైత్రమాసం");
 
-            }
+        }
 
 
 
@@ -465,7 +501,7 @@ public class FestivalActivity extends AppCompatActivity   implements SwipeableSc
 
     private void festivalList(String monthNum, String yearNum) {
 
-         Month = monthNum;
+        Month = monthNum;
 
 
         if (monthNum.equals("0")){

@@ -576,22 +576,17 @@
                             android:layout_height="wrap_content">
 
 
-
-
-
-
                             <TextView
                                 android:id="@+id/tvAmavasya"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/mallanna"
+                                android:gravity="center"
                                 android:padding="@dimen/_5sdp"
                                 android:text=""
-                                android:gravity="center"
-                                android:fontFamily="@font/mallanna"
-                                android:textSize="@dimen/_16sdp"
-                                android:layout_gravity="center_vertical"
                                 android:textColor="@color/black"
-                                />
+                                android:textSize="@dimen/_16sdp" />
 
                         </RelativeLayout>
 
@@ -1225,6 +1220,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:visibility="gone"
         android:id="@+id/add_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

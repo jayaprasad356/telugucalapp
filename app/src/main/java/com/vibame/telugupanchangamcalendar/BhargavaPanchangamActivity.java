@@ -15,6 +15,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -64,8 +65,9 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
     String Day;
 
     private RelativeLayout relativeLayout;
-    private SwipeableScrollView scrollView;
     DatabaseHelper databaseHelper;
+
+    private HorizontalScrollView scrollview;
 
     private final GestureDetector gestureDetector = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
         @Override
@@ -94,6 +96,7 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
         activity = BhargavaPanchangamActivity.this;
         databaseHelper = new DatabaseHelper(activity);
         session = new Session(activity);
+        scrollview =  findViewById(R.id.scrollview);
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -233,18 +236,21 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
                 unselecctallday();
                 tvThursday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Thursday");
+                scrollRight();
                 break;
             case Calendar.FRIDAY:
                 dayOfWeekString = "Friday";
                 unselecctallday();
                 tvFriday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Friday");
+                scrollRight();
                 break;
             case Calendar.SATURDAY:
                 dayOfWeekString = "Saturday";
                 unselecctallday();
                 tvSaturday.setTextColor(ContextCompat.getColor(activity, R.color.calHeaderT));
                 list("Saturday");
+                scrollRight();
                 break;
         }
 
@@ -270,11 +276,8 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
 
 
     private void Bharavalist() {
-        if(session.getBoolean(Constant.BHARGAVA_DATA)) {
-            bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this, databaseHelper.getBharagava(Day));
-            recyclerView.setAdapter(bharavaPanchangamAdapter);
-        }else{
-            HashMap<String, String> params = new HashMap<>();
+
+        HashMap<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
@@ -312,8 +315,50 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
                 }
             }
         }, activity, Constant.BHARGAVA_PANCHANGAM_LIST, params, true);
-
-    }
+//        if(session.getBoolean(Constant.BHARGAVA_DATA)) {
+//            bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this, databaseHelper.getBharagava(Day));
+//            recyclerView.setAdapter(bharavaPanchangamAdapter);
+//        }else{
+//            HashMap<String, String> params = new HashMap<>();
+//        ApiConfig.RequestToVolley((result, response) -> {
+//            if (result) {
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    if (jsonObject.getBoolean(SUCCESS)) {
+//
+//                        Log.d("horo", response);
+//
+//                        JSONArray jsonArray3 = jsonObject.getJSONArray(Constant.DATA);
+//
+//                        for (int i = 0; i < jsonArray3.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray3.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+////                                databaseHelper.AddToHolidays(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MONTH),jsonObject1.getString(Constant.YEAR),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+////                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.DAY),jsonObject1.getString(Constant.TIME),jsonObject1.getString(Constant.MORNING),jsonObject1.getString(Constant.NIGHT));
+//
+//                                databaseHelper.AddToBharagava(jsonObject1.getString(Constant.ID), jsonObject1.getString(Constant.DAY), jsonObject1.getString(Constant.TIME), jsonObject1.getString(Constant.DESCRIPTION));
+//                                bharavaPanchangamAdapter = new BharavaPanchangamAdapter(BhargavaPanchangamActivity.this, databaseHelper.getBharagava(Day));
+//                                recyclerView.setAdapter(bharavaPanchangamAdapter);
+//                                session.setBoolean(Constant.BHARGAVA_DATA,true);
+//
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//
+//
+//                    } else {
+//
+//
+//                        Toast.makeText(activity, jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, activity, Constant.BHARGAVA_PANCHANGAM_LIST, params, true);
+//
+//    }
 
 }
     private void list(String day) {
@@ -514,4 +559,13 @@ public class BhargavaPanchangamActivity extends AppCompatActivity {
     }
 
 
+    private void scrollRight() {
+        // Scroll the HorizontalScrollView to the right
+        scrollview.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollview.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+            }
+        });
+    }
 }
