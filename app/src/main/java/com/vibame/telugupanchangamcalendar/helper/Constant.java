@@ -37,6 +37,8 @@ public class Constant {
     public static final String MONTH_FESTIVAL = BaseUrl + "month_festivals.php";
     public static final String MONTH_FESTIVALS_LIST = BaseUrl + "month_festivals_list.php";
     public static final String AUDIO_LIST_URL = BaseUrl + "audio_list.php";
+    public static final String VIDEO_LIST_URI = BaseUrl + "video_list.php";
+    public static final String OTHER_MUSIC_LIST_URL = BaseUrl + "other_music_list.php";
     public static final String DAILY_PANCHANGAM_LIST = BaseUrl + "daily_panchangam_list.php";
     public static final String IMPORTANT_DAYS_LIST = BaseUrl + "important_days_list.php";
     public static final String HOLIDAYS_LIST = BaseUrl + "holidays_list.php";

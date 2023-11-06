@@ -13,34 +13,45 @@
 
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        >
+
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/customProgressBar"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_10sdp"
+            android:layout_alignParentStart="true"
+            android:indeterminateDrawable="@drawable/custom_progress_dialog"/>
 
-            >
 
 
-            <ProgressBar
-                android:id="@+id/customProgressBar"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:indeterminateDrawable="@drawable/custom_progress_dialog"/>
+        <ImageView
+            android:id="@+id/gifImageView"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/progress"
+            />
 
-            <TextView
-                android:id="@+id/loadingText"
-                android:text="లోడ్ అవుతోంది... కొద్దిసేపు వేచి \nఉండండి..."
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/customProgressBar"
-                android:layout_marginStart="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
 
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/loadingText"
+            android:text="లోడ్ అవుతోంది... కొద్దిసేపు వేచి \nఉండండి..."
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/gifImageView"
+            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+
+    </RelativeLayout>
 
 
 

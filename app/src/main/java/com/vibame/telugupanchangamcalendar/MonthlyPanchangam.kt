@@ -23,9 +23,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.FileProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vibame.telugupanchangamcalendar.Panchang_Frag.selectedGridDate
+import com.vibame.telugupanchangamcalendar.helper.ApiConfig
+import com.vibame.telugupanchangamcalendar.helper.Constant
 import com.vibame.telugupanchangamcalendar.helper.DatabaseHelper
 import com.vibame.telugupanchangamcalendar.helper.Session
 import com.vibame.telugupanchangamcalendar.model.MonthlyModel
+import org.json.JSONObject
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 import org.xmlpull.v1.XmlPullParserFactory
@@ -165,6 +168,8 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
     // to check whether sub FAB buttons are visible or not.
     private var isAllFabsVisible: Boolean? = null
+
+    private var month1: String? = null
 
 
     @SuppressLint("MissingInflatedId")
@@ -419,7 +424,7 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
             cal_month.get(
                 GregorianCalendar.YEAR
             ).toString()
-        var month = month[currentMonth].toString()
+         month1 = month[currentMonth].toString()
 
 
 
@@ -501,12 +506,14 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
 
 
 
+        montlyPanchangam_data()
 
 
 
-        montlyPanchangam(year, month)
 
-
+        if (databaseHelper.getMonthlyPanchangam().size != 0) {
+            load_data(year, month1!!)
+        }
 
 
         arrowleft.setOnClickListener({
@@ -537,6 +544,12 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
         })
 
 
+    }
+
+    private fun load_data(year: String, month1: String) {
+
+
+        montlyPanchangam(year, month1)
     }
 
     private fun montlyPanchangam(year: String, month: String) {
@@ -1284,5 +1297,106 @@ class MonthlyPanchangam : AppCompatActivity(), SwipeableScrollView.SwipeListener
             e.printStackTrace()
         }
     }
+
+
+    private fun montlyPanchangam_data() {
+
+        val params = HashMap<String, String>()
+        ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
+            if (result) {
+                try {
+                    val jsonObject = JSONObject(response)
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+//                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+//                        Gson g = new Gson();
+
+                        val jsonArray3 = jsonObject.getJSONArray(Constant.DATA)
+                        for (i in 0 until jsonArray3.length()) {
+                            val jsonObject1 = jsonArray3.getJSONObject(i)
+                            if (jsonObject1 != null) {
+                                databaseHelper!!.AddToMontlyPanchangam(
+                                    jsonObject1.getString(Constant.ID),
+                                    jsonObject1.getString(Constant.MONTH),
+                                    jsonObject1.getString(Constant.YEAR),
+                                    jsonObject1.getString(Constant.TEXT1),
+                                    jsonObject1.getString(Constant.POURNAMI),
+                                    jsonObject1.getString(Constant.AMAVASYA),
+                                    jsonObject1.getString(Constant.AKADHASHI),
+                                    jsonObject1.getString(Constant.PRADHOSHA),
+                                    jsonObject1.getString(Constant.SHASTI),
+                                    jsonObject1.getString(Constant.CHAVITHI),
+                                    jsonObject1.getString(Constant.MASASHIVARATRI),
+                                    jsonObject1.getString(Constant.SANKATAHARA_CHATHURDHI),
+                                    jsonObject1.getString(Constant.FESTIVALS),
+                                    jsonObject1.getString(Constant.HOLIDAY)
+                                )
+
+
+                            }
+                        }
+
+                        load_data(year, month1!!)
+
+
+
+
+
+                    } else {
+                        Toast.makeText(
+                            activity,
+                            jsonObject.getString(Constant.MESSAGE),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
+
+//
+//        val params = HashMap<String, String>()
+//        ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
+//            if (result) {
+//                try {
+//                    val jsonObject = JSONObject(response)
+//                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+//                        Log.d("monthlypanchangamlist", response!!)
+//                        val jsonArray3 = jsonObject.getJSONArray(Constant.DATA)
+//                        for (i in 0 until jsonArray3.length()) {
+//                            val jsonObject1 = jsonArray3.getJSONObject(i)
+//                            if (jsonObject1 != null) {
+//                                databaseHelper!!.AddToMontlyPanchangam(
+//                                    jsonObject1.getString(Constant.ID),
+//                                    jsonObject1.getString(Constant.MONTH),
+//                                    jsonObject1.getString(Constant.YEAR),
+//                                    jsonObject1.getString(Constant.TEXT1),
+//                                    jsonObject1.getString(Constant.POURNAMI),
+//                                    jsonObject1.getString(Constant.AMAVASYA),
+//                                    jsonObject1.getString(Constant.AKADHASHI),
+//                                    jsonObject1.getString(Constant.PRADHOSHA),
+//                                    jsonObject1.getString(Constant.SHASTI),
+//                                    jsonObject1.getString(Constant.CHAVITHI),
+//                                    jsonObject1.getString(Constant.MASASHIVARATRI),
+//                                    jsonObject1.getString(Constant.SANKATAHARA_CHATHURDHI),
+//                                    jsonObject1.getString(Constant.FESTIVALS),
+//                                    jsonObject1.getString(Constant.HOLIDAY)
+//                                )
+//
+//
+//                            }
+//                        }
+//                        load_data(year, month1!!)
+//                        session?.setBoolean(Constant.MONTHLY_PANCH_DATA,true)
+//                    }
+//                } catch (e: Exception) {
+//                    e.printStackTrace()
+//                }
+//            }
+//        }, activity, Constant.MONTHLY_PANCHANGAMLIST, params, true)
+
+
+    }
+
 
 }

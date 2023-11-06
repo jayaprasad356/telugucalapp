@@ -105,7 +105,6 @@ public class NewBakthiMusicActivity extends AppCompatActivity {
 
 
         } else {
-            Toast.makeText(activity, "not", Toast.LENGTH_SHORT).show();
 
             recyclerView.setVisibility(View.GONE);
         }

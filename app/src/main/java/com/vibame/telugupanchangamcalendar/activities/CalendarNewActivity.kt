@@ -285,13 +285,22 @@ class CalendarNewActivity : AppCompatActivity() {
 
         }
         card1.setOnClickListener {
-            clicked="card1"
-            dailyPanchangam()
+//            clicked="card1"
+//            dailyPanchangam()
+
+            val intent = Intent(activity, DailyPanchangamActivity::class.java)
+            intent.putExtra("id", "1")
+            startActivity(intent)
         }
         // pesarathiu keatutha
         card2.setOnClickListener {
-            clicked="card2"
-            dailyPanchangam()
+//            clicked="card2"
+         //  dailyPanchangam()
+
+            val intent = Intent(activity, MonthlyPanchangam::class.java)
+            startActivity(intent)
+
+
         }
 
         cardFestival.setOnClickListener {
@@ -2043,8 +2052,7 @@ class CalendarNewActivity : AppCompatActivity() {
                         val jsonObject = JSONObject(response)
                         if (jsonObject.getBoolean(Constant.SUCCESS)) {
                             Log.d("", response!!)
-                            val jsonArray3 =
-                                jsonObject.getJSONArray(Constant.DATA)
+                            val jsonArray3 = jsonObject.getJSONArray(Constant.DATA)
                             for (i in 0 until jsonArray3.length()) {
                                 val jsonObject1 = jsonArray3.getJSONObject(i)
                                 if (jsonObject1 != null) {
@@ -2137,7 +2145,6 @@ class CalendarNewActivity : AppCompatActivity() {
 
 
         val params = HashMap<String, String>()
-
         ApiConfig.RequestToVolley({ result: Boolean, response: String? ->
             if (result) {
                 try {

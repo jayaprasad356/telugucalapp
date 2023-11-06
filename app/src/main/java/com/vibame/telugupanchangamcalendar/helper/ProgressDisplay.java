@@ -5,13 +5,16 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.vibame.telugupanchangamcalendar.R;
+
 
 public class ProgressDisplay {
 
@@ -28,10 +31,22 @@ public class ProgressDisplay {
             View customView = LayoutInflater.from(activity).inflate(R.layout.custom_progress_layout, layout, false);
             layout.addView(customView);
 
+
+            ImageView gifImageView = customView.findViewById(R.id.gifImageView);
+
+
+
             mProgressBar = customView.findViewById(R.id.customProgressBar);
-            mLoadingText = customView.findViewById(R.id.loadingText);
             custom_progress_layout = customView.findViewById(R.id.custom_progress_layout);
 
+
+            // Load the GIF using Glide
+            Glide.with(activity)
+                    .asGif()
+                    .load(R.drawable.progress) // Replace with your GIF resource
+                    .placeholder(R.drawable.progress) // Replace with your placeholder image
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(gifImageView);
 
             hideProgress();
         } catch (Exception e) {
@@ -42,14 +57,12 @@ public class ProgressDisplay {
     public void showProgress() {
         if (mProgressBar.getVisibility() == View.GONE) {
             mProgressBar.setVisibility(View.VISIBLE);
-            mLoadingText.setVisibility(View.VISIBLE);
             custom_progress_layout.setVisibility(View.VISIBLE);
         }
     }
 
     public void hideProgress() {
         mProgressBar.setVisibility(View.GONE);
-        mLoadingText.setVisibility(View.GONE);
         custom_progress_layout.setVisibility(View.GONE);
     }
 }

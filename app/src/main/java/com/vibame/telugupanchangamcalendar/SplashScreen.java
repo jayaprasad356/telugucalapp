@@ -248,40 +248,43 @@ public class SplashScreen extends AppCompatActivity {
 //                                break;
 //                            }
 //                        }
-                        JSONArray jsonArray16 = object.getJSONArray(Constant.OTHER_MUSIC);
-                        Log.d("Other_AUDIO_LIST",jsonArray16.toString());
+//                        JSONArray jsonArray16 = object.getJSONArray(Constant.OTHER_MUSIC);
+//                        Log.d("Other_AUDIO_LIST",jsonArray16.toString());
 
 
-                        for (int i = 0; i < jsonArray16.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray16.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToOtherMusic(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),
-                                        jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
-                            } else {
-                                break;
-                            }
-                        }
-                        JSONArray jsonArray4 = object.getJSONArray(Constant.MUHURTHAM_LIST);
+//                        for (int i = 0; i < jsonArray16.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray16.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToOtherMusic(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),
+//                                        jsonObject1.getString(Constant.IMAGE),jsonObject1.getString(Constant.LYRICS),jsonObject1.getString(Constant.AUDIO));
+//                            } else {
+//                                break;
+//                            }
+//                        }
 
-                        for (int i = 0; i < jsonArray4.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray4.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToMuhurtham(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MUHURTHAM));
-                            } else {
-                                break;
-                            }
-                        }
-                        JSONArray jsonArray5 = object.getJSONArray(Constant.MUHURTHAM_TAB_LIST);
 
-                        for (int i = 0; i < jsonArray5.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray5.getJSONObject(i);
-                            if (jsonObject1 != null) {
-                                databaseHelper.AddToMuhurthamTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MUHURTHAM_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
 
-                            } else {
-                                break;
-                            }
-                        }
+//                        JSONArray jsonArray4 = object.getJSONArray(Constant.MUHURTHAM_LIST);
+//
+//                        for (int i = 0; i < jsonArray4.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray4.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToMuhurtham(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MUHURTHAM));
+//                            } else {
+//                                break;
+//                            }
+//                        }
+//                        JSONArray jsonArray5 = object.getJSONArray(Constant.MUHURTHAM_TAB_LIST);
+//
+//                        for (int i = 0; i < jsonArray5.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray5.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//                                databaseHelper.AddToMuhurthamTab(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.MUHURTHAM_ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.DESCRIPTION));
+//
+//                            } else {
+//                                break;
+//                            }
+//                        }
                         JSONArray jsonArray6 = object.getJSONArray(Constant.POOJALU_LIST);
 
                         for (int i = 0; i < jsonArray6.length(); i++) {
@@ -354,17 +357,17 @@ public class SplashScreen extends AppCompatActivity {
                             }
                         }
 
-                        JSONArray jsonArray13 = object.getJSONArray(Constant.VIDEO_LIST);
-
-                        for (int i = 0; i < jsonArray13.length(); i++) {
-                            JSONObject jsonObject1 = jsonArray13.getJSONObject(i);
-                            if (jsonObject1 != null) {
-
-                                databaseHelper.AddToVideo(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.LINK),jsonObject1.getString(Constant.IMAGE));
-                            } else {
-                                break;
-                            }
-                        }
+//                        JSONArray jsonArray13 = object.getJSONArray(Constant.VIDEO_LIST);
+//
+//                        for (int i = 0; i < jsonArray13.length(); i++) {
+//                            JSONObject jsonObject1 = jsonArray13.getJSONObject(i);
+//                            if (jsonObject1 != null) {
+//
+//                                databaseHelper.AddToVideo(jsonObject1.getString(Constant.ID),jsonObject1.getString(Constant.TITLE),jsonObject1.getString(Constant.LINK),jsonObject1.getString(Constant.IMAGE));
+//                            } else {
+//                                break;
+//                            }
+//                        }
 
 //                        JSONArray jsonArray14 = object.getJSONArray(Constant.AUDIO_LIST);
 //                        Log.d("hgcuytfyit",jsonArray14.toString());

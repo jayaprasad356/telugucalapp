@@ -64,6 +64,7 @@ public class NakshathraluTabActivity extends AppCompatActivity {
             recyclerView.setAdapter(nakshatharaluTabAdapter);
         }
         else {
+
             recyclerView.setVisibility(View.GONE);
 
         }
